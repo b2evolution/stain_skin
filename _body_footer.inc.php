@@ -14,44 +14,78 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 ?>
 <!-- =================================== START OF FOOTER =================================== -->
-	<p class="baseline">	
-		<?php
-			// Display footer text (text can be edited in Blog Settings):
-			$Blog->footer_text( array(
-					'before'      => '',
-					'after'       => ' &bull; ',
-				) );
-		?>		
-		<?php
-			// Display a link to contact the owner of this blog (if owner accepts messages):
-			$Blog->contact_link( array(
-					'before'      => '',
-					'after'       => ' &bull; ',
-					'text'   => T_('Contact'),
-					'title'  => T_('Send a message to the owner of this blog...'),
-				) );
-			// Display a link to help page:
-			$Blog->help_link( array(
-					'before'      => ' ',
-					'after'       => ' &bull; ',
-					'text'        => T_('Help'),
-				) );
-		?>
-		
-		<a href="http://b2evolution.net/" title="b2evolution home" target="_blank">b2evolution</a>	
-	</p>
+<footer id="footer">
+   <div class="container">
+   	<div class="footer__content center">
 
-	<p class="baseline">
-		<?php
-			// Display additional credits:
-			// If you can add your own credits without removing the defaults, you'll be very cool :))
-			// Please leave this at the bottom of the page to make sure your blog gets listed on b2evolution.net
-			if( ! credits( array(
-					'list_start'  => ' &bull; ',
-					'list_end'    => '',
-					'separator'   => ' &bull; ',
-					'item_start'  => ' ',
-					'item_end'    => ' ',
-				) ) )
-		?>
-	</p>
+   		<div class="evo_container evo_container__footer">
+   		<?php
+   			// Display container and contents:
+   			skin_container( NT_("Footer"), array(
+					// The following params will be used as defaults for widgets included in this container:
+					'block_start'       => '<div class="evo_widget $wi_class$">',
+					'block_end'         => '</div>',
+				) );
+   			// Note: Double quotes have been used around "Footer" only for test purposes.
+   		?>
+   		</div>
+
+   		<p class="copyright">
+   			<?php
+   				// Display footer text (text can be edited in Blog Settings):
+   				$Blog->footer_text( array(
+						'before' => '',
+						'after'  => ' &bull; ',
+					) );
+   			?>
+
+   			<?php
+   				// Display a link to contact the owner of this blog (if owner accepts messages):
+   				$Blog->contact_link( array(
+						'before' => '',
+						'after'  => ' &bull; ',
+						'text'   => T_('Contact'),
+						'title'  => T_('Send a message to the owner of this blog...'),
+					) );
+   				// Display a link to help page:
+   				$Blog->help_link( array(
+						'before'      => ' ',
+						'after'       => ' ',
+						'text'        => T_('Help'),
+					) );
+   			?>
+
+   			<?php
+   				// Display additional credits:
+   				// If you can add your own credits without removing the defaults, you'll be very cool :))
+   				// Please leave this at the bottom of the page to make sure your blog gets listed on b2evolution.net
+   				credits( array(
+						'list_start'  => '&bull;',
+						'list_end'    => ' ',
+						'separator'   => '&bull;',
+						'item_start'  => ' ',
+						'item_end'    => ' ',
+					) );
+   			?>
+   		</p>
+
+   		<?php
+   			// Please help us promote b2evolution and leave this logo on your blog:
+   			powered_by( array(
+					'block_start' => '<div class="powered_by">',
+					'block_end'   => '</div>',
+					// Check /rsc/img/ for other possible images -- Don't forget to change or remove width & height too
+					'img_url'     => '$rsc$img/powered-by-b2evolution-120t.gif',
+					'img_width'   => 120,
+					'img_height'  => 32,
+				) );
+   		?>
+	   </div><!-- .col -->
+   </div><!-- /.container -->
+</footer><!-- /footer -->
+
+<?php
+// ---------------------------- SITE FOOTER INCLUDED HERE ----------------------------
+// If site footers are enabled, they will be included here:
+siteskin_include( '_site_body_footer.inc.php' );
+// ------------------------------- END OF SITE FOOTER --------------------------------
