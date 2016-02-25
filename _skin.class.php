@@ -15,9 +15,9 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
  *
  * ATTENTION: if you make a new skin you have to change the class name below accordingly
  */
-class bootstrap_gallery_Skin extends Skin
+class stain_gallery_Skin extends Skin
 {
-	
+
 	/**
 	 * Do we want to use style.min.css instead of style.css ?
 	 */
@@ -28,7 +28,7 @@ class bootstrap_gallery_Skin extends Skin
 	 */
 	function get_default_name()
 	{
-		return 'Bootstrap Gallery Skin';
+		return 'Stain Gallery Skin';
 	}
 
 
@@ -51,6 +51,32 @@ class bootstrap_gallery_Skin extends Skin
 	{
 		return 6;
 	}
+
+   /**
+   * Get supported collection kinds.
+   *
+   * This should be overloaded in skins.
+   *
+   * For each kind the answer could be:
+   * - 'yes' : this skin does support that collection kind (the result will be was is expected)
+   * - 'partial' : this skin is not a primary choice for this collection kind (but still produces an output that makes sense)
+   * - 'maybe' : this skin has not been tested with this collection kind
+   * - 'no' : this skin does not support that collection kind (the result would not be what is expected)
+   * There may be more possible answers in the future...
+   */
+   public function get_supported_coll_kinds()
+   {
+     $supported_kinds = array(
+        'main'   => 'no',
+        'std'    => 'yes',		// Blog
+        'photo'  => 'Yes',
+        'forum'  => 'no',
+        'manual' => 'maybe',
+        'group'  => 'no',  // Tracker
+        // Any kind that is not listed should be considered as "maybe" supported
+     );
+     return $supported_kinds;
+   }
 
 
 	/**
@@ -288,8 +314,8 @@ class bootstrap_gallery_Skin extends Skin
 // fp> TODO: the following code WORKS but produces UGLY CSS with tons of repetitions. It needs a full rewrite.
 
 		// ===== Custom page styles: =====
-		$custom_styles = array();			
-		
+		$custom_styles = array();
+
 		// Text size <=== THIS IS A WORK IN PROGRESS
 		if( $text_size = $this->get_setting( 'page_text_size' ) )
 		{
@@ -299,7 +325,7 @@ class bootstrap_gallery_Skin extends Skin
 		{
 			$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
 		}
-		
+
 		$custom_styles = array();
 		// Text color
 		if( $text_color = $this->get_setting( 'page_text_color' ) )
@@ -310,7 +336,7 @@ class bootstrap_gallery_Skin extends Skin
 		{
 			$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
 		}
-		
+
 		// Link color
 		if( $text_color = $this->get_setting( 'page_link_color' ) )
 		{
@@ -323,7 +349,7 @@ class bootstrap_gallery_Skin extends Skin
 			$custom_css .= "	ul li a {background-color: transparent;}\n";
 			$custom_css .= "	.ufld_icon_links a {color: #fff !important;}\n";
 		}
-		
+
 		// Current tab text color
 		if( $text_color = $this->get_setting( 'current_tab_text_color' ) )
 		{
@@ -333,7 +359,7 @@ class bootstrap_gallery_Skin extends Skin
 		{
 			$custom_css .= '	ul.nav.nav-tabs li a.selected { '.implode( ';', $custom_styles )." }\n";
 		}
-		
+
 		// Page background color
 		if( $bg_color = $this->get_setting( 'page_bg_color' ) )
 		{
@@ -342,8 +368,8 @@ class bootstrap_gallery_Skin extends Skin
 		if( ! empty( $custom_styles ) )
 		{
 			$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
-		}		
-		
+		}
+
 		global $thumbnail_sizes;
 		$posts_thumb_size = $this->get_setting( 'posts_thumb_size' );
 		if( isset( $thumbnail_sizes[ $posts_thumb_size ] ) )
@@ -393,7 +419,7 @@ class bootstrap_gallery_Skin extends Skin
 		// Don't display status banner
 		return false;
 	}
-	
+
 		function get_template( $name )
 	{
 		switch( $name )
