@@ -317,14 +317,14 @@ class stain_gallery_Skin extends Skin
 		$custom_styles = array();
 
 		// Text size <=== THIS IS A WORK IN PROGRESS
-		if( $text_size = $this->get_setting( 'page_text_size' ) )
-		{
-			$custom_styles[] = 'font-size: '.$text_size;
-		}
-		if( ! empty( $custom_styles ) )
-		{
-			$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
-		}
+		// if( $text_size = $this->get_setting( 'page_text_size' ) )
+		// {
+		// 	$custom_styles[] = 'font-size: '.$text_size;
+		// }
+		// if( ! empty( $custom_styles ) )
+		// {
+		// 	$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
+		// }
 
 		$custom_styles = array();
 		// Text color
@@ -361,14 +361,14 @@ class stain_gallery_Skin extends Skin
 		}
 
 		// Page background color
-		if( $bg_color = $this->get_setting( 'page_bg_color' ) )
-		{
-			$custom_styles[] = 'background-color: '.$bg_color;
-		}
-		if( ! empty( $custom_styles ) )
-		{
-			$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
-		}
+		// if( $bg_color = $this->get_setting( 'page_bg_color' ) )
+		// {
+		// 	$custom_styles[] = 'background-color: '.$bg_color;
+		// }
+		// if( ! empty( $custom_styles ) )
+		// {
+		// 	$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
+		// }
 
 		global $thumbnail_sizes;
 		$posts_thumb_size = $this->get_setting( 'posts_thumb_size' );
@@ -391,10 +391,10 @@ class stain_gallery_Skin extends Skin
 		}
 		if( !empty( $custom_css ) )
 		{
-			$custom_css = '<style type="text/css">
-	<!--
-'.$custom_css.'	-->
-	</style>';
+			$custom_css = '
+            <style type="text/css">
+            	<!-- '.$custom_css.'	-->
+            </style>';
 			add_headline( $custom_css );
 		}
 	}

@@ -1,3 +1,9 @@
+// Include Font
+// ======================================================================== /
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700');
+
+
 // Bootstrap Gallery styles
 html, body {
 	width: auto !important;
@@ -5,4 +11,95 @@ html, body {
 	margin:0;
 	padding:0;
 	height:100%;
+}
+
+body {
+   font-family: @font_body;
+   font-size: 1.4rem;
+   letter-spacing: 0.5px;
+}
+
+// ======================================================================== /
+// Global Style
+// ======================================================================== /
+.float-right {
+	float: right;
+}
+
+.radio,
+.checkbox {
+	display: inline-block;
+}
+
+.no-border {
+	border: none !important;
+}
+
+.label {
+	font-size: 14px !important;
+}
+
+
+// Use full width for all textarea
+.form-horizontal .controls textarea.form-control {
+	width: 100%;
+}
+
+// A search button
+input.search_field {
+	margin-bottom: 0;
+	display: inline-block;
+}
+
+form.search .search_options {
+	width: 100%;
+
+	.search_option input {
+		margin-right: 5px;
+	}
+
+	.search_option label {
+		margin-bottom: 0;
+		margin-top: 5px;
+	}
+}
+
+div.compact_search_form {
+	input.search_field {
+		width: 100%;
+		margin: 0;
+	}
+}
+
+div.extended_search_form {
+	text-align: center;
+	margin: 0 auto 2em auto;
+	max-width: 530px;
+
+	.search_options {
+		text-align: center;
+
+		.search_option {
+			display: inline-block;
+			margin-right: 10px;
+		}
+	}
+}
+
+// Table for select categories of item
+table.catselect {
+
+	input#new_category_name {
+		width: 98% !important;
+	}
+}
+
+// Form elements on item edit page
+label.control-label[for=evo_post_title] {
+	width: auto;
+}
+
+// A form to create a new message/thread
+textarea.message_text {
+	width: 95%;
 }

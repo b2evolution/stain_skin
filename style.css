@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700');
 html,
 body {
   width: auto !important;
@@ -5,6 +7,66 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+}
+body {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+.float-right {
+  float: right;
+}
+.radio,
+.checkbox {
+  display: inline-block;
+}
+.no-border {
+  border: none !important;
+}
+.label {
+  font-size: 14px !important;
+}
+.form-horizontal .controls textarea.form-control {
+  width: 100%;
+}
+input.search_field {
+  margin-bottom: 0;
+  display: inline-block;
+}
+form.search .search_options {
+  width: 100%;
+}
+form.search .search_options .search_option input {
+  margin-right: 5px;
+}
+form.search .search_options .search_option label {
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+div.compact_search_form input.search_field {
+  width: 100%;
+  margin: 0;
+}
+div.extended_search_form {
+  text-align: center;
+  margin: 0 auto 2em auto;
+  max-width: 530px;
+}
+div.extended_search_form .search_options {
+  text-align: center;
+}
+div.extended_search_form .search_options .search_option {
+  display: inline-block;
+  margin-right: 10px;
+}
+table.catselect input#new_category_name {
+  width: 98% !important;
+}
+label.control-label[for=evo_post_title] {
+  width: auto;
+}
+textarea.message_text {
+  width: 95%;
 }
 /* XL Bootstrap Grid Layout */
 .visible-xl-block,
@@ -210,21 +272,110 @@ body {
     display: none !important;
   }
 }
-.evo_container__header {
-  margin-bottom: 20px;
+ul.profile_tabs {
+  margin: 0 2ex 2ex;
+  position: relative;
+  top: 1px;
 }
-.evo_container__page_top {
-  margin-top: 20px;
+.profile_avatar {
+  float: right;
+  padding: 10px;
+  margin-left: 10px;
 }
-.evo_container__page_top .ufld_icon_links {
-  text-align: right;
+.main_header {
+  position: relative;
+  height: 320px;
+  background-image: url('assets/images/bg_header.jpg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  margin-top: -16px;
+}
+.main_header .evo_widget {
+  position: relative;
+  top: 100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.main_header .evo_widget.widget_core_coll_title h1 {
+  margin: 0;
+}
+.main_header .evo_widget.widget_core_coll_title a {
+  font-size: 4.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.main_header .evo_widget.widget_core_coll_title a:hover,
+.main_header .evo_widget.widget_core_coll_title a:active,
+.main_header .evo_widget.widget_core_coll_title a:focus {
+  text-decoration: none;
+}
+.main_header .evo_widget.widget_core_coll_tagline {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 .nav.nav-tabs {
   margin-top: 0;
 }
-.powered_by a img {
-  background-color: #ffffff;
-  border-radius: 4px;
+.pagination {
+  margin: 0;
+}
+.widget_core_org_members {
+  margin: 5em 0 30px;
+  color: #333333;
+}
+.widget_core_org_members div.evo_org_member {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.widget_core_org_members img {
+  display: inline-block;
+}
+.widget_core_org_members h3.evo_user_name {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.widget_core_org_members div.evo_org_role {
+  margin-top: 10px;
+  margin-bottom: 0;
+  min-height: 25px;
+  font-size: 18px;
+}
+.widget_core_org_members a.user_link {
+  color: #000000;
+}
+.widget_core_org_members a.user_link:hover {
+  color: #23527c;
+}
+.widget_core_org_members div.ufld_icon_links {
+  margin-top: 10px;
+  min-height: 44px;
+}
+.widget_core_org_members p.user_field {
+  margin-top: 10px;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  height: 3em;
+}
+@media (max-width: 640px) {
+  body.pictured .front_main_content .ufld_icon_links a {
+    width: 45px;
+    height: 45px;
+    margin: 5px;
+  }
+  body.pictured .front_main_content .ufld_icon_links a .fa {
+    font-size: 20px;
+    line-height: 45px;
+  }
 }
 .widget_core_user_login #login_form .form-group {
   margin: 0;
@@ -295,57 +446,17 @@ body {
 .widget_core_user_register .field_register_btn .panel .panel-body #submit_login_form {
   margin-right: 10px;
 }
-ul.profile_tabs {
-  margin: 0 2ex 2ex;
-  position: relative;
-  top: 1px;
+#footer {
+  padding: 40px;
+  background-color: #222222;
 }
-.profile_avatar {
-  float: right;
-  padding: 10px;
-  margin-left: 10px;
+#footer .copyright {
+  font-size: 1.3rem;
+  color: #ffffff;
 }
-.form-horizontal .controls textarea.form-control {
-  width: 100%;
-}
-input.search_field {
-  margin-bottom: 0;
-  display: inline-block;
-}
-form.search .search_options {
-  width: 100%;
-}
-form.search .search_options .search_option input {
-  margin-right: 5px;
-}
-form.search .search_options .search_option label {
-  margin-bottom: 0;
-  margin-top: 5px;
-}
-div.compact_search_form input.search_field {
-  width: 100%;
-  margin: 0;
-}
-div.extended_search_form {
-  text-align: center;
-  margin: 0 auto 2em auto;
-  max-width: 530px;
-}
-div.extended_search_form .search_options {
-  text-align: center;
-}
-div.extended_search_form .search_options .search_option {
-  display: inline-block;
-  margin-right: 10px;
-}
-table.catselect input#new_category_name {
-  width: 98% !important;
-}
-label.control-label[for=evo_post_title] {
-  width: auto;
-}
-textarea.message_text {
-  width: 95%;
+#footer .powered_by a img {
+  background-color: #ffffff;
+  border-radius: 4px;
 }
 .evo_form__comment .form-group label,
 .evo_form__comment .form-group div {
@@ -492,9 +603,6 @@ div.bSideItem h4 {
 .form_footer_notes {
   margin-top: 0;
 }
-.pagination {
-  margin: 0;
-}
 div.action_messages,
 div.log_container {
   margin: 0;
@@ -535,9 +643,6 @@ div.log_container {
   -khtml-border-radius: 20px;
   margin-bottom: 5px;
 }
-.no-border {
-  border: none !important;
-}
 .posts_list,
 .col-lg-12 h2 {
   text-align: center;
@@ -553,9 +658,6 @@ div.log_container {
 .single-image .img-responsive {
   width: 100%;
   text-align: center;
-}
-.float-right {
-  float: right;
 }
 div.evo_image_index div {
   margin: 0px 25px;
@@ -664,10 +766,6 @@ div.evo_image_index div:hover {
 }
 .evo_post_content .evo_details .evo_form__comment fieldset div.label .btn {
   margin: 5px;
-  display: inline-block;
-}
-.radio,
-.checkbox {
   display: inline-block;
 }
 .evo_comment {
@@ -783,7 +881,4 @@ div.evo_image_index div:hover {
 #ffield_uploadfile_A1 .input input,
 #ffield_uploadfile_A1 .input span {
   display: inline-block;
-}
-.label {
-  font-size: 14px !important;
 }

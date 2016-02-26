@@ -5,176 +5,35 @@
 @import "assets/less/_global";
 @import "assets/less/_grid";
 
+// Disp
+// ======================================================================== /
+@import "assets/less/_global_disp";
+
+// Content
+// ======================================================================== /
 @import "assets/less/_header";
+@import "assets/less/_content";
+@import "assets/less/_widget";
 @import "assets/less/_footer";
 
 
 
-// Login widget form
-.widget_core_user_login {
-	#login_form {
-		.form-group {
-			margin: 0;
-		}
-		label {
-			text-align: left;
-			width: 160px;
-			padding-left: 0;
-		}
-		.controls {
-			padding: 0;
-			width: 100%;
-			text-align: left;
-		}
-		.form_text_input.form-control {
-			width: 100%;
-		}
-	}
-	.submit {
-		font-size: 12px;
-	}
-	.field_login_btn {
-		.panel {
-			margin: 0;
-			border: none;
-			border-radius: 0;
-			box-shadow: none;
-			.panel-body {
-				padding-left: 0;
-				padding-right: 0;
-				padding-bottom: 0;
-				#submit_login_form {
-					margin-right: 10px;
-				}
-			}
-		}
-	}
-	.register_link {
-		display: block;
-		padding-top: 10px;
-	}
-}
-
-// Register widget form
-.widget_core_user_register {
-	#register_form {
-		.form-group {
-			margin: 0;
-		}
-		label {
-			text-align: left;
-			width: 160px;
-			padding-left: 0;
-		}
-		.controls {
-			padding: 0;
-			width: 100%;
-		}
-		.form_text_input.form-control {
-			width: 100%;
-		}
-	}
-	.submit {
-		font-size: 12px;
-	}
-	.field_register_btn {
-		.panel {
-			margin: 0;
-			border: none;
-			border-radius: 0;
-			box-shadow: none;
-			.panel-body {
-				padding-left: 0;
-				padding-right: 0;
-				padding-bottom: 0;
-				#submit_login_form {
-					margin-right: 10px;
-				}
-			}
-		}
-	}
-}
-
-// Profile tabs on ?disp=profile
-ul.profile_tabs {
-	margin: 0 2ex 2ex;
-	position: relative;
-	top: 1px;
-}
-
-.profile_avatar {
-	float: right;
-	padding: 10px;
-	margin-left: 10px;
-}
-
-// Use full width for all textarea
-.form-horizontal .controls textarea.form-control {
-	width: 100%;
-}
-
-// A search button
-input.search_field {
-	margin-bottom: 0;
-	display: inline-block;
-}
-form.search .search_options {
-	width: 100%;
-	.search_option input {
-		margin-right: 5px;
-	}
-	.search_option label {
-		margin-bottom: 0;
-		margin-top: 5px;
-	}
-}
-div.compact_search_form {
-	input.search_field {
-		width: 100%;
-		margin: 0;
-	}
-}
-div.extended_search_form {
-	text-align: center;
-	margin: 0 auto 2em auto;
-	max-width: 530px;
-	.search_options {
-		text-align: center;
-		.search_option {
-			display: inline-block;
-			margin-right: 10px;
-		}
-	}
-}
-
-// Table for select categories of item
-table.catselect {
-	input#new_category_name {
-		width: 98% !important;
-	}
-}
-
-// Form elements on item edit page
-label.control-label[for=evo_post_title] {
-	width: auto;
-}
-
-// A form to create a new message/thread
-textarea.message_text {
-	width: 95%;
-}
-
 // Disp=single form
 .evo_form__comment {
+
 	.form-group {
+
 		label, div {
 			text-align: left;
 		}
+
 		.controls {
-			#uploadfile_A1 {
+
+         #uploadfile_A1 {
 				display: inline-block;
 				margin-right: 2%;
 			}
+
 			.help-inline {
 				height: auto;
 				text-align: left;
@@ -182,6 +41,7 @@ textarea.message_text {
 				color: #999;
 				display: inline-block;
 			}
+
 			.form-control-static {
 				text-align: left;
 			}
@@ -191,23 +51,29 @@ textarea.message_text {
 
 .evo_post {
 	margin-bottom: 2em;
+
 	.small.text-muted {
 		margin: 4px 0 10px;
+
 		a, a .glyphicon {
 			color: inherit;
 		}
 	}
+
 	.evo_details {
 		.panel {
+
 			.nav_album_number {
 				display: inline;
 			}
 		}
 	}
 }
+
 // On disp=single, colors links in post to grey
 div.evo_print a {
 	color: #777 !important;
+
 	&:hover {
 		color: #337ab7 !important;
 	}
@@ -219,6 +85,7 @@ div.bSideItem {
 	padding: 10px;
 	margin-bottom: 10px;
 	text-shadow: 0 1px 0 #FFFFFF;
+
 	h4 {
 		margin-top: 0;
 	}
@@ -226,21 +93,26 @@ div.bSideItem {
 
 // Login/Register forms:
 .skin-form {
+
 	.panel-body {
+
 		.panel {
 			border: none;
 			box-shadow: none;
 		}
+
 		.panel-body {
 			padding: 0;
 		}
 	}
+
 	.fieldset {
 		margin: 0;
 		div.input {
 			margin: 0;
 		}
 	}
+
 	.control-buttons, div.input {
 		padding: 0;
 		width: 100%;
@@ -248,86 +120,104 @@ div.bSideItem {
 	}
 }
 
-.wrap-form-login, .wrap-form-lostpass, .wrap-form-register, .wrap-form-activation {
+.wrap-form-login,
+.wrap-form-lostpass,
+.wrap-form-register,
+.wrap-form-activation {
 	min-width: 290px;
 	margin: 1.5em auto auto;
+
 	.panel {
 		margin: 5px 0;
 	}
+
 	.panel-body {
 		padding: 20px 30px 0;
 	}
 }
+
 .wrap-form-login {
 	max-width: 400px;
 }
+
 .wrap-form-lostpass {
 	max-width: 480px;
+
 	#ffield_x label {
 		display: none;
 	}
 }
+
 .wrap-form-activation {
 	max-width: 530px;
 	#activateinfo_form .control-buttons{
 		text-align: left;
 	}
 }
+
 .wrap-form-register {
 	max-width: 580px;
+
 	.control-buttons{
 		text-align: left;
 	}
+
 	&.register-disabled {
 		width: 350px;
 	}
+
 	.form-control {
 		&#country, &#u {
 			width: 100%;
 		}
 	}
 }
+
 .form-login-links {
 	padding: 0 5px;
 	font-size: 92%;
 }
 
 .form-login {
-	fieldset {
+
+   fieldset {
 		margin-bottom: 20px;
 	}
+
 	.controls {
 		padding: 0;
 		margin: 0;
 		width: 100%;
 	}
+
 	.control-buttons {
 		margin-left: 0;
 	}
+
 	input.form-control[type=text], input.form-control[type=password] {
 		width: 100%;
 	}
+
 	.btn {
 		margin-top: 5px;
 	}
 }
+
 #login_form {
 	.control-buttons {
 		text-align: left;
 	}
 }
+
 .standard_login_link {
 	text-align: center;
 	margin: 3em 0 1ex 0;
 }
+
 .form_footer_notes {
 	margin-top: 0;
 }
 
-// Pagination
-.pagination {
-	margin: 0;
-}
 
 // Messages
 div.action_messages, div.log_container {
@@ -336,6 +226,7 @@ div.action_messages, div.log_container {
 
 .posts_list {
 text-align: center;
+
 	.evo_post {
 		display: inline-block;
 		vertical-align: middle;
@@ -345,6 +236,7 @@ text-align: center;
 		text-align: center;
 		margin: 25px 44px;
 	}
+
 	.evo_post img, .posts_list .evo_post b {
 		transition: all 0.15s ease-in-out;
 		-webkit-transition: all 0.15s ease-in-out;
@@ -354,11 +246,13 @@ text-align: center;
 		// On hovering images helps to remove jagged edges
 		outline: 1px solid transparent;
 	}
+
 	.evo_post:hover img, .posts_list .evo_post:hover b {
 	transform:rotate(-3deg);
 		-ms-transform:rotate(-3deg); /* IE 9 */
 		-webkit-transform:rotate(-3deg); /* Safari and Chrome */
 	}
+
 	.evo_post img, .posts_list .evo_post b {
 		border-radius: 20px;
 		-moz-border-radius: 20px;
@@ -368,52 +262,54 @@ text-align: center;
 	}
 	margin-top: 0px;
 }
-.no-border {
-	border: none !important;
-}
+
 .posts_list, .col-lg-12 h2 {
 	text-align: center;
 }
-.evo_post {
-}
+
 .evo_post_content {
 	padding-top: 15px;
 }
+
 .single-image {
 	display: inline-block;
 	padding-bottom: 10px;
 	float: none !important;
+
 	.img-responsive {
 		width: 100%;
 		text-align: center;
 	}
 }
-.float-right {
-	float: right;
-}
+
 div.evo_image_index div {
 	margin: 0px 25px;
 	background: none;
 	border: none;
-	img {
+
+   img {
 		transition: all 0.15s ease-in-out;
 		-webkit-transition: all 0.15s ease-in-out;
 		-moz-transition: all 0.15s ease-in-out;
 		-o-transition: all 0.15s ease-in-out;
 		-ms-transition: all 0.15s ease-in-out;
 	}
+
 	&:hover img {
 		transform:scale(1.06);
 		-ms-transform:scale(1.06); /* IE 9 */
 		-webkit-transform:scale(1.06); /* Safari and Chrome */
 	}
+
 	&:hover {
 		background: none;
 	}
 }
+
 .post_images {
 	margin-top: 25px;
 }
+
 .nav_album {
 	text-align: center;
 	margin: 0px 0px 5px 0px;
@@ -423,6 +319,7 @@ div.evo_image_index div {
 	background-color: #f5f5f5;
 	box-sizing: border-box;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
 	.all_albums {
 		float: left;
 		margin: 5px 0px 0px 5px;
@@ -431,19 +328,23 @@ div.evo_image_index div {
 		border-radius: 15px;
 		display: inline-block;
 		padding: 5px 14px;
+
 		&:hover, &:focus {
 			background-color: #eee;
 			text-decoration: none;
 		}
+
 		&:before {
 			content:"\f100";
 			font-family: FontAwesome;
 			margin-right: 5px;
 		}
 	}
+
 	.nav_album_title {
 		display: inline-block;
 		margin-top: 8px;
+
 		a {
 			font-size: 20px;
 		}
@@ -453,41 +354,52 @@ div.evo_image_index div {
 		vertical-align: baseline;
 		display: inline-block;
 		font-size: 17px;
+
 		&:before {
 			content: '(';
 		}
+
 		&:after {
 			content: ')';
 		}
 	}
+
 	.fa-edit {
 		font-size: 16px;
 		margin-left: 5px;
 	}
+
 	.nav_album_title .evo_status {
 		position: relative;
 		top: -3px;
 	}
+
 	.pager {
 		float: right;
 		margin: 5px 3px;
 	}
+
 	.pager .previous {
 		margin-right: 3px;
 	}
+
 	.btn-primary {
 		margin: 5px 3px;
 	}
 }
+
 .evo_post_content .evo_details .evo_form__comment {
 	fieldset .info {
 		margin: 0px 0px 22px 0px;
 	}
+
 	fieldset {
 		margin: 5px 0px !important;
 	}
+
 	fieldset {
 		margin: 0px;
+
 		div.label {
 			float: none !important;
 			padding-left: 0px;
@@ -499,9 +411,8 @@ div.evo_image_index div {
 		}
 	}
 }
-.radio, .checkbox {
-	display: inline-block;
-}
+
+
 .evo_comment {
 	margin: 0 0 20px 0;
 	padding: 0px;
@@ -526,6 +437,7 @@ div.evo_image_index div {
 		vertical-align: middle;
 	}
 }
+
 .post_images img {
 	transition: all 0.15s ease-in-out;
 	-webkit-transition: all 0.15s ease-in-out;
@@ -533,11 +445,13 @@ div.evo_image_index div {
 	-o-transition: all 0.15s ease-in-out;
 	-ms-transition: all 0.15s ease-in-out;
 }
+
 .post_images figure:hover img {
 	transform:scale(1.06);
 	-ms-transform:scale(1.06); /* IE 9 */
 	-webkit-transform:scale(1.06); /* Safari and Chrome */
 }
+
 .evo_image_legend {
 	display: table;
 }
@@ -553,12 +467,14 @@ div.evo_image_index div {
 		padding-bottom: 10px;
 	}
 }
+
 @media screen and (max-width: 991px) {
 	.single-image {
 		margin-left: 0px;
 		margin-right: 0px;
 	}
 }
+
 @media screen and (max-width: 767px) {
 	.nav_album_title {
 		display: inline-block;
@@ -577,6 +493,7 @@ div.evo_image_index div {
 		text-align: center;
 	}
 }
+
 @media screen and (max-width: 500px) {
 	.float-right {
 		padding: 0px !important;
@@ -612,18 +529,19 @@ div.evo_image_index div {
 // Fixes
 .bt-content {
 	font-size: 14px;
+
 	.bubbletip_user ul li {
 		margin-top: 15px;
 	}
 }
+
 #ffield_uploadfile_A1 {
+
 	.input {
 		text-align: left;
+
 		input, span {
 			display: inline-block;
 		}
 	}
-}
-.label {
-	font-size: 14px !important;
 }
