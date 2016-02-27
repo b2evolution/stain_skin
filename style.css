@@ -284,12 +284,30 @@ ul.profile_tabs {
 }
 .main_header {
   position: relative;
-  height: 320px;
-  background-image: url('assets/images/bg_header.jpg');
+  height: 300px;
+  background-image: url('assets/images/header-3.jpg');
   background-repeat: no-repeat;
-  background-position: 50%;
+  background-position-x: 50%;
+  background-position-y: 50%;
   background-size: cover;
   margin-top: -16px;
+  z-index: 0;
+}
+.main_header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.2;
+  z-index: -1;
+}
+@media screen and (max-width: 480px) {
+  .main_header {
+    height: 260px;
+  }
 }
 .main_header .evo_widget {
   position: relative;
@@ -313,14 +331,140 @@ ul.profile_tabs {
 .main_header .evo_widget.widget_core_coll_title a:focus {
   text-decoration: none;
 }
+@media screen and (max-width: 768px) {
+  .main_header .evo_widget.widget_core_coll_title a {
+    font-size: 3.8rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main_header .evo_widget.widget_core_coll_title a {
+    font-size: 3.2rem;
+  }
+}
 .main_header .evo_widget.widget_core_coll_tagline {
   font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
   color: #ffffff;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
-.nav.nav-tabs {
-  margin-top: 0;
+@media screen and (max-width: 768px) {
+  .main_header .evo_widget.widget_core_coll_tagline {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main_header .evo_widget.widget_core_coll_tagline {
+    font-size: 1.3rem;
+  }
+}
+.main_navigation {
+  background-color: #1b1b1b;
+}
+.main_navigation .nav-tabs {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0;
+  text-align: center;
+  list-style-type: none;
+  border: none;
+}
+.main_navigation .nav-tabs li {
+  display: inline-block;
+  float: none;
+  padding: 15px;
+  margin: 0;
+}
+.main_navigation .nav-tabs li.active a {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+}
+.main_navigation .nav-tabs li.active a:hover,
+.main_navigation .nav-tabs li.active a:active,
+.main_navigation .nav-tabs li.active a:focus {
+  cursor: pointer;
+}
+.main_navigation .nav-tabs li.active a::before,
+.main_navigation .nav-tabs li.active a:after {
+  opacity: 1;
+}
+.main_navigation .nav-tabs li.active a::before {
+  top: -8px;
+}
+.main_navigation .nav-tabs li.active a::after {
+  bottom: -8px;
+}
+.main_navigation .nav-tabs li:hover,
+.main_navigation .nav-tabs li:active,
+.main_navigation .nav-tabs li:focus {
+  cursor: pointer;
+}
+.main_navigation .nav-tabs li:hover a,
+.main_navigation .nav-tabs li:active a,
+.main_navigation .nav-tabs li:focus a {
+  color: #ffffff;
+  background-color: transparent;
+}
+.main_navigation .nav-tabs li:hover a::before,
+.main_navigation .nav-tabs li:active a::before,
+.main_navigation .nav-tabs li:focus a::before,
+.main_navigation .nav-tabs li:hover a::after,
+.main_navigation .nav-tabs li:active a::after,
+.main_navigation .nav-tabs li:focus a::after {
+  opacity: 1;
+}
+.main_navigation .nav-tabs li:hover a::before,
+.main_navigation .nav-tabs li:active a::before,
+.main_navigation .nav-tabs li:focus a::before {
+  top: -8px;
+}
+.main_navigation .nav-tabs li:hover a::after,
+.main_navigation .nav-tabs li:active a::after,
+.main_navigation .nav-tabs li:focus a::after {
+  bottom: -8px;
+}
+.main_navigation .nav-tabs a {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: #18c54d;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.main_navigation .nav-tabs a.selected {
+  color: #ffffff;
+}
+.main_navigation .nav-tabs a:hover,
+.main_navigation .nav-tabs a:active,
+.main_navigation .nav-tabs a:focus {
+  background-color: transparent;
+}
+.main_navigation .nav-tabs a:before,
+.main_navigation .nav-tabs a:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #ffffff;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.main_navigation .nav-tabs a::before {
+  top: 0;
+}
+.main_navigation .nav-tabs a::after {
+  bottom: 0;
 }
 .pagination {
   margin: 0;

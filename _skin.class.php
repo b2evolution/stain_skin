@@ -90,177 +90,265 @@ class stain_gallery_Skin extends Skin
 		// Load to use function get_available_thumb_sizes()
 		load_funcs( 'files/model/_image.funcs.php' );
 
-		$r = array_merge( array(
+		   $r = array_merge( array(
 
+            /* Header Options
+             * ========================================================================== */
+            'section_header_start' => array(
+               'layout'   => 'begin_fieldset',
+               'label'    => T_( 'Header Options' )
+            ),
+               'header_height' => array(
+                  'label'        => T_('Height the Header'),
+                  'note'         => T_( 'px <br> Set <strong>Height</strong> the Header.' ),
+                  'type'         => 'integer',
+                  'defaultvalue' => '300',
+                  'size'         => 3,
+               ),
+               'header_bg_position_x' => array(
+                  'label'        => T_( 'Background Position X' ),
+                  'note'         => T_( '% <br>Value is 0% - 100% and the default value is <strong>50%</strong>.' ),
+                  'type'         => 'integer',
+                  'defaultvalue' => '50',
+                  'size'         => 3,
+               ),
+               'header_bg_position_y' => array(
+                  'label'        => T_( 'Background Position Y' ),
+                  'note'         => T_( '% <br>Value is 0% - 100% and the default value is <strong>50%</strong>.' ),
+                  'type'         => 'integer',
+                  'defaultvalue' => '50',
+                  'size'         => 3,
+               ),
+               'header_bg_attach' => array(
+                  'label'        => T_( 'Background Attachment' ),
+                  'note'         => T_( '' ),
+                  'type'         => 'radio',
+                  'defaultvalue' => 'initial',
+                  'options'      => array(
+                     array( 'initial', T_( 'Initial' ) ),
+                     array( 'fixed', T_( 'Fixed' ) ),
+                  ),
+               ),
+               'header_bg_size' => array(
+                  'label'        => T_( 'Background Size' ),
+                  'note'         => T_( 'Set the background size.' ),
+                  'type'         => 'select',
+                  'options'      => array(
+                     'initial'  => T_( 'Initial' ),
+                     'contain'  => T_( 'Contain' ),
+                     'cover'    => T_( 'Cover' ),
+                  ),
+                  'defaultvalue' => 'initial',
+               ),
+               'header_overlay' => array(
+                  'label'        => T_( 'Color Overlay' ),
+                  'note'         => T_( 'Check if you want to show <strong>Color Overlay</strong> for Header.' ),
+                  'type'         => 'checkbox',
+                  'defaultvalue' => 0,
+               ),
+               'color_overlay' => array(
+                  'label'        => T_( 'Change Color Overlay' ),
+                  'note'         => T_( 'Set your favorite color for Header Color Overlay' ),
+                  'type'         => 'color',
+                  'defaultvalue' => '#000000',
+               ),
+               'opcity_cv' => array(
+                  'label'        => T_( 'Opacity Color Overlay' ),
+                  'note'         => T_( 'Set the opacity Color Overlay value is 0.1 - 1' ),
+                  'type'         => 'select',
+                  'options'      => array(
+                     '0.1'  => T_( '0.1' ),
+                     '0.2'  => T_( '0.2' ),
+                     '0.3'  => T_( '0.3' ),
+                     '0.4'  => T_( '0.4' ),
+                     '0.5'  => T_( '0.5' ),
+                     '0.6'  => T_( '0.6' ),
+                     '0.7'  => T_( '0.7' ),
+                     '0.8'  => T_( '0.8' ),
+                     '0.9'  => T_( '0.9' ),
+                     '1'  => T_( '1' ),
+                  ),
+                  'defaultvalue' => '',
+               ),
+            'section_header_end' => array(
+               'layout'   => 'end_fieldset'
+            ),
+
+            /* Image Viewing
+             * ========================================================================== */
 				'section_image_start' => array(
 					'layout' => 'begin_fieldset',
 					'label'  => T_('Image Viewing')
 				),
 					'max_image_height' => array(
-						'label' => T_('Max comment image height'),
-						'note' => 'px',
+						'label'        => T_('Max comment image height'),
+						'note'         => 'px',
 						'defaultvalue' => '',
-						'type' => 'integer',
-						'allow_empty' => true,
+						'type'         => 'integer',
+						'allow_empty'  => true,
 					),
 					'posts_thumb_size' => array(
-						'label' => T_('Thumbnail size for Albums'),
-						'note' => '',
+						'label'        => T_('Thumbnail size for Albums'),
+						'note'         => '',
 						'defaultvalue' => 'crop-192x192',
-						'options' => get_available_thumb_sizes(),
-						'type' => 'select',
+						'options'      => get_available_thumb_sizes(),
+						'type'         => 'select',
 					),
 					'single_thumb_size' => array(
-						'label' => T_('Thumbnail size inside Album'),
-						'note' => '',
+						'label'        => T_('Thumbnail size inside Album'),
+						'note'         => '',
 						'defaultvalue' => 'fit-640x480',
-						'options' => get_available_thumb_sizes(),
-						'type' => 'select',
+						'options'      => get_available_thumb_sizes(),
+						'type'         => 'select',
 					),
 					'mediaidx_thumb_size' => array(
-						'label' => T_('Thumbnail size in Media index'),
-						'note' => '',
+						'label'        => T_('Thumbnail size in Media index'),
+						'note'         => '',
 						'defaultvalue' => 'fit-256x256',
-						'options' => get_available_thumb_sizes(),
-						'type' => 'select',
+						'options'      => get_available_thumb_sizes(),
+						'type'         => 'select',
 					),
 					'banner_public' => array(
-						'label' => T_('Display "Public" banner'),
-						'note' => T_('Display banner for "Public" albums (albums & comments)'),
+						'label'        => T_('Display "Public" banner'),
+						'note'         => T_('Display banner for "Public" albums (albums & comments)'),
 						'defaultvalue' => 1,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 				'section_image_end' => array(
 					'layout' => 'end_fieldset',
 				),
 
-
+            /* Page Styles
+             * ========================================================================== */
 				'section_page_start' => array(
 					'layout' => 'begin_fieldset',
 					'label'  => T_('Page Styles')
 				),
 					'page_text_size' => array(
-						'label' => T_('Page text size'),
-						'note' => T_('Default value is 14 pixels.'),
+						'label'        => T_('Page text size'),
+						'note'         => T_('Default value is 14 pixels.'),
 						'defaultvalue' => '14px',
-						'size' => '4px',
-						'type' => 'text',
+						'size'         => '4px',
+						'type'         => 'text',
 					),
 					'page_text_color' => array(
-						'label' => T_('Page text color'),
-						'note' => T_('E-g: #00ff00 for green'),
+						'label'        => T_('Page text color'),
+						'note'         => T_('E-g: #00ff00 for green'),
 						'defaultvalue' => '#333',
-						'type' => 'color',
+						'type'         => 'color',
 					),
 					'page_link_color' => array(
-						'label' => T_('Page link color'),
-						'note' => T_('E-g: #00ff00 for green'),
+						'label'        => T_('Page link color'),
+						'note'         => T_('E-g: #00ff00 for green'),
 						'defaultvalue' => '#337ab7',
-						'type' => 'color',
+						'type'         => 'color',
 					),
 					'current_tab_text_color' => array(
-						'label' => T_('Current tab text color'),
-						'note' => T_('E-g: #ff6600 for orange'),
+						'label'        => T_('Current tab text color'),
+						'note'         => T_('E-g: #ff6600 for orange'),
 						'defaultvalue' => '#333',
-						'type' => 'color',
+						'type'         => 'color',
 					),
 					'page_bg_color' => array(
-						'label' => T_('Page background color'),
-						'note' => T_('E-g: #ff0000 for red'),
+						'label'        => T_('Page background color'),
+						'note'         => T_('E-g: #ff0000 for red'),
 						'defaultvalue' => '#fff',
-						'type' => 'color',
+						'type'         => 'color',
 					),
 				'section_page_end' => array(
 					'layout' => 'end_fieldset',
 				),
 
-
+            /* Colorbox Image Zoom
+             * ========================================================================== */
 				'section_colorbox_start' => array(
 					'layout' => 'begin_fieldset',
 					'label'  => T_('Colorbox Image Zoom')
 				),
 					'colorbox' => array(
-						'label' => T_('Colorbox Image Zoom'),
-						'note' => T_('Check to enable javascript zooming on images (using the colorbox script)'),
+						'label'        => T_('Colorbox Image Zoom'),
+						'note'         => T_('Check to enable javascript zooming on images (using the colorbox script)'),
 						'defaultvalue' => 1,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 					'colorbox_vote_post' => array(
-						'label' => T_('Voting on Post Images'),
-						'note' => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
+						'label'        => T_('Voting on Post Images'),
+						'note'         => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
 						'defaultvalue' => 1,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 					'colorbox_vote_post_numbers' => array(
-						'label' => T_('Display Votes'),
-						'note' => T_('Check to display number of likes and dislikes'),
+						'label'        => T_('Display Votes'),
+						'note'         => T_('Check to display number of likes and dislikes'),
 						'defaultvalue' => 1,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 					'colorbox_vote_comment' => array(
-						'label' => T_('Voting on Comment Images'),
-						'note' => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
+						'label'        => T_('Voting on Comment Images'),
+						'note'         => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
 						'defaultvalue' => 1,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 					'colorbox_vote_comment_numbers' => array(
-						'label' => T_('Display Votes'),
-						'note' => T_('Check to display number of likes and dislikes'),
+						'label'        => T_('Display Votes'),
+						'note'         => T_('Check to display number of likes and dislikes'),
 						'defaultvalue' => 1,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 					'colorbox_vote_user' => array(
-						'label' => T_('Voting on User Images'),
-						'note' => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
+						'label'        => T_('Voting on User Images'),
+						'note'         => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
 						'defaultvalue' => 1,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 					'colorbox_vote_user_numbers' => array(
-						'label' => T_('Display Votes'),
-						'note' => T_('Check to display number of likes and dislikes'),
+						'label'        => T_('Display Votes'),
+						'note'         => T_('Check to display number of likes and dislikes'),
 						'defaultvalue' => 1,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 				'section_colorbox_end' => array(
 					'layout' => 'end_fieldset',
 				),
 
-
+            /* Username Start
+             * ========================================================================== */
 				'section_username_start' => array(
 					'layout' => 'begin_fieldset',
 					'label'  => T_('Username options')
 				),
 					'gender_colored' => array(
-						'label' => T_('Display gender'),
-						'note' => T_('Use colored usernames to differentiate men & women.'),
+						'label'        => T_('Display gender'),
+						'note'         => T_('Use colored usernames to differentiate men & women.'),
 						'defaultvalue' => 0,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 					'bubbletip' => array(
-						'label' => T_('Username bubble tips'),
-						'note' => T_('Check to enable bubble tips on usernames'),
+						'label'        => T_('Username bubble tips'),
+						'note'         => T_('Check to enable bubble tips on usernames'),
 						'defaultvalue' => 0,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 					'autocomplete_usernames' => array(
-						'label' => T_('Autocomplete usernames'),
-						'note' => T_('Check to enable auto-completion of usernames entered after a "@" sign in the comment forms'),
+						'label'        => T_('Autocomplete usernames'),
+						'note'         => T_('Check to enable auto-completion of usernames entered after a "@" sign in the comment forms'),
 						'defaultvalue' => 1,
-						'type' => 'checkbox',
+						'type'         => 'checkbox',
 					),
 				'section_username_end' => array(
 					'layout' => 'end_fieldset',
 				),
 
-
+            /* Acces Options
+             * ========================================================================== */
 				'section_access_start' => array(
 					'layout' => 'begin_fieldset',
 					'label'  => T_('When access is denied or requires login...')
 				),
 					'access_login_containers' => array(
-						'label' => T_('Display on login screen'),
-						'note' => '',
-						'type' => 'checklist',
+						'label'   => T_('Display on login screen'),
+						'note'    => '',
+						'type'    => 'checklist',
 						'options' => array(
 							array( 'header',   sprintf( T_('"%s" container'), NT_('Header') ),    1 ),
 							array( 'page_top', sprintf( T_('"%s" container'), NT_('Page Top') ),  1 ),
@@ -288,16 +376,16 @@ class stain_gallery_Skin extends Skin
 
 		// Request some common features that the parent function (Skin::display_init()) knows how to provide:
 		parent::display_init( array(
-				'jquery',                  // Load jQuery
-				'font_awesome',            // Load Font Awesome (and use its icons as a priority over the Bootstrap glyphicons)
-				'bootstrap',               // Load Bootstrap (without 'bootstrap_theme_css')
-				'bootstrap_evo_css',       // Load the b2evo_base styles for Bootstrap (instead of the old b2evo_base styles)
-				'bootstrap_messages',      // Initialize $Messages Class to use Bootstrap styles
-				'style_css',               // Load the style.css file of the current skin
-				'colorbox',                // Load Colorbox (a lightweight Lightbox alternative + customizations for b2evo)
-				'bootstrap_init_tooltips', // Inline JS to init Bootstrap tooltips (E.g. on comment form for allowed file extensions)
-				'disp_auto',               // Automatically include additional CSS and/or JS required by certain disps (replace with 'disp_off' to disable this)
-			) );
+			'jquery',                  // Load jQuery
+			'font_awesome',            // Load Font Awesome (and use its icons as a priority over the Bootstrap glyphicons)
+			'bootstrap',               // Load Bootstrap (without 'bootstrap_theme_css')
+			'bootstrap_evo_css',       // Load the b2evo_base styles for Bootstrap (instead of the old b2evo_base styles)
+			'bootstrap_messages',      // Initialize $Messages Class to use Bootstrap styles
+			'style_css',               // Load the style.css file of the current skin
+			'colorbox',                // Load Colorbox (a lightweight Lightbox alternative + customizations for b2evo)
+			'bootstrap_init_tooltips', // Inline JS to init Bootstrap tooltips (E.g. on comment form for allowed file extensions)
+			'disp_auto',               // Automatically include additional CSS and/or JS required by certain disps (replace with 'disp_off' to disable this)
+		) );
 
 		// Skin specific initializations:
 
@@ -351,14 +439,14 @@ class stain_gallery_Skin extends Skin
 		}
 
 		// Current tab text color
-		if( $text_color = $this->get_setting( 'current_tab_text_color' ) )
-		{
-			$custom_styles[] = 'color: '.$text_color;
-		}
-		if( ! empty( $custom_styles ) )
-		{
-			$custom_css .= '	ul.nav.nav-tabs li a.selected { '.implode( ';', $custom_styles )." }\n";
-		}
+		// if( $text_color = $this->get_setting( 'current_tab_text_color' ) )
+		// {
+		// 	$custom_styles[] = 'color: '.$text_color;
+		// }
+		// if( ! empty( $custom_styles ) )
+		// {
+		// 	$custom_css .= '	ul.nav.nav-tabs li a.selected { '.implode( ';', $custom_styles )." }\n";
+		// }
 
 		// Page background color
 		// if( $bg_color = $this->get_setting( 'page_bg_color' ) )
@@ -427,17 +515,17 @@ class stain_gallery_Skin extends Skin
 			case 'Results':
 				// Results list:
 				return array(
-					'page_url' => '', // All generated links will refer to the current page
-					'before' => '<div class="results panel panel-default">',
-					'content_start' => '<div id="$prefix$ajax_content">',
-					'header_start' => '',
-						'header_text' => '<div class="center"><ul class="pagination">'
-								.'$prev$$first$$list_prev$$list$$list_next$$last$$next$'
-							.'</ul></div>',
-						'header_text_single' => '',
-					'header_end' => '',
-					'head_title' => '<div class="panel-heading fieldset_title"><span class="pull-right">$global_icons$</span><h3 class="panel-title">$title$</h3></div>'."\n",
-					'global_icons_class' => 'btn btn-default btn-sm',
+					'page_url'             => '', // All generated links will refer to the current page
+					'before'               => '<div class="results panel panel-default">',
+					'content_start'        => '<div id="$prefix$ajax_content">',
+					'header_start'         => '',
+					'header_text'          => '<div class="center"><ul class="pagination">'
+					            .'$prev$$first$$list_prev$$list$$list_next$$last$$next$'
+					            .'</ul></div>',
+					'header_text_single'   => '',
+					'header_end'           => '',
+					'head_title'           => '<div class="panel-heading fieldset_title"><span class="pull-right">$global_icons$</span><h3 class="panel-title">$title$</h3></div>'."\n",
+					'global_icons_class'   => 'btn btn-default btn-sm',
 					'filters_start'        => '<div class="filters panel-body">',
 					'filters_end'          => '</div>',
 					'filter_button_class'  => 'btn-sm btn-info',
@@ -448,77 +536,77 @@ class stain_gallery_Skin extends Skin
 					'messages_separator' => '<br />',
 					'list_start' => '<div class="table_scroll">'."\n"
 					               .'<table class="table table-striped table-bordered table-hover table-condensed" cellspacing="0">'."\n",
-						'head_start' => "<thead>\n",
-							'line_start_head' => '<tr>',  // TODO: fusionner avec colhead_start_first; mettre a jour admin_UI_general; utiliser colspan="$headspan$"
-							'colhead_start' => '<th $class_attrib$>',
-							'colhead_start_first' => '<th class="firstcol $class$">',
-							'colhead_start_last' => '<th class="lastcol $class$">',
-							'colhead_end' => "</th>\n",
-							'sort_asc_off' => get_icon( 'sort_asc_off' ),
-							'sort_asc_on' => get_icon( 'sort_asc_on' ),
-							'sort_desc_off' => get_icon( 'sort_desc_off' ),
-							'sort_desc_on' => get_icon( 'sort_desc_on' ),
-							'basic_sort_off' => '',
-							'basic_sort_asc' => get_icon( 'ascending' ),
-							'basic_sort_desc' => get_icon( 'descending' ),
-						'head_end' => "</thead>\n\n",
-						'tfoot_start' => "<tfoot>\n",
-						'tfoot_end' => "</tfoot>\n\n",
-						'body_start' => "<tbody>\n",
-							'line_start' => '<tr class="even">'."\n",
-							'line_start_odd' => '<tr class="odd">'."\n",
-							'line_start_last' => '<tr class="even lastline">'."\n",
-							'line_start_odd_last' => '<tr class="odd lastline">'."\n",
-								'col_start' => '<td $class_attrib$>',
-								'col_start_first' => '<td class="firstcol $class$">',
-								'col_start_last' => '<td class="lastcol $class$">',
-								'col_end' => "</td>\n",
-							'line_end' => "</tr>\n\n",
-							'grp_line_start' => '<tr class="group">'."\n",
-							'grp_line_start_odd' => '<tr class="odd">'."\n",
-							'grp_line_start_last' => '<tr class="lastline">'."\n",
-							'grp_line_start_odd_last' => '<tr class="odd lastline">'."\n",
-										'grp_col_start' => '<td $class_attrib$ $colspan_attrib$>',
-										'grp_col_start_first' => '<td class="firstcol $class$" $colspan_attrib$>',
-										'grp_col_start_last' => '<td class="lastcol $class$" $colspan_attrib$>',
-								'grp_col_end' => "</td>\n",
-							'grp_line_end' => "</tr>\n\n",
-						'body_end' => "</tbody>\n\n",
-						'total_line_start' => '<tr class="total">'."\n",
-							'total_col_start' => '<td $class_attrib$>',
-							'total_col_start_first' => '<td class="firstcol $class$">',
-							'total_col_start_last' => '<td class="lastcol $class$">',
-							'total_col_end' => "</td>\n",
-						'total_line_end' => "</tr>\n\n",
+					'head_start' => "<thead>\n",
+					'line_start_head' => '<tr>',  // TODO: fusionner avec colhead_start_first; mettre a jour admin_UI_general; utiliser colspan="$headspan$"
+					'colhead_start' => '<th $class_attrib$>',
+					'colhead_start_first' => '<th class="firstcol $class$">',
+					'colhead_start_last' => '<th class="lastcol $class$">',
+					'colhead_end' => "</th>\n",
+					'sort_asc_off' => get_icon( 'sort_asc_off' ),
+					'sort_asc_on' => get_icon( 'sort_asc_on' ),
+					'sort_desc_off' => get_icon( 'sort_desc_off' ),
+					'sort_desc_on' => get_icon( 'sort_desc_on' ),
+					'basic_sort_off' => '',
+					'basic_sort_asc' => get_icon( 'ascending' ),
+					'basic_sort_desc' => get_icon( 'descending' ),
+					'head_end' => "</thead>\n\n",
+					'tfoot_start' => "<tfoot>\n",
+					'tfoot_end' => "</tfoot>\n\n",
+					'body_start' => "<tbody>\n",
+					'line_start' => '<tr class="even">'."\n",
+					'line_start_odd' => '<tr class="odd">'."\n",
+					'line_start_last' => '<tr class="even lastline">'."\n",
+					'line_start_odd_last' => '<tr class="odd lastline">'."\n",
+					'col_start' => '<td $class_attrib$>',
+					'col_start_first' => '<td class="firstcol $class$">',
+					'col_start_last' => '<td class="lastcol $class$">',
+					'col_end' => "</td>\n",
+					'line_end' => "</tr>\n\n",
+					'grp_line_start' => '<tr class="group">'."\n",
+					'grp_line_start_odd' => '<tr class="odd">'."\n",
+					'grp_line_start_last' => '<tr class="lastline">'."\n",
+					'grp_line_start_odd_last' => '<tr class="odd lastline">'."\n",
+					'grp_col_start' => '<td $class_attrib$ $colspan_attrib$>',
+					'grp_col_start_first' => '<td class="firstcol $class$" $colspan_attrib$>',
+					'grp_col_start_last' => '<td class="lastcol $class$" $colspan_attrib$>',
+					'grp_col_end' => "</td>\n",
+					'grp_line_end' => "</tr>\n\n",
+					'body_end' => "</tbody>\n\n",
+					'total_line_start' => '<tr class="total">'."\n",
+					'total_col_start' => '<td $class_attrib$>',
+					'total_col_start_first' => '<td class="firstcol $class$">',
+					'total_col_start_last' => '<td class="lastcol $class$">',
+					'total_col_end' => "</td>\n",
+					'total_line_end' => "</tr>\n\n",
 					'list_end' => "</table></div>\n\n",
 					'footer_start' => '',
 					'footer_text' => '<div class="center"><ul class="pagination">'
-							.'$prev$$first$$list_prev$$list$$list_next$$last$$next$'
-						.'</ul></div><div class="center">$page_size$</div>'
-					                  /* T_('Page $scroll_list$ out of $total_pages$   $prev$ | $next$<br />'. */
-					                  /* '<strong>$total_pages$ Pages</strong> : $prev$ $list$ $next$' */
-					                  /* .' <br />$first$  $list_prev$  $list$  $list_next$  $last$ :: $prev$ | $next$') */,
-					'footer_text_single' => '<div class="center">$page_size$</div>',
-					'footer_text_no_limit' => '', // Text if theres no LIMIT and therefor only one page anyway
-						'page_current_template' => '<span>$page_num$</span>',
-						'page_item_before' => '<li>',
-						'page_item_after' => '</li>',
-						'page_item_current_before' => '<li class="active">',
-						'page_item_current_after'  => '</li>',
-						'prev_text' => T_('Previous'),
-						'next_text' => T_('Next'),
-						'no_prev_text' => '',
-						'no_next_text' => '',
-						'list_prev_text' => T_('...'),
-						'list_next_text' => T_('...'),
-						'list_span' => 11,
-						'scroll_list_range' => 5,
-					'footer_end' => "\n\n",
-					'no_results_start' => '<div class="panel-footer">'."\n",
-					'no_results_end'   => '$no_results$</div>'."\n\n",
-					'content_end' => '</div>',
-					'after' => '</div>',
-					'sort_type' => 'basic'
+					.'$prev$$first$$list_prev$$list$$list_next$$last$$next$'
+					.'</ul></div><div class="center">$page_size$</div>'
+               /* T_('Page $scroll_list$ out of $total_pages$   $prev$ | $next$<br />'. */
+               /* '<strong>$total_pages$ Pages</strong> : $prev$ $list$ $next$' */
+               /* .' <br />$first$  $list_prev$  $list$  $list_next$  $last$ :: $prev$ | $next$') */,
+					'footer_text_single'    => '<div class="center">$page_size$</div>',
+					'footer_text_no_limit'  => '', // Text if theres no LIMIT and therefor only one page anyway
+					'page_current_template' => '<span>$page_num$</span>',
+					'page_item_before'      => '<li>',
+					'page_item_after'       => '</li>',
+					'page_item_current_before' => '<li class="active">',
+					'page_item_current_after'  => '</li>',
+					'prev_text'         => T_('Previous'),
+					'next_text'         => T_('Next'),
+					'no_prev_text'      => '',
+					'no_next_text'      => '',
+					'list_prev_text'    => T_('...'),
+					'list_next_text'    => T_('...'),
+					'list_span'         => 11,
+					'scroll_list_range' => 5,
+					'footer_end'        => "\n\n",
+					'no_results_start'  => '<div class="panel-footer">'."\n",
+					'no_results_end'    => '$no_results$</div>'."\n\n",
+					'content_end'       => '</div>',
+					'after'             => '</div>',
+					'sort_type'         => 'basic'
 				);
 				break;
 
@@ -532,7 +620,7 @@ class stain_gallery_Skin extends Skin
 					'title_fmt'      => '$title$'."\n",
 					'no_title_fmt'   => '',
 					'fieldset_begin' => '<fieldset $fieldset_attribs$>'."\n"
-																.'<legend $title_attribs$>$fieldset_title$</legend>'."\n",
+												.'<legend $title_attribs$>$fieldset_title$</legend>'."\n",
 					'fieldset_end'   => '</fieldset>'."\n",
 					'fieldstart'     => '<div class="form-group form-group-sm" $ID$>'."\n",
 					'fieldend'       => "</div>\n\n",
@@ -578,7 +666,7 @@ class stain_gallery_Skin extends Skin
 					'title_fmt'      => '<span style="float:right">$global_icons$</span><h2>$title$</h2>'."\n",
 					'no_title_fmt'   => '<span style="float:right">$global_icons$</span>'."\n",
 					'fieldset_begin' => '<div class="clear"></div><div class="fieldset_wrapper $class$" id="fieldset_wrapper_$id$"><fieldset $fieldset_attribs$><div class="panel panel-default">'."\n"
-															.'<legend class="panel-heading" $title_attribs$>$fieldset_title$</legend><div class="panel-body $class$">'."\n",
+											.'<legend class="panel-heading" $title_attribs$>$fieldset_title$</legend><div class="panel-body $class$">'."\n",
 					'fieldset_end'   => '</div></div></fieldset></div>'."\n",
 					'fieldstart'     => '<div class="form-group" $ID$>'."\n",
 					'fieldend'       => "</div>\n\n",
@@ -672,7 +760,7 @@ class stain_gallery_Skin extends Skin
 					'title_fmt'      => '<span style="float:right">$global_icons$</span><h2>$title$</h2>'."\n",
 					'no_title_fmt'   => '<span style="float:right">$global_icons$</span>'."\n",
 					'fieldset_begin' => '<div class="fieldset_wrapper $class$" id="fieldset_wrapper_$id$"><fieldset $fieldset_attribs$><div class="panel panel-default">'."\n"
-															.'<legend class="panel-heading" $title_attribs$>$fieldset_title$</legend><div class="panel-body $class$">'."\n",
+											.'<legend class="panel-heading" $title_attribs$>$fieldset_title$</legend><div class="panel-body $class$">'."\n",
 					'fieldset_end'   => '</div></div></fieldset></div>'."\n",
 					'fieldstart'     => '<div class="form-group fixedform-group" $ID$>'."\n",
 					'fieldend'       => "</div>\n\n",
@@ -740,19 +828,19 @@ class stain_gallery_Skin extends Skin
 			case 'plugin_template':
 				// Template for plugins
 				return array(
-						'toolbar_before'       => '<div class="btn-toolbar $toolbar_class$" role="toolbar">',
-						'toolbar_after'        => '</div>',
-						'toolbar_title_before' => '<div class="btn-toolbar-title">',
-						'toolbar_title_after'  => '</div>',
-						'toolbar_group_before' => '<div class="btn-group btn-group-xs" role="group">',
-						'toolbar_group_after'  => '</div>',
-						'toolbar_button_class' => 'btn btn-default',
-					);
+					'toolbar_before'       => '<div class="btn-toolbar $toolbar_class$" role="toolbar">',
+					'toolbar_after'        => '</div>',
+					'toolbar_title_before' => '<div class="btn-toolbar-title">',
+					'toolbar_title_after'  => '</div>',
+					'toolbar_group_before' => '<div class="btn-group btn-group-xs" role="group">',
+					'toolbar_group_after'  => '</div>',
+					'toolbar_button_class' => 'btn btn-default',
+				);
 
 			case 'modal_window_js_func':
 				// JavaScript function to initialize Modal windows, @see echo_user_ajaxwindow_js()
 				return 'echo_modalwindow_js_bootstrap';
-				break;
+			break;
 
 			default:
 				// Delegate to parent class:

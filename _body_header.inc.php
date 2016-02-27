@@ -37,9 +37,9 @@ siteskin_include( '_site_body_header.inc.php' );
    </div><!-- /.main_header -->
 
 
-   <nav id="main_navigation">
+   <nav class="main_navigation">
    	<div class="container">
-   		<ul class="nav nav-tabs evo_container evo_container__menu">
+   		<ul class="nav nav-tabs">
    		<?php
    			// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
    			// Display container and contents:

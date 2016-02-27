@@ -56,7 +56,7 @@ skin_include( '_body_header.inc.php' );
 	<?php
 	// ------------------------- TITLE FOR THE CURRENT REQUEST -------------------------
 	request_title( array(
-			'title_before'      => '<div class="row"><div class="col-xs-12><h2>',
+			'title_before'      => '<div class="row"><div class="col-xs-12"><h2>',
 			'title_after'       => '</h2></div></div>',
 			'title_none'        => '',
 			'glue'              => ' - ',
