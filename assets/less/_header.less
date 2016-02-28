@@ -4,7 +4,7 @@
 .main_header {
    position: relative;
    height: 300px;
-   background-image: url('assets/images/header-3.jpg');
+   background-image: url('assets/images/header/header-3.jpg');
    background-repeat: no-repeat;
    background-position-x: 50%;
    background-position-y: 50%;
@@ -37,7 +37,6 @@
       text-align: center;
 
       &.widget_core_coll_title {
-         // font-family: @font_heading;
 
          h1 {
             margin: 0;
@@ -88,7 +87,11 @@
 // Main Navigation
 // ======================================================================== /
 .main_navigation {
+   position: relative;
+   width: 100%;
+   max-width: 100%;
    background-color: @c1b;
+   z-index: 997;
 
    .nav-tabs {
       position: relative;
@@ -194,6 +197,32 @@
 
       }
 
+   }
+
+}
+
+// Style Main Navigation when Sticky
+// ======================================================================== /
+.sticky-wrapper {
+   width: 100% !important;
+
+   &.is-sticky {
+      .nav-tabs {
+         padding: 6px 0;
+         transition: all 0.32s ease;
+
+         li {
+            padding-left: 12px;
+            padding-right: 12px;
+            transition: all 0.32s ease;
+         }
+
+         a {
+            font-size: 1.3rem;
+            transition: all 0.32s ease;
+         }
+
+      }
    }
 
 }

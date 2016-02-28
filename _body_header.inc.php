@@ -18,7 +18,6 @@ siteskin_include( '_site_body_header.inc.php' );
 
 ?>
 <header id="header">
-
    <div class="main_header">
       <div class="container">
          <?php
@@ -35,7 +34,6 @@ siteskin_include( '_site_body_header.inc.php' );
          ?>
       </div><!-- /.container -->
    </div><!-- /.main_header -->
-
 
    <nav class="main_navigation">
    	<div class="container">
@@ -78,5 +76,4 @@ siteskin_include( '_site_body_header.inc.php' );
       </div><!-- /.user_links -->
 
    </nav><!-- /#main_navigation -->
-
 </header><!-- /#Header -->

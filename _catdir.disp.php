@@ -21,10 +21,10 @@ global $Blog;
 
 // Default params:
 $params = array_merge( array(
-		'item_class'        => 'evo_post evo_content_block',
-		'item_type_class'   => 'evo_post__ptyp_',
-		'item_status_class' => 'evo_post__',
-	), $params );
+	'item_class'        => 'evo_post evo_content_block',
+	'item_type_class'   => 'evo_post__ptyp_',
+	'item_status_class' => 'evo_post__',
+), $params );
 
 // ------------------------------- START OF INTRO POST -------------------------------
 init_MainList( $Blog->get_setting('posts_per_page') );
@@ -37,23 +37,23 @@ if( $Item = get_featured_Item( 'catdir' ) )
 	$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
 
 	$action_links = $Item->get_edit_link( array( // Link to backoffice for editing
-			'before' => '',
-			'after'  => '',
-			'text'   => $Item->is_intro() ? get_icon( 'edit' ).' '.T_('Edit Intro') : '#',
-			'class'  => button_class( 'text' ),
-		) );
-	if( $Item->status != 'published' )
-	{
+		'before' => '',
+		'after'  => '',
+		'text'   => $Item->is_intro() ? get_icon( 'edit' ).' '.T_('Edit Intro') : '#',
+		'class'  => button_class( 'text' ),
+	) );
+
+	if( $Item->status != 'published' ) {
 		$Item->format_status( array(
-				'template' => '<div class="evo_status evo_status__$status$ badge pull-right">$status_title$</div>',
-			) );
+			'template' => '<div class="evo_status evo_status__$status$ badge pull-right">$status_title$</div>',
+		) );
 	}
 	$Item->title( array(
-			'link_type'  => 'none',
-			'before'     => '<div class="evo_post_title"><h1>',
-			'after'      => '</h1><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
-			'nav_target' => false,
-		) );
+		'link_type'  => 'none',
+		'before'     => '<div class="evo_post_title"><h1>',
+		'after'      => '</h1><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
+		'nav_target' => false,
+	) );
 
 	// ---------------------- POST CONTENT INCLUDED HERE ----------------------
 	skin_include( '_item_content.inc.php', $params );

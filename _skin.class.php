@@ -99,7 +99,7 @@ class stain_gallery_Skin extends Skin
                'label'    => T_( 'Header Options' )
             ),
                'header_height' => array(
-                  'label'        => T_('Height the Header'),
+                  'label'        => T_('Height'),
                   'note'         => T_( 'px <br> Set <strong>Height</strong> the Header.' ),
                   'type'         => 'integer',
                   'defaultvalue' => '300',
@@ -172,6 +172,34 @@ class stain_gallery_Skin extends Skin
                ),
             'section_header_end' => array(
                'layout'   => 'end_fieldset'
+            ),
+
+            /* Main Navigation
+             * ========================================================================== */
+            'section_nav_start' => array(
+               'layout' => 'begin_fieldset',
+               'label'  => T_('Main Navigation'),
+            ),
+               'nav_bg'  => array(
+                  'label'        => T_( 'Background Color' ),
+                  'note'         => T_( 'Change background color main navigation. Default value is <strong>#1B1B1B</strong>' ),
+                  'type'         => 'color',
+                  'defaultvalue' => '#1B1B1B'
+               ),
+               'nav_sticky' => array(
+                  'label'        => T_( 'Main Navigation Sticky' ),
+                  'note'         => T_( 'Check to enable <strong>Sticky Nav</strong>.' ),
+                  'type'         => 'checkbox',
+                  'defaultvalue' => 1,
+               ),
+               'nav_color' => array(
+                  'label'        => T_( 'Color Nav Hover' ),
+                  'note'         => T_( 'Set the color when hover. Default value is #FFFFFF' ),
+                  'type'         => 'color',
+                  'defaultvalue' => '#FFFFFF',
+               ),
+            'section_nav_end' => array(
+               'layout'   => 'end_fieldset',
             ),
 
             /* Image Viewing
@@ -388,6 +416,9 @@ class stain_gallery_Skin extends Skin
 		) );
 
 		// Skin specific initializations:
+      // Include Script
+      require_js( $this->get_url().'assets/scripts/jquery.sticky.js' );
+      require_js( $this->get_url().'assets/scripts/scripts.js' );
 
 		// Add custom CSS:
 		$custom_css = '';
@@ -477,15 +508,18 @@ class stain_gallery_Skin extends Skin
 			/*$custom_css .= '	.posts_list .evo_post b { width:'.( $thumbnail_sizes[ $single_thumb_size ][1] - 20 ).'px;'
 				.'height:'.( $thumbnail_sizes[ $single_thumb_size ][2] - 20 ).'px'." }\n";*/
 		}
-		if( !empty( $custom_css ) )
-		{
+
+		if( !empty( $custom_css ) ) {
 			$custom_css = '
             <style type="text/css">
             	<!-- '.$custom_css.'	-->
             </style>';
 			add_headline( $custom_css );
 		}
+
 	}
+
+
 	/**
 	 * Determine to display status banner or to don't display
 	 *
@@ -508,79 +542,79 @@ class stain_gallery_Skin extends Skin
 		return false;
 	}
 
-		function get_template( $name )
+	function get_template( $name )
 	{
 		switch( $name )
 		{
 			case 'Results':
 				// Results list:
 				return array(
-					'page_url'             => '', // All generated links will refer to the current page
-					'before'               => '<div class="results panel panel-default">',
-					'content_start'        => '<div id="$prefix$ajax_content">',
-					'header_start'         => '',
-					'header_text'          => '<div class="center"><ul class="pagination">'
+					'page_url'              => '', // All generated links will refer to the current page
+					'before'                => '<div class="results panel panel-default">',
+					'content_start'         => '<div id="$prefix$ajax_content">',
+					'header_start'          => '',
+					'header_text'           => '<div class="center"><ul class="pagination">'
 					            .'$prev$$first$$list_prev$$list$$list_next$$last$$next$'
 					            .'</ul></div>',
-					'header_text_single'   => '',
-					'header_end'           => '',
-					'head_title'           => '<div class="panel-heading fieldset_title"><span class="pull-right">$global_icons$</span><h3 class="panel-title">$title$</h3></div>'."\n",
-					'global_icons_class'   => 'btn btn-default btn-sm',
-					'filters_start'        => '<div class="filters panel-body">',
-					'filters_end'          => '</div>',
-					'filter_button_class'  => 'btn-sm btn-info',
-					'filter_button_before' => '<div class="form-group pull-right">',
-					'filter_button_after'  => '</div>',
-					'messages_start' => '<div class="messages form-inline">',
-					'messages_end' => '</div>',
-					'messages_separator' => '<br />',
-					'list_start' => '<div class="table_scroll">'."\n"
-					               .'<table class="table table-striped table-bordered table-hover table-condensed" cellspacing="0">'."\n",
-					'head_start' => "<thead>\n",
-					'line_start_head' => '<tr>',  // TODO: fusionner avec colhead_start_first; mettre a jour admin_UI_general; utiliser colspan="$headspan$"
-					'colhead_start' => '<th $class_attrib$>',
-					'colhead_start_first' => '<th class="firstcol $class$">',
-					'colhead_start_last' => '<th class="lastcol $class$">',
-					'colhead_end' => "</th>\n",
-					'sort_asc_off' => get_icon( 'sort_asc_off' ),
-					'sort_asc_on' => get_icon( 'sort_asc_on' ),
-					'sort_desc_off' => get_icon( 'sort_desc_off' ),
-					'sort_desc_on' => get_icon( 'sort_desc_on' ),
-					'basic_sort_off' => '',
-					'basic_sort_asc' => get_icon( 'ascending' ),
-					'basic_sort_desc' => get_icon( 'descending' ),
-					'head_end' => "</thead>\n\n",
-					'tfoot_start' => "<tfoot>\n",
-					'tfoot_end' => "</tfoot>\n\n",
-					'body_start' => "<tbody>\n",
-					'line_start' => '<tr class="even">'."\n",
-					'line_start_odd' => '<tr class="odd">'."\n",
-					'line_start_last' => '<tr class="even lastline">'."\n",
-					'line_start_odd_last' => '<tr class="odd lastline">'."\n",
-					'col_start' => '<td $class_attrib$>',
-					'col_start_first' => '<td class="firstcol $class$">',
-					'col_start_last' => '<td class="lastcol $class$">',
-					'col_end' => "</td>\n",
-					'line_end' => "</tr>\n\n",
-					'grp_line_start' => '<tr class="group">'."\n",
-					'grp_line_start_odd' => '<tr class="odd">'."\n",
-					'grp_line_start_last' => '<tr class="lastline">'."\n",
+					'header_text_single'    => '',
+					'header_end'            => '',
+					'head_title'            => '<div class="panel-heading fieldset_title"><span class="pull-right">$global_icons$</span><h3 class="panel-title">$title$</h3></div>'."\n",
+					'global_icons_class'    => 'btn btn-default btn-sm',
+					'filters_start'         => '<div class="filters panel-body">',
+					'filters_end'           => '</div>',
+					'filter_button_class'   => 'btn-sm btn-info',
+					'filter_button_before'  => '<div class="form-group pull-right">',
+					'filter_button_after'   => '</div>',
+					'messages_start'        => '<div class="messages form-inline">',
+					'messages_end'          => '</div>',
+					'messages_separator'    => '<br />',
+					'list_start'            => '<div class="table_scroll">'."\n"
+					                        .'<table class="table table-striped table-bordered table-hover table-condensed" cellspacing="0">'."\n",
+					'head_start'            => "<thead>\n",
+					'line_start_head'       => '<tr>',  // TODO: fusionner avec colhead_start_first; mettre a jour admin_UI_general; utiliser colspan="$headspan$"
+					'colhead_start'         => '<th $class_attrib$>',
+					'colhead_start_first'   => '<th class="firstcol $class$">',
+					'colhead_start_last'    => '<th class="lastcol $class$">',
+					'colhead_end'           => "</th>\n",
+					'sort_asc_off'          => get_icon( 'sort_asc_off' ),
+					'sort_asc_on'           => get_icon( 'sort_asc_on' ),
+					'sort_desc_off'         => get_icon( 'sort_desc_off' ),
+					'sort_desc_on'          => get_icon( 'sort_desc_on' ),
+					'basic_sort_off'        => '',
+					'basic_sort_asc'        => get_icon( 'ascending' ),
+					'basic_sort_desc'       => get_icon( 'descending' ),
+					'head_end'              => "</thead>\n\n",
+					'tfoot_start'           => "<tfoot>\n",
+					'tfoot_end'             => "</tfoot>\n\n",
+					'body_start'            => "<tbody>\n",
+					'line_start'            => '<tr class="even">'."\n",
+					'line_start_odd'        => '<tr class="odd">'."\n",
+					'line_start_last'       => '<tr class="even lastline">'."\n",
+					'line_start_odd_last'   => '<tr class="odd lastline">'."\n",
+					'col_start'             => '<td $class_attrib$>',
+					'col_start_first'       => '<td class="firstcol $class$">',
+					'col_start_last'        => '<td class="lastcol $class$">',
+					'col_end'               => "</td>\n",
+					'line_end'              => "</tr>\n\n",
+					'grp_line_start'        => '<tr class="group">'."\n",
+					'grp_line_start_odd'    => '<tr class="odd">'."\n",
+					'grp_line_start_last'   => '<tr class="lastline">'."\n",
 					'grp_line_start_odd_last' => '<tr class="odd lastline">'."\n",
-					'grp_col_start' => '<td $class_attrib$ $colspan_attrib$>',
-					'grp_col_start_first' => '<td class="firstcol $class$" $colspan_attrib$>',
-					'grp_col_start_last' => '<td class="lastcol $class$" $colspan_attrib$>',
-					'grp_col_end' => "</td>\n",
-					'grp_line_end' => "</tr>\n\n",
-					'body_end' => "</tbody>\n\n",
-					'total_line_start' => '<tr class="total">'."\n",
-					'total_col_start' => '<td $class_attrib$>',
+					'grp_col_start'         => '<td $class_attrib$ $colspan_attrib$>',
+					'grp_col_start_first'   => '<td class="firstcol $class$" $colspan_attrib$>',
+					'grp_col_start_last'    => '<td class="lastcol $class$" $colspan_attrib$>',
+					'grp_col_end'           => "</td>\n",
+					'grp_line_end'          => "</tr>\n\n",
+					'body_end'              => "</tbody>\n\n",
+					'total_line_start'      => '<tr class="total">'."\n",
+					'total_col_start'       => '<td $class_attrib$>',
 					'total_col_start_first' => '<td class="firstcol $class$">',
-					'total_col_start_last' => '<td class="lastcol $class$">',
-					'total_col_end' => "</td>\n",
-					'total_line_end' => "</tr>\n\n",
-					'list_end' => "</table></div>\n\n",
-					'footer_start' => '',
-					'footer_text' => '<div class="center"><ul class="pagination">'
+					'total_col_start_last'  => '<td class="lastcol $class$">',
+					'total_col_end'         => "</td>\n",
+					'total_line_end'        => "</tr>\n\n",
+					'list_end'              => "</table></div>\n\n",
+					'footer_start'          => '',
+					'footer_text'           => '<div class="center"><ul class="pagination">'
 					.'$prev$$first$$list_prev$$list$$list_next$$last$$next$'
 					.'</ul></div><div class="center">$page_size$</div>'
                /* T_('Page $scroll_list$ out of $total_pages$   $prev$ | $next$<br />'. */

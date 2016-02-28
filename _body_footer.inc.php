@@ -84,6 +84,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
    </div><!-- /.container -->
 </footer><!-- /footer -->
 
+
 <?php
 // ---------------------------- SITE FOOTER INCLUDED HERE ----------------------------
 // If site footers are enabled, they will be included here:
