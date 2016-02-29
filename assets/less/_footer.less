@@ -2,12 +2,107 @@
 // Footer Style
 // ======================================================================== /
 #footer {
-   padding: 40px;
-   background-color: @c2;
+   padding: 35px 0;
+   background-color: @bg_footer;
 
+   // Footer Widget
+   // ======================================================================== /
+   .footer__widgets {
+
+      .evo_widget {
+         padding-bottom: 30px;
+      }
+   }
+
+   // Copyright
+   // ======================================================================== /
    .copyright {
-      font-size: 1.3rem;
+      font-family: @font_heading;
+      font-size: 1.2rem;
+      letter-spacing: 0.2px;
       color: @w;
+      padding: 0;
+      margin: 0;
+      height: 38px;
+      line-height: 38px;
+      opacity: 0.95;
+
+      a {
+         color: @primary;
+      }
+   }
+
+   // Footer Social
+   // ======================================================================== /
+   .footer__social {
+
+      a {
+         position: relative;
+         width: 35px;
+         height: 35px;
+         background-color: transparent;
+         margin: 2px 5px;
+         opacity: 0.7;
+         transition: all 0.32s ease-in-out;
+
+         .fa {
+            font-size: 1.6rem;
+            line-height: 35px;
+            color: @w;
+         }
+
+         &:hover, &:active, &:focus {
+            opacity: 1;
+
+            &::after {
+               opacity: 1;
+               top: -28px;
+            }
+         }
+
+         &::after {
+            position: absolute;
+            top: 0;
+            // right: 0;
+            margin: 0 auto;
+            text-align: center;
+            display: block;
+            font-family: @font_heading;
+            font-size: 1.1rem;
+            background: @c5;
+            padding: 5px 8px;
+            border-radius: 2px;
+            opacity: 0;
+            transition: all 0.32s ease;
+         }
+
+         &.ufld_twitter::after {
+            content: 'Twitter';
+            left: -32%;
+         }
+
+         &.ufld_facebook::after {
+            content: 'Facebook';
+            left: -50%;
+         }
+
+         &.ufld_googleplus::after {
+            content: 'Google+';
+            left: -36%;
+         }
+
+         &.ufld_linkedin::after {
+            content: 'LinkedIn';
+            left: -36%;
+         }
+
+         &.ufld_github::after {
+            content: 'Github';
+            left: -32%;
+         }
+
+      }
+
    }
 
    // Bottom b2evo image background issue fix

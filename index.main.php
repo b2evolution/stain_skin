@@ -38,7 +38,6 @@ skin_include( '_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 ?>
 <div class="container">
-
    <main id="main_content"><!-- This is were a link like "Jump to main content" would land -->
    	<!-- ================================= START OF MAIN AREA ================================== -->
    	<?php

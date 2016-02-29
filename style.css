@@ -12,6 +12,9 @@ body {
 .float-right {
   float: right;
 }
+.float-left {
+  float: left;
+}
 .radio,
 .checkbox {
   display: inline-block;
@@ -613,12 +616,86 @@ ul.profile_tabs {
   margin-right: 10px;
 }
 #footer {
-  padding: 40px;
-  background-color: #222222;
+  padding: 35px 0;
+  background-color: #0e1215;
+}
+#footer .footer__widgets .evo_widget {
+  padding-bottom: 30px;
 }
 #footer .copyright {
-  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.2px;
   color: #ffffff;
+  padding: 0;
+  margin: 0;
+  height: 38px;
+  line-height: 38px;
+  opacity: 0.95;
+}
+#footer .copyright a {
+  color: #18c54d;
+}
+#footer .footer__social a {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  margin: 2px 5px;
+  opacity: 0.7;
+  -webkit-transition: all 0.32s ease-in-out;
+  transition: all 0.32s ease-in-out;
+}
+#footer .footer__social a .fa {
+  font-size: 1.6rem;
+  line-height: 35px;
+  color: #ffffff;
+}
+#footer .footer__social a:hover,
+#footer .footer__social a:active,
+#footer .footer__social a:focus {
+  opacity: 1;
+}
+#footer .footer__social a:hover::after,
+#footer .footer__social a:active::after,
+#footer .footer__social a:focus::after {
+  opacity: 1;
+  top: -28px;
+}
+#footer .footer__social a::after {
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  background: #555555;
+  padding: 5px 8px;
+  border-radius: 2px;
+  opacity: 0;
+  -webkit-transition: all 0.32s ease;
+  transition: all 0.32s ease;
+}
+#footer .footer__social a.ufld_twitter::after {
+  content: 'Twitter';
+  left: -32%;
+}
+#footer .footer__social a.ufld_facebook::after {
+  content: 'Facebook';
+  left: -50%;
+}
+#footer .footer__social a.ufld_googleplus::after {
+  content: 'Google+';
+  left: -36%;
+}
+#footer .footer__social a.ufld_linkedin::after {
+  content: 'LinkedIn';
+  left: -36%;
+}
+#footer .footer__social a.ufld_github::after {
+  content: 'Github';
+  left: -32%;
 }
 #footer .powered_by a img {
   background-color: #ffffff;

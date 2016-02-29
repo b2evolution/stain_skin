@@ -92,6 +92,47 @@ class stain_gallery_Skin extends Skin
 
 		   $r = array_merge( array(
 
+            /* Page Styles
+             * ========================================================================== */
+				'section_page_start' => array(
+					'layout' => 'begin_fieldset',
+					'label'  => T_('Page Styles')
+				),
+					'page_text_size' => array(
+						'label'        => T_('Page text size'),
+						'note'         => T_('Default value is 14 pixels.'),
+						'defaultvalue' => '14px',
+						'size'         => '4px',
+						'type'         => 'text',
+					),
+					'page_text_color' => array(
+						'label'        => T_('Page text color'),
+						'note'         => T_('E-g: #00ff00 for green'),
+						'defaultvalue' => '#333',
+						'type'         => 'color',
+					),
+					'page_link_color' => array(
+						'label'        => T_('Page link color'),
+						'note'         => T_('E-g: #00ff00 for green'),
+						'defaultvalue' => '#337ab7',
+						'type'         => 'color',
+					),
+					'current_tab_text_color' => array(
+						'label'        => T_('Current tab text color'),
+						'note'         => T_('E-g: #ff6600 for orange'),
+						'defaultvalue' => '#333',
+						'type'         => 'color',
+					),
+					'page_bg_color' => array(
+						'label'        => T_('Page background color'),
+						'note'         => T_('E-g: #ff0000 for red'),
+						'defaultvalue' => '#fff',
+						'type'         => 'color',
+					),
+				'section_page_end' => array(
+					'layout' => 'end_fieldset',
+				),
+
             /* Header Options
              * ========================================================================== */
             'section_header_start' => array(
@@ -158,17 +199,28 @@ class stain_gallery_Skin extends Skin
                   'type'         => 'select',
                   'options'      => array(
                      '0.1'  => T_( '0.1' ),
-                     '0.2'  => T_( '0.2' ),
-                     '0.3'  => T_( '0.3' ),
-                     '0.4'  => T_( '0.4' ),
-                     '0.5'  => T_( '0.5' ),
-                     '0.6'  => T_( '0.6' ),
-                     '0.7'  => T_( '0.7' ),
-                     '0.8'  => T_( '0.8' ),
-                     '0.9'  => T_( '0.9' ),
+                     '2'  => T_( '0.2' ),
+                     '3'  => T_( '0.3' ),
+                     '4'  => T_( '0.4' ),
+                     '5'  => T_( '0.5' ),
+                     '6'  => T_( '0.6' ),
+                     '7'  => T_( '0.7' ),
+                     '8'  => T_( '0.8' ),
+                     '9'  => T_( '0.9' ),
                      '1'  => T_( '1' ),
                   ),
-                  'defaultvalue' => '',
+                  'defaultvalue' => '8',
+               ),
+               'header_content_align' => array(
+                  'label'        => T_( 'Content Align' ),
+                  'note'         => T_(''),
+                  'type'         => 'radio',
+                  'defaultvalue' => 'center',
+                  'options'      => array(
+                     array( 'left', T_( 'Left' ) ),
+                     array( 'center', T_( 'Center' ) ),
+                     array( 'right', T_( 'Right' ) ),
+                  ),
                ),
             'section_header_end' => array(
                'layout'   => 'end_fieldset'
@@ -187,13 +239,24 @@ class stain_gallery_Skin extends Skin
                   'defaultvalue' => '#1B1B1B'
                ),
                'nav_sticky' => array(
-                  'label'        => T_( 'Main Navigation Sticky' ),
+                  'label'        => T_( 'Sticky Mode' ),
                   'note'         => T_( 'Check to enable <strong>Sticky Nav</strong>.' ),
                   'type'         => 'checkbox',
                   'defaultvalue' => 1,
                ),
+               'nav_align' => array(
+                  'label'        => T_( 'Menu Align' ),
+                  'note'         => T_(''),
+                  'type'         => 'radio',
+                  'defaultvalue' => 'center',
+                  'options'      => array(
+                     array( 'left', T_( 'Left' ) ),
+                     array( 'center', T_( 'Center' ) ),
+                     array( 'right', T_( 'Right' ) ),
+                  ),
+               ),
                'nav_color' => array(
-                  'label'        => T_( 'Color Nav Hover' ),
+                  'label'        => T_( 'Nav Color Hover' ),
                   'note'         => T_( 'Set the color when hover. Default value is #FFFFFF' ),
                   'type'         => 'color',
                   'defaultvalue' => '#FFFFFF',
@@ -246,46 +309,37 @@ class stain_gallery_Skin extends Skin
 					'layout' => 'end_fieldset',
 				),
 
-            /* Page Styles
+            /* Footer Options
              * ========================================================================== */
-				'section_page_start' => array(
-					'layout' => 'begin_fieldset',
-					'label'  => T_('Page Styles')
-				),
-					'page_text_size' => array(
-						'label'        => T_('Page text size'),
-						'note'         => T_('Default value is 14 pixels.'),
-						'defaultvalue' => '14px',
-						'size'         => '4px',
-						'type'         => 'text',
-					),
-					'page_text_color' => array(
-						'label'        => T_('Page text color'),
-						'note'         => T_('E-g: #00ff00 for green'),
-						'defaultvalue' => '#333',
-						'type'         => 'color',
-					),
-					'page_link_color' => array(
-						'label'        => T_('Page link color'),
-						'note'         => T_('E-g: #00ff00 for green'),
-						'defaultvalue' => '#337ab7',
-						'type'         => 'color',
-					),
-					'current_tab_text_color' => array(
-						'label'        => T_('Current tab text color'),
-						'note'         => T_('E-g: #ff6600 for orange'),
-						'defaultvalue' => '#333',
-						'type'         => 'color',
-					),
-					'page_bg_color' => array(
-						'label'        => T_('Page background color'),
-						'note'         => T_('E-g: #ff0000 for red'),
-						'defaultvalue' => '#fff',
-						'type'         => 'color',
-					),
-				'section_page_end' => array(
-					'layout' => 'end_fieldset',
-				),
+            'section_footer_start' => array(
+               'layout'  => 'begin_fieldset',
+               'label'   => T_( 'Footer Options' ),
+            ),
+               'footer_bg' => array(
+                  'label'        => T_( 'Background Color' ),
+                  'note'         => T_( 'Change the main footer background color, default value is #0E1215' ),
+                  'type'         => 'color',
+                  'defaultvalue' => '#0E1215',
+               ),
+               'footer_widget' => array(
+                  'label'        => T_( 'Enable Footer Widget' ),
+                  'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu <strong>Widgets</strong>.' ),
+                  'type'         => 'checkbox',
+                  'defaultvalue' => '0'
+               ),
+               'footer_bottom_align' => array(
+                  'label'        => T_( 'Footer Bottom Mode' ),
+                  'note'         => T_(''),
+                  'type'         => 'radio',
+                  'defaultvalue' => 'center',
+                  'options'      => array(
+                     array( 'float', T_( 'Float Mode' ) ),
+                     array( 'center', T_( 'Center Mode' ) ),
+                  ),
+               ),
+            'section_footer_end' => array(
+               'layout'  => 'end_fieldset',
+            ),
 
             /* Colorbox Image Zoom
              * ========================================================================== */

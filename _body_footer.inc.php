@@ -16,71 +16,84 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 <!-- =================================== START OF FOOTER =================================== -->
 <footer id="footer">
    <div class="container">
-   	<div class="footer__content center">
+   	<div class="footer__content">
 
-   		<div class="evo_container evo_container__footer">
+   		<div class="evo_container footer__widgets">
    		<?php
    			// Display container and contents:
    			skin_container( NT_("Footer"), array(
 					// The following params will be used as defaults for widgets included in this container:
-					'block_start'       => '<div class="evo_widget $wi_class$">',
-					'block_end'         => '</div>',
+					'block_start'          => '<div class="evo_widget $wi_class$">',
+					'block_end'            => '</div>',
+               'block_title_start'    => '<h3 class="widget_title">',
+               'block_title_end'      => '</h3>',
+               // If a widget displays a list, this will enclose that list:
+               'list_start'           => '<ul>',
+               'list_end'             => '</ul>',
+               // This will enclose each item in a list:
+               'item_start'           => '<li>',
+               'item_end'             => '</li>',
+               // Search Custome
+               'search_class'         => 'compact_search_form',
+               'search_input_before'  => '<div class="input-group">',
+               'search_input_after'   => '',
+               'search_submit_before' => '<span class="input-group-btn">',
+               'search_submit_after'  => '</span></div>',
 				) );
    			// Note: Double quotes have been used around "Footer" only for test purposes.
    		?>
    		</div>
 
-   		<p class="copyright">
-   			<?php
-   				// Display footer text (text can be edited in Blog Settings):
-   				$Blog->footer_text( array(
-						'before' => '',
-						'after'  => ' &bull; ',
-					) );
-   			?>
+         <div class="footer__bottom">
+      		<p class="copyright float-left">
+      			<?php
+      				// Display footer text (text can be edited in Blog Settings):
+      				$Blog->footer_text( array(
+   						'before' => '',
+   						'after'  => ' &bull; ',
+   					) );
+      			?>
 
-   			<?php
-   				// Display a link to contact the owner of this blog (if owner accepts messages):
-   				$Blog->contact_link( array(
-						'before' => '',
-						'after'  => ' &bull; ',
-						'text'   => T_('Contact'),
-						'title'  => T_('Send a message to the owner of this blog...'),
-					) );
-   				// Display a link to help page:
-   				$Blog->help_link( array(
-						'before'      => ' ',
-						'after'       => ' ',
-						'text'        => T_('Help'),
-					) );
-   			?>
+      			<?php
+      				// Display a link to contact the owner of this blog (if owner accepts messages):
+      				$Blog->contact_link( array(
+   						'before' => '',
+   						'after'  => ' &bull; ',
+   						'text'   => T_('Contact'),
+   						'title'  => T_('Send a message to the owner of this blog...'),
+   					) );
+      				// Display a link to help page:
+      				$Blog->help_link( array(
+   						'before' => ' ',
+   						'after'  => ' ',
+   						'text'   => T_('Help'),
+   					) );
+      			?>
 
-   			<?php
-   				// Display additional credits:
-   				// If you can add your own credits without removing the defaults, you'll be very cool :))
-   				// Please leave this at the bottom of the page to make sure your blog gets listed on b2evolution.net
-   				credits( array(
-						'list_start'  => '&bull;',
-						'list_end'    => ' ',
-						'separator'   => '&bull;',
-						'item_start'  => ' ',
-						'item_end'    => ' ',
-					) );
-   			?>
-   		</p>
+      			<?php
+      				// Display additional credits:
+      				// If you can add your own credits without removing the defaults, you'll be very cool :))
+      				// Please leave this at the bottom of the page to make sure your blog gets listed on b2evolution.net
+      				credits( array(
+   						'list_start'  => '&bull;',
+   						'list_end'    => ' ',
+   						'separator'   => '&bull;',
+   						'item_start'  => ' ',
+   						'item_end'    => ' ',
+   					) );
+      			?>
+      		</p>
 
-   		<?php
-   			// Please help us promote b2evolution and leave this logo on your blog:
-   			powered_by( array(
-					'block_start' => '<div class="powered_by">',
-					'block_end'   => '</div>',
-					// Check /rsc/img/ for other possible images -- Don't forget to change or remove width & height too
-					'img_url'     => '$rsc$img/powered-by-b2evolution-120t.gif',
-					'img_width'   => 120,
-					'img_height'  => 32,
-				) );
-   		?>
-	   </div><!-- .col -->
+            <?php
+               skin_widget( array(
+                  'widget'          => 'user_links',
+                  'block_start'     => '<div class="footer__social float-right">',
+                  'block_end'       => '</div>',
+               ));
+            ?>
+         </div>
+
+	   </div><!-- .footer__content -->
    </div><!-- /.container -->
 </footer><!-- /footer -->
 

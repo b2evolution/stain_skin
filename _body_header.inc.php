@@ -64,13 +64,13 @@ siteskin_include( '_site_body_header.inc.php' );
       <div class="user_links">
          <div class="evo_container evo_container__header">
             <?php
-               skin_widget( array(
-                  // CODE for the widget:
-                  'widget' => 'coll_member_count',
-                  // Optional display params
-                  'before' => '(',
-                  'after'  => ')',
-               ) );
+               // skin_widget( array(
+               //    // CODE for the widget:
+               //    'widget' => 'coll_member_count',
+               //    // Optional display params
+               //    'before' => '(',
+               //    'after'  => ')',
+               // ) );
             ?>
          </div>
       </div><!-- /.user_links -->
