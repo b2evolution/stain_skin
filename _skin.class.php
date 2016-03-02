@@ -78,6 +78,55 @@ class stain_gallery_Skin extends Skin
      return $supported_kinds;
    }
 
+   /**
+   * Judge if the file is the image we want to use
+   *
+   * @param string filepath: the path of a file
+   * array arr_types: the file type we want to use
+   * @return array
+   */
+   function isImage( $filepath, $arr_types=array( ".gif", ".jpeg", ".png", ".bmp", ".jpg" ) )
+   {
+       if(file_exists($filepath)) {
+         $info = getimagesize($filepath);
+         $ext  = image_type_to_extension($info['2']);
+         return in_array($ext,$arr_types);
+       } else {
+         return false;
+       }
+   }
+
+   /**
+   * Get the pictures of one local folder as an array
+   *
+   * @param string img_folder; the image folder;
+   * string img_folder_url; folder url, we would like to show the img of this folder on the screen for user viewing;
+   * int thumb_width: thumb image whdth shown on the skin setting page
+   * int thumb_height: thumb image height shown on the skin setting page
+   * @return array
+   */
+   function get_arr_pics_from_folder( $img_folder, $img_folder_url, $thumb_width = 50, $thumb_height = 50 )
+   {
+      $arr_filenames = $filesnames =array();
+      if(file_exists($img_folder))
+      {
+         $filesnames = scandir($img_folder);
+      }
+      $count = 0;
+      foreach ( $filesnames as $name )
+      {
+         $count++;
+         if ( $name != "." && $name != ".." && $name != "_evocache" && $this->isImage($img_folder.$name) ) //not the folder and other files
+         {
+            $arr_filenames[] = array( $img_folder_url.$name,
+            "<a href='".$img_folder_url.$name."' target='blank'><img src='".$img_folder_url.$name."' width=".$thumb_width."px heigh=".$thumb_height."px /></a>" );
+         }
+         if ($count==30) break; // The max number of the images we want to show
+      }
+      $arr_filenames[] = array("none",T_("Transparent"));
+      return $arr_filenames;
+   }
+
 
 	/**
 	 * Get definitions for editable params
@@ -89,359 +138,388 @@ class stain_gallery_Skin extends Skin
 	{
 		// Load to use function get_available_thumb_sizes()
 		load_funcs( 'files/model/_image.funcs.php' );
+      // System provide bg images
+      $bodybg_cat = 'assets/images/header/'; // Background images folder relative to this skin folder
+      $arr_bodybg = $this -> get_arr_pics_from_folder( $this->get_path().$bodybg_cat, $this->get_url().$bodybg_cat, 80, 80 );
 
-		   $r = array_merge( array(
+	   $r = array_merge( array(
 
-            /* Page Styles
-             * ========================================================================== */
-				'section_page_start' => array(
-					'layout' => 'begin_fieldset',
-					'label'  => T_('Page Styles')
+         /* Page Styles
+          * ========================================================================== */
+			'section_page_start' => array(
+				'layout' => 'begin_fieldset',
+				'label'  => T_('Page Styles')
+			),
+				'page_text_size' => array(
+					'label'        => T_('Page text size'),
+					'note'         => T_('Default value is 14 pixels.'),
+					'defaultvalue' => '14px',
+					'size'         => '4px',
+					'type'         => 'text',
 				),
-					'page_text_size' => array(
-						'label'        => T_('Page text size'),
-						'note'         => T_('Default value is 14 pixels.'),
-						'defaultvalue' => '14px',
-						'size'         => '4px',
-						'type'         => 'text',
-					),
-					'page_text_color' => array(
-						'label'        => T_('Page text color'),
-						'note'         => T_('E-g: #00ff00 for green'),
-						'defaultvalue' => '#333',
-						'type'         => 'color',
-					),
-					'page_link_color' => array(
-						'label'        => T_('Page link color'),
-						'note'         => T_('E-g: #00ff00 for green'),
-						'defaultvalue' => '#337ab7',
-						'type'         => 'color',
-					),
-					'current_tab_text_color' => array(
-						'label'        => T_('Current tab text color'),
-						'note'         => T_('E-g: #ff6600 for orange'),
-						'defaultvalue' => '#333',
-						'type'         => 'color',
-					),
-					'page_bg_color' => array(
-						'label'        => T_('Page background color'),
-						'note'         => T_('E-g: #ff0000 for red'),
-						'defaultvalue' => '#fff',
-						'type'         => 'color',
-					),
-				'section_page_end' => array(
-					'layout' => 'end_fieldset',
+				'page_text_color' => array(
+					'label'        => T_('Page text color'),
+					'note'         => T_('E-g: #00ff00 for green'),
+					'defaultvalue' => '#333',
+					'type'         => 'color',
 				),
+				'page_link_color' => array(
+					'label'        => T_('Page link color'),
+					'note'         => T_('E-g: #00ff00 for green'),
+					'defaultvalue' => '#337ab7',
+					'type'         => 'color',
+				),
+				'current_tab_text_color' => array(
+					'label'        => T_('Current tab text color'),
+					'note'         => T_('E-g: #ff6600 for orange'),
+					'defaultvalue' => '#333',
+					'type'         => 'color',
+				),
+				'page_bg_color' => array(
+					'label'        => T_('Page background color'),
+					'note'         => T_('E-g: #ff0000 for red'),
+					'defaultvalue' => '#fff',
+					'type'         => 'color',
+				),
+			'section_page_end' => array(
+				'layout' => 'end_fieldset',
+			),
 
-            /* Header Options
-             * ========================================================================== */
-            'section_header_start' => array(
-               'layout'   => 'begin_fieldset',
-               'label'    => T_( 'Header Options' )
+         /* Header Options
+          * ========================================================================== */
+         'section_header_start' => array(
+            'layout'   => 'begin_fieldset',
+            'label'    => T_( 'Header Options' )
+         ),
+            'header_height' => array(
+               'label'        => T_('Height'),
+               'note'         => T_( 'px <br> Set <strong>Height</strong> the Header.' ),
+               'type'         => 'integer',
+               'defaultvalue' => '300',
+               'size'         => '3px',
+               'allow_empty'  => false,
             ),
-               'header_height' => array(
-                  'label'        => T_('Height'),
-                  'note'         => T_( 'px <br> Set <strong>Height</strong> the Header.' ),
-                  'type'         => 'integer',
-                  'defaultvalue' => '300',
-                  'size'         => 3,
-               ),
-               'header_bg_position_x' => array(
-                  'label'        => T_( 'Background Position X' ),
-                  'note'         => T_( '% <br>Value is 0% - 100% and the default value is <strong>50%</strong>.' ),
-                  'type'         => 'integer',
-                  'defaultvalue' => '50',
-                  'size'         => 3,
-               ),
-               'header_bg_position_y' => array(
-                  'label'        => T_( 'Background Position Y' ),
-                  'note'         => T_( '% <br>Value is 0% - 100% and the default value is <strong>50%</strong>.' ),
-                  'type'         => 'integer',
-                  'defaultvalue' => '50',
-                  'size'         => 3,
-               ),
-               'header_bg_attach' => array(
-                  'label'        => T_( 'Background Attachment' ),
-                  'note'         => T_( '' ),
-                  'type'         => 'radio',
-                  'defaultvalue' => 'initial',
-                  'options'      => array(
-                     array( 'initial', T_( 'Initial' ) ),
-                     array( 'fixed', T_( 'Fixed' ) ),
-                  ),
-               ),
-               'header_bg_size' => array(
-                  'label'        => T_( 'Background Size' ),
-                  'note'         => T_( 'Set the background size.' ),
-                  'type'         => 'select',
-                  'options'      => array(
-                     'initial'  => T_( 'Initial' ),
-                     'contain'  => T_( 'Contain' ),
-                     'cover'    => T_( 'Cover' ),
-                  ),
-                  'defaultvalue' => 'initial',
-               ),
-               'header_overlay' => array(
-                  'label'        => T_( 'Color Overlay' ),
-                  'note'         => T_( 'Check if you want to show <strong>Color Overlay</strong> for Header.' ),
-                  'type'         => 'checkbox',
-                  'defaultvalue' => 0,
-               ),
-               'color_overlay' => array(
-                  'label'        => T_( 'Change Color Overlay' ),
-                  'note'         => T_( 'Set your favorite color for Header Color Overlay' ),
-                  'type'         => 'color',
-                  'defaultvalue' => '#000000',
-               ),
-               'opcity_cv' => array(
-                  'label'        => T_( 'Opacity Color Overlay' ),
-                  'note'         => T_( 'Set the opacity Color Overlay value is 0.1 - 1' ),
-                  'type'         => 'select',
-                  'options'      => array(
-                     '0.1'  => T_( '0.1' ),
-                     '2'  => T_( '0.2' ),
-                     '3'  => T_( '0.3' ),
-                     '4'  => T_( '0.4' ),
-                     '5'  => T_( '0.5' ),
-                     '6'  => T_( '0.6' ),
-                     '7'  => T_( '0.7' ),
-                     '8'  => T_( '0.8' ),
-                     '9'  => T_( '0.9' ),
-                     '1'  => T_( '1' ),
-                  ),
-                  'defaultvalue' => '8',
-               ),
-               'header_content_align' => array(
-                  'label'        => T_( 'Content Align' ),
-                  'note'         => T_(''),
-                  'type'         => 'radio',
-                  'defaultvalue' => 'center',
-                  'options'      => array(
-                     array( 'left', T_( 'Left' ) ),
-                     array( 'center', T_( 'Center' ) ),
-                     array( 'right', T_( 'Right' ) ),
-                  ),
-               ),
-            'section_header_end' => array(
-               'layout'   => 'end_fieldset'
+            'header_bg' => array(
+               'label'        => T_( 'Background Image' ),
+               'note'         => T_( '' ),
+               'type'         => 'radio',
+               'options'      => $arr_bodybg,
+               'defaultvalue' => reset( $arr_bodybg[3] ),
             ),
-
-            /* Main Navigation
-             * ========================================================================== */
-            'section_nav_start' => array(
-               'layout' => 'begin_fieldset',
-               'label'  => T_('Main Navigation'),
+            'header_bg_position_x' => array(
+               'label'        => T_( 'Background Position X' ),
+               'note'         => T_( '% <br>Default value is <strong>50%</strong>.' ),
+               'type'         => 'integer',
+               'defaultvalue' => '50',
+               'size'         => 3,
             ),
-               'nav_bg'  => array(
-                  'label'        => T_( 'Background Color' ),
-                  'note'         => T_( 'Change background color main navigation. Default value is <strong>#1B1B1B</strong>' ),
-                  'type'         => 'color',
-                  'defaultvalue' => '#1B1B1B'
-               ),
-               'nav_sticky' => array(
-                  'label'        => T_( 'Sticky Mode' ),
-                  'note'         => T_( 'Check to enable <strong>Sticky Nav</strong>.' ),
-                  'type'         => 'checkbox',
-                  'defaultvalue' => 1,
-               ),
-               'nav_align' => array(
-                  'label'        => T_( 'Menu Align' ),
-                  'note'         => T_(''),
-                  'type'         => 'radio',
-                  'defaultvalue' => 'center',
-                  'options'      => array(
-                     array( 'left', T_( 'Left' ) ),
-                     array( 'center', T_( 'Center' ) ),
-                     array( 'right', T_( 'Right' ) ),
-                  ),
-               ),
-               'nav_color' => array(
-                  'label'        => T_( 'Nav Color Hover' ),
-                  'note'         => T_( 'Set the color when hover. Default value is #FFFFFF' ),
-                  'type'         => 'color',
-                  'defaultvalue' => '#FFFFFF',
-               ),
-            'section_nav_end' => array(
-               'layout'   => 'end_fieldset',
+            'header_bg_position_y' => array(
+               'label'        => T_( 'Background Position Y' ),
+               'note'         => T_( '% <br>Default value is <strong>50%</strong>.' ),
+               'type'         => 'integer',
+               'defaultvalue' => '50',
+               'size'         => 3,
             ),
-
-            /* Image Viewing
-             * ========================================================================== */
-				'section_image_start' => array(
-					'layout' => 'begin_fieldset',
-					'label'  => T_('Image Viewing')
-				),
-					'max_image_height' => array(
-						'label'        => T_('Max comment image height'),
-						'note'         => 'px',
-						'defaultvalue' => '',
-						'type'         => 'integer',
-						'allow_empty'  => true,
-					),
-					'posts_thumb_size' => array(
-						'label'        => T_('Thumbnail size for Albums'),
-						'note'         => '',
-						'defaultvalue' => 'crop-192x192',
-						'options'      => get_available_thumb_sizes(),
-						'type'         => 'select',
-					),
-					'single_thumb_size' => array(
-						'label'        => T_('Thumbnail size inside Album'),
-						'note'         => '',
-						'defaultvalue' => 'fit-640x480',
-						'options'      => get_available_thumb_sizes(),
-						'type'         => 'select',
-					),
-					'mediaidx_thumb_size' => array(
-						'label'        => T_('Thumbnail size in Media index'),
-						'note'         => '',
-						'defaultvalue' => 'fit-256x256',
-						'options'      => get_available_thumb_sizes(),
-						'type'         => 'select',
-					),
-					'banner_public' => array(
-						'label'        => T_('Display "Public" banner'),
-						'note'         => T_('Display banner for "Public" albums (albums & comments)'),
-						'defaultvalue' => 1,
-						'type'         => 'checkbox',
-					),
-				'section_image_end' => array(
-					'layout' => 'end_fieldset',
-				),
-
-            /* Footer Options
-             * ========================================================================== */
-            'section_footer_start' => array(
-               'layout'  => 'begin_fieldset',
-               'label'   => T_( 'Footer Options' ),
+            'header_bg_attach' => array(
+               'label'        => T_( 'Background Attachment' ),
+               'note'         => T_( '' ),
+               'type'         => 'radio',
+               'defaultvalue' => 'initial',
+               'options'      => array(
+                  array( 'initial', T_( 'Initial' ) ),
+                  array( 'fixed', T_( 'Fixed' ) ),
+               ),
             ),
-               'footer_bg' => array(
-                  'label'        => T_( 'Background Color' ),
-                  'note'         => T_( 'Change the main footer background color, default value is #0E1215' ),
-                  'type'         => 'color',
-                  'defaultvalue' => '#0E1215',
+            'header_bg_size' => array(
+               'label'        => T_( 'Background Size' ),
+               'note'         => T_( 'Set the background size.' ),
+               'type'         => 'select',
+               'options'      => array(
+                  'initial'  => T_( 'Initial' ),
+                  'contain'  => T_( 'Contain' ),
+                  'cover'    => T_( 'Cover' ),
                ),
-               'footer_widget' => array(
-                  'label'        => T_( 'Enable Footer Widget' ),
-                  'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu <strong>Widgets</strong>.' ),
-                  'type'         => 'checkbox',
-                  'defaultvalue' => '0'
-               ),
-               'footer_bottom_align' => array(
-                  'label'        => T_( 'Footer Bottom Mode' ),
-                  'note'         => T_(''),
-                  'type'         => 'radio',
-                  'defaultvalue' => 'center',
-                  'options'      => array(
-                     array( 'float', T_( 'Float Mode' ) ),
-                     array( 'center', T_( 'Center Mode' ) ),
-                  ),
-               ),
-            'section_footer_end' => array(
-               'layout'  => 'end_fieldset',
+               'defaultvalue' => 'cover',
             ),
+            'header_overlay' => array(
+               'label'        => T_( 'Color Overlay' ),
+               'note'         => T_( 'Check if you want to show <strong>Color Overlay</strong> for Header.' ),
+               'type'         => 'checkbox',
+               'defaultvalue' => 1,
+            ),
+            'color_overlay' => array(
+               'label'        => T_( 'Change Color Overlay' ),
+               'note'         => T_( 'Set your favorite color for Header Color Overlay' ),
+               'type'         => 'color',
+               'defaultvalue' => '#000000',
+            ),
+            'opcity_cv' => array(
+               'label'        => T_( 'Opacity Color Overlay' ),
+               'note'         => T_( 'Set the opacity Color Overlay value is 0.1 - 1' ),
+               'type'         => 'select',
+               'options'      => array(
+                  '0.1'  => T_( '0.1' ),
+                  '0.2'  => T_( '0.2' ),
+                  '0.3'  => T_( '0.3' ),
+                  '0.4'  => T_( '0.4' ),
+                  '0.5'  => T_( '0.5' ),
+                  '0.6'  => T_( '0.6' ),
+                  '0.7'  => T_( '0.7' ),
+                  '0.8'  => T_( '0.8' ),
+                  '0.9'  => T_( '0.9' ),
+                  '10'  => T_( '1' ),
+               ),
+               'defaultvalue' => '0.2',
+            ),
+            'header_content_align' => array(
+               'label'        => T_( 'Content Align' ),
+               'note'         => T_(''),
+               'type'         => 'radio',
+               'defaultvalue' => 'center',
+               'options'      => array(
+                  array( 'left', T_( 'Left' ) ),
+                  array( 'center', T_( 'Center' ) ),
+                  array( 'right', T_( 'Right' ) ),
+               ),
+            ),
+         'section_header_end' => array(
+            'layout'   => 'end_fieldset'
+         ),
 
-            /* Colorbox Image Zoom
-             * ========================================================================== */
-				'section_colorbox_start' => array(
-					'layout' => 'begin_fieldset',
-					'label'  => T_('Colorbox Image Zoom')
-				),
-					'colorbox' => array(
-						'label'        => T_('Colorbox Image Zoom'),
-						'note'         => T_('Check to enable javascript zooming on images (using the colorbox script)'),
-						'defaultvalue' => 1,
-						'type'         => 'checkbox',
-					),
-					'colorbox_vote_post' => array(
-						'label'        => T_('Voting on Post Images'),
-						'note'         => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
-						'defaultvalue' => 1,
-						'type'         => 'checkbox',
-					),
-					'colorbox_vote_post_numbers' => array(
-						'label'        => T_('Display Votes'),
-						'note'         => T_('Check to display number of likes and dislikes'),
-						'defaultvalue' => 1,
-						'type'         => 'checkbox',
-					),
-					'colorbox_vote_comment' => array(
-						'label'        => T_('Voting on Comment Images'),
-						'note'         => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
-						'defaultvalue' => 1,
-						'type'         => 'checkbox',
-					),
-					'colorbox_vote_comment_numbers' => array(
-						'label'        => T_('Display Votes'),
-						'note'         => T_('Check to display number of likes and dislikes'),
-						'defaultvalue' => 1,
-						'type'         => 'checkbox',
-					),
-					'colorbox_vote_user' => array(
-						'label'        => T_('Voting on User Images'),
-						'note'         => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
-						'defaultvalue' => 1,
-						'type'         => 'checkbox',
-					),
-					'colorbox_vote_user_numbers' => array(
-						'label'        => T_('Display Votes'),
-						'note'         => T_('Check to display number of likes and dislikes'),
-						'defaultvalue' => 1,
-						'type'         => 'checkbox',
-					),
-				'section_colorbox_end' => array(
-					'layout' => 'end_fieldset',
-				),
+         /* Main Navigation
+          * ========================================================================== */
+         'section_nav_start' => array(
+            'layout' => 'begin_fieldset',
+            'label'  => T_('Main Navigation'),
+         ),
+            'nav_bg'  => array(
+               'label'        => T_( 'Background Color' ),
+               'note'         => T_( 'Change background color main navigation. Default value is <strong>#1B1B1B</strong>' ),
+               'type'         => 'color',
+               'defaultvalue' => '#1B1B1B'
+            ),
+            'nav_sticky' => array(
+               'label'        => T_( 'Sticky Mode' ),
+               'note'         => T_( 'Check to enable <strong>Sticky Nav</strong>.' ),
+               'type'         => 'checkbox',
+               'defaultvalue' => 1,
+            ),
+            'nav_align' => array(
+               'label'        => T_( 'Menu Align' ),
+               'note'         => T_(''),
+               'type'         => 'radio',
+               'defaultvalue' => 'center',
+               'options'      => array(
+                  array( 'left', T_( 'Left' ) ),
+                  array( 'center', T_( 'Center' ) ),
+                  array( 'right', T_( 'Right' ) ),
+               ),
+            ),
+            'nav_color' => array(
+               'label'        => T_( 'Nav Color' ),
+               'note'         => T_( 'Set the color link menu. Default value is <strong>Empty</strong>' ),
+               'type'         => 'color',
+               'defaultvalue' => '',
+            ),
+            'nav_color_hov' => array(
+               'label'        => T_( 'Nav Color Hover' ),
+               'note'         => T_( 'Set the color when hover. Default value is #FFFFFF' ),
+               'type'         => 'color',
+               'defaultvalue' => '#FFFFFF',
+            ),
+         'section_nav_end' => array(
+            'layout'   => 'end_fieldset',
+         ),
 
-            /* Username Start
-             * ========================================================================== */
-				'section_username_start' => array(
-					'layout' => 'begin_fieldset',
-					'label'  => T_('Username options')
+         /* Image Viewing
+          * ========================================================================== */
+			'section_image_start' => array(
+				'layout' => 'begin_fieldset',
+				'label'  => T_('Image Viewing')
+			),
+				'max_image_height' => array(
+					'label'        => T_('Max comment image height'),
+					'note'         => 'px',
+					'defaultvalue' => '',
+					'type'         => 'integer',
+					'allow_empty'  => true,
 				),
-					'gender_colored' => array(
-						'label'        => T_('Display gender'),
-						'note'         => T_('Use colored usernames to differentiate men & women.'),
-						'defaultvalue' => 0,
-						'type'         => 'checkbox',
-					),
-					'bubbletip' => array(
-						'label'        => T_('Username bubble tips'),
-						'note'         => T_('Check to enable bubble tips on usernames'),
-						'defaultvalue' => 0,
-						'type'         => 'checkbox',
-					),
-					'autocomplete_usernames' => array(
-						'label'        => T_('Autocomplete usernames'),
-						'note'         => T_('Check to enable auto-completion of usernames entered after a "@" sign in the comment forms'),
-						'defaultvalue' => 1,
-						'type'         => 'checkbox',
-					),
-				'section_username_end' => array(
-					'layout' => 'end_fieldset',
+				'posts_thumb_size' => array(
+					'label'        => T_('Thumbnail size for Albums'),
+					'note'         => '',
+					'defaultvalue' => 'crop-192x192',
+					'options'      => get_available_thumb_sizes(),
+					'type'         => 'select',
 				),
+				'single_thumb_size' => array(
+					'label'        => T_('Thumbnail size inside Album'),
+					'note'         => '',
+					'defaultvalue' => 'fit-640x480',
+					'options'      => get_available_thumb_sizes(),
+					'type'         => 'select',
+				),
+				'mediaidx_thumb_size' => array(
+					'label'        => T_('Thumbnail size in Media index'),
+					'note'         => '',
+					'defaultvalue' => 'fit-256x256',
+					'options'      => get_available_thumb_sizes(),
+					'type'         => 'select',
+				),
+				'banner_public' => array(
+					'label'        => T_('Display "Public" banner'),
+					'note'         => T_('Display banner for "Public" albums (albums & comments)'),
+					'defaultvalue' => 1,
+					'type'         => 'checkbox',
+				),
+			'section_image_end' => array(
+				'layout' => 'end_fieldset',
+			),
 
-            /* Acces Options
-             * ========================================================================== */
-				'section_access_start' => array(
-					'layout' => 'begin_fieldset',
-					'label'  => T_('When access is denied or requires login...')
-				),
-					'access_login_containers' => array(
-						'label'   => T_('Display on login screen'),
-						'note'    => '',
-						'type'    => 'checklist',
-						'options' => array(
-							array( 'header',   sprintf( T_('"%s" container'), NT_('Header') ),    1 ),
-							array( 'page_top', sprintf( T_('"%s" container'), NT_('Page Top') ),  1 ),
-							array( 'menu',     sprintf( T_('"%s" container'), NT_('Menu') ),      0 ),
-							array( 'footer',   sprintf( T_('"%s" container'), NT_('Footer') ),    1 ) ),
-						),
-				'section_access_end' => array(
-					'layout' => 'end_fieldset',
-				),
+         /* Footer Options
+          * ========================================================================== */
+         'section_footer_start' => array(
+            'layout'  => 'begin_fieldset',
+            'label'   => T_( 'Footer Options' ),
+         ),
+            'footer_bg' => array(
+               'label'        => T_( 'Background Color' ),
+               'note'         => T_( 'Change the main footer background color, default value is #0E1215' ),
+               'type'         => 'color',
+               'defaultvalue' => '#0E1215',
+            ),
+            'footer_widget' => array(
+               'label'        => T_( 'Enable Footer Widget' ),
+               'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu <strong>Widgets</strong>.' ),
+               'type'         => 'checkbox',
+               'defaultvalue' => '0'
+            ),
+            'footer_widget_column' => array(
+               'label'        => T_( 'Widget Column' ),
+               'note'         => T_( '' ),
+               'type'         => 'radio',
+               'defaultvalue' => '3',
+               'options'      => array(
+                  array( '1', T_( '1 Column' ) ),
+                  array( '2', T_( '2 Column' ) ),
+                  array( '3', T_( '3 Column' ) ),
+                  array( '4', T_( '4 Column' ) ),
+               ),
+            ),
+            'footer_bottom_align' => array(
+               'label'        => T_( 'Footer Bottom Mode' ),
+               'note'         => T_(''),
+               'type'         => 'radio',
+               'defaultvalue' => 'center',
+               'options'      => array(
+                  array( 'float', T_( 'Float Mode' ) ),
+                  array( 'center', T_( 'Center Mode' ) ),
+               ),
+            ),
+         'section_footer_end' => array(
+            'layout'  => 'end_fieldset',
+         ),
 
-			), parent::get_param_definitions( $params ) );
+         /* Colorbox Image Zoom
+          * ========================================================================== */
+			'section_colorbox_start' => array(
+				'layout' => 'begin_fieldset',
+				'label'  => T_('Colorbox Image Zoom')
+			),
+				'colorbox' => array(
+					'label'        => T_('Colorbox Image Zoom'),
+					'note'         => T_('Check to enable javascript zooming on images (using the colorbox script)'),
+					'defaultvalue' => 1,
+					'type'         => 'checkbox',
+				),
+				'colorbox_vote_post' => array(
+					'label'        => T_('Voting on Post Images'),
+					'note'         => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
+					'defaultvalue' => 1,
+					'type'         => 'checkbox',
+				),
+				'colorbox_vote_post_numbers' => array(
+					'label'        => T_('Display Votes'),
+					'note'         => T_('Check to display number of likes and dislikes'),
+					'defaultvalue' => 1,
+					'type'         => 'checkbox',
+				),
+				'colorbox_vote_comment' => array(
+					'label'        => T_('Voting on Comment Images'),
+					'note'         => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
+					'defaultvalue' => 1,
+					'type'         => 'checkbox',
+				),
+				'colorbox_vote_comment_numbers' => array(
+					'label'        => T_('Display Votes'),
+					'note'         => T_('Check to display number of likes and dislikes'),
+					'defaultvalue' => 1,
+					'type'         => 'checkbox',
+				),
+				'colorbox_vote_user' => array(
+					'label'        => T_('Voting on User Images'),
+					'note'         => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
+					'defaultvalue' => 1,
+					'type'         => 'checkbox',
+				),
+				'colorbox_vote_user_numbers' => array(
+					'label'        => T_('Display Votes'),
+					'note'         => T_('Check to display number of likes and dislikes'),
+					'defaultvalue' => 1,
+					'type'         => 'checkbox',
+				),
+			'section_colorbox_end' => array(
+				'layout' => 'end_fieldset',
+			),
+
+         /* Username Start
+          * ========================================================================== */
+			'section_username_start' => array(
+				'layout' => 'begin_fieldset',
+				'label'  => T_('Username options')
+			),
+				'gender_colored' => array(
+					'label'        => T_('Display gender'),
+					'note'         => T_('Use colored usernames to differentiate men & women.'),
+					'defaultvalue' => 0,
+					'type'         => 'checkbox',
+				),
+				'bubbletip' => array(
+					'label'        => T_('Username bubble tips'),
+					'note'         => T_('Check to enable bubble tips on usernames'),
+					'defaultvalue' => 0,
+					'type'         => 'checkbox',
+				),
+				'autocomplete_usernames' => array(
+					'label'        => T_('Autocomplete usernames'),
+					'note'         => T_('Check to enable auto-completion of usernames entered after a "@" sign in the comment forms'),
+					'defaultvalue' => 1,
+					'type'         => 'checkbox',
+				),
+			'section_username_end' => array(
+				'layout' => 'end_fieldset',
+			),
+
+         /* Acces Options
+          * ========================================================================== */
+			'section_access_start' => array(
+				'layout' => 'begin_fieldset',
+				'label'  => T_('When access is denied or requires login...')
+			),
+				'access_login_containers' => array(
+					'label'   => T_('Display on login screen'),
+					'note'    => '',
+					'type'    => 'checklist',
+					'options' => array(
+						array( 'header',   sprintf( T_('"%s" container'), NT_('Header') ),    1 ),
+						array( 'page_top', sprintf( T_('"%s" container'), NT_('Page Top') ),  1 ),
+						array( 'menu',     sprintf( T_('"%s" container'), NT_('Menu') ),      0 ),
+						array( 'footer',   sprintf( T_('"%s" container'), NT_('Footer') ),    1 ) ),
+					),
+			'section_access_end' => array(
+				'layout' => 'end_fieldset',
+			),
+
+		), parent::get_param_definitions( $params ) );
 
 		return $r;
 	}
@@ -471,7 +549,9 @@ class stain_gallery_Skin extends Skin
 
 		// Skin specific initializations:
       // Include Script
-      require_js( $this->get_url().'assets/scripts/jquery.sticky.js' );
+      if ( $this->get_setting( 'nav_sticky' ) == 1 ) {
+         require_js( $this->get_url().'assets/scripts/jquery.sticky.js' );
+      }
       require_js( $this->get_url().'assets/scripts/scripts.js' );
 
 		// Add custom CSS:
@@ -557,16 +637,127 @@ class stain_gallery_Skin extends Skin
 		if( isset( $thumbnail_sizes[ $single_thumb_size ] ) )
 		{
 			// Make the width of image block as fixed to don't expand it by long post title text
-			$custom_css .= '.post_images .single-image .evo_image_legend { width: 100%; }\n';
+			$custom_css .= '.post_images .single-image .evo_image_legend { width: 100%; }';
 			// Set width & height for block with text "No pictures yet"
 			/*$custom_css .= '	.posts_list .evo_post b { width:'.( $thumbnail_sizes[ $single_thumb_size ][1] - 20 ).'px;'
 				.'height:'.( $thumbnail_sizes[ $single_thumb_size ][2] - 20 ).'px'." }\n";*/
 		}
 
+      /* Header Options
+       * ========================================================================== */
+      if ( $height = $this->get_setting( 'header_height' ) ) {
+         $custom_css .= '.main_header{ height: '.$height.'px; }';
+      }
+
+      $bg_header = $this->get_setting( 'header_bg' );
+      switch ( $bg_header ) {
+         case $bg_header:
+            $custom_css .= ".main_header{ background-image: url('$bg_header') }";
+            break;
+
+         default:
+            # code...
+            break;
+      }
+
+      if ( $bg_x = $this->get_setting( 'header_bg_position_x' ) ) {
+         $custom_css .= '.main_header{ background-position-x: '.$bg_x.'%; }';
+      }
+      if ( $bg_y = $this->get_setting( 'header_bg_position_y' ) ) {
+         $custom_css .= '.main_header{ background-position-y: '.$bg_y.'%; }';
+      }
+
+      $header_bg_attach = $this->get_setting( 'header_bg_attach' );
+      switch ( $header_bg_attach ) {
+         case $header_bg_attach:
+            $custom_css .= '.main_header{ background-attachment: '.$header_bg_attach.'; }';
+            break;
+
+         default:
+            # code...
+            break;
+      }
+
+      $header_bg_size = $this->get_setting( 'header_bg_size' );
+      switch ( $header_bg_size ) {
+         case $header_bg_size:
+            $custom_css .= '.main_header{ background-size: '.$header_bg_size.'; }';
+            break;
+
+         default:
+            # code...
+            break;
+      }
+
+      // Color Overlay
+      if ( $this->get_setting( 'header_overlay' ) == 0 ) {
+         $custom_css .= '.main_header::after{ display: none }';
+      }
+      if ( $color = $this->get_setting( 'color_overlay' ) ) {
+         $custom_css .= '.main_header::after{ background-color: '.$color.' }';
+      }
+      $overlay_opacity = $this->get_setting( 'opcity_cv' );
+      switch ( $overlay_opacity ) {
+         case $overlay_opacity:
+            $custom_css .= '.main_header::after{ opacity: '.$overlay_opacity.' }';
+         break;
+
+         default:
+            # code...
+         break;
+      }
+
+      // Brand Content Align
+      $align = $this->get_setting( 'header_content_align' );
+      switch ( $align ) {
+         case $align:
+            $custom_css .= '.main_header .brand{ text-align: '.$align.'; }';
+         break;
+
+         default:
+            # code...
+         break;
+      }
+
+      /* Main Navigation
+       * ========================================================================== */
+      if ( $bg = $this->get_setting( 'nav_bg' ) ) {
+         $custom_css .= '.main_navigation{ background-color: '.$bg.' }';
+      }
+
+      $nav_align = $this->get_setting( 'nav_align' );
+      switch ( $nav_align ) {
+         case 'left':
+            $custom_css .= '.main_navigation .nav-tabs{ text-align: left; }';
+            break;
+
+         case 'right':
+            $custom_css .= '.main_navigation .nav-tabs{ text-align: right; }';
+            $custom_css .= '.main_navigation .nav-tabs li{ float: right; }';
+            break;
+
+         default:
+            # code...
+            break;
+      }
+
+      if ( $color = $this->get_setting( 'nav_color' ) ) {
+         $custom_css .= '.main_navigation .nav-tabs a{ color: '.$color.' }';
+      }
+
+      if( $color = $this->get_setting( 'nav_color_hov' ) ) {
+         $custom_css .= '
+         .main_navigation .nav-tabs li:hover a, .main_navigation .nav-tabs li:active a, .main_navigation .nav-tabs li:focus a, .main_navigation .nav-tabs li.active a
+         { color: '.$color.'; }';
+         $custom_css .= '.main_navigation .nav-tabs a:before, .main_navigation .nav-tabs a:after{ background-color: '.$color.' }';
+      }
+
+      /* Output the custom CSS
+       * ========================================================================== */
 		if( !empty( $custom_css ) ) {
 			$custom_css = '
             <style type="text/css">
-            	<!-- '.$custom_css.'	-->
+             '.$custom_css.'
             </style>';
 			add_headline( $custom_css );
 		}

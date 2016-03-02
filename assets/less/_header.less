@@ -5,7 +5,7 @@
    position: relative;
    height: 300px;
    background-image: url('assets/images/header/header-3.jpg');
-   background-repeat: no-repeat;
+   // background-repeat: no-repeat;
    background-position-x: 50%;
    background-position-y: 50%;
    background-size: cover;
@@ -28,57 +28,64 @@
       height: 260px;
    }
 
-   // Widget Header
+   // Brand Style
    // ======================================================================== /
-   .evo_widget {
-      position: relative;
-      top: 100px;
+   .brand {
+      position: absolute;
+      max-width: 1140px;
+      top: 38%;
+      left: 0;
+      right: 0;
       margin: 0 auto;
+      padding: 0 15px;
       text-align: center;
 
-      &.widget_core_coll_title {
+      .evo_widget{
 
-         h1 {
-            margin: 0;
+         &.widget_core_coll_title {
+
+            h1 {
+               margin: 0;
+            }
+
+            a {
+               font-size: 4.2rem;
+               font-weight: 700;
+               letter-spacing: 2px;
+               text-transform: uppercase;
+               color: @w;
+               text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.3 );
+
+               &:hover, &:active, &:focus {
+                  text-decoration: none;
+               }
+
+               @media screen and ( max-width: @M ) {
+                  font-size: 3.8rem;
+               }
+
+               @media screen and ( max-width: @S ) {
+                  font-size: 3.2rem;
+               }
+            }
          }
 
-         a {
-            font-size: 4.2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+         &.widget_core_coll_tagline {
+            font-family: @font_heading;
+            font-size: 1.5rem;
             color: @w;
             text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.3 );
 
-            &:hover, &:active, &:focus {
-               text-decoration: none;
-            }
-
             @media screen and ( max-width: @M ) {
-               font-size: 3.8rem;
+               font-size: 1.4rem;
             }
 
             @media screen and ( max-width: @S ) {
-               font-size: 3.2rem;
+               font-size: 1.3rem;
             }
          }
+
       }
-
-      &.widget_core_coll_tagline {
-         font-family: @font_heading;
-         font-size: 1.5rem;
-         color: @w;
-         text-shadow: 2px 2px 2px rgba( 0, 0, 0, 0.3 );
-
-         @media screen and ( max-width: @M ) {
-            font-size: 1.4rem;
-         }
-
-         @media screen and ( max-width: @S ) {
-            font-size: 1.3rem;
-         }
-      }
-
    }
 }
 
@@ -207,6 +214,11 @@
    width: 100% !important;
 
    &.is-sticky {
+
+      .main_navigation {
+         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+      }
+
       .nav-tabs {
          padding: 6px 0;
          transition: all 0.32s ease;

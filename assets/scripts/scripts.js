@@ -1,8 +1,10 @@
-jQuery( document ).ready( function($) {
+jQuery( function($) {
 
-   $(".main_navigation").sticky({
-      topSpacing: 25,
-      center:true
-   });
+   if ( $.fn.sticky ) {
+      $(".main_navigation").sticky({
+         topSpacing: 25,
+         center:true
+      });
+   }
 
 });

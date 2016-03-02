@@ -285,7 +285,6 @@ ul.profile_tabs {
   position: relative;
   height: 300px;
   background-image: url('assets/images/header/header-3.jpg');
-  background-repeat: no-repeat;
   background-position-x: 50%;
   background-position-y: 50%;
   background-size: cover;
@@ -308,16 +307,20 @@ ul.profile_tabs {
     height: 260px;
   }
 }
-.main_header .evo_widget {
-  position: relative;
-  top: 100px;
+.main_header .brand {
+  position: absolute;
+  max-width: 1140px;
+  top: 38%;
+  left: 0;
+  right: 0;
   margin: 0 auto;
+  padding: 0 15px;
   text-align: center;
 }
-.main_header .evo_widget.widget_core_coll_title h1 {
+.main_header .brand .evo_widget.widget_core_coll_title h1 {
   margin: 0;
 }
-.main_header .evo_widget.widget_core_coll_title a {
+.main_header .brand .evo_widget.widget_core_coll_title a {
   font-size: 4.2rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -325,34 +328,34 @@ ul.profile_tabs {
   color: #ffffff;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
-.main_header .evo_widget.widget_core_coll_title a:hover,
-.main_header .evo_widget.widget_core_coll_title a:active,
-.main_header .evo_widget.widget_core_coll_title a:focus {
+.main_header .brand .evo_widget.widget_core_coll_title a:hover,
+.main_header .brand .evo_widget.widget_core_coll_title a:active,
+.main_header .brand .evo_widget.widget_core_coll_title a:focus {
   text-decoration: none;
 }
 @media screen and (max-width: 768px) {
-  .main_header .evo_widget.widget_core_coll_title a {
+  .main_header .brand .evo_widget.widget_core_coll_title a {
     font-size: 3.8rem;
   }
 }
 @media screen and (max-width: 480px) {
-  .main_header .evo_widget.widget_core_coll_title a {
+  .main_header .brand .evo_widget.widget_core_coll_title a {
     font-size: 3.2rem;
   }
 }
-.main_header .evo_widget.widget_core_coll_tagline {
+.main_header .brand .evo_widget.widget_core_coll_tagline {
   font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
   color: #ffffff;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 @media screen and (max-width: 768px) {
-  .main_header .evo_widget.widget_core_coll_tagline {
+  .main_header .brand .evo_widget.widget_core_coll_tagline {
     font-size: 1.4rem;
   }
 }
 @media screen and (max-width: 480px) {
-  .main_header .evo_widget.widget_core_coll_tagline {
+  .main_header .brand .evo_widget.widget_core_coll_tagline {
     font-size: 1.3rem;
   }
 }
@@ -471,6 +474,9 @@ ul.profile_tabs {
 }
 .sticky-wrapper {
   width: 100% !important;
+}
+.sticky-wrapper.is-sticky .main_navigation {
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .sticky-wrapper.is-sticky .nav-tabs {
   padding: 6px 0;
