@@ -331,6 +331,18 @@ class stain_gallery_Skin extends Skin
             'layout'   => 'end_fieldset',
          ),
 
+
+			/* Content Options
+			 * ========================================================================== */
+			'section_contents_start' => array(
+				'layout'	=> 'begin_fieldset',
+				'label' 	=> T_( 'Content Options' ),
+			),
+			'section_contents_end' => array(
+				'layout'	=> 'end_fieldset',
+			),
+
+
          /* Image Viewing
           * ========================================================================== */
 			'section_image_start' => array(
@@ -415,6 +427,12 @@ class stain_gallery_Skin extends Skin
                   array( 'center', T_( 'Center Mode' ) ),
                ),
             ),
+				'footer_social' => array(
+					'label'		   => T_( 'Enable Social Icon' ),
+					'note'		   => T_( 'Check to enable Social Icon on footer.' ),
+					'type'		   => 'checkbox',
+					'defaultvalue' => 1,
+				),
          'section_footer_end' => array(
             'layout'  => 'end_fieldset',
          ),
@@ -751,6 +769,18 @@ class stain_gallery_Skin extends Skin
          { color: '.$color.'; }';
          $custom_css .= '.main_navigation .nav-tabs a:before, .main_navigation .nav-tabs a:after{ background-color: '.$color.' }';
       }
+
+		/* Footer Custom Options
+       * ========================================================================== */
+		if ( $bg = $this->get_setting( 'footer_bg' ) ) {
+			$custom_css .= '#footer{ background-color: '.$bg.' }';
+		}
+
+		if ( $this->get_setting( 'footer_bottom_align' ) == 'center' ) {
+			$custom_css .= '#footer .copyright, .footer__social{ float: none; text-align: center; }';
+		}
+
+
 
       /* Output the custom CSS
        * ========================================================================== */

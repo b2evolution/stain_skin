@@ -11,6 +11,7 @@
  * @subpackage bootstrap_gallery_skin
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
+global $Skin;
 
 ?>
 <!-- =================================== START OF FOOTER =================================== -->
@@ -18,33 +19,66 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
    <div class="container">
    	<div class="footer__content">
 
-   		<div class="evo_container footer__widgets">
-   		<?php
-   			// Display container and contents:
-   			skin_container( NT_("Footer"), array(
-					// The following params will be used as defaults for widgets included in this container:
-					'block_start'          => '<div class="evo_widget $wi_class$">',
-					'block_end'            => '</div>',
-               'block_title_start'    => '<h3 class="widget_title">',
-               'block_title_end'      => '</h3>',
-               // If a widget displays a list, this will enclose that list:
-               'list_start'           => '<ul>',
-               'list_end'             => '</ul>',
-               // This will enclose each item in a list:
-               'item_start'           => '<li>',
-               'item_end'             => '</li>',
-               // Search Custome
-               'search_class'         => 'compact_search_form',
-               'search_input_before'  => '<div class="input-group">',
-               'search_input_after'   => '',
-               'search_submit_before' => '<span class="input-group-btn">',
-               'search_submit_after'  => '</span></div>',
-				) );
-   			// Note: Double quotes have been used around "Footer" only for test purposes.
-   		?>
-   		</div>
+         <?php if ( $Skin->get_setting( 'footer_widget' ) ) : ?>
+      		<div class="evo_container footer__widgets clearfix">
+      		<?php
+               $wic = $Skin->get_setting( 'footer_widget_column' );
+               $column = '';
+               switch ( $wic ) {
+                  case '2':
+                     $column = 'col-md-6';
+                     break;
+
+                  case '3':
+                     $column = 'col-md-4';
+                     break;
+
+                  case '4':
+                     $column = 'col-md-3';
+                     break;
+
+                  default:
+                     $column = 'col-md-12';
+                     break;
+               }
+
+      			// Display container and contents:
+      			skin_container( NT_("Footer"), array(
+   					// The following params will be used as defaults for widgets included in this container:
+   					'block_start'          => '<div class="evo_widget $wi_class$ '.$column.' col-sm-6 col-xs-12">',
+   					'block_end'            => '</div>',
+                  'block_title_start'    => '<h3 class="widget_title">',
+                  'block_title_end'      => '</h3>',
+                  // If a widget displays a list, this will enclose that list:
+                  'list_start'           => '<ul>',
+                  'list_end'             => '</ul>',
+                  // This will enclose each item in a list:
+                  'item_start'           => '<li>',
+                  'item_end'             => '</li>',
+                  // Search Custome
+                  'search_class'         => 'compact_search_form',
+                  'search_input_before'  => '<div class="input-group">',
+                  'search_input_after'   => '',
+                  'search_submit_before' => '<span class="input-group-btn">',
+                  'search_submit_after'  => '</span></div>',
+   				) );
+      			// Note: Double quotes have been used around "Footer" only for test purposes.
+      		?>
+      		</div>
+         <?php endif; ?>
 
          <div class="footer__bottom">
+
+            <?php
+               if ( $Skin->get_setting( 'footer_social' ) == 1 ) {
+                  skin_widget( array(
+                     'widget'          => 'user_links',
+                     'block_start'     => '<div class="footer__social float-right">',
+                     'block_end'       => '</div>',
+                  ));
+               }
+            ?>
+
       		<p class="copyright float-left">
       			<?php
       				// Display footer text (text can be edited in Blog Settings):
@@ -84,13 +118,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
       			?>
       		</p>
 
-            <?php
-               skin_widget( array(
-                  'widget'          => 'user_links',
-                  'block_start'     => '<div class="footer__social float-right">',
-                  'block_end'       => '</div>',
-               ));
-            ?>
          </div>
 
 	   </div><!-- .footer__content -->

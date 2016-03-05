@@ -71,12 +71,13 @@ if( $Item = get_featured_Item( 'catdir' ) )
 // --------------------------------- START OF POSTS -------------------------------------
 // Display message if no post:
 $params_no_content = array(
-		'before' => '<div class="msg_nothing">',
-		'after'  => '</div>',
-		'msg_empty_logged_in'     => T_('Sorry, there is nothing to display...'),
-		// This will display if the collection has not been made private. Otherwise we will be redirected to a login screen anyways
-		'msg_empty_not_logged_in' => T_('This site has no public contents.')
-	);
+	'before' => '<div class="msg_nothing">',
+	'after'  => '</div>',
+	'msg_empty_logged_in'     => T_('Sorry, there is nothing to display...'),
+	// This will display if the collection has not been made private. Otherwise we will be redirected to a login screen anyways
+	'msg_empty_not_logged_in' => T_('This site has no public contents.')
+);
+
 // Get only root categories of this blog
 $ChapterCache = & get_ChapterCache();
 $chapters = $ChapterCache->get_chapters( $Blog->ID, 0, true );
@@ -84,32 +85,32 @@ $chapters = $ChapterCache->get_chapters( $Blog->ID, 0, true );
 $no_content_to_display = true;
 if( ! empty( $chapters ) )
 { // Display the posts with chapters
-	foreach( $chapters as $Chapter )
-	{
+	foreach( $chapters as $Chapter ) {
 		// Get the posts of current category
 		$ItemList = new ItemList2( $Blog, $Blog->get_timestamp_min(), $Blog->get_timestamp_max() );
 		$ItemList->set_filters( array(
-				'cat_array'    => array( $Chapter->ID ), // Limit only by selected cat (exclude posts from child categories)
-				'cat_modifier' => NULL,
-				'unit'         => 'all', // Display all items of this category, Don't limit by page
-			) );
+			'cat_array'    => array( $Chapter->ID ), // Limit only by selected cat (exclude posts from child categories)
+			'cat_modifier' => NULL,
+			'unit'         => 'all', // Display all items of this category, Don't limit by page
+		) );
 		$ItemList->query();
-		if( $ItemList->result_num_rows > 0 )
-		{
+		if( $ItemList->result_num_rows > 0 ) {
 			$no_content_to_display = false;
-?>
-<div class="posts_list">
-	<div class="category_title clear"><h2><a href="<?php echo $Chapter->get_permanent_url(); ?>"><?php echo $Chapter->get( 'name' ); ?></a></h2></div>
-<?php
-			while( $Item = & $ItemList->get_item() )
-			{ // For each blog post, do everything below up to the closing curly brace "}"
-				// Temporarily switch to post locale (useful for multilingual blogs)
-				$Item->locale_temp_switch();
-?>
-<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
-<?php
-				// Display images that are linked to this post:
-				$item_first_image = $Item->get_images( array(
+			?>
+			<div class="posts_list">
+				<div class="category_title clear">
+					<h2><a href="<?php echo $Chapter->get_permanent_url(); ?>"><?php echo $Chapter->get( 'name' ); ?></a></h2>
+				</div>
+				<?php
+					while( $Item = & $ItemList->get_item() )
+					{ // For each blog post, do everything below up to the closing curly brace "}"
+						// Temporarily switch to post locale (useful for multilingual blogs)
+						$Item->locale_temp_switch();
+				?>
+				<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
+				<?php
+					// Display images that are linked to this post:
+					$item_first_image = $Item->get_images( array(
 						'before'              => '',
 						'before_image'        => '',
 						'before_image_legend' => '',
@@ -124,42 +125,42 @@ if( ! empty( $chapters ) )
 						'get_rendered_attachments'   => false,
 						// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
 						'links_sql_select'           => ', CASE '
-								.'WHEN link_position = "cover"     THEN "1" '
-								.'WHEN link_position = "teaser"    THEN "2" '
-								.'WHEN link_position = "aftermore" THEN "3" '
-								.'WHEN link_position = "inline"    THEN "4" '
+							.'WHEN link_position = "cover"     THEN "1" '
+							.'WHEN link_position = "teaser"    THEN "2" '
+							.'WHEN link_position = "aftermore" THEN "3" '
+							.'WHEN link_position = "inline"    THEN "4" '
 								// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
 							.'END AS position_order',
 						'links_sql_orderby'          => 'position_order, link_order',
 					) );
-				if( empty( $item_first_image ) )
-				{ // No images in this post, Display an empty block
-					$item_first_image = $Item->get_permanent_link( '<b>'.T_('No pictures yet').'</b>', '#', 'album_nopic' );
-				}
-				else if( $item_first_image == 'plugin_render_attachments' )
-				{ // No images, but some attachments(e.g. videos) are rendered by plugins
-					$item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
-				}
-				// Display a title
-				echo $Item->get_title( array(
-					'before' => $item_first_image.'<br />',
-					) );
-				// Restore previous locale (Blog locale)
-				locale_restore_previous();
-?>
-</div>
-<?php
-			}
+					if( empty( $item_first_image ) )
+					{ // No images in this post, Display an empty block
+						$item_first_image = $Item->get_permanent_link( '<b>'.T_('No pictures yet').'</b>', '#', 'album_nopic' );
+					}
+					else if( $item_first_image == 'plugin_render_attachments' )
+					{ // No images, but some attachments(e.g. videos) are rendered by plugins
+						$item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
+					}
+					// Display a title
+					echo $Item->get_title( array(
+						'before' => $item_first_image.'<br />',
+						) );
+					// Restore previous locale (Blog locale)
+					locale_restore_previous();
+				?>
+				</div>
+		<?php
 		}
-?>
-</div>
-<?php
+	} ?>
+			</div>
+		<?php
 	}
 } // ---------------------------------- END OF POSTS ------------------------------------
+
 if( $no_content_to_display )
 { // No category and no post in this blog
 	echo $params_no_content['before']
-		.( is_logged_in() ? $params_no_content['msg_empty_logged_in'] : $params_no_content['msg_empty_not_logged_in'] )
-		.$params_no_content['after'];
+	.( is_logged_in() ? $params_no_content['msg_empty_logged_in'] : $params_no_content['msg_empty_not_logged_in'] )
+	.$params_no_content['after'];
 }
 ?>
