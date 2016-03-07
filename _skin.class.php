@@ -570,6 +570,7 @@ class stain_gallery_Skin extends Skin
       if ( $this->get_setting( 'nav_sticky' ) == 1 ) {
          require_js( $this->get_url().'assets/scripts/jquery.sticky.js' );
       }
+      require_js( $this->get_url().'assets/scripts/masonry.pkgd.min.js' );
       require_js( $this->get_url().'assets/scripts/scripts.js' );
 
 		// Add custom CSS:

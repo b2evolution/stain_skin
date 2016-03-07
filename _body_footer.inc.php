@@ -20,7 +20,7 @@ global $Skin;
    	<div class="footer__content">
 
          <?php if ( $Skin->get_setting( 'footer_widget' ) ) : ?>
-      		<div class="evo_container footer__widgets clearfix">
+      		<div class="row evo_container footer__widgets clearfix">
       		<?php
                $wic = $Skin->get_setting( 'footer_widget_column' );
                $column = '';
@@ -68,7 +68,6 @@ global $Skin;
          <?php endif; ?>
 
          <div class="footer__bottom">
-
             <?php
                if ( $Skin->get_setting( 'footer_social' ) == 1 ) {
                   skin_widget( array(
@@ -117,8 +116,7 @@ global $Skin;
    					) );
       			?>
       		</p>
-
-         </div>
+         </div><!-- .footer__bottom -->
 
 	   </div><!-- .footer__content -->
    </div><!-- /.container -->

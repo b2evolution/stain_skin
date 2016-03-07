@@ -37,8 +37,8 @@ skin_include( '_html_header.inc.php', array(
 skin_include( '_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 ?>
-<div class="container">
-   <main id="main_content"><!-- This is were a link like "Jump to main content" would land -->
+<main id="main_content"><!-- This is were a link like "Jump to main content" would land -->
+   <div class="container">
    	<!-- ================================= START OF MAIN AREA ================================== -->
    	<?php
    		// ------------------------- MESSAGES GENERATED FROM ACTIONS -------------------------
@@ -67,31 +67,26 @@ skin_include( '_body_header.inc.php' );
 		) );
    	// ------------------------------ END OF REQUEST TITLE -----------------------------
    	?>
-
-   	<div class="row">
-   		<div class="col-xs-12">
-   		<?php
-   			// -------------- MAIN CONTENT TEMPLATE INCLUDED HERE (Based on $disp) --------------
-   			skin_include( '$disp$', array(
-   					'mediaidx_thumb_size'  => $Skin->get_setting( 'mediaidx_thumb_size' ),
-   					'author_link_text'     => 'preferredname',
-   					'item_class'           => 'evo_post evo_content_block',
-   					'item_type_class'      => 'evo_post__ptyp_',
-   					'item_status_class'    => 'evo_post__',
-   					// Login
-   					'login_page_before'    => '<div class="login_block"><div class="evo_details">',
-   					'login_page_after'     => '</div></div>',
-   					// Register
-   					'register_page_before' => '<div class="login_block"><div class="evo_details">',
-   					'register_page_after'  => '</div></div>',
-   					'display_abort_link'   => ( $Blog->get_setting( 'allow_access' ) == 'public' ), // Display link to abort login only when it is really possible
-   				) );
-   			// Note: you can customize any of the sub templates included here by
-   			// copying the matching php file into your skin directory.
-   			// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
-   		?>
-   		</div><!-- .col -->
-   	</div><!-- .row -->
+		<?php
+			// -------------- MAIN CONTENT TEMPLATE INCLUDED HERE (Based on $disp) --------------
+			skin_include( '$disp$', array(
+					'mediaidx_thumb_size'  => $Skin->get_setting( 'mediaidx_thumb_size' ),
+					'author_link_text'     => 'preferredname',
+					'item_class'           => 'evo_post evo_content_block',
+					'item_type_class'      => 'evo_post__ptyp_',
+					'item_status_class'    => 'evo_post__',
+					// Login
+					'login_page_before'    => '<div class="login_block"><div class="evo_details">',
+					'login_page_after'     => '</div></div>',
+					// Register
+					'register_page_before' => '<div class="login_block"><div class="evo_details">',
+					'register_page_after'  => '</div></div>',
+					'display_abort_link'   => ( $Blog->get_setting( 'allow_access' ) == 'public' ), // Display link to abort login only when it is really possible
+				) );
+			// Note: you can customize any of the sub templates included here by
+			// copying the matching php file into your skin directory.
+			// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
+		?>
 
    	<?php
    	if( $disp != 'catdir' )
@@ -107,8 +102,8 @@ skin_include( '_body_header.inc.php' );
    	}
    	?>
 
-   </main>
-</div><!-- .container -->
+   </div><!-- .container -->
+</main>
 
 
 <?php

@@ -7,4 +7,12 @@ jQuery( function($) {
       });
    }
 
+   if ( $.fn.masonry ) {
+      $('.content_gallery').masonry({
+        // options
+        itemSelector: '.posts_list',
+      //   columnWidth: 200
+      });
+   }
+
 });

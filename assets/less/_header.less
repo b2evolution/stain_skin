@@ -32,13 +32,17 @@
    // ======================================================================== /
    .brand {
       position: absolute;
-      max-width: 1140px;
+      max-width: 1170px;
       top: 38%;
       left: 0;
       right: 0;
       margin: 0 auto;
       padding: 0 15px;
       text-align: center;
+
+      @media screen and ( min-width: 1440px ) {
+         max-width: 1410px;
+      }
 
       .evo_widget{
 

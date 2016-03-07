@@ -309,13 +309,18 @@ ul.profile_tabs {
 }
 .main_header .brand {
   position: absolute;
-  max-width: 1140px;
+  max-width: 1170px;
   top: 38%;
   left: 0;
   right: 0;
   margin: 0 auto;
   padding: 0 15px;
   text-align: center;
+}
+@media screen and (min-width: 1440px) {
+  .main_header .brand {
+    max-width: 1410px;
+  }
 }
 .main_header .brand .evo_widget.widget_core_coll_title h1 {
   margin: 0;
@@ -496,6 +501,74 @@ ul.profile_tabs {
 }
 #main_content {
   padding: 40px 0;
+}
+.content_gallery .posts_list {
+  float: left;
+  width: 33.333%;
+  margin-top: 0px;
+}
+.content_gallery .posts_list ß .evo_post {
+  vertical-align: middle;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+.content_gallery .posts_list .evo_post img,
+.content_gallery .posts_list .posts_list .evo_post b {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  outline: 1px solid transparent;
+}
+.content_gallery .posts_list .evo_post:hover img,
+.content_gallery .posts_list .posts_list .evo_post:hover b {
+  transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-3deg);
+  /* Safari and Chrome */
+}
+.content_gallery .posts_list .evo_post img,
+.content_gallery .posts_list .posts_list .evo_post b {
+  border-radius: 0;
+  margin-bottom: 5px;
+}
+.posts_list,
+.col-lg-12 h2 {
+  text-align: center;
+}
+.evo_post_content {
+  padding-top: 15px;
+}
+.single-image {
+  display: inline-block;
+  padding-bottom: 10px;
+  float: none !important;
+}
+.single-image .img-responsive {
+  width: 100%;
+  text-align: center;
+}
+div.evo_image_index div {
+  margin: 0px 25px;
+  background: none;
+  border: none;
+}
+div.evo_image_index div img {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+div.evo_image_index div:hover img {
+  transform: scale(1.06);
+  -ms-transform: scale(1.06);
+  /* IE 9 */
+  -webkit-transform: scale(1.06);
+  /* Safari and Chrome */
+}
+div.evo_image_index div:hover {
+  background: none;
+}
+.post_images {
+  margin-top: 25px;
 }
 .pagination {
   margin: 0;
@@ -855,83 +928,6 @@ div.bSideItem h4 {
 div.action_messages,
 div.log_container {
   margin: 0;
-}
-.posts_list {
-  text-align: center;
-  margin-top: 0px;
-}
-.posts_list .evo_post {
-  vertical-align: middle;
-  display: inline-block;
-  vertical-align: top;
-  text-align: center;
-  margin: 25px 44px;
-}
-.posts_list .evo_post img,
-.posts_list .posts_list .evo_post b {
-  transition: all 0.15s ease-in-out;
-  -webkit-transition: all 0.15s ease-in-out;
-  -moz-transition: all 0.15s ease-in-out;
-  -o-transition: all 0.15s ease-in-out;
-  -ms-transition: all 0.15s ease-in-out;
-  outline: 1px solid transparent;
-}
-.posts_list .evo_post:hover img,
-.posts_list .posts_list .evo_post:hover b {
-  transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  /* IE 9 */
-  -webkit-transform: rotate(-3deg);
-  /* Safari and Chrome */
-}
-.posts_list .evo_post img,
-.posts_list .posts_list .evo_post b {
-  border-radius: 20px;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -khtml-border-radius: 20px;
-  margin-bottom: 5px;
-}
-.posts_list,
-.col-lg-12 h2 {
-  text-align: center;
-}
-.evo_post_content {
-  padding-top: 15px;
-}
-.single-image {
-  display: inline-block;
-  padding-bottom: 10px;
-  float: none !important;
-}
-.single-image .img-responsive {
-  width: 100%;
-  text-align: center;
-}
-div.evo_image_index div {
-  margin: 0px 25px;
-  background: none;
-  border: none;
-}
-div.evo_image_index div img {
-  transition: all 0.15s ease-in-out;
-  -webkit-transition: all 0.15s ease-in-out;
-  -moz-transition: all 0.15s ease-in-out;
-  -o-transition: all 0.15s ease-in-out;
-  -ms-transition: all 0.15s ease-in-out;
-}
-div.evo_image_index div:hover img {
-  transform: scale(1.06);
-  -ms-transform: scale(1.06);
-  /* IE 9 */
-  -webkit-transform: scale(1.06);
-  /* Safari and Chrome */
-}
-div.evo_image_index div:hover {
-  background: none;
-}
-.post_images {
-  margin-top: 25px;
 }
 .nav_album {
   text-align: center;
