@@ -1,4 +1,4 @@
-jQuery( function($) {
+jQuery(window).load(function (e) {
 
    if ( $.fn.sticky ) {
       $(".main_navigation").sticky({
@@ -8,11 +8,12 @@ jQuery( function($) {
    }
 
    if ( $.fn.masonry ) {
-      $('.content_gallery').masonry({
+      $('.posts_gallery').masonry({
         // options
-        itemSelector: '.posts_list',
+        itemSelector: '.evo_post',
       //   columnWidth: 200
       });
    }
+
 
 });

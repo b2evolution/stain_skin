@@ -28,7 +28,7 @@ $params = array_merge( array(
 // ------------------------------- START OF INTRO POST -------------------------------
 init_MainList( $Blog->get_setting('posts_per_page') );
 if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to display: ?>
-   <div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'jumbotron evo_post' ) ) ?>" lang="<?php $Item->lang() ?>">
+   <div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'feature_post jumbotron' ) ) ?>" lang="<?php $Item->lang() ?>">
 
    	<?php
    	$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
@@ -47,8 +47,8 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
    	}
    	$Item->title( array(
    		'link_type'  => 'none',
-   		'before'     => '<div class="evo_post_title"><h1>',
-   		'after'      => '</h1><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
+   		'before'     => '<div class="evo_post_title"><h2>',
+   		'after'      => '</h2><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
    		'nav_target' => false,
    	) );
 
@@ -60,7 +60,7 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
 
    	locale_restore_previous();	// Restore previous locale (Blog locale)
    	?>
-   </div>
+   </div><!-- .evo_post -->
 <?php
 // ------------------------------- END OF INTRO-FRONT POST -------------------------------
 }
@@ -68,9 +68,9 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
 // --------------------------------- START OF POSTS -------------------------------------
 // Display message if no post:
 $params_no_content = array(
-	'before' => '<div class="msg_nothing">',
-	'after'  => '</div>',
-	'msg_empty_logged_in'     => T_('Sorry, there is nothing to display... ggwp'),
+	'before'                  => '<div class="msg_nothing">',
+	'after'                   => '</div>',
+	'msg_empty_logged_in'     => T_('Sorry, there is nothing to display... okokk'),
 	// This will display if the collection has not been made private. Otherwise we will be redirected to a login screen anyways
 	'msg_empty_not_logged_in' => T_('This site has no public contents.')
 );
@@ -80,3 +80,90 @@ $ChapterCache = & get_ChapterCache();
 $chapters = $ChapterCache->get_chapters( $Blog->ID, 0, true );
 // Boolean var to know when at least one post is displayed
 $no_content_to_display = true;
+if( ! empty( $chapters ) ) { // Display the posts with chapters ?>
+   <div class="posts_gallery">
+   <?php
+	foreach( $chapters as $Chapter ) {
+		// Get the posts of current category
+		$ItemList = new ItemList2( $Blog, $Blog->get_timestamp_min(), $Blog->get_timestamp_max() );
+		$ItemList->set_filters( array(
+			'cat_array'    => array( $Chapter->ID ), // Limit only by selected cat (exclude posts from child categories)
+			'cat_modifier' => NULL,
+			'unit'         => 'all', // Display all items of this category, Don't limit by page
+		) );
+		$ItemList->query();
+		if( $ItemList->result_num_rows > 0 ) {
+			$no_content_to_display = false;
+			?>
+				<?php
+					while( $Item = & $ItemList->get_item() )
+					{ // For each blog post, do everything below up to the closing curly brace "}"
+					  // Temporarily switch to post locale (useful for multilingual blogs)
+						$Item->locale_temp_switch();
+				?>
+				<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
+               <div class="main_content_gallery">
+                  <a href="<?php echo $Chapter->get_permanent_url(); ?>" class="cat_title">
+                     <div class="cat_title_content">
+      					   <h2 class="cat_title_link"><?php echo $Chapter->get( 'name' ); ?></h2>
+                        <span class="btn_cat">View</span>
+                     </div>
+                  </a>
+      				<?php
+      					// Display images that are linked to this post:
+      					$item_first_image = $Item->get_images( array(
+      						'before'              => '',
+      						'before_image'        => '',
+      						'before_image_legend' => '',
+      						'after_image_legend'  => '',
+      						'after_image'         => '',
+      						'after'               => '',
+      						'image_size'          => $Skin->get_setting( 'posts_thumb_size' ),
+      						'image_link_to'       => 'single',
+      						'image_desc'          => '',
+      						'limit'                      => 1,
+      						'restrict_to_image_position' => 'cover,teaser,aftermore,inline',
+      						'get_rendered_attachments'   => false,
+      						// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
+      						'links_sql_select'           => ', CASE '
+      							.'WHEN link_position = "cover"     THEN "1" '
+      							.'WHEN link_position = "teaser"    THEN "2" '
+      							.'WHEN link_position = "aftermore" THEN "3" '
+      							.'WHEN link_position = "inline"    THEN "4" '
+      								// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
+      							.'END AS position_order',
+      						'links_sql_orderby'          => 'position_order, link_order',
+      					) );
+      					if( empty( $item_first_image ) )
+      					{ // No images in this post, Display an empty block
+      						$item_first_image = $Item->get_permanent_link( '<b>'.T_('No pictures yet').'</b>', '#', 'album_nopic' );
+      					}
+      					else if( $item_first_image == 'plugin_render_attachments' )
+      					{ // No images, but some attachments(e.g. videos) are rendered by plugins
+      						$item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
+      					}
+      					// Display a title
+                     echo $item_first_image;
+      					// echo $Item->get_title( array(
+      					// 	'before' => $item_first_image.'<h3 class="title__post">',
+                     //    'after'  => '</h3>',
+      					// ) );
+      					// Restore previous locale (Blog locale)
+      					locale_restore_previous();
+      				?>
+               </div><!-- .main_content_gallery -->
+				</div><!-- .evo_post -->
+
+   <?php } // $item_list
+	} // Chapter
+} // Show Content ?>
+   </div> <!-- .content_gallery -->
+<?php } // ---------------------------------- END OF POSTS ------------------------------------
+
+if( $no_content_to_display )
+{ // No category and no post in this blog
+	echo $params_no_content['before']
+	.( is_logged_in() ? $params_no_content['msg_empty_logged_in'] : $params_no_content['msg_empty_not_logged_in'] )
+	.$params_no_content['after'];
+}
+?>

@@ -8,6 +8,7 @@ body {
 body {
   font-family: "Roboto Slab", sans-serif;
   font-size: 1.4rem;
+  background-color: #f6f6f6;
 }
 .float-right {
   float: right;
@@ -407,11 +408,6 @@ ul.profile_tabs {
 .main_navigation .nav-tabs li.active a::after {
   bottom: -8px;
 }
-.main_navigation .nav-tabs li:hover,
-.main_navigation .nav-tabs li:active,
-.main_navigation .nav-tabs li:focus {
-  cursor: pointer;
-}
 .main_navigation .nav-tabs li:hover a,
 .main_navigation .nav-tabs li:active a,
 .main_navigation .nav-tabs li:focus a {
@@ -502,36 +498,6 @@ ul.profile_tabs {
 #main_content {
   padding: 40px 0;
 }
-.content_gallery .posts_list {
-  float: left;
-  width: 33.333%;
-  margin-top: 0px;
-}
-.content_gallery .posts_list ß .evo_post {
-  vertical-align: middle;
-  display: inline-block;
-  vertical-align: top;
-  text-align: center;
-}
-.content_gallery .posts_list .evo_post img,
-.content_gallery .posts_list .posts_list .evo_post b {
-  -webkit-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
-  outline: 1px solid transparent;
-}
-.content_gallery .posts_list .evo_post:hover img,
-.content_gallery .posts_list .posts_list .evo_post:hover b {
-  transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  /* IE 9 */
-  -webkit-transform: rotate(-3deg);
-  /* Safari and Chrome */
-}
-.content_gallery .posts_list .evo_post img,
-.content_gallery .posts_list .posts_list .evo_post b {
-  border-radius: 0;
-  margin-bottom: 5px;
-}
 .posts_list,
 .col-lg-12 h2 {
   text-align: center;
@@ -572,6 +538,110 @@ div.evo_image_index div:hover {
 }
 .pagination {
   margin: 0;
+}
+.posts_gallery {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.posts_gallery img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+.posts_gallery .evo_post {
+  position: relative;
+  float: left;
+  width: 33.333%;
+  padding: 10px;
+  margin: 0;
+}
+.posts_gallery .main_content_gallery {
+  position: relative;
+}
+.posts_gallery .main_content_gallery .cat_title {
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-transition: all 0.42s ease-in-out;
+  transition: all 0.42s ease-in-out;
+}
+.posts_gallery .main_content_gallery .cat_title:hover,
+.posts_gallery .main_content_gallery .cat_title:active,
+.posts_gallery .main_content_gallery .cat_title:focus {
+  text-decoration: none;
+}
+.posts_gallery .main_content_gallery .cat_title_content {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  text-align: center;
+}
+.posts_gallery .main_content_gallery .cat_title_link {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #444444;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.posts_gallery .main_content_gallery .btn_cat {
+  position: relative;
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  overflow: hidden;
+  color: #333333;
+  background-color: #ffffff;
+  z-index: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.posts_gallery .main_content_gallery .btn_cat:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  border-radius: 20px;
+  background-color: #18c54d;
+  z-index: -1;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.posts_gallery .main_content_gallery .btn_cat:hover {
+  color: #ffffff;
+}
+.posts_gallery .main_content_gallery .btn_cat:hover:after {
+  height: 100%;
+}
+.posts_gallery .main_content_gallery:hover,
+.posts_gallery .main_content_gallery:active,
+.posts_gallery .main_content_gallery:focus {
+  cursor: pointer;
+}
+.posts_gallery .main_content_gallery:hover .cat_title,
+.posts_gallery .main_content_gallery:active .cat_title,
+.posts_gallery .main_content_gallery:focus .cat_title {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  opacity: 1;
 }
 .widget_core_org_members {
   margin: 5em 0 30px;

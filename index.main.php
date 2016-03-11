@@ -43,8 +43,8 @@ skin_include( '_body_header.inc.php' );
    	<?php
    		// ------------------------- MESSAGES GENERATED FROM ACTIONS -------------------------
    		messages( array(
-   			'block_start' => '<div class="row"><div class="col-xs-12 action_messages">',
-   			'block_end'   => '</div></div>',
+   			'block_start' => '<div class="action_messages">',
+   			'block_end'   => '</div>',
    		) );
    		// --------------------------------- END OF MESSAGES ---------------------------------
    	?>
@@ -52,8 +52,8 @@ skin_include( '_body_header.inc.php' );
    	<?php
    	// ------------------------- TITLE FOR THE CURRENT REQUEST -------------------------
    	request_title( array(
-			'title_before'      => '<div class="row"><div class="col-xs-12"><h2>',
-			'title_after'       => '</h2></div></div>',
+			'title_before'      => '<h2 class="title__content">',
+			'title_after'       => '</h2>',
 			'title_none'        => '',
 			'glue'              => ' - ',
 			'title_single_disp' => false,
