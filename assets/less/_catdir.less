@@ -3,8 +3,53 @@
 // ======================================================================== /
 #main_content {
 
+   // Feature Post
+   // ======================================================================== /
+   .feature_post {
+      background-color: @w;
+      border-radius: 0;
+      width: 60%;
+
+      .evo_post_title {
+
+         h2 {
+            font-family: @font_heading;
+            font-weight: 700;
+            color: @c4;
+         }
+      }
+
+      .evo_post__excerpt_text {
+         font-size: 1.6rem;
+         // letter-spacing: 1px;
+      }
+
+      .evo_post__excerpt_more_link {
+         display: table;
+         padding: 15px 25px;
+         margin-top: 15px;
+         background-color: @c5;
+
+         a {
+            font-family: @font_heading;
+            font-size: 1.3rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: @w;
+
+            &:hover {
+               text-decoration: none;
+            }
+         }
+      }
+
+   }
+
 }
 
+
+// Posts Gallery
+// ======================================================================== /
 .posts_gallery {
    margin-left: -10px;
    margin-right: -10px;
@@ -21,10 +66,21 @@
       width: 33.333%;
       padding: 10px;
       margin: 0;
+
+      @media screen and ( max-width: @M ) {
+         width: 50%;
+      }
+
+      @media screen and ( max-width: @S ) {
+         float: 0;
+         width: 100%;
+      }
+
    }
 
    .main_content_gallery {
       position: relative;
+      transition: all 0.42s ease-in-out;
 
       .cat_title {
          position: absolute;
@@ -65,6 +121,8 @@
          }
       }
 
+      // Button View when Image Hover
+      // ======================================================================== /
       .btn_cat {
          position: relative;
          display: inline-block;
@@ -75,7 +133,9 @@
          padding: 10px 20px;
          border-radius: 20px;
          margin-top: 20px;
-         overflow: hidden;
+         outline: 0;
+         border: 0;
+         // overflow: hidden;
          color: @c3;
          background-color: @w;
          z-index: 1;
@@ -84,13 +144,18 @@
          &:after {
             content: '';
             position: absolute;
+            top: 0;
             bottom: 0;
             left: 0;
-            width: 100%;
+            right: 0;
+            margin: 0 auto;
+            text-align: center;
+            width: 0;
             height: 0;
             border-radius: 20px;
             background-color: @primary;
             z-index: -1;
+            transform: scale(0);
             transition: all 0.3s ease-in-out;
          }
 
@@ -98,12 +163,27 @@
             color: @w;
 
             &:after {
+               transform: scale(1);
                height: 100%;
+               width: 100%;
             }
          }
       }
 
+      // Post without Image
+      // ======================================================================== /
+      .no_image {
+         min-width: 100%;
+      }
+
+      // Feature Image
+      // ======================================================================== /
+      .feature_image {
+
+      }
+
       &:hover, &:active, &:focus {
+         box-shadow: 0px 6px 12px -6px rgba(0, 0, 0, 0.3);
          cursor: pointer;
 
          .cat_title {

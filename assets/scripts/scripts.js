@@ -2,7 +2,7 @@ jQuery(window).load(function (e) {
 
    if ( $.fn.sticky ) {
       $(".main_navigation").sticky({
-         topSpacing: 25,
+         topSpacing: 0,
          center:true
       });
    }

@@ -334,11 +334,11 @@ class stain_gallery_Skin extends Skin
 
 			/* Content Options
 			 * ========================================================================== */
-			'section_contents_start' => array(
+			'section_homepage_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label' 	=> T_( 'Content Options' ),
+				'label' 	=> T_( 'Homepage Options' ),
 			),
-			'section_contents_end' => array(
+			'section_homepage_end' => array(
 				'layout'	=> 'end_fieldset',
 			),
 

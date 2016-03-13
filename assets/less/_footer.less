@@ -14,6 +14,19 @@
       }
    }
 
+   .footer__bottom {
+
+      @media screen and ( max-width: @M ) {
+         text-align: center;
+
+         .footer__social,
+         .copyright {
+            text-align: center;
+            float: none;   
+         }
+      }
+   }
+
    // Copyright
    // ======================================================================== /
    .copyright {
@@ -24,8 +37,12 @@
       padding: 0;
       margin: 0;
       height: 38px;
-      line-height: 38px;
+      line-height: 1.5;
       opacity: 0.95;
+
+      @media screen and ( min-width: @MM ) {
+         line-height: 38px;
+      }
 
       a {
          color: @primary;

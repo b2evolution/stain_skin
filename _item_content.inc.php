@@ -39,7 +39,7 @@ $params = array_merge( array(
 
 		'excerpt_before_more'      => ' <span class="evo_post__excerpt_more_link">',
 		'excerpt_after_more'       => '</span>',
-		'excerpt_more_text'        => T_('more').' &raquo;',
+		'excerpt_more_text'        => T_('Read More').' &raquo;',
 
 		// In case we display a full version of the post:
 		'content_start_full_text'  => '<div class="evo_post__full_text panel-body">',
