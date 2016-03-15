@@ -11,9 +11,9 @@ jQuery(window).load(function (e) {
       $('.posts_gallery').masonry({
         // options
         itemSelector: '.evo_post',
-      //   columnWidth: 200
+        percentPosition: true,
+      //   columnWidth: 100
       });
    }
-
 
 });

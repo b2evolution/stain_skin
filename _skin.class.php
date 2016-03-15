@@ -221,7 +221,7 @@ class stain_gallery_Skin extends Skin
                'note'         => T_( '' ),
                'type'         => 'radio',
                'options'      => $arr_bodybg,
-               'defaultvalue' => reset( $arr_bodybg[0] ),
+               'defaultvalue' => reset( $arr_bodybg[3] ),
             ),
             'header_bg_position_x' => array(
                'label'        => T_( 'Background Position X' ),
@@ -348,6 +348,17 @@ class stain_gallery_Skin extends Skin
             'layout'   => 'end_fieldset',
          ),
 
+         /* Gallery Featured Post Options
+          * ========================================================================== */
+         'section_gallery_featured_start' => array(
+            'layout'      => 'begin_fieldset',
+            'label'       => T_( 'Gallery Featured Post Options' ),
+         ),
+            // ''
+         'section_gallery_featured_end' => array(
+            'layout'      => 'end_fieldset',
+         ),
+
 
 			/* Content Options
 			 * ========================================================================== */
@@ -360,18 +371,18 @@ class stain_gallery_Skin extends Skin
                'note'         => T_( '' ),
                'type'         => 'radio',
                'options'      => array(
-                  array( '1', T_( '1 Column' ) ),
-                  array( '2', T_( '2 Column' ) ),
-                  array( '3', T_( '3 Column' ) ),
-                  array( '4', T_( '4 Column' ) ),
-                  array( '5', T_( 'Random' ) )
+                  // array( 'one_column', T_( '1 Column' ) ),
+                  array( 'two_column', T_( '2 Column' ) ),
+                  array( 'three_column', T_( '3 Column' ) ),
+                  array( 'four_column', T_( '4 Column' ) ),
+                  array( 'random', T_( 'Random' ) )
                ),
-               'defaultvalue' => '3'
+               'defaultvalue' => 'three_column'
             ),
             'posts_thumb_size' => array(
 					'label'        => T_('Thumbnail size for Albums'),
 					'note'         => '',
-					'defaultvalue' => 'crop-192x192',
+					'defaultvalue' => 'fit-1280x720',
 					'options'      => get_available_thumb_sizes(),
 					'type'         => 'select',
 				),
@@ -379,9 +390,10 @@ class stain_gallery_Skin extends Skin
                'label'        => T_( 'Style Image Hover' ),
                'note'         => T_( 'Select the favorite Image Hover Style for Gallery.' ),
                'type'         => 'select',
+               'defaultvalue' => 'flip',
                'options'      => array(
-                  '1'  => T_( 'Style 1' ),
-                  '2'  => T_( 'Style 2' ),
+                  'flip'  => T_( 'Flip' ),
+                  'zoom'  => T_( 'Zoom' ),
                   '3'  => T_( 'Style 3' ),
                   '4'  => T_( 'Style 4' ),
                ),
@@ -402,7 +414,7 @@ class stain_gallery_Skin extends Skin
                'label'        => T_( 'Size Title Category' ),
                'note'         => T_( 'px. Change font size for Title Category.' ),
                'type'         => 'integer',
-               'defaultvalue' => '32',
+               'defaultvalue' => '28',
                'size'         => 1,
             ),
             'cat_title_color' => array(
@@ -499,7 +511,7 @@ class stain_gallery_Skin extends Skin
                'label'        => T_( 'Footer Bottom Mode' ),
                'note'         => T_(''),
                'type'         => 'radio',
-               'defaultvalue' => 'center',
+               'defaultvalue' => 'float',
                'options'      => array(
                   array( 'float', T_( 'Float Mode' ) ),
                   array( 'center', T_( 'Center Mode' ) ),
@@ -653,6 +665,12 @@ class stain_gallery_Skin extends Skin
 
 		// Add custom CSS:
 		$custom_css = '';
+
+      /* General Options
+       * ========================================================================== */
+      if ( $bg = $this->get_setting( 'body_background' ) ) {
+         $custom_css .= 'body, html{ background-color: '.$bg.' }';
+      }
 
 		// Limit images by max height:
 		$max_image_height = intval( $this->get_setting( 'max_image_height' ) );
@@ -1270,6 +1288,17 @@ class stain_gallery_Skin extends Skin
 
 		return ( ! empty( $access ) && ! empty( $access[ $container_key ] ) );
 	}
+
+   /* Title Comment
+    * ========================================================================== */
+   function Change_class( $id ) {
+
+      $id = $this->get_setting( $id );
+      if ( $id == $id ) {
+         return $id;
+      }
+
+   }
 
 }
 

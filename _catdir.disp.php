@@ -20,10 +20,6 @@ global $Blog;
 
 // Default params:
 $params = array_merge( array(
-	'item_class'        => 'evo_post evo_content_block',
-	'item_type_class'   => 'evo_post__ptyp_',
-	'item_status_class' => 'evo_post__',
-
    'before_images'            => '<div class="evo_post_images">',
    'before_image'             => '<figure class="evo_image_block">',
    'before_image_legend'      => '<figcaption class="evo_image_legend">',
@@ -60,13 +56,16 @@ $params = array_merge( array(
    'excerpt_after_more'       => '</span>',
 ), $params );
 
+$column = $Skin->Change_class( 'gallery_show' );
+$hover = $Skin->Change_class( 'gallery_hover_style' );
+
 // ------------------------------- START OF INTRO POST -------------------------------
 init_MainList( $Blog->get_setting('posts_per_page') ); ?>
 <div class="posts_gallery">
 <?php
 if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to display: ?>
-   <div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'feature_post evo_post' ) ) ?>" lang="<?php $Item->lang() ?>">
-
+   <div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post feature_post '.$column, ) ) ?>" lang="<?php $Item->lang() ?>">
+      <div class="main_content_gallery">
    	<?php
    	$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
 
@@ -111,7 +110,7 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
       ) );
 
    	$Item->title( array(
-   		'link_type'  => 'none',
+   		// 'link_type'  => 'none',
    		'before'     => '<div class="evo_post_title"><h2>',
    		'after'      => '</h2><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
    		'nav_target' => false,
@@ -133,6 +132,7 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
 
    	locale_restore_previous();	// Restore previous locale (Blog locale)
    	?>
+      </div>
    </div><!-- .evo_post -->
 <?php
 // ------------------------------- END OF INTRO-FRONT POST -------------------------------
@@ -143,7 +143,7 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
 $params_no_content = array(
 	'before'                  => '<div class="msg_nothing">',
 	'after'                   => '</div>',
-	'msg_empty_logged_in'     => T_('Sorry, there is nothing to display... okokk'),
+	'msg_empty_logged_in'     => T_('Sorry, there is nothing to display...'),
 	// This will display if the collection has not been made private. Otherwise we will be redirected to a login screen anyways
 	'msg_empty_not_logged_in' => T_('This site has no public contents.')
 );
@@ -162,19 +162,18 @@ if( ! empty( $chapters ) ) { // Display the posts with chapters
 			'cat_modifier' => NULL,
 			'unit'         => 'all', // Display all items of this category, Don't limit by page
 		) );
+
 		$ItemList->query();
 		if( $ItemList->result_num_rows > 0 ) {
 			$no_content_to_display = false;
-			?>
-				<?php
-					while( $Item = & $ItemList->get_item() )
-					{ // For each blog post, do everything below up to the closing curly brace "}"
-					  // Temporarily switch to post locale (useful for multilingual blogs)
-						$Item->locale_temp_switch();
+				while( $Item = & $ItemList->get_item() )
+				{ // For each blog post, do everything below up to the closing curly brace "}"
+				  // Temporarily switch to post locale (useful for multilingual blogs)
+					$Item->locale_temp_switch();
 				?>
-				<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
+				<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post '.$column, ) ); ?>" lang="<?php $Item->lang() ?>">
                <div class="main_content_gallery">
-                  <a href="<?php echo $Chapter->get_permanent_url(); ?>" class="cat_title">
+                  <a href="<?php echo $Chapter->get_permanent_url(); ?>" class="cat_title <?php echo $hover; ?>">
                      <div class="cat_title_content">
       					   <h2 class="cat_title_link"><?php echo $Chapter->get( 'name' ); ?></h2>
                         <span class="btn_cat">View</span>

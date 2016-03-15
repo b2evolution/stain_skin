@@ -8,7 +8,6 @@
    .feature_post {
       background-color: @w;
       border-radius: 0;
-      width: 60%;
 
       .evo_post_title {
 
@@ -47,7 +46,6 @@
 
 }
 
-
 // Posts Gallery
 // ======================================================================== /
 .posts_gallery {
@@ -60,12 +58,38 @@
       border-radius: 0;
    }
 
-   .evo_post {
+   // Gallery Column Style
+   // ======================================================================== /
+   .evo_post, .feature_post{
       position: relative;
       float: left;
-      max-width: 33.333%;
       padding: 10px;
-      margin: 0;
+      margin: 0 auto;
+
+      &.one_column {
+         max-width: 100%;
+         // width: 100%;
+      }
+
+      &.two_column {
+         max-width: 50%;
+      }
+
+      &.three_column {
+         max-width: 33.333%;
+      }
+
+      &.four_column {
+         max-width: 25%;
+
+         .main_content_gallery {
+
+            .btn_cat {
+               font-size: 1.2rem;
+               padding: 8px 15px;
+            }
+         }
+      }
 
       @media screen and ( max-width: @M ) {
          max-width: 50%;
@@ -74,7 +98,12 @@
       @media screen and ( max-width: @S ) {
          float: 0;
          max-width: 100%;
+         width: 100%
       }
+
+      // &:nth-child(2) {
+      //    max-width: 33.333%;
+      // }
 
    }
 
@@ -128,7 +157,7 @@
          &_link{
             display: block;
             font-family: @font_heading;
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             font-weight: 700;
             text-transform: uppercase;;
             color: @c4;
@@ -151,7 +180,6 @@
          margin-top: 20px;
          outline: 0;
          border: 0;
-         // overflow: hidden;
          color: @c3;
          background-color: @w;
          z-index: 1;
@@ -200,7 +228,6 @@
 
       &:hover, &:active, &:focus {
          box-shadow: 0px 6px 12px -6px rgba(0, 0, 0, 0.3);
-         cursor: pointer;
 
          .cat_title {
             transform: rotateY(0deg);
