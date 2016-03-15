@@ -61,9 +61,10 @@ $params = array_merge( array(
 ), $params );
 
 // ------------------------------- START OF INTRO POST -------------------------------
-init_MainList( $Blog->get_setting('posts_per_page') );
-if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to display: ?>
+init_MainList( $Blog->get_setting('posts_per_page') ); ?>
 <div class="posts_gallery">
+<?php
+if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to display: ?>
    <div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'feature_post evo_post' ) ) ?>" lang="<?php $Item->lang() ?>">
 
    	<?php
@@ -152,9 +153,7 @@ $ChapterCache = & get_ChapterCache();
 $chapters = $ChapterCache->get_chapters( $Blog->ID, 0, true );
 // Boolean var to know when at least one post is displayed
 $no_content_to_display = true;
-if( ! empty( $chapters ) ) { // Display the posts with chapters ?>
-
-   <?php
+if( ! empty( $chapters ) ) { // Display the posts with chapters
 	foreach( $chapters as $Chapter ) {
 		// Get the posts of current category
 		$ItemList = new ItemList2( $Blog, $Blog->get_timestamp_min(), $Blog->get_timestamp_max() );
@@ -229,7 +228,7 @@ if( ! empty( $chapters ) ) { // Display the posts with chapters ?>
    <?php } // $item_list
 	} // Chapter
 } // Show Content ?>
-   </div> <!-- .content_gallery -->
+</div> <!-- .content_gallery -->
 <?php } // ---------------------------------- END OF POSTS ------------------------------------
 
 if( $no_content_to_display )

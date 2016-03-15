@@ -144,6 +144,23 @@ class stain_gallery_Skin extends Skin
 
 	   $r = array_merge( array(
 
+         /* General Setting
+          * ========================================================================== */
+         'section_general_start' => array(
+            'layout'	=> 'begin_fieldset',
+            'label' 	=> T_( 'General Options' ),
+         ),
+            'body_background' => array(
+               'label'        => T_( 'Background Body' ),
+               'note'         => T_( 'Change background for All Disp and Page' ),
+               'type'         => 'color',
+               'defaultvalue' => '#F6F6F6',
+            ),
+         'section_general_end' => array(
+            'layout'	=> 'end_fieldset',
+         ),
+
+
          /* Page Styles
           * ========================================================================== */
 			'section_page_start' => array(
@@ -204,7 +221,7 @@ class stain_gallery_Skin extends Skin
                'note'         => T_( '' ),
                'type'         => 'radio',
                'options'      => $arr_bodybg,
-               'defaultvalue' => reset( $arr_bodybg[3] ),
+               'defaultvalue' => reset( $arr_bodybg[0] ),
             ),
             'header_bg_position_x' => array(
                'label'        => T_( 'Background Position X' ),
@@ -296,7 +313,7 @@ class stain_gallery_Skin extends Skin
                'label'        => T_( 'Background Color' ),
                'note'         => T_( 'Change background color main navigation. Default value is <strong>#1B1B1B</strong>' ),
                'type'         => 'color',
-               'defaultvalue' => '#1B1B1B'
+               'defaultvalue' => '#1B1B1B',
             ),
             'nav_sticky' => array(
                'label'        => T_( 'Sticky Mode' ),
@@ -334,11 +351,79 @@ class stain_gallery_Skin extends Skin
 
 			/* Content Options
 			 * ========================================================================== */
-			'section_homepage_start' => array(
+			'section_gallery_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label' 	=> T_( 'Homepage Options' ),
+				'label' 	=> T_( 'Gallery Options' ),
 			),
-			'section_homepage_end' => array(
+            'gallery_show' => array(
+               'label'        => T_( 'Column Gallery' ),
+               'note'         => T_( '' ),
+               'type'         => 'radio',
+               'options'      => array(
+                  array( '1', T_( '1 Column' ) ),
+                  array( '2', T_( '2 Column' ) ),
+                  array( '3', T_( '3 Column' ) ),
+                  array( '4', T_( '4 Column' ) ),
+                  array( '5', T_( 'Random' ) )
+               ),
+               'defaultvalue' => '3'
+            ),
+            'posts_thumb_size' => array(
+					'label'        => T_('Thumbnail size for Albums'),
+					'note'         => '',
+					'defaultvalue' => 'crop-192x192',
+					'options'      => get_available_thumb_sizes(),
+					'type'         => 'select',
+				),
+            'gallery_hover_style' => array(
+               'label'        => T_( 'Style Image Hover' ),
+               'note'         => T_( 'Select the favorite Image Hover Style for Gallery.' ),
+               'type'         => 'select',
+               'options'      => array(
+                  '1'  => T_( 'Style 1' ),
+                  '2'  => T_( 'Style 2' ),
+                  '3'  => T_( 'Style 3' ),
+                  '4'  => T_( 'Style 4' ),
+               ),
+            ),
+            'gallery_bg' => array(
+               'label'        => T_( 'Background Gallery Content' ),
+               'note'         => T_( 'Change background content Gallery if the image is hover.' ),
+               'type'         => 'color',
+               'defaultvalue' => '#FFFFFF'
+            ),
+            'gallery_shadow' => array(
+               'label'        => T_( 'Show Box Shadow' ),
+               'note'         => T_( 'Check for show Box Shadow content when Image Gallery is hover.' ),
+               'type'         => 'checkbox',
+               'defaultvalue' => 1,
+            ),
+            'cat_title_size' => array(
+               'label'        => T_( 'Size Title Category' ),
+               'note'         => T_( 'px. Change font size for Title Category.' ),
+               'type'         => 'integer',
+               'defaultvalue' => '32',
+               'size'         => 1,
+            ),
+            'cat_title_color' => array(
+               'label'        => T_( 'Color Title Category' ),
+               'note'         => T_( 'Change the color of title category.' ),
+               'type'         => 'color',
+               'defaultvalue' => '#444444'
+            ),
+            'cat_view_bg' => array(
+               'label'        => T_( 'Background Button View' ),
+               'note'         => T_( 'Change the background color of button view when the button when hover. Default is <strong>Empty</strong>' ),
+               'type'         => 'color',
+               'defaultvalue' => '',
+            ),
+            'cat_view_text' => array(
+               'label'        => T_( 'Color Text Button View' ),
+               'note'         => T_( 'Change the Color Text for Button View when hover. Default is <strong>Empty</strong>' ),
+               'type'         => 'color',
+               'defaultvalue' => '',
+            ),
+			'section_gallery_end' => array(
 				'layout'	=> 'end_fieldset',
 			),
 
@@ -355,13 +440,6 @@ class stain_gallery_Skin extends Skin
 					'defaultvalue' => '',
 					'type'         => 'integer',
 					'allow_empty'  => true,
-				),
-				'posts_thumb_size' => array(
-					'label'        => T_('Thumbnail size for Albums'),
-					'note'         => '',
-					'defaultvalue' => 'crop-192x192',
-					'options'      => get_available_thumb_sizes(),
-					'type'         => 'select',
 				),
 				'single_thumb_size' => array(
 					'label'        => T_('Thumbnail size inside Album'),
@@ -697,6 +775,7 @@ class stain_gallery_Skin extends Skin
             break;
       }
 
+      // Header Background Size
       $header_bg_size = $this->get_setting( 'header_bg_size' );
       switch ( $header_bg_size ) {
          case $header_bg_size:
@@ -766,9 +845,29 @@ class stain_gallery_Skin extends Skin
 
       if( $color = $this->get_setting( 'nav_color_hov' ) ) {
          $custom_css .= '
-         .main_navigation .nav-tabs li:hover a, .main_navigation .nav-tabs li:active a, .main_navigation .nav-tabs li:focus a, .main_navigation .nav-tabs li.active a
-         { color: '.$color.'; }';
+         .main_navigation .nav-tabs li:hover a, .main_navigation .nav-tabs li:active a, .main_navigation .nav-tabs li:focus a, .main_navigation .nav-tabs li.active a { color: '.$color.'; }';
          $custom_css .= '.main_navigation .nav-tabs a:before, .main_navigation .nav-tabs a:after{ background-color: '.$color.' }';
+      }
+
+      /* Gallery Options
+       * ========================================================================== */
+      if ( $bg = $this->get_setting( 'gallery_bg' ) ) {
+         $custom_css .= '.posts_gallery .main_content_gallery .cat_title::after { background-color: '.$bg.' }';
+      }
+
+      if ( $this->get_setting( 'gallery_shadow' )  == 0 ) {
+         $custom_css .= '.posts_gallery .main_content_gallery:hover, .posts_gallery .main_content_gallery:active, .posts_gallery .main_content_gallery:focus
+         { box-shadow: none; }';
+      }
+
+      if ( $fz = $this->get_setting( 'cat_title_size' ) ) {
+         $custom_css .= '.posts_gallery .main_content_gallery .cat_title_link { font-size: '.$fz.'px; }';
+      }
+      if ( $color = $this->get_setting( 'cat_title_color' ) ) {
+         $custom_css .= '.posts_gallery .main_content_gallery .cat_title_link { color: '.$color.'; }';
+      }
+      if( $bg = $this->get_setting( 'cat_view_bg' ) ) {
+         $custom_css .= '.posts_gallery .main_content_gallery .btn_cat:after { background-color: '.$bg.' }';
       }
 
 		/* Footer Custom Options
@@ -780,7 +879,6 @@ class stain_gallery_Skin extends Skin
 		if ( $this->get_setting( 'footer_bottom_align' ) == 'center' ) {
 			$custom_css .= '#footer .copyright, .footer__social{ float: none; text-align: center; }';
 		}
-
 
 
       /* Output the custom CSS
