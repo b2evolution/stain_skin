@@ -773,6 +773,34 @@ div.evo_image_index div:hover {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
+.main_content_gallery.sweep_right .cat_title {
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+.main_content_gallery.sweep_right .cat_title::after {
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+.main_content_gallery.sweep_right .feature_image img {
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.main_content_gallery.sweep_left .cat_title {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+.main_content_gallery.sweep_left .cat_title::after {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+.main_content_gallery.sweep_left .feature_image img {
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
 .main_content_gallery:hover.flip .cat_title {
   -webkit-transform: rotateY(0deg);
   transform: rotateY(0deg);
@@ -805,6 +833,36 @@ div.evo_image_index div:hover {
   -webkit-transform: scale(2);
   -ms-transform: scale(2);
   transform: scale(2);
+}
+.main_content_gallery:hover.sweep_right .cat_title,
+.main_content_gallery:hover.sweep_left .cat_title {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.main_content_gallery:hover.sweep_right .cat_title::after,
+.main_content_gallery:hover.sweep_left .cat_title::after {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+.main_content_gallery:hover.sweep_right .feature_image img,
+.main_content_gallery:hover.sweep_left .feature_image img {
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+.main_content_gallery:hover.sweep_left .feature_image img {
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 .widget_core_org_members {
   margin: 5em 0 30px;

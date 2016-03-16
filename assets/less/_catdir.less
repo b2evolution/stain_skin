@@ -296,6 +296,58 @@
 
    }
 
+   // Sweep Right
+   // ======================================================================== /
+   &.sweep_right {
+
+      .cat_title {
+         transform: translateX(-100%);
+
+         &_content {
+            // transition: all 0.4s ease-in-out;
+         }
+
+         &::after {
+            transform: translateX(-100%);
+         }
+
+      }
+
+      .feature_image {
+
+         img {
+            transition: all 0.4s ease;
+         }
+      }
+   }
+
+   // Sweep Left
+   // ======================================================================== /
+   &.sweep_left {
+
+      .cat_title {
+         transform: translateX(100%);
+
+         &_content {
+            // transition: all 0.4s ease-in-out;
+         }
+
+         &::after {
+            transform: translateX(100%);
+         }
+
+      }
+
+      .feature_image {
+
+         img {
+            transition: all 0.4s ease;
+         }
+      }
+   }
+
+
+   /////////////////////////////////////////////////////////////////////////////
    // Hover Action
    // ======================================================================== /
    &:hover {
@@ -345,7 +397,52 @@
                transform: scale(2);
             }
          }
+      }
 
+      // Sweep Right and Left
+      // ======================================================================== /
+      &.sweep_right, &.sweep_left  {
+
+         .cat_title {
+            transform: translateX(0);
+            transition: all 0.3s ease-in-out;
+
+            &_content {
+
+            }
+
+            &::after {
+               opacity: 1;
+               transform: translateX(0);
+            }
+
+            .btn_cat {
+
+               &:hover {
+                  // color: @w;
+               }
+            }
+         }
+
+         .feature_image {
+
+            img {
+               transition: all 0.4s ease-in-out;
+               transform: translateX(100%);
+            }
+         }
+      }
+
+      // Sweep Left
+      // ======================================================================== /
+      &.sweep_left {
+         .feature_image {
+
+            img {
+               transition: all 0.4s ease-in-out;
+               transform: translateX(-100%);
+            }
+         }
       }
 
    }
