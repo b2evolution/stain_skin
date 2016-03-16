@@ -600,6 +600,10 @@ div.evo_image_index div:hover {
 .posts_gallery .feature_post.three_column {
   max-width: 33.333%;
 }
+.posts_gallery .evo_post.three_column .main_content_gallery .btn_cat,
+.posts_gallery .feature_post.three_column .main_content_gallery .btn_cat {
+  font-size: 1.2rem;
+}
 .posts_gallery .evo_post.four_column,
 .posts_gallery .feature_post.four_column {
   max-width: 25%;
@@ -638,8 +642,6 @@ div.evo_image_index div:hover {
   left: 0;
   visibility: hidden;
   opacity: 0;
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
   -webkit-transition: all 0.42s ease-in-out;
   transition: all 0.42s ease-in-out;
 }
@@ -654,8 +656,6 @@ div.evo_image_index div:hover {
   z-index: -1;
   visibility: hidden;
   opacity: 0;
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
   -webkit-transition: all 0.42s ease-in-out;
   transition: all 0.42s ease-in-out;
 }
@@ -694,8 +694,8 @@ div.evo_image_index div:hover {
   margin-top: 20px;
   outline: 0;
   border: 0;
-  color: #333333;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #3c474a;
   z-index: 1;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -709,9 +709,10 @@ div.evo_image_index div:hover {
   right: 0;
   margin: 0 auto;
   text-align: center;
-  width: 0;
-  height: 0;
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
+  border: 1px solid transparent;
   background-color: #18c54d;
   z-index: -1;
   -webkit-transform: scale(0);
@@ -727,8 +728,6 @@ div.evo_image_index div:hover {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
-  height: 100%;
-  width: 100%;
 }
 .posts_gallery .main_content_gallery .no_image {
   min-width: 100%;
@@ -741,18 +740,71 @@ div.evo_image_index div:hover {
 .posts_gallery .main_content_gallery:hover .cat_title,
 .posts_gallery .main_content_gallery:active .cat_title,
 .posts_gallery .main_content_gallery:focus .cat_title {
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
   opacity: 1;
   visibility: visible;
 }
 .posts_gallery .main_content_gallery:hover .cat_title::after,
 .posts_gallery .main_content_gallery:active .cat_title::after,
 .posts_gallery .main_content_gallery:focus .cat_title::after {
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
   visibility: visible;
   opacity: 0.8;
+}
+.main_content_gallery.flip .cat_title {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.main_content_gallery.flip .cat_title::after {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.main_content_gallery.zoom .cat_title_content {
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.main_content_gallery.zoom .cat_title::after {
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+}
+.main_content_gallery.zoom .feature_image img {
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.main_content_gallery:hover.flip .cat_title {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.main_content_gallery:hover.flip .cat_title::after {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.main_content_gallery:hover.zoom .cat_title {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.main_content_gallery:hover.zoom .cat_title_content {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.main_content_gallery:hover.zoom .cat_title::after {
+  opacity: 0.9;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.main_content_gallery:hover.zoom .cat_title .btn_cat:hover {
+  color: #ffffff;
+}
+.main_content_gallery:hover.zoom .feature_image img {
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
 }
 .widget_core_org_members {
   margin: 5em 0 30px;

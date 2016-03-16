@@ -394,8 +394,8 @@ class stain_gallery_Skin extends Skin
                'options'      => array(
                   'flip'  => T_( 'Flip' ),
                   'zoom'  => T_( 'Zoom' ),
-                  '3'  => T_( 'Style 3' ),
-                  '4'  => T_( 'Style 4' ),
+                  // '3'  => T_( 'Style 3' ),
+                  // '4'  => T_( 'Style 4' ),
                ),
             ),
             'gallery_bg' => array(

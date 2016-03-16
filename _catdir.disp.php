@@ -172,8 +172,8 @@ if( ! empty( $chapters ) ) { // Display the posts with chapters
 					$Item->locale_temp_switch();
 				?>
 				<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post '.$column, ) ); ?>" lang="<?php $Item->lang() ?>">
-               <div class="main_content_gallery">
-                  <a href="<?php echo $Chapter->get_permanent_url(); ?>" class="cat_title <?php echo $hover; ?>">
+               <div class="main_content_gallery <?php echo $hover; ?>">
+                  <a href="<?php echo $Chapter->get_permanent_url(); ?>" class="cat_title">
                      <div class="cat_title_content">
       					   <h2 class="cat_title_link"><?php echo $Chapter->get( 'name' ); ?></h2>
                         <span class="btn_cat">View</span>
