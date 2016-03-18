@@ -27,7 +27,7 @@ $params = array_merge( array(
    'after_image'              => '</figure>',
    'after_images'             => '</div>',
    'image_class'              => 'img-responsive',
-   'image_size'               => 'crop-480x320',
+   'image_size'               => 'fit-1280x720',
    'image_limit'              =>  1,
    'image_link_to'            => 'original', // Can be 'original', 'single' or empty
    'excerpt_image_class'      => 'img-responsive',
@@ -111,7 +111,7 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
 
    	$Item->title( array(
    		// 'link_type'  => 'none',
-   		'before'     => '<div class="evo_post_title"><h2>',
+   		'before'     => '<div class="evo_post__title"><h2>',
    		'after'      => '</h2><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
    		'nav_target' => false,
    	) );
@@ -188,7 +188,7 @@ if( ! empty( $chapters ) ) { // Display the posts with chapters
       						'after_image_legend'  => '',
       						'after_image'         => '</div>',
       						'after'               => '',
-      						'image_size'          => $Skin->get_setting( 'posts_thumb_size' ),
+      						'image_size'          => $Skin->get_setting( 'gallery_thumb_size' ),
       						'image_link_to'       => 'single',
       						'image_desc'          => '',
       						'limit'                      => 1,

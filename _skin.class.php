@@ -379,7 +379,7 @@ class stain_gallery_Skin extends Skin
                ),
                'defaultvalue' => 'three_column'
             ),
-            'posts_thumb_size' => array(
+            'gallery_thumb_size' => array(
 					'label'        => T_('Thumbnail size for Albums'),
 					'note'         => '',
 					'defaultvalue' => 'fit-1280x720',
@@ -478,6 +478,25 @@ class stain_gallery_Skin extends Skin
 			'section_image_end' => array(
 				'layout' => 'end_fieldset',
 			),
+
+
+         /* Posts Options
+          * ========================================================================== */
+         'section_posts_start' => array(
+            'layout'   => 'begin_fieldset',
+            'label'    => T_( 'Posts Options' ),
+         ),
+            'posts_thumb_size' => array(
+               'label'        => T_('Thumbnail size in Posts List'),
+               'note'         => '',
+               'defaultvalue' => 'fit-1280x720',
+               'options'      => get_available_thumb_sizes(),
+               'type'         => 'select',
+            ),
+         'section_posts_end' => array(
+            'layout'   => 'end_fieldset',
+         ),
+
 
          /* Footer Options
           * ========================================================================== */
@@ -881,7 +900,7 @@ class stain_gallery_Skin extends Skin
       }
 
       if ( $fz = $this->get_setting( 'cat_title_size' ) ) {
-         $custom_css .= '.posts_gallery .main_content_gallery .cat_title_link { font-size: '.$fz.'px; }';
+         $custom_css .= '@media screen and ( min-width: 1024px ) { .posts_gallery .main_content_gallery .cat_title_link { font-size: '.$fz.'px; } }';
       }
       if ( $color = $this->get_setting( 'cat_title_color' ) ) {
          $custom_css .= '.posts_gallery .main_content_gallery .cat_title_link { color: '.$color.'; }';
