@@ -85,10 +85,10 @@ if( ! $list_is_empty ) { ?>
 		// Display images that are linked to this post:
 		$item_first_image = $Item->get_images( array(
 				'before'              => '<div class="feature_image">',
-				'before_image'        => '<figure>',
+				'before_image'        => '',
 				'before_image_legend' => '',
 				'after_image_legend'  => '',
-				'after_image'         => '</figure>',
+				'after_image'         => '',
 				'after'               => '</div>',
 				'image_size'          => $Skin->get_setting( 'posts_thumb_size' ),
 				'image_link_to'       => 'single',
@@ -116,13 +116,13 @@ if( ! $list_is_empty ) { ?>
 			$item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
 		}
 
-      echo  $item_first_image;
+      // echo  ;
 
 		// Display a title
 		echo $Item->get_title( array(
-   			   'before'    => '<div class="evo_post_title"><h1>',
+   			   'before'    => $item_first_image.'<div class="evo_post_title"><h3>',
                'link_type' => 'permalink', // Use "none" or "permalink"
-               'after'     => '</h1></div>',
+               'after'     => '</h3></div>',
    			) );
 
 		// Restore previous locale (Blog locale)

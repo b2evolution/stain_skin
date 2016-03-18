@@ -955,12 +955,48 @@ div.evo_image_index div:hover {
 .posts_list {
   max-width: 1000px;
   width: 100%;
+  height: auto;
   margin: 0 auto;
 }
 .posts_list img {
   max-width: 100%;
   height: auto;
   border-radius: 0;
+}
+.posts_list .evo_posts {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+.posts_list .evo_posts .feature_image {
+  display: table-row;
+  width: 920px;
+  height: auto;
+}
+.posts_list .evo_posts .feature_image img {
+  opacity: 0.95;
+}
+.posts_list .evo_posts .evo_post_title h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 2;
+}
+.posts_list .evo_posts .evo_post_title h3 a {
+  padding: 15px 20px;
+  background-color: #18c54d;
+  color: #ffffff;
+}
+.posts_list .evo_posts .evo_post_title h3 a:hover,
+.posts_list .evo_posts .evo_post_title h3 a:active,
+.posts_list .evo_posts .evo_post_title h3 a:focus {
+  text-decoration: none;
 }
 .widget_core_org_members {
   margin: 5em 0 30px;
