@@ -493,6 +493,18 @@ class stain_gallery_Skin extends Skin
                'options'      => get_available_thumb_sizes(),
                'type'         => 'select',
             ),
+				'posts_show' => array(
+               'label'        => T_( 'Column Posts' ),
+               'note'         => T_( '' ),
+               'type'         => 'radio',
+               'options'      => array(
+                  // array( 'one_column', T_( '1 Column' ) ),
+                  array( 'one_column', T_( '1 Column' ) ),
+                  array( 'two_column', T_( '2 Column' ) ),
+                  array( 'three_column', T_( '3 Column' ) ),
+               ),
+               'defaultvalue' => 'three_column'
+            ),
          'section_posts_end' => array(
             'layout'   => 'end_fieldset',
          ),
@@ -796,11 +808,10 @@ class stain_gallery_Skin extends Skin
             break;
       }
 
-      if ( $bg_x = $this->get_setting( 'header_bg_position_x' ) ) {
-         $custom_css .= '.main_header{ background-position-x: '.$bg_x.'%; }';
-      }
-      if ( $bg_y = $this->get_setting( 'header_bg_position_y' ) ) {
-         $custom_css .= '.main_header{ background-position-y: '.$bg_y.'%; }';
+		$bg_header_x = $this->get_setting( 'header_bg_position_x');
+		$bg_header_y = $this->get_setting( 'header_bg_position_y');
+      if ( !empty($bg_header_x) || !empty($bg_header_y)  ) {
+				 $custom_css .= '.main_header{ background-position: '.$bg_header_x.'% '.$bg_header_y.'%; }';
       }
 
       $header_bg_attach = $this->get_setting( 'header_bg_attach' );

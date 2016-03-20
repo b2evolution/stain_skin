@@ -120,10 +120,36 @@ if( ! $list_is_empty ) { ?>
 
 		// Display a title
 		echo $Item->get_title( array(
-   			   'before'    => $item_first_image.'<div class="evo_post_title"><h3>',
-               'link_type' => 'permalink', // Use "none" or "permalink"
+   			   'before'    => $item_first_image.'<div class="evo_post_title"><h3><i class="fa fa-paper-plane"></i>',
+               'link_type' => 'none', // Use "none" or "permalink"
                'after'     => '</h3></div>',
    			) );
+
+			// We want to display the post time:
+			$Item->issue_time( array(
+					'before'      => ' '.T_('On '),
+					'after'       => ' ',
+					'time_format' => 'M j, Y',
+				) );
+
+			// Author
+			$Item->author( array(
+				'before'    => ' '.T_('By').' ',
+				'after'     => ' ',
+				'link_text' => $params['author_link_text'],
+			) );
+
+			// Categories
+			$Item->categories( array(
+				'before'          => T_('in').' ',
+				'after'           => ' ',
+				'include_main'    => true,
+				'include_other'   => true,
+				'include_external'=> true,
+				'link_categories' => true,
+			) );
+
+
 
 		// Restore previous locale (Blog locale)
 		locale_restore_previous();

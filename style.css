@@ -286,8 +286,7 @@ ul.profile_tabs {
   position: relative;
   height: 300px;
   background-image: url('assets/images/header/header-3.jpg');
-  background-position-x: 50%;
-  background-position-y: 50%;
+  background-position: 50% 50%;
   background-size: cover;
   margin-top: -16px;
   z-index: 0;
@@ -983,20 +982,18 @@ div.evo_image_index div:hover {
   font-size: 1.5rem;
   margin: 0;
   padding: 0;
+  padding: 15px 20px;
+  color: #ffffff;
+  background-color: #18c54d;
   position: absolute;
   top: 50px;
   left: 0;
   z-index: 2;
 }
-.posts_list .evo_posts .evo_post_title h3 a {
-  padding: 15px 20px;
-  background-color: #18c54d;
+.posts_list .evo_posts .evo_post_title i.fa {
   color: #ffffff;
-}
-.posts_list .evo_posts .evo_post_title h3 a:hover,
-.posts_list .evo_posts .evo_post_title h3 a:active,
-.posts_list .evo_posts .evo_post_title h3 a:focus {
-  text-decoration: none;
+  font-size: 1.3rem;
+  padding-right: 8px;
 }
 .widget_core_org_members {
   margin: 5em 0 30px;
