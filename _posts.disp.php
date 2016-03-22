@@ -84,7 +84,7 @@ if( ! $list_is_empty ) { ?>
    <?php
 		// Display images that are linked to this post:
 		$item_first_image = $Item->get_images( array(
-				'before'              => '<div class="feature_image">',
+				'before'              => '<div class="feature__image">',
 				'before_image'        => '',
 				'before_image_legend' => '',
 				'after_image_legend'  => '',
@@ -120,37 +120,44 @@ if( ! $list_is_empty ) { ?>
 
 		// Display a title
 		echo $Item->get_title( array(
-   			   'before'    => $item_first_image.'<div class="evo_post_title"><h3><i class="fa fa-paper-plane"></i>',
+   			   'before'    => $item_first_image.'<div class="posts__title"><h3><i class="fa fa-paper-plane"></i>',
                'link_type' => 'none', // Use "none" or "permalink"
                'after'     => '</h3></div>',
    			) );
-
+		?>
+		<div class="posts__info">
+		<?php
 			// We want to display the post time:
 			$Item->issue_time( array(
-					'before'      => ' '.T_('On '),
-					'after'       => ' ',
+					'before'      => '<time class="posts_info_date">'.T_('On '),
+					'after'       => '</time>',
 					'time_format' => 'M j, Y',
 				) );
 
 			// Author
 			$Item->author( array(
-				'before'    => ' '.T_('By').' ',
-				'after'     => ' ',
-				'link_text' => $params['author_link_text'],
+				'before'    => '<div class="posts__info_author">'.T_('By').' ',
+				'after'     => '</div>',
+				'before_user' => '',
+				'after_user'  => '',
+				'link_text'   => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+				'link_class'  => 'ft_author_avatar',
+				'thumb_size'   => 'crop-40x40',
+				'thumb_class'  => '',
 			) );
 
 			// Categories
 			$Item->categories( array(
-				'before'          => T_('in').' ',
-				'after'           => ' ',
+				'before'          => '<div class="posts_info_cat">'.T_('in').' ',
+				'after'           => '</div>',
 				'include_main'    => true,
 				'include_other'   => true,
 				'include_external'=> true,
 				'link_categories' => true,
 			) );
-
-
-
+		?>
+		</div><!-- .posts__info -->
+		<?php
 		// Restore previous locale (Blog locale)
 		locale_restore_previous();
    ?>

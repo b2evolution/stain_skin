@@ -969,31 +969,41 @@ div.evo_image_index div:hover {
   overflow: hidden;
   margin-bottom: 60px;
 }
-.posts_list .evo_posts .feature_image {
+.posts_list .evo_posts .feature__image {
   display: table-row;
   width: 920px;
   height: auto;
 }
-.posts_list .evo_posts .feature_image img {
+.posts_list .evo_posts .feature__image img {
   opacity: 0.95;
 }
-.posts_list .evo_posts .evo_post_title h3 {
+.posts_list .evo_posts .posts__title {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  z-index: 2;
+}
+.posts_list .evo_posts .posts__title h3 {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin: 0;
   padding: 0;
   padding: 15px 20px;
   color: #ffffff;
   background-color: #18c54d;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  z-index: 2;
 }
-.posts_list .evo_posts .evo_post_title i.fa {
+.posts_list .evo_posts .posts__title i.fa {
   color: #ffffff;
   font-size: 1.3rem;
   padding-right: 8px;
+}
+.posts_list .evo_posts .posts__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #ffffff;
+  padding: 20px 15px;
+  width: 100%;
 }
 .widget_core_org_members {
   margin: 5em 0 30px;

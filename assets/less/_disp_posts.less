@@ -20,7 +20,7 @@
       overflow: hidden;
       margin-bottom: 60px;
 
-      .feature_image {
+      .feature__image {
          display: table-row;
          width: 920px;
          height: auto;
@@ -30,21 +30,21 @@
          }
       }
 
-      .evo_post_title {
+      // Posts Title
+      .posts__title {
+         position: absolute;
+         top: 30px;
+         left: 0;
+         z-index: 2;
 
          h3 {
             font-family: @font_heading;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin: 0;
             padding: 0;
             padding: 15px 20px;
             color: @w;
             background-color: @primary;
-
-            position: absolute;
-            top: 50px;
-            left: 0;
-            z-index: 2;
          }
 
          i.fa {
@@ -52,6 +52,16 @@
             font-size: 1.3rem;
             padding-right: 8px;
          }
+      }
+
+      // Posts Info
+      .posts__info {
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         background: @w;
+         padding: 20px 15px;
+         width: 100%;
       }
 
    }

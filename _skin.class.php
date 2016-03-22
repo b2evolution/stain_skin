@@ -314,6 +314,7 @@ class stain_gallery_Skin extends Skin
                'note'         => T_( 'Change background color main navigation. Default value is <strong>#1B1B1B</strong>' ),
                'type'         => 'color',
                'defaultvalue' => '#1B1B1B',
+					'size'			=> 20,
             ),
             'nav_sticky' => array(
                'label'        => T_( 'Sticky Mode' ),
@@ -417,7 +418,7 @@ class stain_gallery_Skin extends Skin
                'note'         => T_( 'px. Change font size for Title Category.' ),
                'type'         => 'integer',
                'defaultvalue' => '28',
-               'size'         => 1,
+               'size'         => 3,
             ),
             'cat_title_color' => array(
                'label'        => T_( 'Color Title Category' ),
