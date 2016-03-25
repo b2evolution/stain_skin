@@ -57,11 +57,13 @@ skin_include( '_body_header.inc.php' );
    	// ------------------------------ END OF REQUEST TITLE -----------------------------
    	?>
 		<?php
+			$column = $Skin->Change_class( 'posts_show' );
 			// -------------- MAIN CONTENT TEMPLATE INCLUDED HERE (Based on $disp) --------------
 			skin_include( '$disp$', array(
-					'mediaidx_thumb_size'  => $Skin->get_setting( 'post_thumb_size' ),
+					// 'mediaidx_thumb_size'  => $Skin->get_setting( 'post_thumb_size' ),
+					'mediaidx_thumb_size'  => 'original',
 					'author_link_text'     => 'preferredname',
-					'item_class'           => 'evo_posts evo_content_block',
+					'item_class'           => 'evo_posts evo_content_block '.$column,
 					'item_type_class'      => 'evo_post__ptyp_',
 					'item_status_class'    => 'evo_post__',
 					// Login

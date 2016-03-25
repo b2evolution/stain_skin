@@ -81,86 +81,103 @@ if( ! $list_is_empty ) { ?>
 		$Item->locale_temp_switch();
    ?>
    <div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
-   <?php
-		// Display images that are linked to this post:
-		$item_first_image = $Item->get_images( array(
-				'before'              => '<div class="feature__image">',
-				'before_image'        => '',
-				'before_image_legend' => '',
-				'after_image_legend'  => '',
-				'after_image'         => '',
-				'after'               => '</div>',
-				'image_size'          => $Skin->get_setting( 'posts_thumb_size' ),
-				'image_link_to'       => 'single',
-				'image_desc'          => '',
-				'limit'                      => 1,
-				'restrict_to_image_position' => 'cover,teaser,aftermore,inline',
-				'get_rendered_attachments'   => false,
-				// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
-				'links_sql_select'           => ', CASE '
-						.'WHEN link_position = "cover"     THEN "1" '
-						.'WHEN link_position = "teaser"    THEN "2" '
-						.'WHEN link_position = "aftermore" THEN "3" '
-						.'WHEN link_position = "inline"    THEN "4" '
-						// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
-					.'END AS position_order',
-				'links_sql_orderby'          => 'position_order, link_order',
-			) );
-
-		if( empty( $item_first_image ) )
-		{ // No images in this post, Display an empty block
-			$item_first_image = $Item->get_permanent_link( '<b>'.T_('No pictures yet').'</b>', '#', 'album_nopic' );
-		}
-		else if( $item_first_image == 'plugin_render_attachments' )
-		{ // No images, but some attachments(e.g. videos) are rendered by plugins
-			$item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
-		}
-
-      // echo  ;
-
-		// Display a title
-		echo $Item->get_title( array(
-   			   'before'    => $item_first_image.'<div class="posts__title"><h3><i class="fa fa-paper-plane"></i>',
-               'link_type' => 'none', // Use "none" or "permalink"
-               'after'     => '</h3></div>',
-   			) );
-		?>
-		<div class="posts__info">
-		<?php
-			// We want to display the post time:
-			$Item->issue_time( array(
-					'before'      => '<time class="posts_info_date">'.T_('On '),
-					'after'       => '</time>',
-					'time_format' => 'M j, Y',
+		<div class="main__posts_content">
+		<a href="<?php echo $Item->get_permanent_url(); ?>" class="evo__post_link"></a>
+	   <?php
+			// Display images that are linked to this post:
+			$item_first_image = $Item->get_images( array(
+					'before'              => '<div class="feature__image">',
+					'before_image'        => '',
+					'before_image_legend' => '',
+					'after_image_legend'  => '',
+					'after_image'         => '',
+					'after'               => '</div>',
+					'image_size'          => $Skin->get_setting( 'posts_thumb_size' ),
+					'image_link_to'       => 'single',
+					'image_desc'          => '',
+					'limit'                      => 1,
+					'restrict_to_image_position' => 'cover,teaser,aftermore,inline',
+					'get_rendered_attachments'   => false,
+					// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
+					'links_sql_select'           => ', CASE '
+							.'WHEN link_position = "cover"     THEN "1" '
+							.'WHEN link_position = "teaser"    THEN "2" '
+							.'WHEN link_position = "aftermore" THEN "3" '
+							.'WHEN link_position = "inline"    THEN "4" '
+							// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
+						.'END AS position_order',
+					'links_sql_orderby'          => 'position_order, link_order',
 				) );
 
-			// Author
-			$Item->author( array(
-				'before'    => '<div class="posts__info_author">'.T_('By').' ',
-				'after'     => '</div>',
-				'before_user' => '',
-				'after_user'  => '',
-				'link_text'   => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-				'link_class'  => 'ft_author_avatar',
-				'thumb_size'   => 'crop-40x40',
-				'thumb_class'  => '',
-			) );
+			if( empty( $item_first_image ) )
+			{ // No images in this post, Display an empty block
+				$item_first_image = $Item->get_permanent_link( '<b>'.T_('No pictures yet').'</b>', '#', 'album_nopic' );
+			}
+			else if( $item_first_image == 'plugin_render_attachments' )
+			{ // No images, but some attachments(e.g. videos) are rendered by plugins
+				$item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
+			}
 
-			// Categories
-			$Item->categories( array(
-				'before'          => '<div class="posts_info_cat">'.T_('in').' ',
-				'after'           => '</div>',
-				'include_main'    => true,
-				'include_other'   => true,
-				'include_external'=> true,
-				'link_categories' => true,
-			) );
-		?>
-		</div><!-- .posts__info -->
-		<?php
-		// Restore previous locale (Blog locale)
-		locale_restore_previous();
-   ?>
+	      echo $item_first_image;
+
+			?>
+			<div class="posts__info">
+			<?php
+				// Display a title
+				$Item->title( array(
+					'before'    => '<div class="posts__title"><h3>',
+					'link_type' => 'permalink', // Use "none" or "permalink"
+					'after'     => '</h3></div>',
+				) );
+
+				// Author
+				$Item->author( array(
+					'before'    => '<div class="posts__info_author">',
+					'after'     => '</div>',
+					'before_user' => '',
+					'after_user'  => '',
+					'link_text'   => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+					'link_class'  => 'author_avatar',
+					'thumb_size'   => 'crop-48x48',
+					'thumb_class'  => '',
+				) );
+
+				// Author
+				$Item->author( array(
+					'before'    => '<div class="posts__info_author">'.T_('By ').'',
+					'after'     => '</div>',
+					'before_user' => '',
+					'after_user'  => '',
+					'link_text'   => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+					'link_class'  => 'author_avatar',
+					'thumb_size'   => 'crop-48x48',
+					'thumb_class'  => '',
+				) );
+
+				// We want to display the post time:
+				$Item->issue_time( array(
+						'before'      => '<time class="posts__info_date">'.T_('On '),
+						'after'       => '</time>',
+						'time_format' => 'M j, Y',
+					) );
+
+				// Categories
+				$Item->categories( array(
+					'before'          => '<div class="posts__info_cat">'.T_('in').' ',
+					'after'           => '</div>',
+					'include_main'    => true,
+					'include_other'   => true,
+					'include_external'=> true,
+					'link_categories' => true,
+				) );
+			?>
+			</div><!-- .posts__info -->
+			<span class="posts_divider"></span>
+			<?php
+			// Restore previous locale (Blog locale)
+			locale_restore_previous();
+	   ?>
+		</div><!-- .main__posts_content -->
    </div>
    <?php
 	} // ---------------------------------- END OF POSTS ------------------------------------

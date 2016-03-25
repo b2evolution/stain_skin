@@ -40,6 +40,32 @@ body {
 }
 
 
+// Content Column
+// ======================================================================== /
+.one_column {
+	max-width: 100%;
+	// width: 100%;
+}
+
+.two_column {
+	max-width: 50%;
+}
+
+.three_column {
+	max-width: 33.333%;
+}
+
+&.four_column {
+	@media screen and ( min-width: @ML ) {
+		max-width: 25%;
+	}
+
+	@media screen and ( min-width: @MF ) and ( max-width: @ML ) {
+		max-width: 33.333%;
+	}
+}
+
+
 // Use full width for all textarea
 .form-horizontal .controls textarea.form-control {
 	width: 100%;

@@ -65,7 +65,7 @@ module.exports = function(grunt) {
       // https://toster.ru/q/119641
       autoprefixer: {
          options: {
-            browsers: ['last 2 versions', 'ie 8', 'ie 9', '> 1%'],
+            browsers: ['last 1 versions', 'ie 8', 'ie 9','> 1%', 'Firefox ESR'],
             cascade: false
          },
          files: {

@@ -16,4 +16,14 @@ jQuery(window).load(function (e) {
       });
    }
 
+   if ( $.fn.masonry ) {
+      $('.posts_list').masonry({
+        // options
+        itemSelector: '.evo_posts',
+        percentPosition: true,
+      //   columnWidth: 100
+      });
+   }
+
+
 });
