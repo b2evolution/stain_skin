@@ -689,6 +689,8 @@ class stain_gallery_Skin extends Skin
 			'disp_auto',               // Automatically include additional CSS and/or JS required by certain disps (replace with 'disp_off' to disable this)
 		) );
 
+		require_js( $this->get_url().'assets/scripts/modernizr.custom.js' );
+
 		// Skin specific initializations:
       // Include Script
       if ( $this->get_setting( 'nav_sticky' ) == 1 ) {

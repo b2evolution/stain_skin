@@ -43,25 +43,25 @@ body {
 // Content Column
 // ======================================================================== /
 .one_column {
-	max-width: 100%;
+	max-width: @one_column;
 	// width: 100%;
 }
 
 .two_column {
-	max-width: 50%;
+	max-width: @two_column;
 }
 
 .three_column {
-	max-width: 33.333%;
+	max-width: @three_column;
 }
 
 &.four_column {
 	@media screen and ( min-width: @ML ) {
-		max-width: 25%;
+		max-width: @four_column;
 	}
 
 	@media screen and ( min-width: @MF ) and ( max-width: @ML ) {
-		max-width: 33.333%;
+		max-width: @three_column;
 	}
 }
 

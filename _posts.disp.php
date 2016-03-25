@@ -123,6 +123,17 @@ if( ! $list_is_empty ) { ?>
 			?>
 			<div class="posts__info">
 			<?php
+
+				// Categories
+				$Item->categories( array(
+					'before'          => '<div class="posts__info_cat">',
+					'after'           => '</div>',
+					'include_main'    => true,
+					'include_other'   => true,
+					'include_external'=> true,
+					'link_categories' => true,
+				) );
+				
 				// Display a title
 				$Item->title( array(
 					'before'    => '<div class="posts__title"><h3>',
@@ -156,19 +167,9 @@ if( ! $list_is_empty ) { ?>
 
 				// We want to display the post time:
 				$Item->issue_time( array(
-						'before'      => '<time class="posts__info_date">'.T_('On '),
-						'after'       => '</time>',
-						'time_format' => 'M j, Y',
-					) );
-
-				// Categories
-				$Item->categories( array(
-					'before'          => '<div class="posts__info_cat">'.T_('in').' ',
-					'after'           => '</div>',
-					'include_main'    => true,
-					'include_other'   => true,
-					'include_external'=> true,
-					'link_categories' => true,
+					'before'      => '<time class="posts__info_date">'.T_('On '),
+					'after'       => '</time>',
+					'time_format' => 'M j, Y',
 				) );
 			?>
 			</div><!-- .posts__info -->

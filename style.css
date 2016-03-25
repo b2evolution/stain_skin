@@ -33,7 +33,7 @@ body {
   max-width: 50%;
 }
 .three_column {
-  max-width: 33.333%;
+  max-width: 32.333%;
 }
 @media screen and (min-width: 1025px) {
   .four_column {
@@ -42,7 +42,7 @@ body {
 }
 @media screen and (min-width: 767px) and (max-width: 1025px) {
   .four_column {
-    max-width: 33.333%;
+    max-width: 32.333%;
   }
 }
 .form-horizontal .controls textarea.form-control {
@@ -639,6 +639,8 @@ div.evo_image_index div:hover {
   margin-right: -10px;
 }
 .posts_gallery img {
+  position: relative;
+  display: block;
   max-width: 100%;
   height: auto;
   border-radius: 0;
@@ -919,7 +921,7 @@ div.evo_image_index div:hover {
   transform: scale(1);
 }
 .main_content_gallery:hover.zoom .cat_title::after {
-  opacity: 0.9;
+  opacity: 0.8;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
@@ -930,17 +932,17 @@ div.evo_image_index div:hover {
 .main_content_gallery:hover.zoom .feature_image img {
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  -webkit-transform: scale(2);
-  -ms-transform: scale(2);
-  transform: scale(2);
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
 }
 .main_content_gallery:hover.sweep_right .cat_title,
 .main_content_gallery:hover.sweep_left .cat_title {
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0);
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 .main_content_gallery:hover.sweep_right .cat_title::after,
 .main_content_gallery:hover.sweep_left .cat_title::after {
@@ -951,8 +953,8 @@ div.evo_image_index div:hover {
 }
 .main_content_gallery:hover.sweep_right .feature_image img,
 .main_content_gallery:hover.sweep_left .feature_image img {
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
@@ -975,15 +977,54 @@ div.evo_image_index div:hover {
   border-radius: 0;
 }
 .posts_list .evo_posts {
-  display: inline-block;
   position: relative;
-  padding: 2px;
+  display: block;
+  padding: 4px;
   overflow: hidden;
   z-index: 1;
 }
 .posts_list .evo_posts.one_column {
   margin: 0 auto 60px;
   width: 100%;
+}
+.posts_list .evo_posts.three_column {
+  float: left;
+  margin: 0 auto;
+}
+.posts_list .evo_posts.three_column .posts__info {
+  padding: 20px;
+}
+.posts_list .evo_posts.three_column .posts__info .posts__title h3 {
+  font-size: 2.8rem;
+}
+.posts_list .evo_posts.three_column .posts__info_author,
+.posts_list .evo_posts.three_column .posts__info_cat {
+  font-size: 1.3rem;
+}
+.posts_list .evo_posts.three_column .posts__info_author .author_avatar img {
+  width: 34px;
+  height: 34px;
+  margin-right: 3px;
+}
+.posts_list .evo_posts.three_column .posts_divider {
+  bottom: 30px;
+  left: 20px;
+}
+.posts_list .evo_posts.three_column .main__posts_content:hover .posts__title,
+.posts_list .evo_posts.three_column .main__posts_content:active .posts__title,
+.posts_list .evo_posts.three_column .main__posts_content:focus .posts__title,
+.posts_list .evo_posts.three_column .main__posts_content:hover .posts__info_author,
+.posts_list .evo_posts.three_column .main__posts_content:active .posts__info_author,
+.posts_list .evo_posts.three_column .main__posts_content:focus .posts__info_author,
+.posts_list .evo_posts.three_column .main__posts_content:hover .posts__info_date,
+.posts_list .evo_posts.three_column .main__posts_content:active .posts__info_date,
+.posts_list .evo_posts.three_column .main__posts_content:focus .posts__info_date,
+.posts_list .evo_posts.three_column .main__posts_content:hover .posts__info_cat,
+.posts_list .evo_posts.three_column .main__posts_content:active .posts__info_cat,
+.posts_list .evo_posts.three_column .main__posts_content:focus .posts__info_cat {
+  -webkit-transform: translateY(-40px);
+  -ms-transform: translateY(-40px);
+  transform: translateY(-40px);
 }
 .posts_list .evo_posts .main__posts_content {
   position: relative;
@@ -1001,7 +1042,7 @@ div.evo_image_index div:hover {
   /* IE6-9 */
   -webkit-transition: all 0.32s ease-in;
   transition: all 0.32s ease-in;
-  opacity: 0.5;
+  opacity: 0.6;
   z-index: 0;
 }
 .posts_list .evo_posts .evo__post_link {
@@ -1010,9 +1051,10 @@ div.evo_image_index div:hover {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 10;
 }
 .posts_list .evo_posts .feature__image {
+  position: relative;
   display: table-row;
   width: 920px;
   height: auto;
@@ -1030,8 +1072,7 @@ div.evo_image_index div:hover {
   z-index: 2;
 }
 .posts_list .evo_posts .posts__info_date,
-.posts_list .evo_posts .posts__info_author,
-.posts_list .evo_posts .posts__info_cat {
+.posts_list .evo_posts .posts__info_author {
   position: relative;
   display: inline-block;
   -webkit-transition: all 0.32s ease-in-out;
@@ -1041,15 +1082,43 @@ div.evo_image_index div:hover {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-.posts_list .evo_posts .posts__title {
-  position: relative;
-  margin-bottom: 10px;
+.posts_list .evo_posts .posts__info_cat {
+  display: block;
+  margin-bottom: 15px;
   -webkit-transition: all 0.32s ease-in-out;
   transition: all 0.32s ease-in-out;
-  -webkit-transition-delay: 0.15s;
-  transition-delay: 0.15s;
-  -webkit-transition-duration: 0.6s;
-  transition-duration: 0.6s;
+  -webkit-transition-delay: 0.18s;
+  transition-delay: 0.18s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.posts_list .evo_posts .posts__info_cat a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  padding: 3px 8px;
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  -webkit-transition: all 0.32s ease;
+  transition: all 0.32s ease;
+}
+.posts_list .evo_posts .posts__info_cat a:hover,
+.posts_list .evo_posts .posts__info_cat a:active,
+.posts_list .evo_posts .posts__info_cat a:focus {
+  text-decoration: none;
+  background-color: #18c54d;
+  border-color: #18c54d;
+}
+.posts_list .evo_posts .posts__title {
+  position: relative;
+  margin-bottom: 12px;
+  -webkit-transition: all 0.32s ease-in-out;
+  transition: all 0.32s ease-in-out;
+  -webkit-transition-delay: 0.13s;
+  transition-delay: 0.13s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 .posts_list .evo_posts .posts__title h3 {
   font-family: "Montserrat", sans-serif;
@@ -1070,6 +1139,8 @@ div.evo_image_index div:hover {
   text-decoration: none;
 }
 .posts_list .evo_posts .posts__info_author {
+  position: relative;
+  display: inline-block;
   padding-right: 5px;
   color: #ffffff;
 }
@@ -1088,13 +1159,6 @@ div.evo_image_index div:hover {
 .posts_list .evo_posts .posts__info_date {
   padding-right: 5px;
   color: #ffffff;
-}
-.posts_list .evo_posts .posts__info_cat {
-  color: #ffffff;
-}
-.posts_list .evo_posts .posts__info_cat a {
-  font-weight: 700;
-  color: #18c54d;
 }
 .posts_list .evo_posts .posts_divider {
   position: absolute;
@@ -1118,6 +1182,15 @@ div.evo_image_index div:hover {
   transition: all 0.32s ease-in-out;
   height: 100%;
 }
+.posts_list .evo_posts .main__posts_content:hover .posts__info_cat {
+  -webkit-transform: translateY(-50px);
+  -ms-transform: translateY(-50px);
+  transform: translateY(-50px);
+  -webkit-transition-delay: 0.04s;
+  transition-delay: 0.04s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
 .posts_list .evo_posts .main__posts_content:hover .posts__title {
   -webkit-transform: translateY(-50px);
   -ms-transform: translateY(-50px);
@@ -1128,8 +1201,7 @@ div.evo_image_index div:hover {
   transition-duration: 0.5s;
 }
 .posts_list .evo_posts .main__posts_content:hover .posts__info_author,
-.posts_list .evo_posts .main__posts_content:hover .posts__info_date,
-.posts_list .evo_posts .main__posts_content:hover .posts__info_cat {
+.posts_list .evo_posts .main__posts_content:hover .posts__info_date {
   -webkit-transform: translateY(-50px);
   -ms-transform: translateY(-50px);
   transform: translateY(-50px);
@@ -1141,8 +1213,12 @@ div.evo_image_index div:hover {
 .posts_list .evo_posts .main__posts_content:hover .posts_divider {
   visibility: visible;
   width: 80px;
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
+  -webkit-transition-delay: 0.08s;
+  transition-delay: 0.08s;
+  -webkit-transition: all 0.32s ease-in-out;
+  transition: all 0.32s ease-in-out;
+  -webkit-transition-duration: 1.2s;
+  transition-duration: 1.2s;
 }
 .widget_core_org_members {
   margin: 5em 0 30px;

@@ -14,18 +14,77 @@
    }
 
    .evo_posts {
-      display: inline-block;
       position: relative;
-      padding: 2px;
+      display: block;
+      padding: 4px;
       // max-width: 100%;
       overflow: hidden;
       z-index: 1;
 
+
+      // Posts One Column
+      // ======================================================================== /
       &.one_column {
          margin: 0 auto 60px;
          width: 100%;
       }
 
+      // Posts Three Column
+      // ======================================================================== /
+      &.three_column {
+         float: left;
+         margin: 0 auto;
+         // width: calc( 34.333% - 1px );
+
+         .posts__info {
+            padding: 20px;
+
+            .posts__title {
+               h3 {
+                  font-size: 2.8rem;
+               }
+            }
+
+            &_author,
+            &_cat {
+               font-size: 1.3rem;
+            }
+
+            &_author {
+               .author_avatar {
+                  img {
+                     width: 34px;
+                     height: 34px;
+                     margin-right: 3px;
+                  }
+               }
+
+            }
+
+         }
+
+         .posts_divider {
+            bottom: 30px;
+            left: 20px;
+         }
+
+         .main__posts_content {
+
+            &:hover, &:active, &:focus {
+               .posts__title,
+               .posts__info_author,
+               .posts__info_date,
+               .posts__info_cat {
+                  transform: translateY(-40px);
+               }
+            }
+
+         }
+
+      }
+
+      // Main Posts Content
+      // ======================================================================== /
       .main__posts_content {
          position: relative;
 
@@ -39,8 +98,7 @@
             background: linear-gradient(to bottom, rgba(25, 26, 28, 0) 0%, rgba(25, 26, 28, 0) 18%, rgba(25, 26, 28, 0.8) 88%, #26282d 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00191a1c', endColorstr='#191a1c',GradientType=0 ); /* IE6-9 */
             transition: all 0.32s ease-in;
-            opacity: 0.5;
-
+            opacity: 0.6;
             z-index: 0;
          }
       }
@@ -51,10 +109,13 @@
          height: 100%;
          top: 0;
          left: 0;
-         z-index: 2;
+         z-index: 10;
       }
 
+      // Feature Image
+      // ======================================================================== /
       .feature__image {
+         position: relative;
          display: table-row;
          width: 920px;
          height: auto;
@@ -65,6 +126,7 @@
       }
 
       // Posts Info
+      // ======================================================================== /
       .posts__info {
          position: absolute;;
          bottom: 0;
@@ -76,8 +138,7 @@
          z-index: 2;
 
          &_date,
-         &_author,
-         &_cat {
+         &_author{
             position: relative;
             display: inline-block;
 
@@ -85,16 +146,47 @@
             transition-delay: 0.1s;
             transition-duration: 0.5s;
          }
+
+      }
+
+
+      // Posts Info Category
+      // ======================================================================== /
+      .posts__info_cat {
+         display: block;
+         margin-bottom: 15px;
+
+         transition: all 0.32s ease-in-out;
+         transition-delay: 0.18s;
+         transition-duration: 0.5s;
+
+         a {
+            font-family: @font_heading;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: @w;
+            padding: 3px 8px;
+            border: 1px solid @w;
+            border-radius: 2px;
+            transition: all 0.32s ease;
+
+            &:hover, &:active, &:focus {
+               text-decoration: none;
+               background-color: @primary;
+               border-color: @primary;
+            }
+         }
       }
 
       // Posts Title
+      // ======================================================================== /
       .posts__title {
          position: relative;
-         margin-bottom: 10px;
+         margin-bottom: 12px;
 
          transition: all 0.32s ease-in-out;
-         transition-delay: 0.15s;
-         transition-duration: 0.6s;
+         transition-delay: 0.13s;
+         transition-duration: 0.5s;
 
          h3 {
             font-family: @font_heading;
@@ -117,7 +209,11 @@
 
       }
 
+      // Posts Info Author
+      // ======================================================================== /
       .posts__info_author {
+         position: relative;
+         display: inline-block;
          padding-right: 5px;
          color: @w;
 
@@ -142,20 +238,17 @@
 
       }
 
+
+      // Posts Info Date
+      // ======================================================================== /
       .posts__info_date {
          padding-right: 5px;
          color: @w;
       }
 
-      .posts__info_cat {
-         color: @w;
 
-         a {
-            font-weight: 700;
-            color: @primary;
-         }
-      }
-
+      // Posts Divider
+      // ======================================================================== /
       .posts_divider {
          position: absolute;
          bottom: 45px;
@@ -181,6 +274,12 @@
             height: 100%;
          }
 
+         .posts__info_cat {
+            transform: translateY( -50px );
+            transition-delay: 0.04s;
+            transition-duration: 0.4s;
+         }
+
          .posts__title {
             transform: translateY( -50px );
             transition-delay: 0.05s;
@@ -188,8 +287,7 @@
          }
 
          .posts__info_author,
-         .posts__info_date,
-         .posts__info_cat {
+         .posts__info_date {
             transform: translateY( -50px );
             transition-delay: 0.07s;
             transition-duration: 0.6s;
@@ -198,7 +296,9 @@
          .posts_divider {
             visibility: visible;
             width: 80px;
-            transition-delay: 0.2s;
+            transition-delay: 0.08s;
+            transition: all 0.32s ease-in-out;
+            transition-duration: 1.2s;
          }
 
       }
