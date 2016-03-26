@@ -50,9 +50,9 @@ $params = array_merge( array(
    'gallery_order'            => '', // Can be 'ASC', 'DESC', 'RAND' or empty
 
    'excerpt_more_text'        => T_('Read More').' &raquo;',
-   'excerpt_before_text'      => '<div class="evo_post__excerpt_text">',
+   'excerpt_before_text'      => '<div class="posts__info_excerpt">',
    'excerpt_after_text'       => '</div>',
-   'excerpt_before_more'      => ' <span class="evo_post__excerpt_more_link">',
+   'excerpt_before_more'      => ' <span class="posts__info_excerpt_link">',
    'excerpt_after_more'       => '</span>',
 ), $params );
 
@@ -109,21 +109,59 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
          'restrict_to_image_position' => 'teaser',
       ) );
 
-   	$Item->title( array(
-   		// 'link_type'  => 'none',
-   		'before'     => '<div class="evo_post__title"><h2>',
-   		'after'      => '</h2><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
-   		'nav_target' => false,
-   	) );
+      ?>
+      <div class="posts__info">
+      <?php
 
-      $Item->excerpt( array(
-			'before'              => $params['excerpt_before_text'],
-			'after'               => $params['excerpt_after_text'],
-			'excerpt_before_more' => $params['excerpt_before_more'],
-			'excerpt_after_more'  => $params['excerpt_after_more'],
-			'excerpt_more_text'   => $params['excerpt_more_text'],
-		) );
+      	$Item->title( array(
+      		// 'link_type'  => 'none',
+      		'before'     => '<div class="posts__info_title"><h2>',
+      		'after'      => '</h2><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
+      		'nav_target' => false,
+      	) );
 
+         // Author Avatar
+         $Item->author( array(
+            'before'       => '<div class="posts__info_author">',
+            'after'        => '</div>',
+            'before_user'  => '',
+            'after_user'   => '',
+            'link_text'    => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+            'link_class'   => 'author_avatar',
+            'thumb_size'   => 'crop-48x48',
+            'thumb_class'  => '',
+         ) );
+
+         // Author Name
+         $Item->author( array(
+            'before'    => '<div class="posts__info_author">'.T_('By ').'',
+            'after'     => '</div>',
+            'before_user' => '',
+            'after_user'  => '',
+            'link_text'   => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+            'link_class'  => 'author_avatar',
+            'thumb_size'   => 'crop-48x48',
+            'thumb_class'  => '',
+         ) );
+
+         // We want to display the post time:
+         $Item->issue_time( array(
+            'before'      => '<time class="posts__info_date">'.T_('On '),
+            'after'       => '</time>',
+            'time_format' => 'M j, Y',
+         ) );
+
+         // Content Excerpt
+         $Item->excerpt( array(
+   			'before'              => $params['excerpt_before_text'],
+   			'after'               => $params['excerpt_after_text'],
+   			'excerpt_before_more' => $params['excerpt_before_more'],
+   			'excerpt_after_more'  => $params['excerpt_after_more'],
+   			'excerpt_more_text'   => $params['excerpt_more_text'],
+   		) );
+      ?>
+      </div>
+      <?php
    	// ---------------------- POST CONTENT INCLUDED HERE ----------------------
    	// skin_include( '_item_content.inc.php', $params );
    	// Note: You can customize the default item content by copying the generic

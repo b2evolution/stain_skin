@@ -2,10 +2,13 @@
 // Posts Style
 // ======================================================================== /
 .posts_list {
-   // max-width: 1000px;
    width: 100%;
    height: auto;
    margin: 0 auto;
+
+   &.post_full {
+      max-width: 1170px;
+   }
 
    img {
       max-width: 100%;
@@ -15,18 +18,25 @@
 
    .evo_posts {
       position: relative;
-      display: block;
+      display: flex;
       padding: 4px;
-      // max-width: 100%;
       overflow: hidden;
       z-index: 1;
-
 
       // Posts One Column
       // ======================================================================== /
       &.one_column {
-         margin: 0 auto 60px;
-         width: 100%;
+         right: 0;
+         max-width: 100%;
+
+         @media screen and ( min-width: @MM ) {
+            margin: 0 auto 60px;
+
+            &:last-child {
+               margin-bottom: 20px;
+            }
+         }
+
       }
 
       // Posts Three Column
@@ -40,21 +50,24 @@
             padding: 20px;
 
             .posts__title {
-               h3 {
-                  font-size: 2.8rem;
+               @media screen and ( min-width: @M ) {
+
+                  h3 {
+                     font-size: 2.8rem;
+                  }
                }
             }
 
             &_author,
             &_cat {
-               font-size: 1.3rem;
+               font-size: 1.2rem;
             }
 
             &_author {
                .author_avatar {
                   img {
-                     width: 34px;
-                     height: 34px;
+                     width: 32px;
+                     height: 32px;
                      margin-right: 3px;
                   }
                }
@@ -83,10 +96,20 @@
 
       }
 
+      // Responsive Layout
+      // ======================================================================== /
+      @media screen and ( max-width: @M ) {
+         max-width: @two_column;
+      }
+      @media screen and ( max-width: @S ) {
+         max-width: @one_column;
+      }
+
       // Main Posts Content
       // ======================================================================== /
       .main__posts_content {
          position: relative;
+         margin: 0 auto;
 
          &::after {
             content: '';
@@ -109,7 +132,7 @@
          height: 100%;
          top: 0;
          left: 0;
-         z-index: 10;
+         z-index: 2;
       }
 
       // Feature Image
@@ -145,6 +168,14 @@
             transition: all 0.32s ease-in-out;
             transition-delay: 0.1s;
             transition-duration: 0.5s;
+
+            @media screen and ( max-width: @S ){
+               font-size: 1.3rem;
+            }
+
+            @media screen and ( max-width: @XS ) {
+               display: none;
+            }
          }
 
       }
@@ -192,11 +223,19 @@
             font-family: @font_heading;
             font-size: 3.6rem;
             font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: capitalize;
+            // letter-spacing: 2px;
+            // text-transform: uppercase;
             margin: 0;
             padding: 0;
             text-align: left;
+
+            @media screen and ( max-width: @S ) {
+               font-size: 2rem;
+            }
+
+            @media screen and ( max-width: @XS ){
+               font-size: 1.8rem;
+            }
 
             a {
                color: @w;
@@ -216,6 +255,7 @@
          display: inline-block;
          padding-right: 5px;
          color: @w;
+         font-family: @font_heading;
 
          .author_avatar {
 
@@ -229,7 +269,7 @@
 
          .identity_link_username {
             color: @w;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
 
             &:hover {
                text-decoration: underline;
@@ -242,6 +282,7 @@
       // Posts Info Date
       // ======================================================================== /
       .posts__info_date {
+         font-family: @font_heading;
          padding-right: 5px;
          color: @w;
       }
@@ -260,6 +301,10 @@
 
          visibility: hidden;
          transition: all 0.3s ease-in-out;
+
+         @media screen and ( max-width: @XS ) {
+            display: none;
+         }
       }
 
 
@@ -274,21 +319,33 @@
             height: 100%;
          }
 
-         .posts__info_cat {
+         .posts__info_cat,
+         .posts__title,
+         .posts__info_author,
+         .posts__info_date, {
             transform: translateY( -50px );
+
+            @media screen and ( max-width: @S ) {
+               transform: translateY( -30px ) !important;
+            }
+
+            @media screen and ( max-width: @XS ) {
+               transform: translateY( -15px ) !important;
+            }
+         }
+
+         .posts__info_cat {
             transition-delay: 0.04s;
             transition-duration: 0.4s;
          }
 
          .posts__title {
-            transform: translateY( -50px );
             transition-delay: 0.05s;
             transition-duration: 0.5s;
          }
 
          .posts__info_author,
          .posts__info_date {
-            transform: translateY( -50px );
             transition-delay: 0.07s;
             transition-duration: 0.6s;
          }
@@ -305,6 +362,73 @@
 
    }
 
+}
 
+
+// Nav Pages
+// ======================================================================== /
+.main_pagination {
+   text-align: center;
+
+   .pagination {
+      margin-top: 40px;
+
+      &:first-child {
+
+         a, span {
+            border-radius: 50%;
+         }
+
+      }
+
+      li {
+         display: inline-block;
+
+         &.active span, &.active a{
+            background-color: @primary;
+            color: @w;
+         }
+
+         &.listnav_next, &.listnav_prev {
+
+            a {
+               width: 80px;
+               border-radius: 30px;
+            }
+
+         }
+
+      }
+
+      a, span {
+         // padding: 10px 15px;
+         font-size: 1.5rem;
+         font-weight: 700;
+         width: 45px;
+         height: 45px;
+         text-align: center;
+         line-height: 32px;
+         border-radius: 50%;
+         margin-right: 2px;
+         color: @primary;
+         border: 1px solid @primary;
+         transition: all 0.2s linear;
+
+         @media screen and ( max-width: @S ) {
+            width: 40px;
+            height: 40px;
+            line-height: 27px;
+            font-size: 1.3rem;
+         }
+
+         &:hover, &:active, &:focus {
+            color: @w;
+            border-color: @primary;
+            background-color: @primary;
+            box-shadow: 1px 2px 2px rgba( 0, 0, 0, 0.1 );
+         }
+      }
+
+   }
 
 }

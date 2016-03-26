@@ -491,8 +491,13 @@ class stain_gallery_Skin extends Skin
                'label'        => T_('Thumbnail size in Posts List'),
                'note'         => '',
                'defaultvalue' => 'fit-1280x720',
-               'options'      => get_available_thumb_sizes(),
+					'size'			=> 10,
                'type'         => 'select',
+               'options'      => array(
+						'original' => T_( 'Original' ),
+						'fit-1280x720' => T_( 'fit-1280x720' ),
+						'crop-480x320' => T_( 'crop-480x320' ),
+					),
             ),
 				'posts_show' => array(
                'label'        => T_( 'Column Posts' ),
@@ -506,6 +511,14 @@ class stain_gallery_Skin extends Skin
                ),
                'defaultvalue' => 'three_column'
             ),
+				'posts_list_space' => array(
+					'label'			=> T_( 'Posts List Padding' ),
+					'note'			=> T_( 'px. Set the padding for posts list.' ),
+					'type'			=> 'integer',
+					'defaultvalue' => '4',
+					'size'			=> 3,
+					'allow_empty'  => false,
+				),
          'section_posts_end' => array(
             'layout'   => 'end_fieldset',
          ),

@@ -84,10 +84,15 @@ skin_include( '_body_header.inc.php' );
    	{	// Don't display the pages on disp=catdir because we don't have a limit by page there
    		// -------------------- PREV/NEXT PAGE LINKS (POST LIST MODE) --------------------
    		mainlist_page_links( array(
-				'block_start' => '<div class="nav_pages">',
-				'block_end'   => '</div>',
-				'prev_text'   => '&lt;&lt;',
-				'next_text'   => '&gt;&gt;',
+				'block_start'           => '<div class="main_pagination"><ul class="pagination">',
+				'block_end'             => '</ul></div>',
+				'page_item_before'      => '<li>',
+				'page_item_after'       => '</li>',
+				'page_item_current_before' => '<li class="active">',
+				'page_item_current_after'  => '</li>',
+				'page_current_template' => '<span>$page_num$</span>',
+				'prev_text'             => '<i class="fa fa-angle-double-left"></i>'.T_( ' Prev' ),
+				'next_text'             => T_( 'Next ' ).'<i class="fa fa-angle-double-right"></i>',
 			) );
    		// ------------------------- END OF PREV/NEXT PAGE LINKS -------------------------
    	}

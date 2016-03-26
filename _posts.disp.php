@@ -18,6 +18,11 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 global $Item;
 
+$post_column = '';
+if( $Skin->get_setting( 'posts_show' ) == 'one_column' ){
+	 $post_column = 'post_full';
+ };
+
 
 // ------------------------------- START OF INTRO POST -------------------------------
 if( $Item = get_featured_Item() )
@@ -73,7 +78,7 @@ if( ! is_logged_in() )
 $list_is_empty = display_if_empty( $params_no_content );
 
 if( ! $list_is_empty ) { ?>
-<div class="posts_list">
+<div class="posts_list <?php echo $post_column ?>">
    <?php
    	while( $Item = & mainlist_get_item() ){
       // For each blog post, do everything below up to the closing curly brace "}"
@@ -133,7 +138,7 @@ if( ! $list_is_empty ) { ?>
 					'include_external'=> true,
 					'link_categories' => true,
 				) );
-				
+
 				// Display a title
 				$Item->title( array(
 					'before'    => '<div class="posts__title"><h3>',
@@ -141,7 +146,7 @@ if( ! $list_is_empty ) { ?>
 					'after'     => '</h3></div>',
 				) );
 
-				// Author
+				// Author Image
 				$Item->author( array(
 					'before'    => '<div class="posts__info_author">',
 					'after'     => '</div>',
@@ -153,7 +158,7 @@ if( ! $list_is_empty ) { ?>
 					'thumb_class'  => '',
 				) );
 
-				// Author
+				// Author Name
 				$Item->author( array(
 					'before'    => '<div class="posts__info_author">'.T_('By ').'',
 					'after'     => '</div>',
@@ -171,6 +176,7 @@ if( ! $list_is_empty ) { ?>
 					'after'       => '</time>',
 					'time_format' => 'M j, Y',
 				) );
+				
 			?>
 			</div><!-- .posts__info -->
 			<span class="posts_divider"></span>
