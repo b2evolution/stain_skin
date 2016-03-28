@@ -82,6 +82,16 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
    		) );
    	}
 
+      // Categories
+      $Item->categories( array(
+         'before'          => '<div class="posts__info_cat">',
+         'after'           => '</div>',
+         'include_main'    => true,
+         'include_other'   => true,
+         'include_external'=> true,
+         'link_categories' => true,
+      ) );
+
       $Item->images( array(
          'before'              => $params['before_images'],
          'before_image'        => $params['before_image'],
@@ -128,7 +138,7 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
             'after_user'   => '',
             'link_text'    => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
             'link_class'   => 'author_avatar',
-            'thumb_size'   => 'crop-48x48',
+            'thumb_size'   => 'crop-32x32',
             'thumb_class'  => '',
          ) );
 

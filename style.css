@@ -565,8 +565,13 @@ div.evo_image_index div:hover {
 #main_content .feature_post {
   border-radius: 0;
 }
-#main_content .feature_post .evo_image_block {
-  margin: 0;
+#main_content .feature_post.two_column .posts__info_cat {
+  top: 12px;
+  font-size: 1.4rem;
+  padding: 5px 15px;
+}
+#main_content .feature_post.four_column .posts__info_title h2 {
+  font-size: 2.6rem;
 }
 #main_content .feature_post .main_content_gallery {
   background-color: #ffffff;
@@ -579,17 +584,39 @@ div.evo_image_index div:hover {
   transform: translateY(-5px);
   box-shadow: 0px 3px 24px 2px rgba(0, 0, 0, 0.2);
 }
+#main_content .feature_post .evo_image_block {
+  margin: 0;
+}
+#main_content .feature_post .posts__info_cat {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  background-color: #18c54d;
+  z-index: 1;
+}
+#main_content .feature_post .posts__info_cat a {
+  color: #ffffff;
+}
+#main_content .feature_post .posts__info_cat a:hover,
+#main_content .feature_post .posts__info_cat a:active,
+#main_content .feature_post .posts__info_cat a:focus {
+  text-decoration: none;
+}
 #main_content .feature_post .posts__info {
   padding: 25px;
 }
 #main_content .feature_post .posts__info_title {
   display: table;
   padding-bottom: 0;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 #main_content .feature_post .posts__info_title h2 {
   font-family: "Montserrat", sans-serif;
-  font-size: 2.4rem;
+  font-size: 3rem;
   font-weight: 700;
   text-transform: uppercase;
   margin: 0;
@@ -617,8 +644,6 @@ div.evo_image_index div:hover {
 }
 #main_content .feature_post .posts__info_author img {
   display: inline-block;
-  width: 35px;
-  height: 35px;
   border-radius: 50%;
 }
 #main_content .feature_post .posts__info_author a {
@@ -640,7 +665,7 @@ div.evo_image_index div:hover {
   font-family: "Montserrat", sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   padding: 12px 20px;
   text-transform: uppercase;
   color: #ffffff;
@@ -658,7 +683,6 @@ div.evo_image_index div:hover {
 .posts_gallery img {
   position: relative;
   display: block;
-  max-width: 100%;
   height: auto;
   border-radius: 0;
 }
@@ -669,73 +693,140 @@ div.evo_image_index div:hover {
   padding: 10px;
   margin: 0 auto;
 }
-.posts_gallery .evo_post.two_column,
-.posts_gallery .feature_post.two_column {
+.posts_gallery .evo_post.two_column {
   max-width: 50%;
 }
-.posts_gallery .evo_post.three_column,
-.posts_gallery .feature_post.three_column {
+.posts_gallery .evo_post.two_column img {
+  max-width: 100%;
+}
+.posts_gallery .evo_post.three_column {
   max-width: 33.333%;
 }
+.posts_gallery .evo_post.three_column img {
+  max-width: 100%;
+}
 @media screen and (min-width: 768px) and (max-width: 1025px) {
-  .posts_gallery .evo_post.three_column .main_content_gallery .cat_title_link,
-  .posts_gallery .feature_post.three_column .main_content_gallery .cat_title_link {
+  .posts_gallery .evo_post.three_column .main_content_gallery .cat_title_link {
     font-size: 2.2rem;
   }
-  .posts_gallery .evo_post.three_column .main_content_gallery .btn_cat,
-  .posts_gallery .feature_post.three_column .main_content_gallery .btn_cat {
+  .posts_gallery .evo_post.three_column .main_content_gallery .btn_cat {
     font-size: 1.1rem;
     padding: 6px 12px;
     margin-top: 10px;
   }
 }
+.posts_gallery .evo_post.four_column img {
+  max-width: 100%;
+}
 @media screen and (min-width: 1025px) {
-  .posts_gallery .evo_post.four_column,
-  .posts_gallery .feature_post.four_column {
+  .posts_gallery .evo_post.four_column {
     max-width: 25%;
   }
 }
 @media screen and (min-width: 767px) and (max-width: 1025px) {
-  .posts_gallery .evo_post.four_column,
-  .posts_gallery .feature_post.four_column {
+  .posts_gallery .evo_post.four_column {
     max-width: 33.333%;
   }
-  .posts_gallery .evo_post.four_column .main_content_gallery .cat_title_link,
-  .posts_gallery .feature_post.four_column .main_content_gallery .cat_title_link {
+  .posts_gallery .evo_post.four_column .main_content_gallery .cat_title_link {
     font-size: 2.2rem;
   }
-  .posts_gallery .evo_post.four_column .main_content_gallery .btn_cat,
-  .posts_gallery .feature_post.four_column .main_content_gallery .btn_cat {
+  .posts_gallery .evo_post.four_column .main_content_gallery .btn_cat {
     font-size: 1.1rem;
     padding: 6px 12px;
     margin-top: 10px;
   }
 }
 @media screen and (min-width: 768px) {
-  .posts_gallery .evo_post.four_column .main_content_gallery .btn_cat,
-  .posts_gallery .feature_post.four_column .main_content_gallery .btn_cat {
+  .posts_gallery .evo_post.four_column .main_content_gallery .btn_cat {
     font-size: 1.2rem;
     padding: 8px 15px;
     margin-top: 10px;
   }
 }
 @media screen and (max-width: 768px) {
-  .posts_gallery .evo_post,
-  .posts_gallery .feature_post {
+  .posts_gallery .evo_post {
     max-width: 50% !important;
   }
 }
 @media screen and (max-width: 480px) {
-  .posts_gallery .evo_post,
-  .posts_gallery .feature_post {
+  .posts_gallery .evo_post {
     float: 0;
     max-width: 100% !important;
     width: 100% !important;
   }
 }
-.posts_gallery .main_content_gallery {
+@media screen and (max-width: 768px) {
+  .posts_gallery .evo_post.random {
+    max-width: 50% !important;
+  }
+  .posts_gallery .evo_post.random .feature_image {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  .posts_gallery .evo_post.random img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .posts_gallery .evo_post.random {
+    max-width: 100% !important;
+  }
+}
+.posts_gallery .evo_post.random .feature_image {
   position: relative;
   overflow: hidden;
+  width: auto;
+  height: 380px;
+}
+.posts_gallery .evo_post.random .feature_image img {
+  width: auto;
+  height: 380px;
+}
+.posts_gallery .evo_post.random:nth-child(1n) {
+  max-width: 33.333%;
+}
+.posts_gallery .evo_post.random:nth-child(1n) .feature_image {
+  height: 340px;
+}
+.posts_gallery .evo_post.random:nth-child(1n) img {
+  height: 340px;
+  width: auto;
+}
+.posts_gallery .evo_post.random:nth-child(9n - 3),
+.posts_gallery .evo_post.random:nth-child(9n - 2),
+.posts_gallery .evo_post.random:nth-child(9n - 1),
+.posts_gallery .evo_post.random:nth-child(9n) {
+  max-width: 25%;
+}
+.posts_gallery .evo_post.random:nth-child(9n - 3) .feature_image,
+.posts_gallery .evo_post.random:nth-child(9n - 2) .feature_image,
+.posts_gallery .evo_post.random:nth-child(9n - 1) .feature_image,
+.posts_gallery .evo_post.random:nth-child(9n) .feature_image {
+  height: 300px;
+}
+.posts_gallery .evo_post.random:nth-child(9n - 3) img,
+.posts_gallery .evo_post.random:nth-child(9n - 2) img,
+.posts_gallery .evo_post.random:nth-child(9n - 1) img,
+.posts_gallery .evo_post.random:nth-child(9n) img {
+  height: 300px;
+  width: auto;
+}
+.posts_gallery .evo_post.random:nth-child(9n - 5),
+.posts_gallery .evo_post.random:nth-child(9n - 4) {
+  max-width: 50%;
+}
+.posts_gallery .evo_post.random:nth-child(9n - 5) .feature_image,
+.posts_gallery .evo_post.random:nth-child(9n - 4) .feature_image {
+  height: 500px;
+}
+.posts_gallery .evo_post.random:nth-child(9n - 5) img,
+.posts_gallery .evo_post.random:nth-child(9n - 4) img {
+  height: 500px;
+  width: auto;
+}
+.posts_gallery .main_content_gallery {
+  position: relative;
   -webkit-transition: all 0.42s ease-in-out;
   transition: all 0.42s ease-in-out;
 }
@@ -879,6 +970,9 @@ div.evo_image_index div:hover {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
+.main_content_gallery.zoom {
+  overflow: hidden;
+}
 .main_content_gallery.zoom .cat_title_content {
   -webkit-transform: scale(0);
   -ms-transform: scale(0);
@@ -895,6 +989,9 @@ div.evo_image_index div:hover {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
+.main_content_gallery.sweep_right {
+  overflow: hidden;
+}
 .main_content_gallery.sweep_right .cat_title {
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
@@ -908,6 +1005,9 @@ div.evo_image_index div:hover {
 .main_content_gallery.sweep_right .feature_image img {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
+}
+.main_content_gallery.sweep_left {
+  overflow: hidden;
 }
 .main_content_gallery.sweep_left .cat_title {
   -webkit-transform: translateX(100%);

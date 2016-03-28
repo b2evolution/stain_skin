@@ -8,12 +8,30 @@
    .feature_post {
       border-radius: 0;
 
-      // Image Posts
+      // Column
       // ======================================================================== /
-      .evo_image_block {
-         margin: 0;
+      &.two_column {
+
+         .posts__info_cat {
+            top: 12px;
+            font-size: 1.4rem;
+            padding: 5px 15px;
+         }
+
       }
 
+      &.four_column {
+
+         .posts__info_title {
+            h2 {
+               font-size: 2.6rem;
+            }
+         }
+
+      }
+
+      // Main Content
+      // ======================================================================== /
       .main_content_gallery {
          background-color: @w;
          transition: all 0.32s ease-in-out;
@@ -21,6 +39,33 @@
          &:hover {
             transform: translateY(-5px);
             box-shadow: 0px 3px 24px 2px rgba(0, 0, 0, 0.2);
+         }
+      }
+
+      // Image Posts
+      // ======================================================================== /
+      .evo_image_block {
+         margin: 0;
+      }
+
+      // Posts Category
+      // ======================================================================== /
+      .posts__info_cat {
+         position: absolute;
+         top: 8px;
+         left: 0;
+         font-family: @font_heading;
+         font-size: 1.1rem;
+         letter-spacing: 1px;
+         padding: 3px 8px;
+         background-color: @primary;
+         z-index: 1;
+
+         a {
+            color: @w;
+            &:hover, &:active, &:focus {
+               text-decoration: none;
+            }
          }
       }
 
@@ -34,11 +79,11 @@
          &_title {
             display: table;
             padding-bottom: 0;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
 
             h2 {
                font-family: @font_heading;
-               font-size: 2.4rem;
+               font-size: 3rem;
                font-weight: 700;
                text-transform: uppercase;
                margin: 0;
@@ -70,8 +115,8 @@
 
             img {
                display: inline-block;
-               width: 35px;
-               height: 35px;
+               // width: 35px;
+               // height: 35px;
                border-radius: 50%;
             }
 
@@ -101,7 +146,7 @@
                font-family: @font_heading;
                font-size: 1.1rem;
                font-weight: 400;
-               letter-spacing: 1px;
+               letter-spacing: 0.5px;
                padding: 12px 20px;
                text-transform: uppercase;
                color: @w;
@@ -125,25 +170,35 @@
    img {
       position: relative;
       display: block;
-      max-width: 100%;
       height: auto;
       border-radius: 0;
    }
 
-   // Gallery Column Style
-   // ======================================================================== /
-   .evo_post, .feature_post{
+   .evo_post, .feature_post {
       position: relative;
       float: left;
       padding: 10px;
       margin: 0 auto;
+   }
+
+   // Gallery Column Style
+   // ======================================================================== /
+   .evo_post{
 
       &.two_column {
          max-width: 50%;
+
+         img {
+            max-width: 100%;
+         }
       }
 
       &.three_column {
          max-width: 33.333%;
+
+         img {
+            max-width: 100%;
+         }
 
          .main_content_gallery {
 
@@ -164,6 +219,11 @@
       // Four Column
       // ======================================================================== /
       &.four_column {
+
+         img {
+            max-width: 100%;
+         }
+
          @media screen and ( min-width: @ML ) {
             max-width: 25%;
          }
@@ -210,15 +270,90 @@
          width: 100% !important;
       }
 
-      // &:nth-child(2) {
-      //    max-width: 33.333%;
-      // }
+      &.random {
+
+         @media screen and ( max-width: @M ) {
+            max-width: 50% !important;
+
+            .feature_image {
+               max-width: 100% !important;
+               height: auto !important;
+            }
+
+            img {
+               max-width: 100% !important;
+               height: auto !important;
+            }
+         }
+
+         @media screen and ( max-width: @S ) {
+            max-width: 100% !important;
+         }
+
+         .feature_image {
+            position: relative;
+            overflow: hidden;
+            width: auto;
+            height: 380px;
+
+            img {
+               width: auto;
+               height: 380px;
+            }
+         }
+
+         &:nth-child(1n){
+            max-width: 33.333%;
+
+            .feature_image {
+               height: 340px;
+            }
+
+            img {
+               height: 340px;
+               width: auto;
+            }
+         }
+
+         &:nth-child(9n - 3),
+         &:nth-child(9n - 2),
+         &:nth-child(9n - 1),
+         &:nth-child(9n)
+         {
+            max-width: 25%;
+
+            .feature_image {
+               height: 300px;
+            }
+
+            img {
+               height: 300px;
+               width: auto;
+            }
+         }
+
+         &:nth-child(9n - 5),
+         &:nth-child(9n - 4),
+         {
+            max-width: 50%;
+
+            .feature_image {
+               height: 500px;
+            }
+
+            img {
+               height: 500px;
+               width: auto;
+            }
+         }
+
+      }
 
    }
 
    .main_content_gallery {
       position: relative;
-      overflow: hidden;
+      // overflow: hidden;
       transition: all 0.42s ease-in-out;
 
       .cat_title {
@@ -382,6 +517,7 @@
    // Zoom
    // ======================================================================== /
    &.zoom {
+      overflow: hidden;
       .cat_title {
          &_content {
             transform: scale(0);
@@ -401,6 +537,7 @@
    // Sweep Right
    // ======================================================================== /
    &.sweep_right {
+      overflow: hidden;
       .cat_title {
          transform: translateX(-100%);
          &_content {
@@ -420,6 +557,7 @@
    // Sweep Left
    // ======================================================================== /
    &.sweep_left {
+      overflow: hidden;
       .cat_title {
          transform: translateX(100%);
          &_content {

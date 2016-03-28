@@ -355,7 +355,12 @@ class stain_gallery_Skin extends Skin
             'layout'      => 'begin_fieldset',
             'label'       => T_( 'Gallery Featured Post Options' ),
          ),
-            // ''
+            'gal_feature_cat' => array(
+					'label'		   => T_( 'Show Post Cagetory' ),
+					'note'		   => T_( 'Check the box to show category on featured post.' ),
+					'type'		   => 'checkbox',
+					'defaultvalue' => 1,
+				),
          'section_gallery_featured_end' => array(
             'layout'      => 'end_fieldset',
          ),
@@ -384,8 +389,12 @@ class stain_gallery_Skin extends Skin
 					'label'        => T_('Thumbnail size for Albums'),
 					'note'         => '',
 					'defaultvalue' => 'fit-1280x720',
-					'options'      => get_available_thumb_sizes(),
 					'type'         => 'select',
+					'options'      => array(
+						'original' 		=> T_( 'Original' ),
+						'fit-1280x720' => T_( 'fit-1280x720' ),
+						'crop-480x320' => T_( 'crop-480x320' ),
+					),
 				),
             'gallery_hover_style' => array(
                'label'        => T_( 'Style Image Hover' ),
@@ -401,6 +410,13 @@ class stain_gallery_Skin extends Skin
                   // '4'  => T_( 'Style 4' ),
                ),
             ),
+				'gallery_gutter' => array(
+					'label'			=> T_( 'Spance Gallery' ),
+					'note'			=> T_( 'px. Set the space for Gallery Images.' ),
+					'type'			=> 'integer',
+					'defaultvalue' => '5',
+					'size'			=> 5
+				),
             'gallery_bg' => array(
                'label'        => T_( 'Background Gallery Content' ),
                'note'         => T_( 'Change background content Gallery if the image is hover.' ),
