@@ -805,14 +805,14 @@ class stain_gallery_Skin extends Skin
 
 		global $thumbnail_sizes;
 		$posts_thumb_size = $this->get_setting( 'posts_thumb_size' );
-		if( isset( $thumbnail_sizes[ $posts_thumb_size ] ) )
-		{
-			// Make the width of image block as fixed to don't expand it by long post title text
-			$custom_css .= '	.posts_list .evo_post { max-width:'.$thumbnail_sizes[ $posts_thumb_size ][1]."px }\n";
-			// Set width & height for block with text "No pictures yet"
-			$custom_css .= '	.posts_list .evo_post b { width:'.( $thumbnail_sizes[ $posts_thumb_size ][1] - 20 ).'px;'
-				.'height:'.( $thumbnail_sizes[ $posts_thumb_size ][2] - 20 ).'px'." }\n";
-		}
+		// if( isset( $thumbnail_sizes[ $posts_thumb_size ] ) )
+		// {
+		// 	// Make the width of image block as fixed to don't expand it by long post title text
+		// 	$custom_css .= '	.posts_list .evo_post { max-width:'.$thumbnail_sizes[ $posts_thumb_size ][1]."px }\n";
+		// 	// Set width & height for block with text "No pictures yet"
+		// 	$custom_css .= '	.posts_list .evo_post b { width:'.( $thumbnail_sizes[ $posts_thumb_size ][1] - 20 ).'px;'
+		// 		.'height:'.( $thumbnail_sizes[ $posts_thumb_size ][2] - 20 ).'px'." }\n";
+		// }
 		$single_thumb_size = $this->get_setting( 'single_thumb_size' );
 		if( isset( $thumbnail_sizes[ $single_thumb_size ] ) )
 		{
@@ -937,6 +937,11 @@ class stain_gallery_Skin extends Skin
          $custom_css .= '.posts_gallery .main_content_gallery .cat_title::after { background-color: '.$bg.' }';
       }
 
+		if ( $space = $this->get_setting('gallery_gutter') ) {
+			$custom_css .= '.posts_gallery .evo_post, .posts_gallery .feature_post{ padding: '.$space.'px; }';
+			// $custom_css .= '.posts_gallery{ margin-left: -'.$space.'px; margin-right: -'.$space.'px; }';
+		}
+
       if ( $this->get_setting( 'gallery_shadow' )  == 0 ) {
          $custom_css .= '.posts_gallery .main_content_gallery:hover, .posts_gallery .main_content_gallery:active, .posts_gallery .main_content_gallery:focus
          { box-shadow: none; }';
@@ -951,6 +956,13 @@ class stain_gallery_Skin extends Skin
       if( $bg = $this->get_setting( 'cat_view_bg' ) ) {
          $custom_css .= '.posts_gallery .main_content_gallery .btn_cat:after { background-color: '.$bg.' }';
       }
+
+		/* Posts Custom Options
+		 * ========================================================================== */
+		if ( $space = $this->get_setting( 'posts_list_space' ) ) {
+			$custom_css .= '.posts_list .evo_posts { padding: '.$space.'px; }';
+			$custom_css .= '.posts_list { margin-left: -'.$space.'px; margin-right: -'.$space.'px; }';
+		}
 
 		/* Footer Custom Options
        * ========================================================================== */

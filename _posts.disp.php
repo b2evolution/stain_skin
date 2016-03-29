@@ -20,47 +20,168 @@ global $Item;
 
 $post_column = '';
 if( $Skin->get_setting( 'posts_show' ) == 'one_column' ){
-	 $post_column = 'post_full';
- };
+	$post_column = 'post_full';
+};
 
+$column = $Skin->Change_class( 'posts_show' );
+
+ // Default params:
+ $params = array_merge( array(
+	'before_images'            => '<div class="feature_image">',
+	'before_image'             => '<figure class="evo_image_block">',
+	'before_image_legend'      => '<figcaption class="evo_image_legend">',
+	'after_image_legend'       => '</figcaption>',
+	'after_image'              => '</figure>',
+	'after_images'             => '</div>',
+	'image_class'              => 'img-responsive',
+	'image_size'               => 'original',
+	'image_limit'              =>  1,
+	'image_link_to'            => 'original', // Can be 'original', 'single' or empty
+	'excerpt_image_class'      => 'img-responsive',
+	'excerpt_image_size'       => 'fit-1280x720',
+	'excerpt_image_limit'      => 1,
+	'excerpt_image_link_to'    => 'single',
+	'include_cover_images'     => false, // Set to true if you want cover images to appear with teaser images.
+
+	'before_gallery'           => '<div class="evo_post_gallery">',
+	'after_gallery'            => '</div>',
+	'gallery_table_start'      => '',
+	'gallery_table_end'        => '',
+	'gallery_row_start'        => '',
+	'gallery_row_end'          => '',
+	'gallery_cell_start'       => '<div class="evo_post_gallery__image">',
+	'gallery_cell_end'         => '</div>',
+	'gallery_image_size'       => 'crop-80x80',
+	'gallery_image_limit'      => 1000,
+	'gallery_colls'            => 5,
+	'gallery_order'            => '', // Can be 'ASC', 'DESC', 'RAND' or empty
+
+	'excerpt_more_text'        => T_('Read More').' &raquo;',
+	'excerpt_before_text'      => '<div class="posts__info_excerpt">',
+	'excerpt_after_text'       => '</div>',
+	'excerpt_before_more'      => ' <span class="posts__info_excerpt_link">',
+	'excerpt_after_more'       => '</span>',
+ ), $params );
 
 // ------------------------------- START OF INTRO POST -------------------------------
+?>
+<div class="posts_list <?php echo $post_column ?>">
+<?php
 if( $Item = get_featured_Item() )
 { // We have a intro-front post to display:
 ?>
-<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post jumbotron evo_content_block' ) ) ?>" lang="<?php $Item->lang() ?>">
+	<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_posts feature_post '.$column, ) ) ?>" lang="<?php $Item->lang() ?>">
+		<div class="main_content_gallery">
+		<?php
+		$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
 
-	<?php
-	$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
-
-	$action_links = $Item->get_edit_link( array( // Link to backoffice for editing
-		'before' => '',
-		'after'  => '',
-		'text'   => $Item->is_intro() ? get_icon( 'edit' ).' '.T_('Edit Intro') : '#',
-		'class'  => button_class( 'text' ),
-	) );
-
-	if( $Item->status != 'published' ){
-   	$Item->format_status( array(
-			'template' => '<div class="evo_status evo_status__$status$ badge pull-right">$status_title$</div>',
+		$action_links = $Item->get_edit_link( array( // Link to backoffice for editing
+			'before' => '',
+			'after'  => '',
+			'text'   => $Item->is_intro() ? get_icon( 'edit' ).' '.T_('Edit Intro') : '#',
+			'class'  => button_class( 'text' ),
 		) );
-	}
-	$Item->title( array(
-		'link_type'  => 'none',
-		'before'     => '<div class="evo_post_title"><h1>',
-		'after'      => '</h1><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
-		'nav_target' => false,
-	) );
 
-	// ---------------------- POST CONTENT INCLUDED HERE ----------------------
-	skin_include( '_item_content.inc.php', $params );
-	// Note: You can customize the default item content by copying the generic
-	// /skins/_item_content.inc.php file into the current skin folder.
-	// -------------------------- END OF POST CONTENT -------------------------
+		if( $Item->status != 'published' ) {
+			$Item->format_status( array(
+				'template' => '<div class="evo_status evo_status__$status$ badge pull-right">$status_title$</div>',
+			) );
+		}
 
-	locale_restore_previous();	// Restore previous locale (Blog locale)
-	?>
-</div>
+		// Categories
+		$Item->categories( array(
+			'before'          => '<div class="posts__info_cat">',
+			'after'           => '</div>',
+			'include_main'    => true,
+			'include_other'   => true,
+			'include_external'=> true,
+			'link_categories' => true,
+		) );
+
+		$Item->images( array(
+			'before'              => $params['before_images'],
+			'before_image'        => $params['before_image'],
+			'before_image_legend' => $params['before_image_legend'],
+			'after_image_legend'  => $params['after_image_legend'],
+			'after_image'         => $params['after_image'],
+			'after'               => $params['after_images'],
+			'image_class'         => $params['image_class'],
+			'image_size'          => $params['image_size'],
+			'limit'               => $params['image_limit'],
+			'image_link_to'       => $params['image_link_to'],
+			'before_gallery'      => $params['before_gallery'],
+			'after_gallery'       => $params['after_gallery'],
+			'gallery_table_start' => $params['gallery_table_start'],
+			'gallery_table_end'   => $params['gallery_table_end'],
+			'gallery_row_start'   => $params['gallery_row_start'],
+			'gallery_row_end'     => $params['gallery_row_end'],
+			'gallery_cell_start'  => $params['gallery_cell_start'],
+			'gallery_cell_end'    => $params['gallery_cell_end'],
+			'gallery_image_size'  => $params['gallery_image_size'],
+			'gallery_image_limit' => $params['gallery_image_limit'],
+			'gallery_colls'       => $params['gallery_colls'],
+			'gallery_order'       => $params['gallery_order'],
+			// Optionally restrict to files/images linked to specific position: 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
+			'restrict_to_image_position' => 'teaser',
+		) );
+
+		?>
+		<div class="posts__info">
+		<?php
+
+			$Item->title( array(
+				// 'link_type'  => 'none',
+				'before'     => '<div class="posts__info_title"><h2>',
+				'after'      => '</h2><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
+				'nav_target' => false,
+			) );
+
+			// Author Avatar
+			$Item->author( array(
+				'before'       => '<div class="posts__info_author">',
+				'after'        => '</div>',
+				'before_user'  => '',
+				'after_user'   => '',
+				'link_text'    => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+				'link_class'   => 'author_avatar',
+				'thumb_size'   => 'crop-32x32',
+				'thumb_class'  => '',
+			) );
+
+			// Author Name
+			$Item->author( array(
+				'before'    => '<div class="posts__info_author">'.T_('By ').'',
+				'after'     => '</div>',
+				'before_user' => '',
+				'after_user'  => '',
+				'link_text'   => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+				'link_class'  => 'author_avatar',
+				'thumb_size'   => 'crop-48x48',
+				'thumb_class'  => '',
+			) );
+
+			// We want to display the post time:
+			$Item->issue_time( array(
+				'before'      => '<time class="posts__info_date">'.T_('On '),
+				'after'       => '</time>',
+				'time_format' => 'M j, Y',
+			) );
+
+			// Content Excerpt
+			$Item->excerpt( array(
+				'before'              => $params['excerpt_before_text'],
+				'after'               => $params['excerpt_after_text'],
+				'excerpt_before_more' => $params['excerpt_before_more'],
+				'excerpt_after_more'  => $params['excerpt_after_more'],
+				'excerpt_more_text'   => $params['excerpt_more_text'],
+			) );
+		?>
+		</div>
+		<?php
+			locale_restore_previous();	// Restore previous locale (Blog locale)
+		?>
+		</div>
+	</div><!-- .evo_post -->
 <?php
 // ------------------------------- END OF INTRO-FRONT POST -------------------------------
 }
@@ -78,7 +199,6 @@ if( ! is_logged_in() )
 $list_is_empty = display_if_empty( $params_no_content );
 
 if( ! $list_is_empty ) { ?>
-<div class="posts_list <?php echo $post_column ?>">
    <?php
    	while( $Item = & mainlist_get_item() ){
       // For each blog post, do everything below up to the closing curly brace "}"
@@ -131,12 +251,12 @@ if( ! $list_is_empty ) { ?>
 
 				// Categories
 				$Item->categories( array(
-					'before'          => '<div class="posts__info_cat">',
-					'after'           => '</div>',
-					'include_main'    => true,
-					'include_other'   => true,
-					'include_external'=> true,
-					'link_categories' => true,
+					'before'           => '<div class="posts__info_cat">',
+					'after'            => '</div>',
+					'include_main'     => true,
+					'include_other'    => true,
+					'include_external' => true,
+					'link_categories'  => true,
 				) );
 
 				// Display a title
@@ -148,24 +268,24 @@ if( ! $list_is_empty ) { ?>
 
 				// Author Image
 				$Item->author( array(
-					'before'    => '<div class="posts__info_author">',
-					'after'     => '</div>',
-					'before_user' => '',
-					'after_user'  => '',
-					'link_text'   => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-					'link_class'  => 'author_avatar',
+					'before'    	=> '<div class="posts__info_author">',
+					'after'     	=> '</div>',
+					'before_user'  => '',
+					'after_user'   => '',
+					'link_text'    => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+					'link_class'   => 'author_avatar',
 					'thumb_size'   => 'crop-48x48',
 					'thumb_class'  => '',
 				) );
 
 				// Author Name
 				$Item->author( array(
-					'before'    => '<div class="posts__info_author">'.T_('By ').'',
-					'after'     => '</div>',
-					'before_user' => '',
-					'after_user'  => '',
-					'link_text'   => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-					'link_class'  => 'author_avatar',
+					'before'    	=> '<div class="posts__info_author">'.T_('By ').'',
+					'after'     	=> '</div>',
+					'before_user'  => '',
+					'after_user'   => '',
+					'link_text'    => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+					'link_class'   => 'author_avatar',
 					'thumb_size'   => 'crop-48x48',
 					'thumb_class'  => '',
 				) );
@@ -176,7 +296,7 @@ if( ! $list_is_empty ) { ?>
 					'after'       => '</time>',
 					'time_format' => 'M j, Y',
 				) );
-				
+
 			?>
 			</div><!-- .posts__info -->
 			<span class="posts_divider"></span>
@@ -185,7 +305,7 @@ if( ! $list_is_empty ) { ?>
 			locale_restore_previous();
 	   ?>
 		</div><!-- .main__posts_content -->
-   </div>
+   </div><!-- /.evo_post -->
    <?php
 	} // ---------------------------------- END OF POSTS ------------------------------------
 ?>

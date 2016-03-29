@@ -570,10 +570,39 @@ div.evo_image_index div:hover {
   font-size: 1.4rem;
   padding: 5px 15px;
 }
-#main_content .feature_post.four_column .posts__info_title h2 {
+#main_content .feature_post.three_column .posts__info_title h2 {
   font-size: 2.6rem;
 }
+#main_content .feature_post.four_column .posts__info_title h2 {
+  font-size: 2.4rem;
+}
+#main_content .feature_post.random .posts__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  opacity: 0;
+  z-index: 10;
+  visibility: hidden;
+  -webkit-transition: all 0.32s ease-in-out;
+  transition: all 0.32s ease-in-out;
+}
+#main_content .feature_post.random .posts__info_title h2 {
+  font-size: 2.5rem;
+}
+#main_content .feature_post.random .main_content_gallery {
+  position: relative;
+}
+#main_content .feature_post.random .main_content_gallery:hover .posts__info,
+#main_content .feature_post.random .main_content_gallery:active .posts__info,
+#main_content .feature_post.random .main_content_gallery:focus .posts__info {
+  opacity: 1;
+  visibility: visible;
+}
 #main_content .feature_post .main_content_gallery {
+  position: relative;
   background-color: #ffffff;
   -webkit-transition: all 0.32s ease-in-out;
   transition: all 0.32s ease-in-out;
@@ -589,12 +618,13 @@ div.evo_image_index div:hover {
 }
 #main_content .feature_post .posts__info_cat {
   position: absolute;
-  top: 8px;
+  top: 12px;
   left: 0;
   font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   letter-spacing: 1px;
-  padding: 3px 8px;
+  padding: 4px 12px;
+  color: #ffffff;
   background-color: #18c54d;
   z-index: 1;
 }
@@ -653,7 +683,8 @@ div.evo_image_index div:hover {
   margin-top: 20px;
   font-weight: 400;
   color: #777777;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  white-space: normal;
 }
 #main_content .feature_post .posts__info_excerpt_link {
   display: table;
@@ -666,8 +697,8 @@ div.evo_image_index div:hover {
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.5px;
-  padding: 12px 20px;
   text-transform: uppercase;
+  padding: 12px 20px;
   color: #ffffff;
 }
 #main_content .feature_post .posts__info_excerpt_link a:hover,
@@ -677,10 +708,9 @@ div.evo_image_index div:hover {
   text-decoration: none;
 }
 .posts_gallery {
-  margin-left: -10px;
-  margin-right: -10px;
+  margin: 0;
 }
-.posts_gallery img {
+.posts_gallery .feature_image img {
   position: relative;
   display: block;
   height: auto;
@@ -690,19 +720,18 @@ div.evo_image_index div:hover {
 .posts_gallery .feature_post {
   position: relative;
   float: left;
-  padding: 10px;
   margin: 0 auto;
 }
 .posts_gallery .evo_post.two_column {
   max-width: 50%;
 }
-.posts_gallery .evo_post.two_column img {
+.posts_gallery .evo_post.two_column .feature_image img {
   max-width: 100%;
 }
 .posts_gallery .evo_post.three_column {
   max-width: 33.333%;
 }
-.posts_gallery .evo_post.three_column img {
+.posts_gallery .evo_post.three_column .feature_image img {
   max-width: 100%;
 }
 @media screen and (min-width: 768px) and (max-width: 1025px) {
@@ -715,7 +744,7 @@ div.evo_image_index div:hover {
     margin-top: 10px;
   }
 }
-.posts_gallery .evo_post.four_column img {
+.posts_gallery .evo_post.four_column .feature_image img {
   max-width: 100%;
 }
 @media screen and (min-width: 1025px) {
@@ -756,9 +785,6 @@ div.evo_image_index div:hover {
   }
 }
 @media screen and (max-width: 768px) {
-  .posts_gallery .evo_post.random {
-    max-width: 50% !important;
-  }
   .posts_gallery .evo_post.random .feature_image {
     max-width: 100% !important;
     height: auto !important;
@@ -789,7 +815,7 @@ div.evo_image_index div:hover {
 .posts_gallery .evo_post.random:nth-child(1n) .feature_image {
   height: 340px;
 }
-.posts_gallery .evo_post.random:nth-child(1n) img {
+.posts_gallery .evo_post.random:nth-child(1n) .feature_image img {
   height: 340px;
   width: auto;
 }
@@ -805,10 +831,10 @@ div.evo_image_index div:hover {
 .posts_gallery .evo_post.random:nth-child(9n) .feature_image {
   height: 300px;
 }
-.posts_gallery .evo_post.random:nth-child(9n - 3) img,
-.posts_gallery .evo_post.random:nth-child(9n - 2) img,
-.posts_gallery .evo_post.random:nth-child(9n - 1) img,
-.posts_gallery .evo_post.random:nth-child(9n) img {
+.posts_gallery .evo_post.random:nth-child(9n - 3) .feature_image img,
+.posts_gallery .evo_post.random:nth-child(9n - 2) .feature_image img,
+.posts_gallery .evo_post.random:nth-child(9n - 1) .feature_image img,
+.posts_gallery .evo_post.random:nth-child(9n) .feature_image img {
   height: 300px;
   width: auto;
 }
@@ -820,8 +846,8 @@ div.evo_image_index div:hover {
 .posts_gallery .evo_post.random:nth-child(9n - 4) .feature_image {
   height: 500px;
 }
-.posts_gallery .evo_post.random:nth-child(9n - 5) img,
-.posts_gallery .evo_post.random:nth-child(9n - 4) img {
+.posts_gallery .evo_post.random:nth-child(9n - 5) .feature_image img,
+.posts_gallery .evo_post.random:nth-child(9n - 4) .feature_image img {
   height: 500px;
   width: auto;
 }
@@ -946,9 +972,6 @@ div.evo_image_index div:hover {
 .posts_gallery .main_content_gallery:active,
 .posts_gallery .main_content_gallery:focus {
   box-shadow: 0px 6px 12px -6px rgba(0, 0, 0, 0.3);
-  -webkit-transform: translate(0, -3px);
-  -ms-transform: translate(0, -3px);
-  transform: translate(0, -3px);
 }
 .posts_gallery .main_content_gallery:hover .cat_title,
 .posts_gallery .main_content_gallery:active .cat_title,
@@ -971,6 +994,7 @@ div.evo_image_index div:hover {
   transform: rotateY(180deg);
 }
 .main_content_gallery.zoom {
+  width: 100%;
   overflow: hidden;
 }
 .main_content_gallery.zoom .cat_title_content {
@@ -1094,17 +1118,33 @@ div.evo_image_index div:hover {
 .posts_list.post_full {
   max-width: 1170px;
 }
-.posts_list img {
+.posts_list .feature__image img {
   max-width: 100%;
   height: auto;
   border-radius: 0;
+}
+.posts_list .feature_post .main_content_gallery .posts__info_cat {
+  margin: 0;
+}
+.posts_list .feature_post .main_content_gallery .posts__info_cat a {
+  font-size: 1.2rem;
+  border: none;
+}
+.posts_list .feature_post .main_content_gallery .posts__info {
+  position: relative;
+  background-color: #ffffff;
+}
+.posts_list .feature_post .main_content_gallery .posts__info_author,
+.posts_list .feature_post .main_content_gallery .posts__info_date {
+  color: #333333;
+}
+.posts_list .feature_post .main_content_gallery .posts__info_author .identity_link_username {
+  color: #18c54d;
 }
 .posts_list .evo_posts {
   position: relative;
   display: -webkit-box;
   display: flex;
-  padding: 4px;
-  overflow: hidden;
   z-index: 1;
 }
 .posts_list .evo_posts.one_column {

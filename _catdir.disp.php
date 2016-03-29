@@ -20,7 +20,7 @@ global $Blog;
 
 // Default params:
 $params = array_merge( array(
-   'before_images'            => '<div class="evo_post_images">',
+   'before_images'            => '<div class="feature_image">',
    'before_image'             => '<figure class="evo_image_block">',
    'before_image_legend'      => '<figcaption class="evo_image_legend">',
    'after_image_legend'       => '</figcaption>',
@@ -172,13 +172,7 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
       ?>
       </div>
       <?php
-   	// ---------------------- POST CONTENT INCLUDED HERE ----------------------
-   	// skin_include( '_item_content.inc.php', $params );
-   	// Note: You can customize the default item content by copying the generic
-   	// /skins/_item_content.inc.php file into the current skin folder.
-   	// -------------------------- END OF POST CONTENT -------------------------
-
-   	locale_restore_previous();	// Restore previous locale (Blog locale)
+   	   locale_restore_previous();	// Restore previous locale (Blog locale)
    	?>
       </div>
    </div><!-- .evo_post -->
