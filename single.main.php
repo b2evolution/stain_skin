@@ -39,10 +39,10 @@ skin_include( '_body_header.inc.php' );
    		{ // Get Item here, because it can be not defined yet, e.g. in Preview mode ?>
    		<nav class="nav_album">
    			<a href="<?php $Blog->disp( 'url', 'raw' ) ?>" title="<?php echo format_to_output( T_('All Albums'), 'htmlattr' ); ?>" class="all_albums">All Albums</a>
-   			<span class="nav_album_title">
+   			<h3 class="nav_album_title">
    				<?php
    					$single_Item->title( array(
-							'link_type' => 'permalink',
+							'link_type' => 'none',
 							'before'    => '',
 							'after'     => '',
 						) );
@@ -59,28 +59,28 @@ skin_include( '_body_header.inc.php' );
 							'title'     => T_('Edit title/description...'),
 						) );
    				?>
-   			</span><!-- .nav_album_title -->
+   			</h3><!-- .nav_album_title -->
 
    			<?php
    				// ------------------- PREV/NEXT POST LINKS (SINGLE POST MODE) -------------------
    				item_prevnext_links( array(
-						'template' => '$prev$$next$',
-						'block_start' => '<ul class="pager hidden-xs">',
-						'next_class' => 'next',
-						'next_start'  => '<li class="next">',
-						'next_text' => 'Next',
+						'template' 		=> '$prev$$next$',
+						'block_start'	=> '<ul class="nav_posts hidden-xs">',
+						'next_class' 	=> 'next',
+						'next_start'   => '<li class="next">',
+						'next_text'		=> T_( 'Next ' ).'<i class="fa fa-angle-right"></i>',
 						'next_no_item' => '',
-						'next_end'    => '</li>',
-						'prev_class' => 'previous',
-						'prev_start'  => '<li class="previous">',
-						'prev_text' => 'Previous',
+						'next_end'     => '</li>',
+						'prev_class'	=> 'previous',
+						'prev_start'   => '<li class="previous">',
+						'prev_text' 	=> '<i class="fa fa-angle-left"></i>'.T_(' Previous'),
 						'prev_no_item' => '',
-						'prev_end'    => '',
-						'block_end'   => '</ul>',
+						'prev_end'     => '</li>',
+						'block_end'    => '</ul>',
 					) );
    				// ------------------------- END OF PREV/NEXT POST LINKS -------------------------
    			?>
-   			<div class="clear"></div>
+   			<div class="clearfix"></div>
 			</nav><!-- .nav_album -->
    		<?php
    		} // ------------------- END OF NAVIGATION BAR FOR ALBUM(POST) -------------------
@@ -97,7 +97,7 @@ skin_include( '_body_header.inc.php' );
 
    	<article>
 	   	<?php $Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs) ?>
-	   	<div class="post_images">
+	   	<div class="single__post_images">
 	   		<?php
 	   			// Display images that are linked to this post:
 	   			$Item->images( array(

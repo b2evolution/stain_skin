@@ -4,10 +4,10 @@
 .posts_list {
    width: 100%;
    height: auto;
-   margin: 0 auto;
 
    &.post_full {
       max-width: 1170px;
+         margin: 0 auto !important;
    }
 
    .feature__image {
@@ -39,6 +39,7 @@
             &_author,
             &_date {
                color: @c3;
+               font-size: 1.5rem;
             }
 
             &_author {
@@ -95,7 +96,7 @@
 
             &_author,
             &_cat {
-               font-size: 1.2rem;
+               // font-size: 1.2rem;
             }
 
             &_author {
@@ -103,7 +104,7 @@
                   img {
                      width: 32px;
                      height: 32px;
-                     margin-right: 3px;
+                     // margin-right: 3px;
                   }
                }
 
@@ -226,7 +227,6 @@
          transition-duration: 0.5s;
 
          a {
-            font-family: @font_heading;
             font-size: 1.1rem;
             letter-spacing: 1px;
             color: @w;
@@ -289,7 +289,6 @@
          display: inline-block;
          padding-right: 5px;
          color: @w;
-         font-family: @font_heading;
 
          .author_avatar {
 
@@ -316,7 +315,6 @@
       // Posts Info Date
       // ======================================================================== /
       .posts__info_date {
-         font-family: @font_heading;
          padding-right: 5px;
          color: @w;
       }

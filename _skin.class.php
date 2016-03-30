@@ -472,13 +472,6 @@ class stain_gallery_Skin extends Skin
 					'type'         => 'integer',
 					'allow_empty'  => true,
 				),
-				'single_thumb_size' => array(
-					'label'        => T_('Thumbnail size inside Album'),
-					'note'         => '',
-					'defaultvalue' => 'fit-640x480',
-					'options'      => get_available_thumb_sizes(),
-					'type'         => 'select',
-				),
 				'mediaidx_thumb_size' => array(
 					'label'        => T_('Thumbnail size in Media index'),
 					'note'         => '',
@@ -538,6 +531,24 @@ class stain_gallery_Skin extends Skin
          'section_posts_end' => array(
             'layout'   => 'end_fieldset',
          ),
+
+
+			/* Single Options
+			 * ========================================================================== */
+			'section_single_start' => array(
+				'layout'		=> 'begin_fieldset',
+				'label'		=> T_( 'Single Options' ),
+			),
+				'single_thumb_size' => array(
+					'label'        => T_('Thumbnail size for Single Disp'),
+					'note'         => '',
+					'defaultvalue' => 'crop-480x320',
+					'options'      => get_available_thumb_sizes(),
+					'type'         => 'select',
+				),
+			'section_single_end' => array(
+				'layout'		=> 'end_fieldset',
+			),
 
 
          /* Footer Options
