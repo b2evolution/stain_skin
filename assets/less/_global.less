@@ -13,7 +13,24 @@ body {
    font-family: @font_body;
    font-size: 1.4rem;
    background-color: @bg_body;
+	color: @c4;
+
+	a {
+		color: @primary;
+
+		&:hover, &:focus, &:active {
+			color: @primary;
+			background-color: transparent;
+		}
+	}
+
+	a[rel~=nofollow]:not([class~=btn]):hover {
+		&:hover, &:active, &:focus {
+			background-color: transparent;
+		}
+	}
 }
+
 
 // ======================================================================== /
 // Global Style

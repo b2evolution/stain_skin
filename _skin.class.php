@@ -788,10 +788,10 @@ class stain_gallery_Skin extends Skin
 		}
 		if( ! empty( $custom_styles ) )
 		{
-			$custom_css .= '	body .container a { '.implode( ';', $custom_styles )." }\n";
-			$custom_css .= '	ul li a { '.implode( ';', $custom_styles )." }\n";
-			$custom_css .= "	ul li a {background-color: transparent;}\n";
-			$custom_css .= "	.ufld_icon_links a {color: #fff !important;}\n";
+			// $custom_css .= '	body .container a { '.implode( ';', $custom_styles )." }\n";
+			// $custom_css .= '	ul li a { '.implode( ';', $custom_styles )." }\n";
+			// $custom_css .= "	ul li a {background-color: transparent;}\n";
+			// $custom_css .= "	.ufld_icon_links a {color: #fff !important;}\n";
 		}
 
 		// Current tab text color
