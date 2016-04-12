@@ -253,6 +253,7 @@ if( ! $list_is_empty ) { ?>
 				$Item->categories( array(
 					'before'           => '<div class="posts__info_cat">',
 					'after'            => '</div>',
+					'separator' 		 => '',
 					'include_main'     => true,
 					'include_other'    => true,
 					'include_external' => true,

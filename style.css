@@ -110,9 +110,6 @@ textarea.message_text {
   display: none !important;
 }
 @media (min-width: 1440px) {
-  .container {
-    width: 1410px;
-  }
   .col-xl-1,
   .col-xl-2,
   .col-xl-3,
@@ -1188,7 +1185,7 @@ div.evo_image_index div:hover {
 }
 @media screen and (min-width: 768px) {
   .posts_list .evo_posts.three_column .posts__info .posts__title h3 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
 }
 .posts_list .evo_posts.three_column .posts__info_author .author_avatar img {
@@ -1296,7 +1293,7 @@ div.evo_image_index div:hover {
 }
 .posts_list .evo_posts .posts__info_cat {
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   -webkit-transition: all 0.32s ease-in-out;
   transition: all 0.32s ease-in-out;
   -webkit-transition-delay: 0.18s;
@@ -1305,10 +1302,13 @@ div.evo_image_index div:hover {
   transition-duration: 0.5s;
 }
 .posts_list .evo_posts .posts__info_cat a {
-  font-size: 1.1rem;
+  display: inline-block;
+  font-size: 1rem;
   letter-spacing: 1px;
   color: #ffffff;
   padding: 3px 8px;
+  margin-bottom: 3px;
+  margin-right: 3px;
   border: 1px solid #ffffff;
   border-radius: 2px;
   -webkit-transition: all 0.32s ease;
@@ -1323,7 +1323,7 @@ div.evo_image_index div:hover {
 }
 .posts_list .evo_posts .posts__title {
   position: relative;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   -webkit-transition: all 0.32s ease-in-out;
   transition: all 0.32s ease-in-out;
   -webkit-transition-delay: 0.13s;
