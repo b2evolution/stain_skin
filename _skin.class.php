@@ -705,10 +705,10 @@ class stain_gallery_Skin extends Skin
 					'type'    => 'checklist',
 					'options' => array(
 						array( 'header',   sprintf( T_('"%s" container'), NT_('Header') ),    1 ),
-						array( 'page_top', sprintf( T_('"%s" container'), NT_('Page Top') ),  1 ),
-						array( 'menu',     sprintf( T_('"%s" container'), NT_('Menu') ),      0 ),
-						array( 'footer',   sprintf( T_('"%s" container'), NT_('Footer') ),    1 ) ),
+						array( 'sidebar',  sprintf( T_('"%s" container'), NT_('Sidebar') ),   0 ),
+						array( 'footer',   sprintf( T_('"%s" container'), NT_('Footer') ),    1 )
 					),
+				),
 			'section_access_end' => array(
 				'layout' => 'end_fieldset',
 			),
@@ -1191,7 +1191,7 @@ class stain_gallery_Skin extends Skin
 					'title_fmt'      => '<span style="float:right">$global_icons$</span><h2>$title$</h2>'."\n",
 					'no_title_fmt'   => '<span style="float:right">$global_icons$</span>'."\n",
 					'fieldset_begin' => '<div class="clear"></div><div class="fieldset_wrapper $class$" id="fieldset_wrapper_$id$"><fieldset $fieldset_attribs$><div class="panel panel-default">'."\n"
-											.'<legend class="panel-heading" $title_attribs$>$fieldset_title$</legend><div class="panel-body $class$">'."\n",
+										.'<legend class="panel-heading" $title_attribs$>$fieldset_title$</legend><div class="panel-body $class$">'."\n",
 					'fieldset_end'   => '</div></div></fieldset></div>'."\n",
 					'fieldstart'     => '<div class="form-group" $ID$>'."\n",
 					'fieldend'       => "</div>\n\n",
@@ -1392,10 +1392,10 @@ class stain_gallery_Skin extends Skin
     * ========================================================================== */
    function Change_class( $id ) {
 
-      $id = $this->get_setting( $id );
-      if ( $id == $id ) {
-         return $id;
-      }
+	$id = $this->get_setting( $id );
+	if ( $id == $id ) {
+		return $id;
+	}
 
    }
 

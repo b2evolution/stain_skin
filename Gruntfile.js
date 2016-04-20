@@ -79,7 +79,7 @@ module.exports = function(grunt) {
 		watch: {
 			less: {
 				// Which files to watch (all .less files recursively in the whole blogs directory)
-				files: ['assets/less/*.less', '*.less'],
+				files: ['assets/less/**/*.less', '*.less'],
 				tasks: ['less','cssmin', 'autoprefixer'],
 				options: {
 					nospawn: true,
