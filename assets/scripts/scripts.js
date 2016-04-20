@@ -12,7 +12,7 @@ jQuery(window).load(function (e) {
         // options
         itemSelector: '.evo_post',
         percentPosition: true,
-        columnWidth: 3,
+        columnWidth: 1,
       //   gutter: 10,
       });
    }

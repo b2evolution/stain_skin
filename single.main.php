@@ -38,7 +38,6 @@ skin_include( '_body_header.inc.php' );
    		if( $single_Item = & mainlist_get_item() )
    		{ // Get Item here, because it can be not defined yet, e.g. in Preview mode ?>
    		<nav class="nav_album">
-   			<a href="<?php $Blog->disp( 'url', 'raw' ) ?>" title="<?php echo format_to_output( T_('All Albums'), 'htmlattr' ); ?>" class="all_albums">All Albums</a>
    			<h3 class="nav_album_title">
    				<?php
    					$single_Item->title( array(
@@ -60,27 +59,29 @@ skin_include( '_body_header.inc.php' );
 						) );
    				?>
    			</h3><!-- .nav_album_title -->
-
-   			<?php
-   				// ------------------- PREV/NEXT POST LINKS (SINGLE POST MODE) -------------------
-   				item_prevnext_links( array(
-						'template' 		=> '$prev$$next$',
-						'block_start'	=> '<ul class="nav_posts hidden-xs">',
-						'next_class' 	=> 'next',
-						'next_start'   => '<li class="next">',
-						'next_text'		=> T_( 'Next ' ).'<i class="fa fa-angle-right"></i>',
-						'next_no_item' => '',
-						'next_end'     => '</li>',
-						'prev_class'	=> 'previous',
-						'prev_start'   => '<li class="previous">',
-						'prev_text' 	=> '<i class="fa fa-angle-left"></i>'.T_(' Previous'),
-						'prev_no_item' => '',
-						'prev_end'     => '</li>',
-						'block_end'    => '</ul>',
-					) );
-   				// ------------------------- END OF PREV/NEXT POST LINKS -------------------------
-   			?>
-   			<div class="clearfix"></div>
+				<!-- <div class="nav_album_pagination"> -->
+					<a href="<?php $Blog->disp( 'url', 'raw' ) ?>" title="<?php echo format_to_output( T_('All Albums'), 'htmlattr' ); ?>" class="all_albums">All Albums</a>
+	   			<?php
+	   				// ------------------- PREV/NEXT POST LINKS (SINGLE POST MODE) -------------------
+	   				item_prevnext_links( array(
+							'template' 		=> '$prev$$next$',
+							'block_start'	=> '<ul class="nav_posts hidden-xs">',
+							'next_class' 	=> 'next',
+							'next_start'   => '<li class="next">',
+							'next_text'		=> T_( 'Next ' ).'<i class="fa fa-angle-right"></i>',
+							'next_no_item' => '',
+							'next_end'     => '</li>',
+							'prev_class'	=> 'previous',
+							'prev_start'   => '<li class="previous">',
+							'prev_text' 	=> '<i class="fa fa-angle-left"></i>'.T_(' Previous'),
+							'prev_no_item' => '',
+							'prev_end'     => '</li>',
+							'block_end'    => '</ul>',
+						) );
+	   				// ------------------------- END OF PREV/NEXT POST LINKS -------------------------
+	   			?>
+				<!-- </div> -->
+   			<!-- <div class="clearfix"></div> -->
 			</nav><!-- .nav_album -->
    		<?php
    		} // ------------------- END OF NAVIGATION BAR FOR ALBUM(POST) -------------------
@@ -161,6 +162,7 @@ skin_include( '_body_header.inc.php' );
 								'after_section_title'  => '</h4>',
 								'author_link_text'     => 'preferredname',
 								'comment_image_size'   => 'fit-256x256',
+								
 								// Pagination:
 								'pagination' => array(
 									'block_start'           => '<div class="center"><ul class="pagination">',
@@ -193,8 +195,8 @@ skin_include( '_body_header.inc.php' );
 							{  // We are running at least b2evo 6.7, so we can include this file:
 								// ------------------ META COMMENTS INCLUDED HERE ------------------
 								skin_include( '_item_meta_comments.inc.php', array(
-									'comment_start'         => '<article class="evo_comment evo_comment__meta panel panel-default">',
-									'comment_end'           => '</article>',
+									'comment_start'  => '<article class="evo_comment evo_comment__meta panel panel-default">',
+									'comment_end'    => '</article>',
 								) );
 								// ---------------------- END OF META COMMENTS ---------------------
 							}

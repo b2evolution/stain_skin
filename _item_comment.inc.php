@@ -12,9 +12,6 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
-
-global $comment_template_counter;
-
 // Default params:
 $params = array_merge( array(
 		'comment_start'         => '<article class="evo_comment panel panel-default">',
@@ -30,10 +27,10 @@ $params = array_merge( array(
 		'comment_rating_after'  => '</div>',
 		'comment_text_before'   => '<div class="evo_comment_text">',
 		'comment_text_after'    => '</div>',
-		'comment_info_before'   => '<div class="evo_comment_footer clear text-muted"><small>',
-		'comment_info_after'    => '</small></div></div>',
-		'comment_footer_before'  => '<footer class="panel-footer"><div class="text-muted small">',
-		'comment_footer_after'  => '</div></footer>',
+		'comment_info_before'   => '<footer class="evo_comment_footer clear text-muted"><small>',
+		'comment_info_after'    => '</small></footer></div>',
+      'comment_date_before'   => '<time class="comment_date">',
+      'comment_date_after'    => '</time>',
 		'link_to'               => 'userurl>userpage', // 'userpage' or 'userurl' or 'userurl>userpage' or 'userpage>userurl'
 		'author_link_text'      => 'name', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
 		'before_image'          => '<figure class="evo_image_block">',
@@ -44,11 +41,6 @@ $params = array_merge( array(
 		'image_class'           => 'img-responsive',
 		'Comment'               => NULL, // This object MUST be passed as a param!
 	), $params );
-
-if( ! isset( $comment_template_counter ) )
-{	// Initialize global comment counter:
-	$comment_template_counter = isset( $params['comment_number'] ) ? $params['comment_number'] : 1;
-}
 
 /**
  * @var Comment
@@ -78,12 +70,6 @@ echo $params['comment_title_before'];
 switch( $Comment->get( 'type' ) )
 {
 	case 'comment': // Display a comment:
-	case 'meta': // Display a meta comment:
-		if( $Comment->is_meta() )
-		{	// Meta comment:
-			echo '<span class="badge badge-info">'.$comment_template_counter.'</span> ';
-		}
-
 		if( empty($Comment->ID) )
 		{	// PREVIEW comment
 			echo '<span class="evo_comment_type_preview">'.T_('PREVIEW Comment from:').'</span> ';
@@ -148,6 +134,7 @@ if( $Comment->status != 'published' )
 
 echo $params['comment_title_after'];
 
+
 // Avatar:
 echo $params['comment_avatar_before'];
 $Comment->avatar();
@@ -155,9 +142,13 @@ echo $params['comment_avatar_after'];
 
 // Rating:
 $Comment->rating( array(
-		'before' => $params['comment_rating_before'],
-		'after'  => $params['comment_rating_after'],
-	) );
+	'before' => $params['comment_rating_before'],
+	'after'  => $params['comment_rating_after'],
+) );
+
+echo $params['comment_date_before'];
+$Comment->date('F j, Y'); echo ' @ '; $Comment->time( '#short_time' );
+echo $params['comment_date_after'];
 
 // Text:
 echo $params['comment_text_before'];
@@ -167,21 +158,18 @@ echo $params['comment_text_after'];
 // Info:
 echo $params['comment_info_before'];
 
-$commented_Item = & $Comment->get_Item();
-$Comment->edit_link( '', '', '#', '#', 'permalink_right', '&amp;', true, rawurlencode( $Comment->get_permanent_url() ) ); /* Link to backoffice for editing */
-$Comment->delete_link( '', '', '#', '#', 'permalink_right', false, '&amp;', true, false, '#', rawurlencode( $commented_Item->get_permanent_url() ) ); /* Link to backoffice for deleting */
+   /* Edit and Delete Link on disp COMMENTS
+   * ========================================================================== */
+   // if ( $disp == 'comments' ) {
+      $commented_Item = & $Comment->get_Item();
+      $Comment->edit_link( '', '', '#', '#', 'permalink_right', '&amp;', true, rawurlencode( $Comment->get_permanent_url() ) ); /* Link to backoffice for editing */
+      $Comment->delete_link( '', '', '#', '#', 'permalink_right', false, '&amp;', true, false, '#', rawurlencode( $commented_Item->get_permanent_url() ) ); /* Link to backoffice for deleting */
+   // }
 
-$Comment->reply_link(); /* Link for replying to the Comment */
-$Comment->vote_helpful( '', '', '&amp;', true, true );
+   $Comment->reply_link(); /* Link for replying to the Comment */
+   $Comment->vote_helpful( '', '', '&amp;', true, true );
 
 echo $params['comment_info_after'];
 
-echo $params['comment_footer_before'];
-$Comment->date(); echo ' @ '; $Comment->time( '#short_time' );
-echo $params['comment_footer_after'];
-
 echo $params['comment_end'];
-
-// Decrease a counter for meta comments:
-$comment_template_counter--;
 ?>

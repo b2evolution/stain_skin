@@ -381,9 +381,9 @@ class stain_gallery_Skin extends Skin
                   array( 'two_column', T_( '2 Column' ) ),
                   array( 'three_column', T_( '3 Column' ) ),
                   array( 'four_column', T_( '4 Column' ) ),
-                  array( 'random', T_( 'Random' ) )
+                  array( 'random', T_( 'Random' ) ),
                ),
-               'defaultvalue' => 'three_column'
+               'defaultvalue' => 'three_column',
             ),
             'gallery_thumb_size' => array(
 					'label'        => T_('Thumbnail size for Albums'),
@@ -539,6 +539,18 @@ class stain_gallery_Skin extends Skin
 				'layout'		=> 'begin_fieldset',
 				'label'		=> T_( 'Single Options' ),
 			),
+				'single_layout' => array(
+					'label'			=> T_( 'Layout' ),
+					'note'			=> T_( 'Change the layout for single disp.' ),
+					'defaultvalue' => 'single_column',
+					'type'			=> 'select',
+					'options'		=> array(
+						'single_column'              => T_('Single Column Large'),
+						'single_column_normal'       => T_('Single Column'),
+						'left_sidebar'               => T_('Left Sidebar'),
+						'right_sidebar'              => T_('Right Sidebar'),
+					),
+				),
 				'single_thumb_size' => array(
 					'label'        => T_('Thumbnail size for Single Disp'),
 					'note'         => '',

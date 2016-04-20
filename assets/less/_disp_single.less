@@ -6,6 +6,7 @@
    // Nav Album
    // ======================================================================== /
    .nav_album {
+      position: relative;
       background-color: @w;
       padding: 25px;
       margin-bottom: 20px;
@@ -15,16 +16,33 @@
       vertical-align: middle;
       align-items: center;
 
+      @media screen and ( min-width: @MM ) {
+         padding: 30px;
+      }
+
       // All Albums
       // ======================================================================== /
       .all_albums {
-         float: left;
-         margin: 0;
-         border: 1px solid @primary;
-         color: @primary;
+         margin: 0 auto;
+         border: 1px solid #18c54d;
+         color: #18c54d;
          border-radius: 50px;
          display: inline-block;
+         vertical-align: middle;
+         font-size: 1.2rem;
          padding: 8px 18px;
+
+         // line-height: 22px;
+
+         @media screen and ( min-width: @MM ) {
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            height: 36px;
+            line-height: 18px;
+            margin: auto;
+         }
 
          &:hover, &:focus {
             background-color: @primary;
@@ -43,16 +61,21 @@
       // Posts Title
       // ======================================================================== /
       &_title {
-         display: inline-block;
+         display: block;
          font-family: @font_heading;
-         font-size: 3rem;
+         font-size: 2.5rem;
          font-weight: bold;
          text-transform: uppercase;
          letter-spacing: 1px;
-         text-shadow: 1px 2px 3px rgba(105, 105, 105, 0.15);
-         margin: 0;
-         padding: 0 20px;
-         max-width: 74%;
+         line-height: 1.2;
+         margin: 0 0 10px;
+
+         @media screen and ( min-width: @MM ) {
+            display: inline-block;
+            margin: 0 80px 0 0;
+            padding: 0 20px;
+            max-width: 70%;
+         }
 
          a {
             color: @c3;
@@ -78,19 +101,35 @@
       // ======================================================================== /
       .nav_posts {
          display: inline-block;
-         float: right;
-         margin: 0;
          list-style-type: none;
+         margin: 0;
+
+         @media screen and ( min-width: @MM ) {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            bottom: 0;
+            height: 36px;
+            margin: auto;
+         }
 
          .previous, .next {
             display: inline-block;
-            margin-right: 2px;
+            margin-right: 1px;
             border-radius: 50px;
 
             a {
                border: 1px solid @primary;
                color: @primary;
-               padding: 8px 20px;
+               font-size: 1.2rem;
+               padding: 8px 18px;
+               line-height: 1.5;
+
+
+               @media screen and ( min-width: @MM ) {
+                  padding: 7px 16px;
+                  line-height: 20px;
+               }
 
                &:hover, &:active, &:focus {
                   background-color: @primary;
@@ -100,7 +139,7 @@
             }
 
             .fa {
-               font-size: 1.6rem;
+               font-size: 1.4rem;
             }
          }
 
@@ -111,6 +150,7 @@
          }
 
          .next {
+            float: right;
             .fa {
                padding-left: 5px;
             }
@@ -235,13 +275,11 @@
          }
       }
 
-
       // Item Tag
       // ======================================================================== /
       .widget_core_item_tags {
 
       }
-
 
       // Item About Author
       // ======================================================================== /
@@ -250,7 +288,6 @@
       }
 
    }
-
 
    // Item Contents
    // ======================================================================== /
@@ -270,11 +307,159 @@
       }
    }
 
-
    // Fieldset Wrapper
    // ======================================================================== /
    .fieldset_wrapper {
       margin-top: 30px;
+   }
+
+
+   // ======================================================================== /
+   // Item Comments
+   // ======================================================================== /
+   .item_comments {
+
+      .evo_comment__meta_info {
+
+         .btn {
+            display: inline;
+            padding: 8px 16px;
+            border-radius: 30px;
+            border-color: @primary;
+            color: @primary;
+            background-color: @w;
+
+            &:hover, &:active, &:focus {
+               background-color: @primary;
+               color: @w;
+            }
+         }
+      }
+
+   }
+
+
+   // ======================================================================== /
+   // Evo Comment
+   // ======================================================================== /
+   .evo_comment {
+      box-shadow: 1px 2px 2px rgba( 0, 0, 0, 0.05 );
+
+      .panel-heading {
+         padding: 15px 20px;
+
+         .panel-title {
+            // font-family: @font_heading;
+            font-size: 1.4rem;
+            // text-transform: uppercase;
+            // letter-spacing: 0.2px;
+         }
+
+         .user {
+            color: @primary;
+         }
+
+         .identity_link_username {
+            text-transform: capitalize;
+         }
+      }
+
+      .panel-body {
+         position: relative;
+         padding: 20px;
+      }
+
+      .evo_comment_avatar {
+         position: absolute;
+         img {
+            float: none;
+            margin: 0;
+            border-radius: 5px;
+            // margin-right: 15px;
+         }
+      }
+
+      .comment_date,
+      .evo_comment_text,
+      .evo_comment_footer,
+      .evo_comment_rating,
+      .evo_comment_info {
+         margin-left: 80px;
+      }
+
+      .comment_date {
+         display: block;
+         font-family: @font_heading;
+         font-size: 1.1rem;
+         font-weight: 700;
+         opacity: 0.6;
+         letter-spacing: 0.5px;
+         text-transform: uppercase;
+         margin-top: 5px;
+         margin-bottom: 5px;
+      }
+
+      .evo_comment_text {
+         font-size: 1.3rem;
+      }
+
+      .panel-footer {
+         margin-top: 30px;
+         border-top: 0;
+         background-color: @primary;
+         border-radius: 0;
+
+         .text-muted {
+            color: @w;
+         }
+
+         a {
+            color: @w;
+         }
+      }
+
+      .evo_comment_footer {
+         margin-top: 20px;
+      }
+
+      .permalink_right, .comment_reply {
+         display: inline-block;
+         font-family: @font_body;
+         font-size: 0.9rem;
+         text-transform: uppercase;
+         color: @primary;
+         border: 1px solid @primary;
+         padding: 6px 10px;
+         margin: 0 2px 0 0;
+         border-radius: 30px;
+
+         &:hover, &:active, &:focus {
+            background-color: @primary;
+            color: @w;
+            text-decoration: none;
+         }
+      }
+
+      .permalink_right {
+         float: none;
+
+         .fa {
+            font-size: 1rem;
+         }
+      }
+
+      .comment_reply {
+
+         &.active {
+            border-color: red;
+
+            &:hover, &:active, &:focus {
+               background-color: red;
+            }
+         }
+
+      }
+
    }
 
 }

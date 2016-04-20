@@ -21,6 +21,7 @@ body {
 		&:hover, &:focus, &:active {
 			color: @primary;
 			background-color: transparent;
+			outline: 0;
 		}
 	}
 
@@ -148,4 +149,15 @@ label.control-label[for=evo_post_title] {
 // A form to create a new message/thread
 textarea.message_text {
 	width: 95%;
+}
+
+
+// Button Style
+// ======================================================================== /
+.btn {
+
+	&:hover, &:active, &:focus {
+		outline: 0;
+		box-shadow: none;
+	}
 }
