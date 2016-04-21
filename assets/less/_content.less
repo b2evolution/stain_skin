@@ -23,7 +23,7 @@
         // ======================================================================== /
         &.three_column {
             .posts__info_title h2 {
-                font-size: 2.6rem;
+                font-size: 2.2rem;
             }
         }
 
@@ -160,11 +160,14 @@
             &_author,
             &_date {
                 display: inline-block;
-                font-size: 1.5rem;
+                font-family: @font_heading;
+                font-size: 1.4rem;
+                font-weight: 600;
             }
 
             &_author {
-                margin-right: 5px;
+                padding-right: 5px;
+                // margin-right: 5px;
 
                 .author_avatar img {
                     display: inline-block;
@@ -179,7 +182,8 @@
             // Excerpt Content
             // ======================================================================== /
             &_excerpt {
-                margin-top: 20px;
+                margin-top: 15px;
+                font-size: 1.3rem;
                 font-weight: 400;
                 color: @c7;
                 letter-spacing: 0.5px;
@@ -210,7 +214,7 @@
             }
         }
     }
-    
+
 }
 
 
@@ -220,17 +224,6 @@
 
 .evo_post_content {
     padding-top: 15px;
-}
-
-.single-image {
-    display: inline-block;
-    padding-bottom: 10px;
-    float: none !important;
-
-    .img-responsive {
-        width: 100%;
-        text-align: center;
-    }
 }
 
 div.evo_image_index div {

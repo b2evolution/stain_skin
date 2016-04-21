@@ -31,8 +31,7 @@
             vertical-align: middle;
             font-size: 1.2rem;
             padding: 8px 18px;
-
-            // line-height: 22px;
+            transition: all 0.3s ease-in;
 
             @media screen and ( min-width: @MM ) {
                 position: absolute;
@@ -42,6 +41,10 @@
                 height: 36px;
                 line-height: 18px;
                 margin: auto;
+            }
+
+            @media screen and ( max-width: @S ) {
+                font-size: 1.1rem;
             }
 
             &:hover, &:focus {
@@ -63,7 +66,7 @@
         &_title {
             display: block;
             font-family: @font_heading;
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -125,6 +128,8 @@
                     padding: 8px 18px;
                     line-height: 1.5;
 
+                    transition: all 0.3s ease-in;
+
 
                     @media screen and ( min-width: @MM ) {
                         padding: 7px 16px;
@@ -166,9 +171,16 @@
         margin-right: -15px;
 
         .single-image {
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            float: none !important;
             transition: all 0.52s cubic-bezier(0.87, 0.32, 0.04, 0.82);
 
             img {
+                max-width: 100%;
+                text-align: center;
                 box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.15);
                 transition: all 0.52s cubic-bezier(0.87, 0.32, 0.04, 0.82);
             }
@@ -180,7 +192,16 @@
                     box-shadow: 0px 10px 40px 6px rgba(0, 0, 0, 0.3);
                 }
             }
+
+            @media screen and ( max-width: @MX ) {
+                width: 100%;
+
+                .img-responsive {
+                    width: 100%;
+                }
+            }
         }
+
     }
 
 
@@ -212,6 +233,18 @@
         .panel-heading {
             background-color: @w;
             border-color: @primary;
+
+            // Badge
+            // ======================================================================== /
+            .badge {
+                &.badge-info, &.badge-important {
+                    padding: 0;
+                    height: 22px;
+                    width: 22px;
+                    line-height: 21px;
+                    border-radius: 100%;
+                }
+            }
         }
 
         .widget_core_item_small_print,
@@ -358,6 +391,27 @@
         .panel-body {
             position: relative;
             padding: 20px 30px 25px;
+
+            .action_icon {
+                display: inline-block;
+                margin-bottom: 10px;
+                border: 1px solid @primary;
+                border-radius: 30px;
+                padding: 8px 20px;
+                font-weight: 400;
+                transition: all 0.3s ease-in;
+
+                .fa {
+                    font-size: 1.2rem;
+                    padding-right: 5px;
+                }
+
+                &:hover, &:active, &:focus {
+                    background-color: @primary;
+                    color: @w;
+                    text-decoration: none;
+                }
+            }
         }
 
     }
@@ -433,7 +487,8 @@
             }
         }
 
-        .evo_comment_footer {
+        .evo_comment_footer,
+        .evo_comment_info {
             margin-top: 20px;
         }
 
@@ -445,7 +500,7 @@
             color: @primary;
             border: 1px solid @primary;
             padding: 6px 10px;
-            margin: 0 2px 0 0;
+            margin: 0 2px 2px 0;
             border-radius: 30px;
 
             &:hover, &:active, &:focus {
@@ -525,17 +580,55 @@
         .btn {
             &.preview, &.submit {
                 font-size: 1.2rem;
+                font-weight: 700;
                 text-transform: uppercase;
                 border-radius: 50px;
                 padding: 10px 18px;
+                transition: all 0.32s ease;
+            }
+
+            &.preview {
+                color: @btn_info;
+                background-color: transparent;
+                border: 2px solid @btn_info;
+
+                &:hover, &:active, &:focus {
+                    background-color: @btn_info;
+                    color: @w;
+                }
+            }
+
+            &.submit {
+                color: @btn_primary;
+                background-color: transparent;
+                border: 2px solid @btn_primary;
+
+                &:hover, &:active, &:focus {
+                    color: @w;
+                    background-color: @btn_primary;
+                }
             }
         }
     }
 
     // Evo Comment Meta
     // ======================================================================== /
-    .evo_comment__meta {
+    .evo_comment__meta.panel {
         box-shadow: none !important;
+        border: 1px solid @ce6;
+
+        .panel-heading {
+            background-color: @ce6;
+            border-bottom: @ce6;
+        }
+
+        .comment_date {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 5px;
+        }
     }
 
 }
