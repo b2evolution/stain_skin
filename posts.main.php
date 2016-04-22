@@ -30,7 +30,7 @@ skin_include( '_html_header.inc.php', array( ) );
 skin_include( '_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 ?>
-<main id="main_content"><!-- This is were a link like "Jump to main content" would land -->
+<main id="content"><!-- This is were a link like "Jump to main content" would land -->
    <div class="container">
    	<!-- ================================= START OF MAIN AREA ================================== -->
    	<?php
