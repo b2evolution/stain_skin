@@ -14,41 +14,62 @@
  * @package evoskins
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
-global $thumbnail_sizes;
+
+global $thumbnail_sizes, $Skin, $Blog;
+
 if( empty( $params ) )
 { // Initialize array with params
 	$params = array();
 }
 // Merge the params from current skin
 $params = array_merge( array(
-		'mediaidx_thumb_size' => 'fit-80x80'
-	), $params );
+	'mediaidx_thumb_size' => 'fit-1280x720',
+), $params );
+
 $photocell_styles = '';
 if( isset( $thumbnail_sizes[ $params['mediaidx_thumb_size'] ] ) )
 {
 	$photocell_styles = ' style="width:'.$thumbnail_sizes[ $params['mediaidx_thumb_size'] ][1].'px;'
 		.'height:'.$thumbnail_sizes[ $params['mediaidx_thumb_size'] ][2].'px"';
 }
+
+$column = '';
+$column_set = $Skin->get_setting( 'mediaidx_column' );
+switch ( $column_set ) {
+    case 'one':
+        $column = 'one_column';
+        break;
+    case 'two':
+        $column = 'two_column';
+        break;
+    case 'three':
+        $column = 'three_column';
+        break;
+    case 'four':
+        $column = 'four_column';
+        break;
+    default:
+        $column = 'three_column';
+        break;
+}
+
 // --------------------------------- START OF MEDIA INDEX --------------------------------
 skin_widget( array(
-		// CODE for the widget:
-		'widget' => 'coll_media_index',
-		// Optional display params
-		'block_start' => '<div class="evo_widget $wi_class$">',
-		'block_end' => '</div>',
-		'block_display_title' => false,
-		'thumb_size' => $params['mediaidx_thumb_size'],
-		'thumb_layout' => 'grid',
-		'grid_start' => '<div class="evo_image_index">',
-		'grid_end' => '</div>',
-		'grid_nb_cols' => 8,
-		'grid_colstart' => '',
-		'grid_colend' => '',
-		'grid_cellstart' => '<div><span'.$photocell_styles.'>',
-		'grid_cellend' => '</span></div>',
-		'order_by' => $Blog->get_setting('orderby'),
-		'order_dir' => $Blog->get_setting('orderdir'),
-		'limit' => 1000,
-	) );
+	// CODE for the widget:
+	'widget'              => 'coll_media_index',
+	// Optional display params
+	'block_start'         => '<div class="evo_widget $wi_class$">',
+	'block_end'           => '</div>',
+	'block_display_title' => false,
+	'thumb_size'          => $params['mediaidx_thumb_size'],
+	'thumb_layout'        => 'list',
+	'list_start'          => '<ul id="grid" class="evo_image_index effect-5">',
+	'list_end'            => '</ul>',
+    'item_start'          => '<li class="image_content '.$column.'">',
+    'item_end'            => '</li>',
+	'order_by'            => $Blog->get_setting('orderby'),
+	'order_dir'           => $Blog->get_setting('orderdir'),
+	'limit'               => $Skin->get_setting( 'mediaidx_display' ),
+) );
 // ---------------------------------- END OF MEDIA INDEX ---------------------------------
 ?>

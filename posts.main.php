@@ -31,59 +31,59 @@ skin_include( '_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 ?>
 <main id="content"><!-- This is were a link like "Jump to main content" would land -->
-   <div class="container">
-   	<!-- ================================= START OF MAIN AREA ================================== -->
-   	<?php
-   		// ------------------------- MESSAGES GENERATED FROM ACTIONS -------------------------
-   		messages( array(
-   			'block_start' => '<div class="action_messages">',
-   			'block_end'   => '</div>',
-   		) );
-   		// --------------------------------- END OF MESSAGES ---------------------------------
-   	?>
+	<div class="container">
+		<!-- ================================= START OF MAIN AREA ================================== -->
+		<?php
+			// ------------------------- MESSAGES GENERATED FROM ACTIONS -------------------------
+			messages( array(
+				'block_start' => '<div class="action_messages">',
+				'block_end'   => '</div>',
+			) );
+			// --------------------------------- END OF MESSAGES ---------------------------------
+		?>
 
-   	<?php
-   	// ------------------------- TITLE FOR THE CURRENT REQUEST -------------------------
-   	request_title( array(
-			'title_before'      => '<h2 class="title__content">',
-			'title_after'       => '</h2>',
-			'title_none'        => '',
-			'glue'              => ' - ',
-			'title_single_disp' => false,
-			'format'            => 'htmlbody',
-			'user_text'         => '',
-			'display_edit_links'=> false,
-		) );
-   	// ------------------------------ END OF REQUEST TITLE -----------------------------
-   	?>
+		<?php
+			// ------------------------- TITLE FOR THE CURRENT REQUEST -------------------------
+			request_title( array(
+				'title_before'      => '<h2 class="title__content">',
+				'title_after'       => '</h2>',
+				'title_none'        => '',
+				'glue'              => ' - ',
+				'title_single_disp' => false,
+				'format'            => 'htmlbody',
+				'user_text'         => '',
+				'display_edit_links'=> false,
+			) );
+			// ------------------------------ END OF REQUEST TITLE -----------------------------
+		?>
 		<?php
 			$column = $Skin->Change_class( 'posts_show' );
 			// -------------- MAIN CONTENT TEMPLATE INCLUDED HERE (Based on $disp) --------------
 			skin_include( '$disp$', array(
-					// 'mediaidx_thumb_size'  => $Skin->get_setting( 'post_thumb_size' ),
-					'mediaidx_thumb_size'  => 'original',
-					'author_link_text'     => 'preferredname',
-					'item_class'           => 'evo_posts evo_content_block '.$column,
-					'item_type_class'      => 'evo_post__ptyp_',
-					'item_status_class'    => 'evo_post__',
-					// Login
-					'login_page_before'    => '<div class="login_block"><div class="evo_details">',
-					'login_page_after'     => '</div></div>',
-					// Register
-					'register_page_before' => '<div class="login_block"><div class="evo_details">',
-					'register_page_after'  => '</div></div>',
-					'display_abort_link'   => ( $Blog->get_setting( 'allow_access' ) == 'public' ), // Display link to abort login only when it is really possible
-				) );
+				// 'mediaidx_thumb_size'  => $Skin->get_setting( 'post_thumb_size' ),
+				'mediaidx_thumb_size'  => 'original',
+				'author_link_text'     => 'preferredname',
+				'item_class'           => 'evo_posts evo_content_block '.$column,
+				'item_type_class'      => 'evo_post__ptyp_',
+				'item_status_class'    => 'evo_post__',
+				// Login
+				'login_page_before'    => '<div class="login_block"><div class="evo_details">',
+				'login_page_after'     => '</div></div>',
+				// Register
+				'register_page_before' => '<div class="login_block"><div class="evo_details">',
+				'register_page_after'  => '</div></div>',
+				'display_abort_link'   => ( $Blog->get_setting( 'allow_access' ) == 'public' ), // Display link to abort login only when it is really possible
+			) );
 			// Note: you can customize any of the sub templates included here by
 			// copying the matching php file into your skin directory.
 			// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
 		?>
 
-   	<?php
-   	if( $disp != 'catdir' )
-   	{	// Don't display the pages on disp=catdir because we don't have a limit by page there
-   		// -------------------- PREV/NEXT PAGE LINKS (POST LIST MODE) --------------------
-   		mainlist_page_links( array(
+		<?php
+		if( $disp != 'catdir' )
+		{	// Don't display the pages on disp=catdir because we don't have a limit by page there
+			// -------------------- PREV/NEXT PAGE LINKS (POST LIST MODE) --------------------
+			mainlist_page_links( array(
 				'block_start'           => '<div class="main_pagination"><ul class="pagination">',
 				'block_end'             => '</ul></div>',
 				'page_item_before'      => '<li>',
@@ -93,12 +93,12 @@ skin_include( '_body_header.inc.php' );
 				'page_current_template' => '<span>$page_num$</span>',
 				'prev_text'             => '<i class="fa fa-angle-double-left"></i>'.T_( ' Prev' ),
 				'next_text'             => T_( 'Next ' ).'<i class="fa fa-angle-double-right"></i>',
-			) );
-   		// ------------------------- END OF PREV/NEXT PAGE LINKS -------------------------
-   	}
-   	?>
+				) );
+				// ------------------------- END OF PREV/NEXT PAGE LINKS -------------------------
+			}
+		?>
 
-   </div><!-- .container -->
+	</div><!-- .container -->
 </main>
 
 <?php

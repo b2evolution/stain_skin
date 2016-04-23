@@ -49,7 +49,7 @@ body a[rel~=nofollow]:not([class~=btn]):hover:focus {
   max-width: 50%;
 }
 .three_column {
-  max-width: 33.333%;
+  max-width: 33.33333333%;
 }
 @media screen and (min-width: 1025px) {
   .four_column {
@@ -58,7 +58,7 @@ body a[rel~=nofollow]:not([class~=btn]):hover:focus {
 }
 @media screen and (min-width: 767px) and (max-width: 1025px) {
   .four_column {
-    max-width: 33.333%;
+    max-width: 33.33333333%;
   }
 }
 .form-horizontal .controls textarea.form-control {
@@ -2318,6 +2318,164 @@ div.evo_image_index div:hover {
   -ms-transform: translateY(-1px);
   transform: translateY(-1px);
   box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.2);
+}
+.disp_mediaidx #content {
+  overflow: hidden;
+}
+.disp_mediaidx .main_content {
+  overflow: hidden;
+}
+.disp_mediaidx .main_content .widget_core_coll_media_index .evo_image_index {
+  list-style-type: none;
+}
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content {
+  display: block;
+  float: left;
+  opacity: 0;
+  margin: 0;
+  padding: 0 10px 20px;
+}
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content img {
+  max-width: 100%;
+  height: auto;
+}
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content.shown {
+  opacity: 1;
+}
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .one_column {
+  width: 100%;
+}
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .two_column {
+  width: 50%;
+}
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .three_column {
+  width: 33.33333333%;
+}
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .four_column {
+  width: 25%;
+}
+@media screen and (max-width: 480px) {
+  .disp_mediaidx .main_content .widget_core_coll_media_index .image_content {
+    width: 100%;
+  }
+}
+.no-js .evo_image_index li,
+.no-cssanimations .evo_image_index li {
+  opacity: 1;
+}
+/* Effect 1: opacity */
+.evo_image_index.effect-1 li.animate {
+  -webkit-animation: fadeIn 0.65s ease forwards;
+  animation: fadeIn 0.65s ease forwards;
+}
+@-webkit-keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+/* Effect 2: Move Up */
+.evo_image_index.effect-2 li.animate {
+  -webkit-transform: translateY(200px);
+  -ms-transform: translateY(200px);
+  transform: translateY(200px);
+  -webkit-animation: moveUp 0.65s ease forwards;
+  animation: moveUp 0.65s ease forwards;
+}
+@-webkit-keyframes moveUp {
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes moveUp {
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.evo_image_index.effect-3 li.animate {
+  -webkit-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  transform: scale(0.6);
+  -webkit-animation: scaleUp 0.65s ease forwards;
+  animation: scaleUp 0.65s ease forwards;
+}
+@-webkit-keyframes scaleUp {
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scaleUp {
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.evo_image_index.effect-4 {
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.evo_image_index.effect-4 li.animate {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+  transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+  -webkit-animation: fallPerspective 0.8s ease-in-out forwards;
+  animation: fallPerspective 0.8s ease-in-out forwards;
+}
+@-webkit-keyframes fallPerspective {
+  100% {
+    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes fallPerspective {
+  100% {
+    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+/* Effect 5: fly (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
+.evo_image_index.effect-5 {
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.evo_image_index.effect-5 li.animate {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 50% 50% -300px;
+  -ms-transform-origin: 50% 50% -300px;
+  transform-origin: 50% 50% -300px;
+  -webkit-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+  -webkit-animation: fly 0.8s ease-in-out forwards;
+  animation: fly 0.8s ease-in-out forwards;
+}
+@-webkit-keyframes fly {
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes fly {
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
 }
 ul.profile_tabs {
   margin: 0 2ex 2ex;

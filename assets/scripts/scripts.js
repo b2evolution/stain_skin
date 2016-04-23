@@ -1,30 +1,38 @@
 jQuery(window).load(function (e) {
 
-   if ( $.fn.sticky ) {
-      $(".main_navigation").sticky({
-         topSpacing: 0,
-         center:true
-      });
-   }
+    if ( $.fn.sticky ) {
+        $(".main_navigation").sticky({
+            topSpacing: 0,
+            center:true
+        });
+    }
 
-   if ( $.fn.masonry ) {
-      $('.posts_gallery').masonry({
-        // options
-        itemSelector: '.evo_post',
-        percentPosition: true,
-        columnWidth: 1,
-      //   gutter: 10,
-      });
-   }
+    if ( $.fn.masonry ) {
+        $('.posts_gallery').masonry({
+            // options
+            itemSelector: '.evo_post',
+            percentPosition: true,
+            columnWidth: 1,
+            //   gutter: 10,
+        });
+    }
 
-   if ( $.fn.masonry ) {
-      $('.posts_list').masonry({
-        // options
-        itemSelector: '.evo_posts',
-        percentPosition: true,
-      //   columnWidth: 100
-      });
-   }
+    if ( $.fn.masonry ) {
+        $('.posts_list').masonry({
+            // options
+            itemSelector: '.evo_posts',
+            percentPosition: true,
+            //   columnWidth: 100
+        });
+    }
 
+
+    if( document.getElementById("grid") != null ){
+        new AnimOnScroll( document.getElementById( 'grid' ), {
+            minDuration : 0.4,
+            maxDuration : 0.7,
+            viewportFactor : 0.2
+        } );
+    }
 
 });

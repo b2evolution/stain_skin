@@ -1,0 +1,149 @@
+// ======================================================================== /
+// Mediaidx Style
+// ======================================================================== /
+.disp_mediaidx {
+
+    #content {
+        overflow: hidden;
+    }
+
+    .main_content {
+        overflow: hidden;
+
+        .widget_core_coll_media_index {
+
+            .evo_image_index {
+                list-style-type: none;
+            }
+
+
+            .image_content {
+                display: block;
+                float: left;
+                opacity: 0;
+                margin: 0;
+                padding: 0 10px 20px;
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                &.shown {
+                    opacity: 1;
+                }
+
+                // Column
+                // ======================================================================== /
+                .one_column {
+                    width: @one_column;
+                }
+
+                .two_column {
+                    width: @two_column;
+                }
+
+                .three_column {
+                    width: @three_column;
+                }
+
+                .four_column {
+                    width: @four_column;
+                }
+
+                @media screen and ( max-width: @S ) {
+                    width: @one_column;
+                }
+            }
+
+        }
+    }
+
+}
+
+
+.no-js .evo_image_index li,
+.no-cssanimations .evo_image_index li {
+	opacity: 1;
+}
+
+// Animation
+// ======================================================================== /
+/* Effect 1: opacity */
+.evo_image_index.effect-1 li.animate {
+	// -webkit-animation: fadeIn 4s ease forwards;
+	animation: fadeIn 0.65s ease forwards;
+}
+
+@keyframes fadeIn {
+	0% { }
+	100% { opacity: 1; }
+}
+
+/* Effect 2: Move Up */
+.evo_image_index.effect-2 li.animate {
+	transform: translateY(200px);
+	animation: moveUp 0.65s ease forwards;
+}
+
+@keyframes moveUp {
+	0% { }
+	100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// Effect 3: Scale Up
+.evo_image_index.effect-3 li.animate {
+    transform: scale(0.6);
+    animation: scaleUp 0.65s ease forwards;
+}
+
+@keyframes scaleUp {
+    0% { }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// Effect 4: Fall Perspective
+.evo_image_index.effect-4 {
+    perspective: 1300px;
+
+    li.animate {
+        transform-style: preserve-3d;
+        transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+        animation: fallPerspective 0.8s ease-in-out forwards;
+    }
+}
+
+@keyframes fallPerspective {
+    0% {}
+    100% {
+        transform: translateZ(0px) translateY(0px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+/* Effect 5: fly (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
+.evo_image_index.effect-5 {
+    perspective: 1300px;
+
+    li.animate {
+        transform-style: preserve-3d;
+        transform-origin: 50% 50% -300px;
+        transform: rotateX(-180deg);
+        animation: fly 0.8s ease-in-out forwards;
+    }
+
+}
+
+@keyframes fly {
+    0% {}
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
