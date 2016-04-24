@@ -36,21 +36,17 @@ if( isset( $thumbnail_sizes[ $params['mediaidx_thumb_size'] ] ) )
 $column = '';
 $column_set = $Skin->get_setting( 'mediaidx_column' );
 switch ( $column_set ) {
-    case 'one':
-        $column = 'one_column';
-        break;
-    case 'two':
-        $column = 'two_column';
-        break;
-    case 'three':
-        $column = 'three_column';
-        break;
-    case 'four':
-        $column = 'four_column';
-        break;
-    default:
-        $column = 'three_column';
-        break;
+    case $column_set:
+        $column = $column_set.'_column';
+    break;
+}
+
+$effect = '';
+$effect_skin = $Skin->get_setting( 'mediaidx_effect' );
+switch ($effect_skin) {
+	case $effect_skin:
+		$effect = $effect_skin;
+	break;
 }
 
 // --------------------------------- START OF MEDIA INDEX --------------------------------
@@ -61,14 +57,15 @@ skin_widget( array(
 	'block_start'         => '<div class="evo_widget $wi_class$">',
 	'block_end'           => '</div>',
 	'block_display_title' => false,
+	'disp_image_title' 	  => $Skin->get_setting( 'mediaidx_title' ),
 	'thumb_size'          => $params['mediaidx_thumb_size'],
 	'thumb_layout'        => 'list',
-	'list_start'          => '<ul id="grid" class="evo_image_index effect-5">',
+	'list_start'          => '<ul id="grid" class="evo_image_index effect-'.$effect.'">',
 	'list_end'            => '</ul>',
     'item_start'          => '<li class="image_content '.$column.'">',
     'item_end'            => '</li>',
-	'order_by'            => $Blog->get_setting('orderby'),
-	'order_dir'           => $Blog->get_setting('orderdir'),
+	'order_by'            => $Skin->get_setting( 'mediaidx_by' ),
+	'order_dir'           => $Skin->get_setting( 'mediaidx_dir' ),
 	'limit'               => $Skin->get_setting( 'mediaidx_display' ),
 ) );
 // ---------------------------------- END OF MEDIA INDEX ---------------------------------

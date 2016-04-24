@@ -96,17 +96,17 @@ class stain_gallery_Skin extends Skin
 	   }
    }
 
-   /**
-   * Get the pictures of one local folder as an array
-   *
-   * @param string img_folder; the image folder;
-   * string img_folder_url; folder url, we would like to show the img of this folder on the screen for user viewing;
-   * int thumb_width: thumb image whdth shown on the skin setting page
-   * int thumb_height: thumb image height shown on the skin setting page
-   * @return array
-   */
-   function get_arr_pics_from_folder( $img_folder, $img_folder_url, $thumb_width = 50, $thumb_height = 50 )
-   {
+	/**
+	* Get the pictures of one local folder as an array
+	*
+	* @param string img_folder; the image folder;
+	* string img_folder_url; folder url, we would like to show the img of this folder on the screen for user viewing;
+	* int thumb_width: thumb image whdth shown on the skin setting page
+	* int thumb_height: thumb image height shown on the skin setting page
+	* @return array
+	*/
+	function get_arr_pics_from_folder( $img_folder, $img_folder_url, $thumb_width = 50, $thumb_height = 50 )
+	{
 	   $arr_filenames = $filesnames =array();
 	   if(file_exists($img_folder))
 	   {
@@ -125,7 +125,7 @@ class stain_gallery_Skin extends Skin
 	   }
 	   $arr_filenames[] = array("none",T_("Transparent"));
 	   return $arr_filenames;
-   }
+	}
 
 
 	/**
@@ -137,6 +137,8 @@ class stain_gallery_Skin extends Skin
 	function get_param_definitions( $params ) {
 		// Load to use function get_available_thumb_sizes()
 		load_funcs( 'files/model/_image.funcs.php' );
+		load_class( 'widgets/model/_widget.class.php', 'ComponentWidget' );
+
 		// System provide bg images
 		$bodybg_cat = 'assets/images/header/'; // Background images folder relative to this skin folder
 		$arr_bodybg = $this -> get_arr_pics_from_folder( $this->get_path().$bodybg_cat, $this->get_url().$bodybg_cat, 80, 80 );
@@ -462,7 +464,7 @@ class stain_gallery_Skin extends Skin
 			* ========================================================================== */
 			'section_media_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Media Options')
+				'label'  => T_('Photo Index Options')
 			),
 				'max_mediaidx_height' => array(
 					'label'        => T_('Max Mediaidx image height'),
@@ -483,10 +485,18 @@ class stain_gallery_Skin extends Skin
 					),
 					'defaultvalue'	=> 'three',
 				),
+				'mediaidx_space' => array(
+					'label'		    => T_( 'Space Image' ),
+					'note'			=> T_( 'px. Set the padding of image space. Default set is <strong>10</strong>. Also you can set <strong>0 for without space</strong>.' ),
+					'type'			=> 'integer',
+					'defaultvalue'	=> '10',
+					'size'			=> '5'
+				),
 				'mediaidx_thumb_size' => array(
 					'label'        => T_('Thumbnail size in Media index'),
 					'note'         => '',
-					'defaultvalue' => 'fit-256x256',
+					'type'         => 'select',
+					'defaultvalue' => 'fit-1280x720',
 					'options'      => array(
 						'original'		=> T_( 'Original' ),
 						'fit-1280x720'  => T_( 'fit-1280x720' ),
@@ -499,14 +509,52 @@ class stain_gallery_Skin extends Skin
 						'crop-top-200x200' => T_( 'crop-top-200x200' ),
 						'crop-top-160x160' => T_( 'crop-top-160x160' )
 					),
-					'type'         => 'select',
 				),
 				'mediaidx_display' => array(
 					'label'			=> T_( 'Display Image' ),
 					'note'			=> T_( 'Set the display of images in Mediaidx' ),
 					'type'			=> 'integer',
-					'defaultvalue'	=> '5',
+					'defaultvalue'	=> '20',
 					'size'			=> '5'
+				),
+				'mediaidx_effect' => array(
+					'label'			=> T_( 'Choose the Animation Image' ),
+					'note'			=> T_( 'Select your favorite Animation load for first open page.' ),
+					'type'			=> 'select',
+					'options'		=> array(
+						'1' => T_('Opacity'),
+						'2' => T_('Move Up'),
+						'3' => T_('Sclae Up'),
+						'4' => T_('Fall Perspective'),
+						'5' => T_('Fly'),
+						'6' => T_('Flip'),
+						'7' => T_('Helix'),
+						'8' => T_('Pop Up'),
+					),
+					'defaultvalue' => '3',
+				),
+				'mediaidx_title' => array(
+					'label'			=> T_( 'Display Title Image' ),
+					'note'			=> T_( 'Check to show the title image.' ),
+					'type'			=> 'checkbox',
+					'defaultvalue'	=> 0,
+				),
+				'mediaidx_by' => array(
+					'label'			=> T_( 'Order by' ),
+					'note'			=> T_( 'How to sort the images' ),
+					'type'			=> 'select',
+					'options' 		=> get_available_sort_options(),
+					'defaultvalue' 	=> 'datestart',
+				),
+				'mediaidx_dir' => array(
+					'label'			=> T_( 'Direction' ),
+					'note'			=> T_( 'How to sort the images' ),
+					'type'			=> 'select',
+					'options'		=> array(
+						'ASC' => T_( 'Ascending' ),
+						'DESC' => T_( 'Descending' ),
+					),
+					'defaultvalue'	=> 'ASC',
 				),
 				'banner_public' => array(
 					'label'        => T_('Display "Public" banner'),
@@ -590,17 +638,6 @@ class stain_gallery_Skin extends Skin
 			'section_single_end' => array(
 				'layout'		=> 'end_fieldset',
 			),
-
-
-			/* Media Options
-			 * ========================================================================== */
-			// 'section_mediaidx_start' => array(
-			// 	'layout'	=> 'begin_fieldset',
-			// 	'label'		=> T_( 'Media Options' ),
-			// ),
-			// 'section_mediaidx_end' => array(
-			// 	'layout'	=> 'end_fieldset',
-			// ),
 
 
 			/* Footer Options
@@ -883,139 +920,122 @@ class stain_gallery_Skin extends Skin
 				.'height:'.( $thumbnail_sizes[ $single_thumb_size ][2] - 20 ).'px'." }\n";*/
 		}
 
-      /* Header Options
-       * ========================================================================== */
-      if ( $height = $this->get_setting( 'header_height' ) ) {
-         $custom_css .= '.main_header{ height: '.$height.'px; }';
-      }
+		/* Header Options
+		* ========================================================================== */
+		if ( $height = $this->get_setting( 'header_height' ) ) {
+			$custom_css .= '.main_header{ height: '.$height.'px; }';
+		}
 
-      $bg_header = $this->get_setting( 'header_bg' );
-      switch ( $bg_header ) {
-         case $bg_header:
-            $custom_css .= ".main_header{ background-image: url('$bg_header') }";
-            break;
-
-         default:
-            # code...
-            break;
-      }
+		$bg_header = $this->get_setting( 'header_bg' );
+		switch ( $bg_header ) {
+			case $bg_header:
+			$custom_css .= ".main_header{ background-image: url('$bg_header') }";
+			break;
+		}
 
 		$bg_header_x = $this->get_setting( 'header_bg_position_x');
 		$bg_header_y = $this->get_setting( 'header_bg_position_y');
-      if ( !empty($bg_header_x) || !empty($bg_header_y)  ) {
-				 $custom_css .= '.main_header{ background-position: '.$bg_header_x.'% '.$bg_header_y.'%; }';
-      }
+		if ( !empty($bg_header_x) || !empty($bg_header_y)  ) {
+			$custom_css .= '.main_header{ background-position: '.$bg_header_x.'% '.$bg_header_y.'%; }';
+		}
 
-      $header_bg_attach = $this->get_setting( 'header_bg_attach' );
-      switch ( $header_bg_attach ) {
-         case $header_bg_attach:
-            $custom_css .= '.main_header{ background-attachment: '.$header_bg_attach.'; }';
-            break;
+		$header_bg_attach = $this->get_setting( 'header_bg_attach' );
+		switch ( $header_bg_attach ) {
+			case $header_bg_attach:
+			$custom_css .= '.main_header{ background-attachment: '.$header_bg_attach.'; }';
+			break;
+		}
 
-         default:
-            # code...
-            break;
-      }
+		// Header Background Size
+		$header_bg_size = $this->get_setting( 'header_bg_size' );
+		switch ( $header_bg_size ) {
+			case $header_bg_size:
+			$custom_css .= '.main_header{ background-size: '.$header_bg_size.'; }';
+			break;
+		}
 
-      // Header Background Size
-      $header_bg_size = $this->get_setting( 'header_bg_size' );
-      switch ( $header_bg_size ) {
-         case $header_bg_size:
-            $custom_css .= '.main_header{ background-size: '.$header_bg_size.'; }';
-            break;
+		// Color Overlay
+		if ( $this->get_setting( 'header_overlay' ) == 0 ) {
+			$custom_css .= '.main_header::after{ display: none }';
+		}
+		if ( $color = $this->get_setting( 'color_overlay' ) ) {
+			$custom_css .= '.main_header::after{ background-color: '.$color.' }';
+		}
+		$overlay_opacity = $this->get_setting( 'opcity_cv' );
+		switch ( $overlay_opacity ) {
+			case $overlay_opacity:
+			$custom_css .= '.main_header::after{ opacity: '.$overlay_opacity.' }';
+			break;
+		}
 
-         default:
-            # code...
-            break;
-      }
+		// Brand Content Align
+		$align = $this->get_setting( 'header_content_align' );
+		switch ( $align ) {
+			case $align:
+			$custom_css .= '.main_header .brand{ text-align: '.$align.'; }';
+			break;
+		}
 
-      // Color Overlay
-      if ( $this->get_setting( 'header_overlay' ) == 0 ) {
-         $custom_css .= '.main_header::after{ display: none }';
-      }
-      if ( $color = $this->get_setting( 'color_overlay' ) ) {
-         $custom_css .= '.main_header::after{ background-color: '.$color.' }';
-      }
-      $overlay_opacity = $this->get_setting( 'opcity_cv' );
-      switch ( $overlay_opacity ) {
-         case $overlay_opacity:
-            $custom_css .= '.main_header::after{ opacity: '.$overlay_opacity.' }';
-         break;
+		/* Main Navigation
+		* ========================================================================== */
+		if ( $bg = $this->get_setting( 'nav_bg' ) ) {
+			$custom_css .= '.main_navigation{ background-color: '.$bg.' }';
+		}
 
-         default:
-            # code...
-         break;
-      }
+		$nav_align = $this->get_setting( 'nav_align' );
+		switch ( $nav_align ) {
+			case 'left':
+			$custom_css .= '.main_navigation .nav-tabs{ text-align: left; }';
+			break;
 
-      // Brand Content Align
-      $align = $this->get_setting( 'header_content_align' );
-      switch ( $align ) {
-         case $align:
-            $custom_css .= '.main_header .brand{ text-align: '.$align.'; }';
-         break;
+			case 'right':
+			$custom_css .= '.main_navigation .nav-tabs{ text-align: right; }';
+			$custom_css .= '.main_navigation .nav-tabs li{ float: right; }';
+			break;
+		}
 
-         default:
-            # code...
-         break;
-      }
+		if ( $color = $this->get_setting( 'nav_color' ) ) {
+			$custom_css .= '.main_navigation .nav-tabs a{ color: '.$color.' }';
+		}
 
-      /* Main Navigation
-       * ========================================================================== */
-      if ( $bg = $this->get_setting( 'nav_bg' ) ) {
-         $custom_css .= '.main_navigation{ background-color: '.$bg.' }';
-      }
+		if( $color = $this->get_setting( 'nav_color_hov' ) ) {
+			$custom_css .= '
+			.main_navigation .nav-tabs li:hover a, .main_navigation .nav-tabs li:active a, .main_navigation .nav-tabs li:focus a, .main_navigation .nav-tabs li.active a { color: '.$color.'; }';
+			$custom_css .= '.main_navigation .nav-tabs a:before, .main_navigation .nav-tabs a:after{ background-color: '.$color.' }';
+		}
 
-      $nav_align = $this->get_setting( 'nav_align' );
-      switch ( $nav_align ) {
-         case 'left':
-            $custom_css .= '.main_navigation .nav-tabs{ text-align: left; }';
-            break;
-
-         case 'right':
-            $custom_css .= '.main_navigation .nav-tabs{ text-align: right; }';
-            $custom_css .= '.main_navigation .nav-tabs li{ float: right; }';
-            break;
-
-         default:
-            # code...
-            break;
-      }
-
-      if ( $color = $this->get_setting( 'nav_color' ) ) {
-         $custom_css .= '.main_navigation .nav-tabs a{ color: '.$color.' }';
-      }
-
-      if( $color = $this->get_setting( 'nav_color_hov' ) ) {
-         $custom_css .= '
-         .main_navigation .nav-tabs li:hover a, .main_navigation .nav-tabs li:active a, .main_navigation .nav-tabs li:focus a, .main_navigation .nav-tabs li.active a { color: '.$color.'; }';
-         $custom_css .= '.main_navigation .nav-tabs a:before, .main_navigation .nav-tabs a:after{ background-color: '.$color.' }';
-      }
-
-      /* Gallery Options
-       * ========================================================================== */
-      if ( $bg = $this->get_setting( 'gallery_bg' ) ) {
-         $custom_css .= '.posts_gallery .main_content_gallery .cat_title::after { background-color: '.$bg.' }';
-      }
+		/* Gallery Options
+		* ========================================================================== */
+		if ( $bg = $this->get_setting( 'gallery_bg' ) ) {
+			$custom_css .= '.posts_gallery .main_content_gallery .cat_title::after { background-color: '.$bg.' }';
+		}
 
 		if ( $space = $this->get_setting('gallery_gutter') ) {
 			$custom_css .= '.posts_gallery .evo_post, .posts_gallery .feature_post{ padding: '.$space.'px; }';
 			// $custom_css .= '.posts_gallery{ margin-left: -'.$space.'px; margin-right: -'.$space.'px; }';
 		}
 
-      if ( $this->get_setting( 'gallery_shadow' )  == 0 ) {
-         $custom_css .= '.posts_gallery .main_content_gallery:hover, .posts_gallery .main_content_gallery:active, .posts_gallery .main_content_gallery:focus
-         { box-shadow: none; }';
-      }
+		if ( $this->get_setting( 'gallery_shadow' )  == 0 ) {
+			$custom_css .= '.posts_gallery .main_content_gallery:hover, .posts_gallery .main_content_gallery:active, .posts_gallery .main_content_gallery:focus
+			{ box-shadow: none; }';
+		}
 
-      if ( $fz = $this->get_setting( 'cat_title_size' ) ) {
-         $custom_css .= '@media screen and ( min-width: 1024px ) { .posts_gallery .main_content_gallery .cat_title_link { font-size: '.$fz.'px; } }';
-      }
-      if ( $color = $this->get_setting( 'cat_title_color' ) ) {
-         $custom_css .= '.posts_gallery .main_content_gallery .cat_title_link { color: '.$color.'; }';
-      }
-      if( $bg = $this->get_setting( 'cat_view_bg' ) ) {
-         $custom_css .= '.posts_gallery .main_content_gallery .btn_cat:after { background-color: '.$bg.' }';
-      }
+		if ( $fz = $this->get_setting( 'cat_title_size' ) ) {
+			$custom_css .= '@media screen and ( min-width: 1024px ) { .posts_gallery .main_content_gallery .cat_title_link { font-size: '.$fz.'px; } }';
+		}
+		if ( $color = $this->get_setting( 'cat_title_color' ) ) {
+			$custom_css .= '.posts_gallery .main_content_gallery .cat_title_link { color: '.$color.'; }';
+		}
+		if( $bg = $this->get_setting( 'cat_view_bg' ) ) {
+			$custom_css .= '.posts_gallery .main_content_gallery .btn_cat:after { background-color: '.$bg.' }';
+		}
+
+		/* Photo Index
+		 * ========================================================================== */
+		if ( $space = $this->get_setting( 'mediaidx_space' ) ) {
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content { padding: '.$space.'px }';
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .evo_image_index { margin-left: -'.$space.'px;  margin-right: -'.$space.'px }';
+		}
 
 		/* Posts Custom Options
 		 * ========================================================================== */
