@@ -15,23 +15,7 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
-global $thumbnail_sizes, $Skin, $Blog;
-
-if( empty( $params ) )
-{ // Initialize array with params
-	$params = array();
-}
-// Merge the params from current skin
-$params = array_merge( array(
-	'mediaidx_thumb_size' => 'fit-1280x720',
-), $params );
-
-$photocell_styles = '';
-if( isset( $thumbnail_sizes[ $params['mediaidx_thumb_size'] ] ) )
-{
-	$photocell_styles = ' style="width:'.$thumbnail_sizes[ $params['mediaidx_thumb_size'] ][1].'px;'
-		.'height:'.$thumbnail_sizes[ $params['mediaidx_thumb_size'] ][2].'px"';
-}
+global $Skin, $Blog;
 
 $column = '';
 $column_set = $Skin->get_setting( 'mediaidx_column' );
@@ -58,7 +42,7 @@ skin_widget( array(
 	'block_end'           => '</div>',
 	'block_display_title' => false,
 	'disp_image_title' 	  => $Skin->get_setting( 'mediaidx_title' ),
-	'thumb_size'          => $params['mediaidx_thumb_size'],
+	'thumb_size'          => $Skin->get_setting('mediaidx_thumb_size'),
 	'thumb_layout'        => 'list',
 	'list_start'          => '<ul id="grid" class="evo_image_index effect-'.$effect.'">',
 	'list_end'            => '</ul>',

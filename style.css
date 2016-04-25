@@ -51,6 +51,16 @@ body a[rel~=nofollow]:not([class~=btn]):hover:focus {
 .three_column {
   max-width: 33.33333333%;
 }
+@media screen and (max-width: 768px) {
+  .three_column {
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .three_column {
+    max-width: 100%;
+  }
+}
 @media screen and (min-width: 1025px) {
   .four_column {
     max-width: 25%;
@@ -309,6 +319,223 @@ textarea.message_text {
   }
   .hidden-xl {
     display: none !important;
+  }
+}
+.effect-0 li {
+  opacity: 1 !important;
+}
+/* Effect 1: opacity */
+.effect-1 li.animate {
+  -webkit-animation: fadeIn 0.65s ease forwards;
+  animation: fadeIn 0.65s ease forwards;
+}
+@-webkit-keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+/* Effect 2: Move Up */
+.effect-2 li.animate {
+  -webkit-transform: translateY(200px);
+  -ms-transform: translateY(200px);
+  transform: translateY(200px);
+  -webkit-animation: moveUp 0.65s ease forwards;
+  animation: moveUp 0.65s ease forwards;
+}
+@-webkit-keyframes moveUp {
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes moveUp {
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.effect-3 li.animate {
+  -webkit-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  transform: scale(0.6);
+  -webkit-animation: scaleUp 0.65s ease forwards;
+  animation: scaleUp 0.65s ease forwards;
+}
+@-webkit-keyframes scaleUp {
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scaleUp {
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.effect-4 {
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.effect-4 li.animate {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+  transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+  -webkit-animation: fallPerspective 0.8s ease-in-out forwards;
+  animation: fallPerspective 0.8s ease-in-out forwards;
+}
+@-webkit-keyframes fallPerspective {
+  100% {
+    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes fallPerspective {
+  100% {
+    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    transform: translateZ(0px) translateY(0px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+/* Effect 5: fly (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
+.effect-5 {
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.effect-5 li.animate {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 50% 50% -300px;
+  -ms-transform-origin: 50% 50% -300px;
+  transform-origin: 50% 50% -300px;
+  -webkit-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+  -webkit-animation: fly 0.8s ease-in-out forwards;
+  animation: fly 0.8s ease-in-out forwards;
+}
+@-webkit-keyframes fly {
+  100% {
+    -webkit-transform-origin: 0 0 0px;
+    transform-origin: 0 0 0px;
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes fly {
+  100% {
+    -webkit-transform-origin: 0 0 0px;
+    transform-origin: 0 0 0px;
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+.effect-6 {
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.effect-6 li.animate {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: rotateX(-80deg);
+  transform: rotateX(-80deg);
+  -webkit-animation: flip 0.8s ease-in-out forwards;
+  animation: flip 0.8s ease-in-out forwards;
+}
+@-webkit-keyframes flip {
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes flip {
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+.effect-7 {
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.effect-7 li.animate {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  -webkit-animation: helix 0.8s ease-in-out forwards;
+  animation: helix 0.8s ease-in-out forwards;
+}
+@-webkit-keyframes helix {
+  100% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+@keyframes helix {
+  100% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+.effect-8 {
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+.effect-8 li.animate {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: scale(0.4);
+  -ms-transform: scale(0.4);
+  transform: scale(0.4);
+  -webkit-animation: popUp 0.8s ease-in forwards;
+  animation: popUp 0.8s ease-in forwards;
+}
+@-webkit-keyframes popUp {
+  70% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: 0.8;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes popUp {
+  70% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: 0.8;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
   }
 }
 .main_header {
@@ -942,6 +1169,7 @@ div.evo_image_index div:hover {
 }
 .posts_gallery {
   margin: 0;
+  list-style-type: none;
 }
 .posts_gallery .feature_image img {
   position: relative;
@@ -953,7 +1181,12 @@ div.evo_image_index div:hover {
 .posts_gallery .feature_post {
   position: relative;
   float: left;
+  opacity: 0;
   margin: 0 auto;
+}
+.posts_gallery .evo_post.shown,
+.posts_gallery .feature_post.shown {
+  opacity: 1;
 }
 .posts_gallery .evo_post.two_column {
   max-width: 50%;
@@ -1218,11 +1451,15 @@ div.evo_image_index div:hover {
   visibility: visible;
   opacity: 0.8;
 }
-.main_content_gallery.flip .cat_title {
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+.main_content_gallery {
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
 }
-.main_content_gallery.flip .cat_title::after {
+.main_content_gallery .cat_title {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.main_content_gallery.flip .cat_title {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
@@ -1281,10 +1518,6 @@ div.evo_image_index div:hover {
   transition: all 0.4s ease;
 }
 .main_content_gallery:hover.flip .cat_title {
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-}
-.main_content_gallery:hover.flip .cat_title::after {
   -webkit-transform: rotateY(0deg);
   transform: rotateY(0deg);
 }
@@ -2322,6 +2555,9 @@ div.evo_image_index div:hover {
 .disp_mediaidx #content {
   overflow: hidden;
 }
+.disp_mediaidx #content .title__content {
+  font-size: 3rem;
+}
 .disp_mediaidx .main_content {
   overflow: hidden;
 }
@@ -2335,6 +2571,17 @@ div.evo_image_index div:hover {
   margin: 0;
   padding: 0;
 }
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .note {
+  display: block;
+  background-color: #ffffff;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 15px;
+  color: #555555;
+  letter-spacing: -0.1px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
 .disp_mediaidx .main_content .widget_core_coll_media_index .image_content img {
   max-width: 100%;
   height: auto;
@@ -2342,240 +2589,29 @@ div.evo_image_index div:hover {
 .disp_mediaidx .main_content .widget_core_coll_media_index .image_content.shown {
   opacity: 1;
 }
-.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .one_column {
-  width: 100%;
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content.one_column .note {
+  font-size: 1.8rem;
 }
-.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .two_column {
-  width: 50%;
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content.two_column .note {
+  font-size: 1.6rem;
 }
-.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .three_column {
-  width: 33.33333333%;
+.disp_mediaidx .main_content .widget_core_coll_media_index .image_content.four_column .note {
+  font-size: 1.3rem;
+  padding: 12px;
 }
-.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .four_column {
-  width: 25%;
+@media screen and (max-width: 768px) {
+  .disp_mediaidx .main_content .widget_core_coll_media_index .image_content {
+    max-width: 50%;
+  }
 }
 @media screen and (max-width: 480px) {
   .disp_mediaidx .main_content .widget_core_coll_media_index .image_content {
-    width: 100%;
+    max-width: 100%;
   }
 }
 .no-js .evo_image_index li,
 .no-cssanimations .evo_image_index li {
   opacity: 1;
-}
-/* Effect 1: opacity */
-.evo_image_index.effect-1 li.animate {
-  -webkit-animation: fadeIn 0.65s ease forwards;
-  animation: fadeIn 0.65s ease forwards;
-}
-@-webkit-keyframes fadeIn {
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  100% {
-    opacity: 1;
-  }
-}
-/* Effect 2: Move Up */
-.evo_image_index.effect-2 li.animate {
-  -webkit-transform: translateY(200px);
-  -ms-transform: translateY(200px);
-  transform: translateY(200px);
-  -webkit-animation: moveUp 0.65s ease forwards;
-  animation: moveUp 0.65s ease forwards;
-}
-@-webkit-keyframes moveUp {
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes moveUp {
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-.evo_image_index.effect-3 li.animate {
-  -webkit-transform: scale(0.6);
-  -ms-transform: scale(0.6);
-  transform: scale(0.6);
-  -webkit-animation: scaleUp 0.65s ease forwards;
-  animation: scaleUp 0.65s ease forwards;
-}
-@-webkit-keyframes scaleUp {
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-@keyframes scaleUp {
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-.evo_image_index.effect-4 {
-  -webkit-perspective: 1300px;
-  perspective: 1300px;
-}
-.evo_image_index.effect-4 li.animate {
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform: translateZ(400px) translateY(300px) rotateX(-90deg);
-  transform: translateZ(400px) translateY(300px) rotateX(-90deg);
-  -webkit-animation: fallPerspective 0.8s ease-in-out forwards;
-  animation: fallPerspective 0.8s ease-in-out forwards;
-}
-@-webkit-keyframes fallPerspective {
-  100% {
-    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
-    transform: translateZ(0px) translateY(0px) rotateX(0deg);
-    opacity: 1;
-  }
-}
-@keyframes fallPerspective {
-  100% {
-    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
-    transform: translateZ(0px) translateY(0px) rotateX(0deg);
-    opacity: 1;
-  }
-}
-/* Effect 5: fly (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
-.evo_image_index.effect-5 {
-  -webkit-perspective: 1300px;
-  perspective: 1300px;
-}
-.evo_image_index.effect-5 li.animate {
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform-origin: 50% 50% -300px;
-  -ms-transform-origin: 50% 50% -300px;
-  transform-origin: 50% 50% -300px;
-  -webkit-transform: rotateX(-180deg);
-  transform: rotateX(-180deg);
-  -webkit-animation: fly 0.8s ease-in-out forwards;
-  animation: fly 0.8s ease-in-out forwards;
-}
-@-webkit-keyframes fly {
-  100% {
-    -webkit-transform-origin: 0 0 0px;
-    transform-origin: 0 0 0px;
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-}
-@keyframes fly {
-  100% {
-    -webkit-transform-origin: 0 0 0px;
-    transform-origin: 0 0 0px;
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-}
-.evo_image_index.effect-6 {
-  -webkit-perspective: 1300px;
-  perspective: 1300px;
-}
-.evo_image_index.effect-6 li.animate {
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
-  transform-origin: 0 0;
-  -webkit-transform: rotateX(-80deg);
-  transform: rotateX(-80deg);
-  -webkit-animation: flip 0.8s ease-in-out forwards;
-  animation: flip 0.8s ease-in-out forwards;
-}
-@-webkit-keyframes flip {
-  100% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-}
-@keyframes flip {
-  100% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-}
-.evo_image_index.effect-7 {
-  -webkit-perspective: 1300px;
-  perspective: 1300px;
-}
-.evo_image_index.effect-7 li.animate {
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
-  -webkit-animation: helix 0.8s ease-in-out forwards;
-  animation: helix 0.8s ease-in-out forwards;
-}
-@-webkit-keyframes helix {
-  100% {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-}
-@keyframes helix {
-  100% {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-}
-.evo_image_index.effect-8 {
-  -webkit-perspective: 1300px;
-  perspective: 1300px;
-}
-.evo_image_index.effect-8 li.animate {
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform: scale(0.4);
-  -ms-transform: scale(0.4);
-  transform: scale(0.4);
-  -webkit-animation: popUp 0.8s ease-in forwards;
-  animation: popUp 0.8s ease-in forwards;
-}
-@-webkit-keyframes popUp {
-  70% {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-    opacity: 0.8;
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-@keyframes popUp {
-  70% {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-    opacity: 0.8;
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
 }
 ul.profile_tabs {
   margin: 0 2ex 2ex;

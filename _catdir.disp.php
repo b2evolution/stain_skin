@@ -58,13 +58,20 @@ $params = array_merge( array(
 
 $column = $Skin->Change_class( 'gallery_show' );
 $hover = $Skin->Change_class( 'gallery_hover_style' );
+$effect = '';
+$effect_home_skin = $Skin->get_setting( 'gallery_effect' );
+switch ($effect_home_skin) {
+    case $effect_home_skin:
+        $effect = $effect_home_skin;
+    break;
+}
 
 // ------------------------------- START OF INTRO POST -------------------------------
 init_MainList( $Blog->get_setting('posts_per_page') ); ?>
-<div class="posts_gallery">
+<ul id="post_gallery" class="posts_gallery effect-<?php echo $effect; ?>">
 <?php
 if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to display: ?>
-   <div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post feature_post '.$column, ) ) ?>" lang="<?php $Item->lang() ?>">
+   <li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post feature_post '.$column, ) ) ?>" lang="<?php $Item->lang() ?>">
       <div class="main_content_gallery">
    	<?php
    	$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
@@ -175,7 +182,7 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
    	   locale_restore_previous();	// Restore previous locale (Blog locale)
    	?>
       </div>
-   </div><!-- .evo_post -->
+  </li><!-- .evo_post -->
 <?php
 // ------------------------------- END OF INTRO-FRONT POST -------------------------------
 }
@@ -213,7 +220,7 @@ if( ! empty( $chapters ) ) { // Display the posts with chapters
 				  // Temporarily switch to post locale (useful for multilingual blogs)
 					$Item->locale_temp_switch();
 				?>
-				<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post '.$column, ) ); ?>" lang="<?php $Item->lang() ?>">
+				<li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post '.$column, ) ); ?>" lang="<?php $Item->lang() ?>">
                <div class="main_content_gallery <?php echo $hover; ?>">
                   <a href="<?php echo $Chapter->get_permanent_url(); ?>" class="cat_title">
                      <div class="cat_title_content">
@@ -264,12 +271,12 @@ if( ! empty( $chapters ) ) { // Display the posts with chapters
       					locale_restore_previous();
       				?>
                </div><!-- .main_content_gallery -->
-				</div><!-- .evo_post -->
+           </li><!-- .evo_post -->
 
    <?php } // $item_list
 	} // Chapter
 } // Show Content ?>
-</div> <!-- .content_gallery -->
+</ul> <!-- .content_gallery -->
 <?php } // ---------------------------------- END OF POSTS ------------------------------------
 
 if( $no_content_to_display )

@@ -73,6 +73,14 @@ body {
 .three_column {
 	max-width: @three_column;
 	// width: 100%;
+
+	@media screen and ( max-width: @M ) {
+		max-width: @two_column;
+	}
+
+	@media screen and ( max-width: @S ) {
+		max-width: @one_column;
+	}
 }
 
 &.four_column {

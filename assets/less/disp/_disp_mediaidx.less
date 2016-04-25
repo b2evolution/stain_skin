@@ -5,6 +5,10 @@
 
     #content {
         overflow: hidden;
+
+        .title__content {
+            font-size: 3rem;
+        }
     }
 
     .main_content {
@@ -16,13 +20,25 @@
                 list-style-type: none;
             }
 
-
             .image_content {
                 display: block;
                 float: left;
                 opacity: 0;
                 margin: 0;
                 padding: 0;
+
+                .note {
+                    display: block;
+                    background-color: @w;
+                    font-family: @font_heading;
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                    padding: 15px;
+                    color: @c5;
+                    letter-spacing: -0.1px;
+                    box-shadow: @box-shadow;
+                }
+
 
                 img {
                     max-width: 100%;
@@ -35,24 +51,31 @@
 
                 // Column
                 // ======================================================================== /
-                .one_column {
-                    width: @one_column;
+                &.one_column {
+                    .note {
+                        font-size: 1.8rem;
+                    }
                 }
 
-                .two_column {
-                    width: @two_column;
+                &.two_column {
+                    .note {
+                        font-size: 1.6rem;
+                    }
                 }
 
-                .three_column {
-                    width: @three_column;
+                &.four_column {
+                    .note {
+                        font-size: 1.3rem;
+                        padding: 12px;
+                    }
                 }
 
-                .four_column {
-                    width: @four_column;
+                @media screen and ( max-width: @M ) {
+                    max-width: @two_column;
                 }
 
                 @media screen and ( max-width: @S ) {
-                    width: @one_column;
+                    max-width: @one_column;
                 }
             }
 
@@ -65,150 +88,4 @@
 .no-js .evo_image_index li,
 .no-cssanimations .evo_image_index li {
 	opacity: 1;
-}
-
-// Animation
-// ======================================================================== /
-/* Effect 1: opacity */
-.evo_image_index.effect-1 li.animate {
-	// -webkit-animation: fadeIn 4s ease forwards;
-	animation: fadeIn 0.65s ease forwards;
-}
-
-@keyframes fadeIn {
-	0% { }
-	100% { opacity: 1; }
-}
-
-/* Effect 2: Move Up */
-.evo_image_index.effect-2 li.animate {
-	transform: translateY(200px);
-	animation: moveUp 0.65s ease forwards;
-}
-
-@keyframes moveUp {
-	0% { }
-	100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-// Effect 3: Scale Up
-.evo_image_index.effect-3 li.animate {
-    transform: scale(0.6);
-    animation: scaleUp 0.65s ease forwards;
-}
-
-@keyframes scaleUp {
-    0% { }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-// Effect 4: Fall Perspective
-.evo_image_index.effect-4 {
-    perspective: 1300px;
-
-    li.animate {
-        transform-style: preserve-3d;
-        transform: translateZ(400px) translateY(300px) rotateX(-90deg);
-        animation: fallPerspective 0.8s ease-in-out forwards;
-    }
-}
-
-@keyframes fallPerspective {
-    0% {}
-    100% {
-        transform: translateZ(0px) translateY(0px) rotateX(0deg);
-        opacity: 1;
-    }
-}
-
-/* Effect 5: fly (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
-.evo_image_index.effect-5 {
-    perspective: 1300px;
-
-    li.animate {
-        transform-style: preserve-3d;
-        transform-origin: 50% 50% -300px;
-        transform: rotateX(-180deg);
-        animation: fly 0.8s ease-in-out forwards;
-    }
-
-}
-
-@keyframes fly {
-    0% {}
-    100% {
-        transform-origin: 0 0 0px;
-        transform: rotateX(0deg);
-        opacity: 1;
-    }
-}
-
-// Effect 6: Flip (based on http://lab.hakim.se/scroll-effects/ by @hakimel)
-.evo_image_index.effect-6 {
-    perspective: 1300px;
-
-    li.animate {
-        transform-style: preserve-3d;
-        transform-origin: 0 0;
-        transform: rotateX( -80deg );
-        animation: flip 0.8s ease-in-out forwards;
-    }
-}
-
-@keyframes flip {
-    0% {}
-    100% {
-        transform: rotateX( 0deg );
-        opacity: 1;
-    }
-}
-
-// Effect 7:  Helix (based on http://lab.hakim.se/scroll-effects/ by @hakimel)
-.evo_image_index.effect-7 {
-    perspective: 1300px;
-
-    li.animate {
-        transform-style: preserve-3d;
-        transform: rotateY(-180deg);
-        animation: helix 0.8s ease-in-out forwards;
-    }
-}
-
-@keyframes helix {
-    0% {}
-    100% {
-        transform: rotateY(0deg);
-        opacity: 1;
-    }
-}
-
-
-// Effect 8: Popup
-.evo_image_index.effect-8 {
-    perspective: 1300px;
-
-    li.animate {
-        transform-style: preserve-3d;
-        transform: scale(0.4);
-        animation: popUp 0.8s ease-in forwards;
-    }
-}
-
-@keyframes popUp {
-    0% {}
-    70% {
-        transform: scale(1.2);
-        opacity: 0.8;
-        animation-timing-function: ease-out;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
 }

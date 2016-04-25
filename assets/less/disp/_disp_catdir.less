@@ -3,6 +3,7 @@
 // ======================================================================== /
 .posts_gallery {
    margin: 0;
+   list-style-type: none;
    // margin-left: -10px;
    // margin-right: -10px;
 
@@ -18,8 +19,13 @@
    .evo_post, .feature_post {
       position: relative;
       float: left;
+      opacity: 0;
       // padding: 10px;
       margin: 0 auto;
+
+      &.shown {
+          opacity: 1;
+      }
    }
 
    // Gallery Column Style
@@ -346,161 +352,159 @@
 // Hover Style
 // ======================================================================== /
 .main_content_gallery{
+    perspective: 1300px;
 
-   // Flip
-   // ======================================================================== /
-   &.flip {
+    .cat_title {
+        transform-style: preserve-3d;
+    }
 
-      .cat_title {
-         transform: rotateY(180deg);
+    // Flip
+    // ======================================================================== /
+    &.flip {
 
-         &::after {
+        .cat_title {
             transform: rotateY(180deg);
-         }
+        }
 
-      }
+    }
 
-   }
+    // Zoom
+    // ======================================================================== /
+    &.zoom {
+        width: 100%;
+        overflow: hidden;
 
-   // Zoom
-   // ======================================================================== /
-   &.zoom {
-      width: 100%;
-      overflow: hidden;
-      .cat_title {
-         &_content {
-            transform: scale(0);
-            transition: all 0.4s ease-in-out;
-         }
-         &::after {
-            transform: scale(2);
-         }
-      }
-      .feature_image {
-         img {
-            transition: all 0.4s ease;
-         }
-      }
-   }
-
-   // Sweep Right
-   // ======================================================================== /
-   &.sweep_right {
-      overflow: hidden;
-      .cat_title {
-         transform: translateX(-100%);
-         &::after {
-            transform: translateX(-100%);
-         }
-      }
-      .feature_image {
-         img {
-            transition: all 0.4s ease;
-         }
-      }
-   }
-
-   // Sweep Left
-   // ======================================================================== /
-   &.sweep_left {
-      overflow: hidden;
-      .cat_title {
-         transform: translateX(100%);
-         &::after {
-            transform: translateX(100%);
-         }
-      }
-      .feature_image {
-         img {
-            transition: all 0.4s ease;
-         }
-      }
-   }
-
-
-   /////////////////////////////////////////////////////////////////////////////
-   // Hover Action
-   // ======================================================================== /
-   &:hover {
-
-      // Flip
-      // ======================================================================== /
-      &.flip {
-
-         .cat_title {
-            transform: rotateY(0deg);
-
-            &::after {
-               transform: rotateY(0deg);
-            }
-         }
-
-      }
-
-      // Zoom
-      // ======================================================================== /
-      &.zoom {
-
-         .cat_title {
-            transition: all 0.3s ease-in-out;
+        .cat_title {
 
             &_content {
-               transform: scale(1);
+                transform: scale(0);
+                transition: all 0.4s ease-in-out;
             }
-
             &::after {
-               opacity: 0.8;
-               transform: scale(1);
+                transform: scale(2);
             }
-
-            .btn_cat {
-               &:hover {
-                  color: @w;
-               }
-            }
-         }
-
-         .feature_image {
+        }
+        .feature_image {
             img {
-               transition: all 0.4s ease-in-out;
-               transform: scale(1.5);
+                transition: all 0.4s ease;
             }
-         }
-      }
+        }
+    }
 
-      // Sweep Right and Left
-      // ======================================================================== /
-      &.sweep_right, &.sweep_left  {
-
-         .cat_title {
-            transform: translateX(0);
-            transition: all 0.4s ease-in-out;
-
+    // Sweep Right
+    // ======================================================================== /
+    &.sweep_right {
+        overflow: hidden;
+        .cat_title {
+            transform: translateX(-100%);
             &::after {
-               opacity: 1;
-               transform: translateX(0);
+                transform: translateX(-100%);
             }
-         }
-
-         .feature_image {
+        }
+        .feature_image {
             img {
-               transition: all 0.6s ease-in-out;
-               transform: translateX(100%);
+                transition: all 0.4s ease;
             }
-         }
-      }
+        }
+    }
 
-      // Sweep Left
-      // ======================================================================== /
-      &.sweep_left {
-         .feature_image {
+    // Sweep Left
+    // ======================================================================== /
+    &.sweep_left {
+        overflow: hidden;
+        .cat_title {
+            transform: translateX(100%);
+            &::after {
+                transform: translateX(100%);
+            }
+        }
+        .feature_image {
             img {
-               transition: all 0.4s ease-in-out;
-               transform: translateX(-100%);
+                transition: all 0.4s ease;
             }
-         }
-      }
+        }
+    }
 
-   }
+
+    /////////////////////////////////////////////////////////////////////////////
+    // Hover Action
+    // ======================================================================== /
+    &:hover {
+
+        // Flip
+        // ======================================================================== /
+        &.flip {
+
+            .cat_title {
+                transform: rotateY(0deg);
+            }
+
+        }
+
+        // Zoom
+        // ======================================================================== /
+        &.zoom {
+
+            .cat_title {
+                transition: all 0.3s ease-in-out;
+
+                &_content {
+                    transform: scale(1);
+                }
+
+                &::after {
+                    opacity: 0.8;
+                    transform: scale(1);
+                }
+
+                .btn_cat {
+                    &:hover {
+                        color: @w;
+                    }
+                }
+            }
+
+            .feature_image {
+                img {
+                    transition: all 0.4s ease-in-out;
+                    transform: scale(1.5);
+                }
+            }
+        }
+
+        // Sweep Right and Left
+        // ======================================================================== /
+        &.sweep_right, &.sweep_left  {
+
+            .cat_title {
+                transform: translateX(0);
+                transition: all 0.4s ease-in-out;
+
+                &::after {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            .feature_image {
+                img {
+                    transition: all 0.6s ease-in-out;
+                    transform: translateX(100%);
+                }
+            }
+        }
+
+        // Sweep Left
+        // ======================================================================== /
+        &.sweep_left {
+            .feature_image {
+                img {
+                    transition: all 0.4s ease-in-out;
+                    transform: translateX(-100%);
+                }
+            }
+        }
+
+    }
 
 }

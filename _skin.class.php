@@ -397,6 +397,23 @@ class stain_gallery_Skin extends Skin
 						'crop-480x320'	=> T_( 'crop-480x320' ),
 					),
 				),
+				'gallery_effect' => array(
+					'label'			=> T_( 'Choose the Animation Image' ),
+					'note'			=> T_( 'Select your favorite Animation load for first open page.' ),
+					'type'			=> 'select',
+					'options'		=> array(
+						'0'	=> T_('None'),
+						'1' => T_('Opacity'),
+						'2' => T_('Move Up'),
+						'3' => T_('Sclae Up'),
+						'4' => T_('Fall Perspective'),
+						'5' => T_('Fly'),
+						'6' => T_('Flip'),
+						'7' => T_('Helix'),
+						'8' => T_('Pop Up'),
+					),
+					'defaultvalue' => '2',
+				),
 				'gallery_hover_style' => array(
 					'label'        => T_( 'Style Image Hover' ),
 					'note'         => T_( 'Select the favorite Image Hover Style for Gallery.' ),
@@ -538,6 +555,24 @@ class stain_gallery_Skin extends Skin
 					'note'			=> T_( 'Check to show the title image.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 0,
+				),
+				'mediaidx_title_bg' => array(
+					'label'			=> T_( 'Change Title Background Color' ),
+					'note'			=> T_( 'Choose your favorite bakcground color for image title section.' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '#ffffff',
+				),
+				'mediaidx_title_color' => array(
+					'label'			=> T_( 'Change Title Color' ),
+					'note'			=> T_( 'Choose your favorite color scheme for the title text.' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '#555555'
+				),
+				'mediaidx_title_shadow' => array(
+					'label'			=> T_( 'Show Box Shadow' ),
+					'note'			=> T_( 'Checkbox to show box shadow in title box.' ),
+					'type'			=> 'checkbox',
+					'defaultvalue'	=> 1,
 				),
 				'mediaidx_by' => array(
 					'label'			=> T_( 'Order by' ),
@@ -1035,6 +1070,16 @@ class stain_gallery_Skin extends Skin
 		if ( $space = $this->get_setting( 'mediaidx_space' ) ) {
 			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content { padding: '.$space.'px }';
 			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .evo_image_index { margin-left: -'.$space.'px;  margin-right: -'.$space.'px }';
+		}
+
+		if ( $bg = $this->get_setting( 'mediaidx_title_bg' ) ) {
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .note{ background-color: '.$bg.' }';
+		}
+		if( $color = $this->get_setting( 'mediaidx_title_color' ) ) {
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .note{ color: '.$color.' }';
+		}
+		if( $this->get_setting( 'mediaidx_title_shadow' ) == false ) {
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .note{ box-shadow: none; }';
 		}
 
 		/* Posts Custom Options
