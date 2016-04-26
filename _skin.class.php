@@ -398,10 +398,10 @@ class stain_gallery_Skin extends Skin
 					),
 				),
 				'gallery_effect' => array(
-					'label'			=> T_( 'Choose the Animation Image' ),
-					'note'			=> T_( 'Select your favorite Animation load for first open page.' ),
-					'type'			=> 'select',
-					'options'		=> array(
+					'label'		=> T_( 'Choose the Animation Image' ),
+					'note'		=> T_( 'Select your favorite Animation load for first open page.' ),
+					'type'		=> 'select',
+					'options'	=> array(
 						'0'	=> T_('None'),
 						'1' => T_('Opacity'),
 						'2' => T_('Move Up'),
@@ -893,20 +893,20 @@ class stain_gallery_Skin extends Skin
 
 		$custom_styles = array();
 		// Text color
-		if( $text_color = $this->get_setting( 'page_text_color' ) )
-		{
-			$custom_styles[] = 'color: '.$text_color;
-		}
-		if( ! empty( $custom_styles ) )
-		{
-			$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
-		}
-
-		// Link color
-		if( $text_color = $this->get_setting( 'page_link_color' ) )
-		{
-			$custom_styles[] = 'color: '.$text_color;
-		}
+		// if( $text_color = $this->get_setting( 'page_text_color' ) )
+		// {
+		// 	$custom_styles[] = 'color: '.$text_color;
+		// }
+		// if( ! empty( $custom_styles ) )
+		// {
+		// 	$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
+		// }
+		//
+		// // Link color
+		// if( $text_color = $this->get_setting( 'page_link_color' ) )
+		// {
+		// 	$custom_styles[] = 'color: '.$text_color;
+		// }
 		if( ! empty( $custom_styles ) )
 		{
 			// $custom_css .= '	body .container a { '.implode( ';', $custom_styles )." }\n";
@@ -949,7 +949,7 @@ class stain_gallery_Skin extends Skin
 		if( isset( $thumbnail_sizes[ $single_thumb_size ] ) )
 		{
 			// Make the width of image block as fixed to don't expand it by long post title text
-			$custom_css .= '.post_images .single-image .evo_image_legend { width: 100%; }';
+			// $custom_css .= '.post_images .single-image .evo_image_legend { width: 100%; }';
 			// Set width & height for block with text "No pictures yet"
 			/*$custom_css .= '	.posts_list .evo_post b { width:'.( $thumbnail_sizes[ $single_thumb_size ][1] - 20 ).'px;'
 				.'height:'.( $thumbnail_sizes[ $single_thumb_size ][2] - 20 ).'px'." }\n";*/

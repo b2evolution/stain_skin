@@ -204,6 +204,28 @@
 
     }
 
+    // Evo Content Header -- Disp Page --
+    // ======================================================================== /
+    .evo_post_header {
+        background-color: @w;
+        padding: 30px;
+        box-shadow: @box-shadow;
+
+        .evo_post_title h1 {
+            margin: 0 0 5px;
+            font-family: @font_heading;
+            font-size: 3.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: @c4;
+        }
+
+        &_info {
+            // font-size: 1.3rem;
+            // text-transform: uppercase;
+        }
+    }
+
 
     // Evo Post Content
     // ======================================================================== /
@@ -211,6 +233,8 @@
         margin-top: 30px;
         margin: 0;
 
+        // Panel
+        // ======================================================================== /
         .panel {
             border-radius: 0;
             border: none;
@@ -261,8 +285,33 @@
 
         // Item Content
         // ======================================================================== /
-        .widget_core_item_content {
-            // background-color: @w;
+        .evo_post__full, .evo_post__except {
+
+            // Typograpy
+            // ======================================================================== /
+            .evo_post__full_text, .evo_post__except_text {
+
+                h1, h2, h3, h4, h5, h6 {
+                    font-family: @font_heading;
+                    font-weight: 700;
+                    margin: 20px 0 10px 0;
+                    text-transform: inherit;
+                }
+
+                h3 {
+                    font-size: 2.4rem;
+                }
+            }
+
+            // Evo Post Image
+            // ======================================================================== /
+            .evo_post_images {
+                margin-bottom: -20px;
+
+                .evo_image_block {
+                    margin: 0 0 20px;
+                }
+            }
 
             .gallery-single-content {
                 background-color: @w;
@@ -306,6 +355,39 @@
                 content: '';
                 display: table;
                 clear: both;
+            }
+        }
+
+        // Post Tag
+        // ======================================================================== /
+        .post_tags {
+            margin-bottom: 20px;
+
+            &_title {
+                font-size: 1.8rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            a {
+                font-size: 1.2rem;
+                padding: 6px 15px;
+                border: 1px solid @primary;
+                background-color: @w;
+                border-radius: 2px;
+
+                &::before {
+                    color: @c5;
+                }
+
+                &:hover, &:focus, &:active {
+                    background-color: @primary;
+                    color: @w;
+
+                    &::before {
+                        color: @w;
+                    }
+                }
             }
         }
 

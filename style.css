@@ -1576,10 +1576,6 @@ div.evo_image_index div:hover {
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 }
-.posts_list {
-  width: 100%;
-  height: auto;
-}
 .posts_list.post_full {
   max-width: 1170px;
   margin: 0 auto !important;
@@ -1610,8 +1606,7 @@ div.evo_image_index div:hover {
 }
 .posts_list .evo_posts {
   position: relative;
-  display: -webkit-box;
-  display: flex;
+  display: inline-block;
   z-index: 1;
 }
 .posts_list .evo_posts.one_column {
@@ -1646,6 +1641,10 @@ div.evo_image_index div:hover {
   bottom: 30px;
   left: 20px;
 }
+.posts_list .evo_posts.three_column .main__posts_content {
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
 .posts_list .evo_posts.three_column .main__posts_content:hover .posts__title,
 .posts_list .evo_posts.three_column .main__posts_content:active .posts__title,
 .posts_list .evo_posts.three_column .main__posts_content:focus .posts__title,
@@ -1658,6 +1657,8 @@ div.evo_image_index div:hover {
 .posts_list .evo_posts.three_column .main__posts_content:hover .posts__info_cat,
 .posts_list .evo_posts.three_column .main__posts_content:active .posts__info_cat,
 .posts_list .evo_posts.three_column .main__posts_content:focus .posts__info_cat {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   -webkit-transform: translateY(-40px);
   -ms-transform: translateY(-40px);
   transform: translateY(-40px);
@@ -1702,8 +1703,8 @@ div.evo_image_index div:hover {
 }
 .posts_list .evo_posts .feature__image {
   position: relative;
-  display: table-row;
-  width: 920px;
+  display: inline-block;
+  max-width: 100%;
   height: auto;
 }
 .posts_list .evo_posts .feature__image img {
@@ -1808,10 +1809,9 @@ div.evo_image_index div:hover {
   text-decoration: none;
 }
 .posts_list .evo_posts .posts__info_author {
-  position: relative;
-  display: inline-block;
   padding-right: 5px;
   color: #ffffff;
+  font-family: "Roboto Slab", sans-serif;
 }
 .posts_list .evo_posts .posts__info_author .author_avatar img {
   border-radius: 50%;
@@ -1827,6 +1827,7 @@ div.evo_image_index div:hover {
 .posts_list .evo_posts .posts__info_date {
   padding-right: 5px;
   color: #ffffff;
+  font-family: "Roboto Slab", sans-serif;
 }
 .posts_list .evo_posts .posts_divider {
   position: absolute;
@@ -2163,6 +2164,19 @@ div.evo_image_index div:hover {
     width: 100%;
   }
 }
+#content .evo_post_header {
+  background-color: #ffffff;
+  padding: 30px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
+#content .evo_post_header .evo_post_title h1 {
+  margin: 0 0 5px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #444444;
+}
 #content .evo_post_content {
   margin-top: 30px;
   margin: 0;
@@ -2205,11 +2219,56 @@ div.evo_image_index div:hover {
   padding-bottom: 8px;
   margin-bottom: 30px;
 }
-#content .evo_post_content .widget_core_item_content .gallery-single-content {
+#content .evo_post_content .evo_post__full .evo_post__full_text h1,
+#content .evo_post_content .evo_post__except .evo_post__full_text h1,
+#content .evo_post_content .evo_post__full .evo_post__except_text h1,
+#content .evo_post_content .evo_post__except .evo_post__except_text h1,
+#content .evo_post_content .evo_post__full .evo_post__full_text h2,
+#content .evo_post_content .evo_post__except .evo_post__full_text h2,
+#content .evo_post_content .evo_post__full .evo_post__except_text h2,
+#content .evo_post_content .evo_post__except .evo_post__except_text h2,
+#content .evo_post_content .evo_post__full .evo_post__full_text h3,
+#content .evo_post_content .evo_post__except .evo_post__full_text h3,
+#content .evo_post_content .evo_post__full .evo_post__except_text h3,
+#content .evo_post_content .evo_post__except .evo_post__except_text h3,
+#content .evo_post_content .evo_post__full .evo_post__full_text h4,
+#content .evo_post_content .evo_post__except .evo_post__full_text h4,
+#content .evo_post_content .evo_post__full .evo_post__except_text h4,
+#content .evo_post_content .evo_post__except .evo_post__except_text h4,
+#content .evo_post_content .evo_post__full .evo_post__full_text h5,
+#content .evo_post_content .evo_post__except .evo_post__full_text h5,
+#content .evo_post_content .evo_post__full .evo_post__except_text h5,
+#content .evo_post_content .evo_post__except .evo_post__except_text h5,
+#content .evo_post_content .evo_post__full .evo_post__full_text h6,
+#content .evo_post_content .evo_post__except .evo_post__full_text h6,
+#content .evo_post_content .evo_post__full .evo_post__except_text h6,
+#content .evo_post_content .evo_post__except .evo_post__except_text h6 {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  margin: 20px 0 10px 0;
+  text-transform: inherit;
+}
+#content .evo_post_content .evo_post__full .evo_post__full_text h3,
+#content .evo_post_content .evo_post__except .evo_post__full_text h3,
+#content .evo_post_content .evo_post__full .evo_post__except_text h3,
+#content .evo_post_content .evo_post__except .evo_post__except_text h3 {
+  font-size: 2.4rem;
+}
+#content .evo_post_content .evo_post__full .evo_post_images,
+#content .evo_post_content .evo_post__except .evo_post_images {
+  margin-bottom: -20px;
+}
+#content .evo_post_content .evo_post__full .evo_post_images .evo_image_block,
+#content .evo_post_content .evo_post__except .evo_post_images .evo_image_block {
+  margin: 0 0 20px;
+}
+#content .evo_post_content .evo_post__full .gallery-single-content,
+#content .evo_post_content .evo_post__except .gallery-single-content {
   background-color: #ffffff;
   padding: 0;
 }
-#content .evo_post_content .widget_core_item_content .gallery-single-content .panel-title {
+#content .evo_post_content .evo_post__full .gallery-single-content .panel-title,
+#content .evo_post_content .evo_post__except .gallery-single-content .panel-title {
   font-family: "Roboto Slab", sans-serif;
   font-size: 2rem;
   font-weight: 700;
@@ -2218,10 +2277,12 @@ div.evo_image_index div:hover {
   padding: 20px 30px;
   margin: 0;
 }
-#content .evo_post_content .widget_core_item_content .gallery-single-content .panel-title a {
+#content .evo_post_content .evo_post__full .gallery-single-content .panel-title a,
+#content .evo_post_content .evo_post__except .gallery-single-content .panel-title a {
   color: #18c54d;
 }
-#content .evo_post_content .widget_core_item_content .evo_post__full_text {
+#content .evo_post_content .evo_post__full .evo_post__full_text,
+#content .evo_post_content .evo_post__except .evo_post__full_text {
   padding: 30px 30px 20px;
 }
 #content .evo_post_content .widget_core_item_small_print {
@@ -2237,6 +2298,35 @@ div.evo_image_index div:hover {
   content: '';
   display: table;
   clear: both;
+}
+#content .evo_post_content .post_tags {
+  margin-bottom: 20px;
+}
+#content .evo_post_content .post_tags_title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#content .evo_post_content .post_tags a {
+  font-size: 1.2rem;
+  padding: 6px 15px;
+  border: 1px solid #18c54d;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+#content .evo_post_content .post_tags a::before {
+  color: #555555;
+}
+#content .evo_post_content .post_tags a:hover,
+#content .evo_post_content .post_tags a:focus,
+#content .evo_post_content .post_tags a:active {
+  background-color: #18c54d;
+  color: #ffffff;
+}
+#content .evo_post_content .post_tags a:hover::before,
+#content .evo_post_content .post_tags a:focus::before,
+#content .evo_post_content .post_tags a:active::before {
+  color: #ffffff;
 }
 #content .fieldset_wrapper {
   margin-top: 30px;

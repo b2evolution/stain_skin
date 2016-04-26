@@ -46,91 +46,29 @@ skin_include( '_body_header.inc.php' );
 			// --------------------------------- END OF MESSAGES ---------------------------------
 			?>
 
-			<article>
-				<?php $Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs) ?>
-
-				<div class="evo_post_content">
-					<div class="evo_details">
-						<div class="evo_container evo_container__item_single">
-							<?php
-								// -------------- MAIN CONTENT TEMPLATE INCLUDED HERE (Based on $disp) --------------
-								skin_include( '$disp$', array(
-									'mediaidx_thumb_size'  => $Skin->get_setting( 'mediaidx_thumb_size' ),
-									'author_link_text'     => 'preferredname',
-									'item_class'           => 'evo_post evo_content_block',
-									'item_type_class'      => 'evo_post__ptyp_',
-									'item_status_class'    => 'evo_post__',
-									// Login
-									'login_page_before'    => '<div class="login_block"><div class="evo_details">',
-									'login_page_after'     => '</div></div>',
-									// Register
-									'register_page_before' => '<div class="login_block"><div class="evo_details">',
-									'register_page_after'  => '</div></div>',
-									'display_abort_link'   => ( $Blog->get_setting( 'allow_access' ) == 'public' ), // Display link to abort login only when it is really possible
-								) );
-								// Note: you can customize any of the sub templates included here by
-								// copying the matching php file into your skin directory.
-								// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
-							?>
-						</div>
-
-						<div class="item_comments">
-							<?php
-							// ------------------ FEEDBACK (COMMENTS/TRACKBACKS) INCLUDED HERE ------------------
-							skin_include( '_item_feedback.inc.php', array(
-								'before_section_title' => '<h4 class="tite_comment_status">',
-								'after_section_title'  => '</h4>',
-								'author_link_text'     => 'preferredname',
-								'comment_image_size'   => 'fit-256x256',
-
-								// Pagination:
-								'pagination' => array(
-									'block_start'           => '<div class="center"><ul class="pagination">',
-									'block_end'             => '</ul></div>',
-									'page_current_template' => '<span>$page_num$</span>',
-									'page_item_before'      => '<li>',
-									'page_item_after'       => '</li>',
-									'page_item_current_before' => '<li class="active">',
-									'page_item_current_after'  => '</li>',
-									'prev_text'             => '<i class="fa fa-angle-double-left"></i>',
-									'next_text'             => '<i class="fa fa-angle-double-right"></i>',
-								),
-							) );
-							// Note: You can customize the default item feedback by copying the generic
-							// /skins/_item_feedback.inc.php file into the current skin folder.
-							// ---------------------- END OF FEEDBACK (COMMENTS/TRACKBACKS) ---------------------
-							?>
-
-							<?php
-							if( evo_version_compare( $app_version, '6.7' ) >= 0 )
-							{  // We are running at least b2evo 6.7, so we can include this file:
-								// ------------------ WORKFLOW PROPERTIES INCLUDED HERE ------------------
-								skin_include( '_item_workflow.inc.php' );
-								// ---------------------- END OF WORKFLOW PROPERTIES ---------------------
-							}
-							?>
-
-							<?php
-							if( evo_version_compare( $app_version, '6.7' ) >= 0 )
-							{  // We are running at least b2evo 6.7, so we can include this file:
-								// ------------------ META COMMENTS INCLUDED HERE ------------------
-								skin_include( '_item_meta_comments.inc.php', array(
-									'comment_start'  => '<article class="evo_comment evo_comment__meta panel panel-default">',
-									'comment_end'    => '</article>',
-								) );
-								// ---------------------- END OF META COMMENTS ---------------------
-							}
-							?>
-						</div><!-- .item_comments -->
-
-					</div><!-- .evo_details -->
-				</div><!-- .evo_post_content -->
-
+			<div class="evo_post_content">
 				<?php
-				locale_restore_previous();	// Restore previous locale (Blog locale)
+					// -------------- MAIN CONTENT TEMPLATE INCLUDED HERE (Based on $disp) --------------
+					skin_include( '$disp$', array(
+						'mediaidx_thumb_size'  => $Skin->get_setting( 'mediaidx_thumb_size' ),
+						'author_link_text'     => 'preferredname',
+						'item_class'           => 'evo_post evo_content_block',
+						'item_type_class'      => 'evo_post__ptyp_',
+						'item_status_class'    => 'evo_post__',
+						// Login
+						'login_page_before'    => '<div class="login_block"><div class="evo_details">',
+						'login_page_after'     => '</div></div>',
+						// Register
+						'register_page_before' => '<div class="login_block"><div class="evo_details">',
+						'register_page_after'  => '</div></div>',
+						'display_abort_link'   => ( $Blog->get_setting( 'allow_access' ) == 'public' ), // Display link to abort login only when it is really possible
+					) );
+					// Note: you can customize any of the sub templates included here by
+					// copying the matching php file into your skin directory.
+					// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
 				?>
+			</div><!-- .evo_post_content -->
 
-			</article><!-- .row -->
 		</div><!-- .main_content -->
 	</div><!-- .container -->
 </main><!-- #main_content -->

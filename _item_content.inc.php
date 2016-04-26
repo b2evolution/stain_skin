@@ -19,98 +19,98 @@ global $more;
 
 // Default params:
 $params = array_merge( array(
-		'content_mode'             => 'auto', // Can be 'excerpt', 'normal' or 'full'. 'auto' will auto select depending on backoffice SEO settings for $disp-detail
-		'intro_mode'               => 'auto', // Same as above. This will typically be forced to "normal" when displaying an intro section so that intro posts always display as normal there
-		'force_more'               => false, // This will be set to true id 'content_mode' resolves to 'full'.
+	'content_mode'             => 'auto', // Can be 'excerpt', 'normal' or 'full'. 'auto' will auto select depending on backoffice SEO settings for $disp-detail
+	'intro_mode'               => 'auto', // Same as above. This will typically be forced to "normal" when displaying an intro section so that intro posts always display as normal there
+	'force_more'               => false, // This will be set to true id 'content_mode' resolves to 'full'.
 
-		'content_display_full'     => true, // Do we want to display all post content? false to display only images/attachments
+	'content_display_full'     => true, // Do we want to display all post content? false to display only images/attachments
 
-		// Wrap images and text:
-		'content_start_excerpt'    => '<section class="evo_post__excerpt">',		// In case of compact display
-		'content_end_excerpt'      => '</section>',
-		'content_start_full'       => '<section class="evo_post__full panel panel-default">',		// In case of full display
-		'content_title_start'      => '<div class="panel-heading gallery-single-content">',			// Wraps title and number of photos in the album
-		'content_title_end'         => '</div>',
-		'content_end_full'         => '</section>',
+	// Wrap images and text:
+	'content_start_excerpt'    => '<section class="evo_post__excerpt">',		// In case of compact display
+	'content_end_excerpt'      => '</section>',
+	'content_start_full'       => '<section class="evo_post__full panel panel-default">',		// In case of full display
+	'content_title_start'      => '<div class="panel-heading gallery-single-content">',			// Wraps title and number of photos in the album
+	'content_title_end'         => '</div>',
+	'content_end_full'         => '</section>',
 
-		// In case we display a compact version of the post:
-		'excerpt_before_text'      => '<div class="evo_post__excerpt_text">',
-		'excerpt_after_text'       => '</div>',
+	// In case we display a compact version of the post:
+	'excerpt_before_text'      => '<div class="evo_post__excerpt_text">',
+	'excerpt_after_text'       => '</div>',
 
-		'excerpt_before_more'      => ' <span class="evo_post__excerpt_more_link">',
-		'excerpt_after_more'       => '</span>',
-		'excerpt_more_text'        => T_('Read More').' &raquo;',
+	'excerpt_before_more'      => ' <span class="evo_post__excerpt_more_link">',
+	'excerpt_after_more'       => '</span>',
+	'excerpt_more_text'        => T_('Read More').' &raquo;',
 
-		// In case we display a full version of the post:
-		'content_start_full_text'  => '<div class="evo_post__full_text panel-body">',
-		'content_end_full_text'    => '</div>',
+	// In case we display a full version of the post:
+	'content_start_full_text'  => '<div class="evo_post__full_text panel-body">',
+	'content_end_full_text'    => '</div>',
 
-		'before_content_teaser'    => '',
-		'after_content_teaser'     => '',
-		'before_content_extension' => '',
-		'after_content_extension'  => '',
+	'before_content_teaser'    => '',
+	'after_content_teaser'     => '',
+	'before_content_extension' => '',
+	'after_content_extension'  => '',
 
-		'before_images'            => '<div class="evo_post_images">',
-		'before_image'             => '<figure class="evo_image_block">',
-		'before_image_legend'      => '<figcaption class="evo_image_legend">',
-		'after_image_legend'       => '</figcaption>',
-		'after_image'              => '</figure>',
-		'after_images'             => '</div>',
-		'image_class'              => 'img-responsive',
-		'image_size'               => 'fit-1280x720',
-		'image_limit'              =>  1000,
-		'image_link_to'            => 'original', // Can be 'original', 'single' or empty
-		'excerpt_image_class'      => 'img-responsive',
-		'excerpt_image_size'       => 'fit-1280x720',
-		'excerpt_image_limit'      => 1,
-		'excerpt_image_link_to'    => 'single',
-		'include_cover_images'     => false, // Set to true if you want cover images to appear with teaser images.
+	'before_images'            => '<div class="evo_post_images">',
+	'before_image'             => '<figure class="evo_image_block">',
+	'before_image_legend'      => '<figcaption class="evo_image_legend">',
+	'after_image_legend'       => '</figcaption>',
+	'after_image'              => '</figure>',
+	'after_images'             => '</div>',
+	'image_class'              => 'img-responsive',
+	'image_size'               => 'fit-1280x720',
+	'image_limit'              =>  1000,
+	'image_link_to'            => 'original', // Can be 'original', 'single' or empty
+	'excerpt_image_class'      => 'img-responsive',
+	'excerpt_image_size'       => 'fit-1280x720',
+	'excerpt_image_limit'      => 1,
+	'excerpt_image_link_to'    => 'single',
+	'include_cover_images'     => false, // Set to true if you want cover images to appear with teaser images.
 
-		'before_gallery'           => '<div class="evo_post_gallery">',
-		'after_gallery'            => '</div>',
-		'gallery_table_start'      => '',
-		'gallery_table_end'        => '',
-		'gallery_row_start'        => '',
-		'gallery_row_end'          => '',
-		'gallery_cell_start'       => '<div class="evo_post_gallery__image">',
-		'gallery_cell_end'         => '</div>',
-		'gallery_image_size'       => 'crop-80x80',
-		'gallery_image_limit'      => 1000,
-		'gallery_colls'            => 5,
-		'gallery_order'            => '', // Can be 'ASC', 'DESC', 'RAND' or empty
+	'before_gallery'           => '<div class="evo_post_gallery">',
+	'after_gallery'            => '</div>',
+	'gallery_table_start'      => '',
+	'gallery_table_end'        => '',
+	'gallery_row_start'        => '',
+	'gallery_row_end'          => '',
+	'gallery_cell_start'       => '<div class="evo_post_gallery__image">',
+	'gallery_cell_end'         => '</div>',
+	'gallery_image_size'       => 'crop-80x80',
+	'gallery_image_limit'      => 1000,
+	'gallery_colls'            => 5,
+	'gallery_order'            => '', // Can be 'ASC', 'DESC', 'RAND' or empty
 
-		'before_url_link'          => '<p class="evo_post_link">'.T_('Link:').' ',
-		'after_url_link'           => '</p>',
-		'url_link_text_template'   => '$url$', // If evaluates to empty, nothing will be displayed (except player if podcast)
-		'url_link_url_template'    => '$url$', // $url$ will be replaced with saved URL address
-		'url_link_target'          => '', // Link target attribute e.g. '_blank'
+	'before_url_link'          => '<p class="evo_post_link">'.T_('Link:').' ',
+	'after_url_link'           => '</p>',
+	'url_link_text_template'   => '$url$', // If evaluates to empty, nothing will be displayed (except player if podcast)
+	'url_link_url_template'    => '$url$', // $url$ will be replaced with saved URL address
+	'url_link_target'          => '', // Link target attribute e.g. '_blank'
 
-		'before_more_link'         => '<p class="evo_post_more_link">',
-		'after_more_link'          => '</p>',
-		'more_link_text'           => '#',
-		'more_link_to'             => 'single#anchor', // Can be 'single' or 'single#anchor' which is permalink + "#more55" where 55 is item ID
-		'anchor_text'              => '<p class="evo_post_more_anchor">...</p>', // Text to display as the more anchor (once the more link has been clicked, '#' defaults to "Follow up:")
+	'before_more_link'         => '<p class="evo_post_more_link">',
+	'after_more_link'          => '</p>',
+	'more_link_text'           => '#',
+	'more_link_to'             => 'single#anchor', // Can be 'single' or 'single#anchor' which is permalink + "#more55" where 55 is item ID
+	'anchor_text'              => '<p class="evo_post_more_anchor">...</p>', // Text to display as the more anchor (once the more link has been clicked, '#' defaults to "Follow up:")
 
-		'limit_attach'             => 1000,
-		'attach_list_start'        => '<div class="evo_post_attachments"><h3>'.T_('Attachments').':</h3><ul class="evo_files">',
-		'attach_list_end'          => '</ul></div>',
-		'attach_start'             => '<li class="evo_file">',
-		'attach_end'               => '</li>',
-		'before_attach_size'       => ' <span class="evo_file_size">(',
-		'after_attach_size'        => ')</span>',
+	'limit_attach'             => 1000,
+	'attach_list_start'        => '<div class="evo_post_attachments"><h3>'.T_('Attachments').':</h3><ul class="evo_files">',
+	'attach_list_end'          => '</ul></div>',
+	'attach_start'             => '<li class="evo_file">',
+	'attach_end'               => '</li>',
+	'before_attach_size'       => ' <span class="evo_file_size">(',
+	'after_attach_size'        => ')</span>',
 
-		'page_links_start'         => '<p class="evo_post_pagination">'.T_('Pages:').' ',
-		'page_links_end'           => '</p>',
-		'page_links_separator'     => '&middot; ',
-		'page_links_single'        => '',
-		'page_links_current_page'  => '#',
-		'page_links_pagelink'      => '%d',
-		'page_links_url'           => '',
+	'page_links_start'         => '<p class="evo_post_pagination">'.T_('Pages:').' ',
+	'page_links_end'           => '</p>',
+	'page_links_separator'     => '&middot; ',
+	'page_links_single'        => '',
+	'page_links_current_page'  => '#',
+	'page_links_pagelink'      => '%d',
+	'page_links_url'           => '',
 
-		'footer_text_mode'         => '#', // 'single', 'xml' or empty. Will detect 'single' from $disp automatically.
-		'footer_text_start'        => '<div class="evo_post_footer">',
-		'footer_text_end'          => '</div>',
-	), $params );
+	'footer_text_mode'         => '#', // 'single', 'xml' or empty. Will detect 'single' from $disp automatically.
+	'footer_text_start'        => '<div class="evo_post_footer">',
+	'footer_text_end'          => '</div>',
+), $params );
 
 // Determine content mode to use..
 if( $Item->is_intro() )
@@ -223,6 +223,7 @@ switch( $content_mode )
 		// Normal dislpay:  (and Full display if force_more is true)
 		echo $params['content_start_full'];
 
+		if( $disp == 'single' ) {
 			// Title and number of photos in album
 			echo $params['content_title_start'];
 				$Item->title( array(
@@ -234,6 +235,7 @@ switch( $content_mode )
 				printf( T_(' (%s photos)'), $Item->get_number_of_images() );
 				echo '</h4>';
 			echo $params['content_title_end'];
+		}
 
 		if( ! empty($params['image_size']) )
 		{
