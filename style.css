@@ -1971,6 +1971,16 @@ div.evo_image_index div:hover {
   background-color: #18c54d;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
 }
+#content .cover_image {
+  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+#content .cover_image .evo_image_block {
+  margin-top: 0;
+}
+#content .cover_image img {
+  border-radius: 0;
+}
 #content .nav_album {
   position: relative;
   background-color: #ffffff;
@@ -2254,13 +2264,49 @@ div.evo_image_index div:hover {
 #content .evo_post_content .evo_post__except .evo_post__except_text h3 {
   font-size: 2.4rem;
 }
+#content .evo_post_content .evo_post__full .evo_post__full_text p,
+#content .evo_post_content .evo_post__except .evo_post__full_text p,
+#content .evo_post_content .evo_post__full .evo_post__except_text p,
+#content .evo_post_content .evo_post__except .evo_post__except_text p {
+  font-weight: 300;
+  letter-spacing: -0.1px;
+}
+#content .evo_post_content .evo_post__full .evo_post__full_text pre,
+#content .evo_post_content .evo_post__except .evo_post__full_text pre,
+#content .evo_post_content .evo_post__full .evo_post__except_text pre,
+#content .evo_post_content .evo_post__except .evo_post__except_text pre {
+  white-space: normal;
+}
+#content .evo_post_content .evo_post__full .evo_post__full_text address,
+#content .evo_post_content .evo_post__except .evo_post__full_text address,
+#content .evo_post_content .evo_post__full .evo_post__except_text address,
+#content .evo_post_content .evo_post__except .evo_post__except_text address {
+  font-family: "Roboto Slab", sans-serif;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+#content .evo_post_content .evo_post__full .evo_post__full_text blockquote,
+#content .evo_post_content .evo_post__except .evo_post__full_text blockquote,
+#content .evo_post_content .evo_post__full .evo_post__except_text blockquote,
+#content .evo_post_content .evo_post__except .evo_post__except_text blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+  border-left-color: #18c54d;
+  margin: 20px 0;
+}
 #content .evo_post_content .evo_post__full .evo_post_images,
 #content .evo_post_content .evo_post__except .evo_post_images {
-  margin-bottom: -20px;
+  margin-bottom: -30px;
 }
 #content .evo_post_content .evo_post__full .evo_post_images .evo_image_block,
 #content .evo_post_content .evo_post__except .evo_post_images .evo_image_block {
-  margin: 0 0 20px;
+  margin: 0 0 30px;
+}
+#content .evo_post_content .evo_post__full .evo_post_images img,
+#content .evo_post_content .evo_post__except .evo_post_images img {
+  border-radius: 0;
 }
 #content .evo_post_content .evo_post__full .gallery-single-content,
 #content .evo_post_content .evo_post__except .gallery-single-content {

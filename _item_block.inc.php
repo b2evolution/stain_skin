@@ -51,9 +51,8 @@ $params = array_merge( array(
 
 <article id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
 
-    <div class="image_cover">
-        <?php
-        if ( $disp == 'single' || $disp == 'page' ) {
+    <?php
+        if ( $disp == 'page' ) {
             // Display images that are linked to this post:
             $Item->images( array(
               // Optionally restrict to files/images linked to specific position: 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
@@ -70,8 +69,7 @@ $params = array_merge( array(
               'image_link_to'              => $params['image_link_to'],
             ) );
         }
-        ?>
-    </div>
+    ?>
 
 	<header class="evo_post_header">
     	<?php

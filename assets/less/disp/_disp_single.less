@@ -3,6 +3,21 @@
 // ======================================================================== /
 #content {
 
+    // Cover Image
+    // ======================================================================== /
+    .cover_image {
+        box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+
+        .evo_image_block {
+            margin-top: 0;
+        }
+
+        img {
+            border-radius: 0;
+        }
+    }
+
     // Nav Album
     // ======================================================================== /
     .nav_album {
@@ -301,15 +316,43 @@
                 h3 {
                     font-size: 2.4rem;
                 }
+
+                p {
+                    font-weight: 300;
+                    letter-spacing: -0.1px;
+                }
+
+                pre {
+                    white-space: normal;
+                }
+
+                address {
+                    font-family: @font_heading;
+                    font-style: italic;
+                    letter-spacing: 1px;
+                }
+
+                blockquote {
+                    font-size: 1.5rem;
+                    font-style: italic;
+                    opacity: 0.8;
+                    letter-spacing: 0.5px;
+                    border-left-color: @primary;
+                    margin: 20px 0;
+                }
             }
 
             // Evo Post Image
             // ======================================================================== /
             .evo_post_images {
-                margin-bottom: -20px;
+                margin-bottom: -30px;
 
                 .evo_image_block {
-                    margin: 0 0 20px;
+                    margin: 0 0 30px;
+                }
+
+                img {
+                    border-radius: 0;
                 }
             }
 

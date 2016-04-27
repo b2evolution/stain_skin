@@ -17,7 +17,7 @@ if( evo_version_compare( $app_version, '6.4' ) < 0 )
 	die( 'This skin is designed for b2evolution 6.4 and above. Please <a href="http://b2evolution.net/downloads/index.html">upgrade your b2evolution</a>.' );
 }
 
-global $Skin;
+global $Skin, $Item;
 
 // This is the main template; it may be used to display very different things.
 // Do inits depending on current $disp:
@@ -25,6 +25,7 @@ skin_init( $disp );
 // -------------------------- HTML HEADER INCLUDED HERE --------------------------
 skin_include( '_html_header.inc.php', array() );
 // -------------------------------- END OF HEADER --------------------------------
+
 
 // ---------------------------- SITE HEADER INCLUDED HERE ----------------------------
 // If site headers are enabled, they will be included here:
@@ -37,6 +38,24 @@ skin_include( '_body_header.inc.php' );
 	<div class="container">
 		<div class="main_content">
 			<!-- =================================== START OF POST TITLE BAR =================================== -->
+			<?php
+				// Display images that are linked to this post:
+				$Item->images( array(
+				  // Optionally restrict to files/images linked to specific position: 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
+				  'restrict_to_image_position' => 'cover',
+				  'before'                     => '<div class="evo_post_images cover_image">',
+				  'before_image'               => '',
+				  'before_image_legend'        => '<figcaption class="evo_image_legend">',
+				  'after_image_legend'         => '</figcaption>',
+				  'after_image'                => '</figure>',
+				  'after'                      => '</div>',
+				  'image_class'                => 'img-responsive',
+				  'image_size'                 => 'original',
+				  'limit'                      => 1,
+				  'image_link_to'              => 'original', // Can be 'original', 'single' or empty
+				) );
+			?>
+
 			<?php
 			if( $single_Item = & mainlist_get_item() ){
 			// Get Item here, because it can be not defined yet, e.g. in Preview mode ?>
@@ -68,16 +87,16 @@ skin_include( '_body_header.inc.php' );
 					'template' 		=> '$prev$$next$',
 					'block_start'	=> '<ul class="nav_posts hidden-xs">',
 					'next_class' 	=> 'next',
-					'next_start'   => '<li class="next">',
+					'next_start'    => '<li class="next">',
 					'next_text'		=> T_( 'Next ' ).'<i class="fa fa-angle-right"></i>',
-					'next_no_item' => '',
-					'next_end'     => '</li>',
+					'next_no_item'  => '',
+					'next_end'      => '</li>',
 					'prev_class'	=> 'previous',
-					'prev_start'   => '<li class="previous">',
+					'prev_start'    => '<li class="previous">',
 					'prev_text' 	=> '<i class="fa fa-angle-left"></i>'.T_(' Previous'),
-					'prev_no_item' => '',
-					'prev_end'     => '</li>',
-					'block_end'    => '</ul>',
+					'prev_no_item'  => '',
+					'prev_end'      => '</li>',
+					'block_end'     => '</ul>',
 				) );
 				// ------------------------- END OF PREV/NEXT POST LINKS -------------------------
 				?>

@@ -71,18 +71,68 @@ skin_include( '_body_header.inc.php' );
 			<?php
 				// -------------- MAIN CONTENT TEMPLATE INCLUDED HERE (Based on $disp) --------------
 				skin_include( '$disp$', array(
-					'mediaidx_thumb_size'  => $Skin->get_setting( 'mediaidx_thumb_size' ),
-					'author_link_text'     => 'preferredname',
-					'item_class'           => 'evo_post evo_content_block',
-					'item_type_class'      => 'evo_post__ptyp_',
-					'item_status_class'    => 'evo_post__',
+					'mediaidx_thumb_size'   => $Skin->get_setting( 'mediaidx_thumb_size' ),
+					'author_link_text'      => 'preferredname',
+					'item_class'            => 'evo_post evo_content_block',
+					'item_type_class'       => 'evo_post__ptyp_',
+					'item_status_class'     => 'evo_post__',
 					// Login
-					'login_page_before'    => '<div class="login_block"><div class="evo_details">',
-					'login_page_after'     => '</div></div>',
+					'display_form_messages' => true,
+					'form_title_login'      => T_('Log in to your account').'$form_links$',
+					'form_title_lostpass'   => get_request_title().'$form_links$',
+					'lostpass_page_class'   => 'evo_panel__lostpass',
+					'login_form_inskin'     => false,
+					'login_page_class'      => 'evo_panel__login',
+					'login_page_before'     => '<div class="$form_class$">',
+					'login_page_after'      => '</div>',
+					'display_reg_link'      => true,
+					'abort_link_position'   => 'form_title',
+					'abort_link_text'       => '<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
+
 					// Register
-					'register_page_before' => '<div class="login_block"><div class="evo_details">',
-					'register_page_after'  => '</div></div>',
-					'display_abort_link'   => ( $Blog->get_setting( 'allow_access' ) == 'public' ), // Display link to abort login only when it is really possible
+					'register_page_before'  => '<div class="login_block"><div class="evo_details">',
+					'register_page_after'   => '</div></div>',
+					'display_abort_link'    => ( $Blog->get_setting( 'allow_access' ) == 'public' ), // Display link to abort login only when it is really possible
+
+					'register_form_title'       => T_('Register'),
+					'register_links_attrs'      => '',
+					'register_use_placeholders' => true,
+					'register_field_width'      => 252,
+					'register_disabled_page_before' => '<div class="evo_panel__register register-disabled">',
+					'register_disabled_page_after'  => '</div>',
+					// Activate form
+					'activate_form_title'   => T_('Account activation'),
+					'activate_page_before'  => '<div class="evo_panel__activation">',
+					'activate_page_after'   => '</div>',
+
+					// Search
+					'search_input_before'   => '<div class="input-group">',
+					'search_input_after'    => '',
+					'search_submit_before'  => '<span class="input-group-btn">',
+					'search_submit_after'   => '</span></div>',
+
+					// Pagination
+  					'pagination' => array(
+  						'block_start'           => '<div class="center"><ul class="pagination">',
+  						'block_end'             => '</ul></div>',
+  						'page_current_template' => '<span>$page_num$</span>',
+  						'page_item_before'      => '<li>',
+  						'page_item_after'       => '</li>',
+  						'page_item_current_before' => '<li class="active">',
+  						'page_item_current_after'  => '</li>',
+  						'prev_text'             => '<i class="fa fa-angle-left"></i>',
+  						'next_text'             => '<i class="fa fa-angle-right"></i>',
+  					),
+
+					// Profile tabs to switch between user edit forms
+					'profile_tabs' => array(
+						'block_start'         => '<nav><ul class="nav nav-tabs profile_tabs">',
+						'item_start'          => '<li>',
+						'item_end'            => '</li>',
+						'item_selected_start' => '<li class="active">',
+						'item_selected_end'   => '</li>',
+						'block_end'           => '</ul></nav>',
+					),
 				) );
 				// Note: you can customize any of the sub templates included here by
 				// copying the matching php file into your skin directory.
