@@ -12,59 +12,65 @@
  * @package evoskins
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
+
 $params = array_merge( array(
-        'pagination' => array(
-            'block_start'           => '<div class="center"><ul class="pagination">',
-            'block_end'             => '</ul></div>',
-            'page_current_template' => '<span>$page_num$</span>',
-            'page_item_before'      => '<li>',
-            'page_item_after'       => '</li>',
-            'page_item_current_before' => '<li class="active">',
-            'page_item_current_after'  => '</li>',
-            'prev_text'             => '<i class="fa fa-angle-left"></i>',
-            'next_text'             => '<i class="fa fa-angle-right"></i>',
-        ),
-		'search_class'             => 'extended_search_form',
-		'search_input_before'      => '',
-		'search_input_after'       => '',
-		'search_submit_before'     => '',
-		'search_submit_after'      => '',
-		'search_use_editor'        => false,
-		'search_author_format'     => 'avatar_name',
-		'search_cell_author_start' => '<div class="search_info dimmed">',
-		'search_cell_author_end'   => '</div>',
-		'search_date_format'       => 'F j, Y',
-	), $params );
-// ------------------------ START OF SEARCH FORM WIDGET ------------------------
-skin_widget( array(
-		// CODE for the widget:
-		'widget'               => 'coll_search_form',
-		// Optional display params
-		'block_start'          => '<div class="evo_widget $wi_class$">',
-		'block_end'            => '</div>',
-		'block_display_title'  => false,
-		'disp_search_options'  => 0,
-		'search_class'         => $params['search_class'],
-		'search_input_before'  => $params['search_input_before'],
-		'search_input_after'   => $params['search_input_after'],
-		'search_submit_before' => $params['search_submit_before'],
-		'search_submit_after'  => $params['search_submit_after'],
-		'use_search_disp'      => 1,
-        'button'               => T_('Search')
-	) );
-// ------------------------- END OF SEARCH FORM WIDGET -------------------------
+    // Result Content
+    'row_start'                => '<li class="search_result">',
+	'row_end'                  => '</li>',
+    'cell_content_start'       => '<div class="result_content">',
+    'cell_content_end'         => '</div>',
+	'search_use_editor'        => false,
+	'search_author_format'     => 'avatar_name',
+	'search_cell_author_start' => '<div class="search_info dimmed">',
+	'search_cell_author_end'   => '</div>',
+	'search_date_format'       => 'F j, Y',
+
+    'pagination' => array(
+        'block_start'           => '<div class="center"><ul class="pagination">',
+        'block_end'             => '</ul></div>',
+        'page_current_template' => '<span>$page_num$</span>',
+        'page_item_before'      => '<li>',
+        'page_item_after'       => '</li>',
+        'page_item_current_before' => '<li class="active">',
+        'page_item_current_after'  => '</li>',
+        'prev_text'             => '<i class="fa fa-angle-left"></i>',
+        'next_text'             => '<i class="fa fa-angle-right"></i>',
+    ),
+    'no_match_message'          => '<p class="alert alert-info msg_nothing" style="margin: 2em 0">'.T_('Sorry, we could not find anything matching your request, please try to broaden your search.').'<p>',
+), $params );
+
 ?>
+
+<!-- <h1>Search Result</h1> -->
+
 
 <?php
 // Perform search (after having displayed the first part of the page) & display results:
 search_result_block( array(
-	'pagination'         => $params['pagination'],
-	'use_editor'         => $params['search_use_editor'],
-    'cell_content_start' => '<div class="result_content">',
-	'author_format'      => $params['search_author_format'],
-	'cell_author_start'  => $params['search_cell_author_start'],
-	'cell_author_end'    => $params['search_cell_author_end'],
-	'date_format'        => $params['search_date_format'],
+    'block_start'           => '<ul class="main_result_content">',
+    'block_end'             => '</ul>',
+
+    'row_start'             => $params['row_start'],
+    'row_end'               => $params['row_end'],
+
+    'cell_content_start'    => $params['cell_content_start'],
+    'cell_content_end'      => $params['cell_content_end'],
+
+	'use_editor'            => $params['search_use_editor'],
+
+	'cell_author_start'     => $params['search_cell_author_start'],
+	'author_format'         => $params['search_author_format'],
+	'cell_author_end'       => $params['search_cell_author_end'],
+	'date_format'           => $params['search_date_format'],
+
+	'title_suffix_post'     => '<span class="post">'.T_('Posts').'</span>',
+	'title_suffix_comment'  => '<span class="comment">'.T_('Comment').'</span>',
+	'title_suffix_category' => '<span class="category">'.T_('Category').'</span>',
+	'title_suffix_tag'      => '<span class="tag">'.T_('Tag').')</span>',
+
+	'pagination'            => $params['pagination'],
+    'no_match_message'      => $params['no_match_message'],
+
 ) );
 
 ?>

@@ -36,36 +36,36 @@ siteskin_include( '_site_body_header.inc.php' );
    </div><!-- /.main_header -->
 
    <nav class="main_navigation">
-   	<div class="container">
-         <div class="row">
-      		<ul class="nav nav-tabs">
-      		<?php
-      			// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
-      			// Display container and contents:
-      			// Note: this container is designed to be a single <ul> list
-      			skin_container( NT_('Menu'), array(
-   					// The following params will be used as defaults for widgets included in this container:
-   					'block_start'         => '',
-   					'block_end'           => '',
-   					'block_display_title' => false,
-   					'list_start'          => '',
-   					'list_end'            => '',
-   					'item_start'          => '<li class="evo_widget $wi_class$">',
-   					'item_end'            => '</li>',
-   					'item_selected_start' => '<li class="active evo_widget $wi_class$">',
-   					'item_selected_end'   => '</li>',
-   					'item_title_before'   => '',
-   					'item_title_after'    => '',
-   				) );
-      			// ----------------------------- END OF "Menu" CONTAINER -----------------------------
-      		?>
-      		</ul>
-         </div>
-   	</div><!-- /.container -->
+       <div class="container">
+           <div class="row">
+               <ul class="nav nav-tabs">
+                   <?php
+                   // ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
+                   // Display container and contents:
+                   // Note: this container is designed to be a single <ul> list
+                   skin_container( NT_('Menu'), array(
+                       // The following params will be used as defaults for widgets included in this container:
+                       'block_start'         => '',
+                       'block_end'           => '',
+                       'block_display_title' => false,
+                       'list_start'          => '',
+                       'list_end'            => '',
+                       'item_start'          => '<li class="evo_widget $wi_class$">',
+                       'item_end'            => '</li>',
+                       'item_selected_start' => '<li class="active evo_widget $wi_class$">',
+                       'item_selected_end'   => '</li>',
+                       'item_title_before'   => '',
+                       'item_title_after'    => '',
+                   ) );
+                   // ----------------------------- END OF "Menu" CONTAINER -----------------------------
+                   ?>
+               </ul>
+           </div>
+       </div><!-- /.container -->
 
-      <div class="user_links">
-         <div class="evo_container evo_container__header">
-            <?php
+       <div class="user_links">
+           <div class="evo_container evo_container__header">
+               <?php
                // skin_widget( array(
                //    // CODE for the widget:
                //    'widget' => 'coll_member_count',
@@ -73,9 +73,9 @@ siteskin_include( '_site_body_header.inc.php' );
                //    'before' => '(',
                //    'after'  => ')',
                // ) );
-            ?>
-         </div>
-      </div><!-- /.user_links -->
+               ?>
+           </div>
+       </div><!-- /.user_links -->
 
    </nav><!-- /#main_navigation -->
 </header><!-- /#Header -->

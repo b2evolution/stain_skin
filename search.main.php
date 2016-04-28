@@ -28,9 +28,81 @@ skin_include( '_html_header.inc.php', array() );
 
 // ---------------------------- SITE HEADER INCLUDED HERE ----------------------------
 // If site headers are enabled, they will be included here:
-skin_include( '_body_header.inc.php' );
+siteskin_include( '_site_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
+
 ?>
+<header class="search_head">
+	<div class="container">
+
+		<div class="search_head_main">
+			<div class="brand">
+				<?php
+				// ------------------------ START OF Brand FORM WIDGET ------------------------
+				skin_widget( array(
+						// CODE for the widget:
+						'widget'               => 'coll_title',
+					) );
+				// ------------------------- END OF Brand FORM WIDGET -------------------------
+				?>
+			</div>
+
+			<nav class="nav_search">
+				<ul class="nav main_nav">
+					<?php
+					// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
+					// Display container and contents:
+					// Note: this container is designed to be a single <ul> list
+					skin_container( NT_('Menu'), array(
+						// The following params will be used as defaults for widgets included in this container:
+						'block_start'         => '',
+						'block_end'           => '',
+						'block_display_title' => false,
+						'list_start'          => '',
+						'list_end'            => '',
+						'item_start'          => '<li class="evo_widget $wi_class$">',
+						'item_end'            => '</li>',
+						'item_selected_start' => '<li class="active evo_widget $wi_class$">',
+						'item_selected_end'   => '</li>',
+						'item_title_before'   => '',
+						'item_title_after'    => '',
+					) );
+					// ----------------------------- END OF "Menu" CONTAINER -----------------------------
+					?>
+				</ul>
+			</nav><!-- /#main_navigation -->
+			<div class="clearfix"></div>
+		</div>
+
+
+		<!-- Search Box -->
+		<div class="search_box">
+			<h3 class="search_box_title">Search anyting you want. <span>Just type any word in the search box.</span></h3>
+			<?php
+			// ------------------------ START OF SEARCH FORM WIDGET ------------------------
+			skin_widget( array(
+				// CODE for the widget:
+				'widget'               => 'coll_search_form',
+				// Optional display params
+				'block_start'          => '<div class="main_search_box $wi_class$">',
+				'block_end'            => '</div>',
+				'block_display_title'  => false,
+				'search_class'         => 'extended_search_form clearfix',
+				'search_input_before'  => '',
+				'search_input_after'   => '',
+				'search_submit_before' => '',
+				'search_submit_after'  => '',
+				'use_search_disp'      => 1,
+		        'button'               => T_('Search')
+			) );
+			// ------------------------- END OF SEARCH FORM WIDGET -------------------------
+			?>
+		</div>
+
+	</div>
+</header>
+
+
 <main id="content"><!-- This is were a link like "Jump to main content" would land -->
 	<div class="container">
 		<div class="main_content">
@@ -43,26 +115,7 @@ skin_include( '_body_header.inc.php' );
 				) );
 				// --------------------------------- END OF MESSAGES ---------------------------------
 			?>
-			<h1>test search page</h1>
 
-			<?php
-				// ------------------------- TITLE FOR THE CURRENT REQUEST -------------------------
-				request_title( array(
-					'title_before'      => '<h2 class="title__content">',
-					'title_after'       => '</h2>',
-					'title_none'        => '',
-					'glue'              => ' - ',
-					'title_single_disp' => false,
-					'format'            => 'htmlbody',
-					'arcdir_text'       => T_('Index'),
-					'catdir_text'       => '',
-					'category_text'     => T_('Gallery').': ',
-					'categories_text'   => T_('Galleries').': ',
-					'user_text'         => '',
-					'display_edit_links'=> false,
-				) );
-				// ------------------------------ END OF REQUEST TITLE -----------------------------
-			?>
 			<?php
 				// -------------- MAIN CONTENT TEMPLATE INCLUDED HERE (Based on $disp) --------------
 				skin_include( '$disp$', array(
