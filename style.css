@@ -760,7 +760,7 @@ textarea.message_text {
   }
 }
 #content {
-  padding: 40px 0;
+  padding: 60px 0;
 }
 #content .title__content {
   margin-bottom: 20px;
@@ -2764,16 +2764,12 @@ div.evo_image_index div:hover {
   margin-top: -16px;
   padding: 30px 0;
   height: 520px;
+  min-height: 356px;
   background-image: url('assets/images/header/header-8.jpg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
   z-index: 0;
-}
-@media screen and (min-width: 768px) {
-  .search_head {
-    height: 100;
-  }
 }
 .search_head::after {
   content: '';
@@ -2939,7 +2935,7 @@ div.evo_image_index div:hover {
   margin: 30px 0;
 }
 #main_result_content .search_result {
-  padding: 30px;
+  padding: 40px 30px 30px;
   margin-bottom: 10px;
 }
 #main_result_content .search_result:nth-child(odd) {
@@ -2947,14 +2943,14 @@ div.evo_image_index div:hover {
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
 }
 #main_result_content .search_result:last-child {
-  margin-bottom: none;
+  margin-bottom: 0;
 }
 #main_result_content .search_result .search_result_score {
   position: relative;
   width: 100%;
   float: none;
-  height: 5px;
-  line-height: 5px;
+  height: 4px;
+  line-height: 4px;
   text-align: center;
   color: #ffffff;
   font-size: 1.1rem;
@@ -2974,8 +2970,12 @@ div.evo_image_index div:hover {
   background-color: #18c54d;
   margin: auto 0;
   z-index: -2;
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 3s ease-in-out;
+  transition: all 3s ease-in-out;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
 }
 #main_result_content .search_result .search_result_score::before {
   content: '';
@@ -3040,6 +3040,56 @@ div.evo_image_index div:hover {
 }
 #main_result_content .search_result .result_content {
   margin-bottom: 15px;
+}
+#main_result_content .search_result .search_info {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #8c8c8c;
+}
+#main_result_content .search_result .search_info.chapter {
+  margin-bottom: 2px;
+}
+#main_result_content .search_result .search_info.author img {
+  border-radius: 100%;
+}
+.disp_search .main_content .pagination li {
+  margin: 0 2px;
+}
+.disp_search .main_content .pagination li.active a,
+.disp_search .main_content .pagination li.active span {
+  background-color: #18c54d;
+  color: #ffffff;
+}
+.disp_search .main_content .pagination a,
+.disp_search .main_content .pagination span {
+  display: inline-block;
+  float: none;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  color: #18c54d;
+  border: 0;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 100%;
+}
+.disp_search .main_content .pagination a:hover,
+.disp_search .main_content .pagination span:hover,
+.disp_search .main_content .pagination a:active,
+.disp_search .main_content .pagination span:active,
+.disp_search .main_content .pagination a:focus,
+.disp_search .main_content .pagination span:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+}
+.disp_search .main_content .pagination a .fa,
+.disp_search .main_content .pagination span .fa {
+  font-weight: 700;
 }
 ul.profile_tabs {
   margin: 0 2ex 2ex;

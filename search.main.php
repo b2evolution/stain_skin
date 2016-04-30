@@ -77,7 +77,7 @@ siteskin_include( '_site_body_header.inc.php' );
 
 		<!-- Search Box -->
 		<div class="search_box">
-			<h3 class="search_box_title">Search anyting you want. <span>Just type any word in the search box.</span></h3>
+			<h3 class="search_box_title"><?php echo $Skin->get_setting( 'header_search_heading' ); ?> <span><?php echo $Skin->get_setting( 'header_search_subhead' ) ?></span></h3>
 			<?php
 			// ------------------------ START OF SEARCH FORM WIDGET ------------------------
 			skin_widget( array(
@@ -93,7 +93,7 @@ siteskin_include( '_site_body_header.inc.php' );
 				'search_submit_before' => '',
 				'search_submit_after'  => '',
 				'use_search_disp'      => 1,
-		        'button'               => T_('Search')
+		        'button'               => $Skin->get_setting( 'header_btn_search' ),
 			) );
 			// ------------------------- END OF SEARCH FORM WIDGET -------------------------
 			?>

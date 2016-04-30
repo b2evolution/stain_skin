@@ -49,6 +49,10 @@
         var score_class = document.getElementsByClassName("search_result_score"), i, count;
         var len = score_class.length;
 
+        /*
+        * Resource
+        * http://mcgivery.com/htmlelement-pseudostyle-settingmodifying-before-and-after-in-javascript/
+        */
         var UID = {
             _current: 0,
             getNew: function(){

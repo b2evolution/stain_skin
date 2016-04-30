@@ -26,7 +26,7 @@ $params = array_merge( array(
 	'search_date_format'       => 'F j, Y',
 
     'pagination' => array(
-        'block_start'           => '<div class="center"><ul class="pagination">',
+        'block_start'           => '<div class="search_pagination center"><ul class="pagination clearfix">',
         'block_end'             => '</ul></div>',
         'page_current_template' => '<span>$page_num$</span>',
         'page_item_before'      => '<li>',

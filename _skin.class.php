@@ -729,7 +729,52 @@ class stain_gallery_Skin extends Skin
 				'layout'	=> 'begin_fieldset',
 				'label'		=> T_( 'Search Disp Options' )
 			),
-
+				'header_search_height' => array(
+					'label'			=> T_( 'Header Height' ),
+					'note'			=> T_( 'px. Change the searc disp height header. (min-height: 356px)' ),
+					'type'			=> 'integer',
+					'defaultvalue'	=> '520',
+					'size'			=> 6,
+				),
+				'header_search_bg' => array(
+					'label'         => T_( 'Header Background Image' ),
+					'note'          => T_( '' ),
+					'type'          => 'radio',
+					'options'       => $arr_bodybg,
+					'defaultvalue'  => reset( $arr_bodybg[8] ),
+				),
+				'header_search_heading' => array(
+					'label'			=> T_( 'Heading Text' ),
+					'note'			=> T_( 'Change the Heading Text' ),
+					'type'			=> 'text',
+					'size'			=> '60',
+					'defaultvalue'	=> 'Search anyting you want.',
+				),
+				'header_search_subhead' => array(
+					'label'			=> T_( 'Subheading Text' ),
+					'note'			=> T_( 'Change the Subheading text' ),
+					'type'			=> 'text',
+					'size'			=> '60',
+					'defaultvalue'	=> 'Just type any word in the search box.',
+				),
+				'header_btn_search' => array(
+					'label'			=> T_( 'Text Button Search' ),
+					'note'			=> T_( 'Change Button text search.' ),
+					'type'			=> 'text',
+					'size'			=> '20',
+					'defaultvalue'	=> 'Search'
+				),
+				'search_align_pagination' => array(
+					'label'			=> T_( 'Paginatioin Align' ),
+					'note'			=> T_( 'Change aling pagination' ),
+					'type'			=> 'radio',
+					'options'		=> array(
+						array( 'left', T_('Left') ),
+						array( 'center', T_( 'Center' ) ),
+						array( 'right', T_( 'Right' ) ),
+					),
+					'defaultvalue'	=> 'center',
+				),
 			'section_search_end' => array(
 				'layout'	=> 'end_fieldset',
 			),
@@ -946,25 +991,6 @@ class stain_gallery_Skin extends Skin
 		// 	$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
 		// }
 
-		global $thumbnail_sizes;
-		$posts_thumb_size = $this->get_setting( 'posts_thumb_size' );
-		// if( isset( $thumbnail_sizes[ $posts_thumb_size ] ) )
-		// {
-		// 	// Make the width of image block as fixed to don't expand it by long post title text
-		// 	$custom_css .= '	.posts_list .evo_post { max-width:'.$thumbnail_sizes[ $posts_thumb_size ][1]."px }\n";
-		// 	// Set width & height for block with text "No pictures yet"
-		// 	$custom_css .= '	.posts_list .evo_post b { width:'.( $thumbnail_sizes[ $posts_thumb_size ][1] - 20 ).'px;'
-		// 		.'height:'.( $thumbnail_sizes[ $posts_thumb_size ][2] - 20 ).'px'." }\n";
-		// }
-		$single_thumb_size = $this->get_setting( 'single_thumb_size' );
-		if( isset( $thumbnail_sizes[ $single_thumb_size ] ) )
-		{
-			// Make the width of image block as fixed to don't expand it by long post title text
-			// $custom_css .= '.post_images .single-image .evo_image_legend { width: 100%; }';
-			// Set width & height for block with text "No pictures yet"
-			/*$custom_css .= '	.posts_list .evo_post b { width:'.( $thumbnail_sizes[ $single_thumb_size ][1] - 20 ).'px;'
-				.'height:'.( $thumbnail_sizes[ $single_thumb_size ][2] - 20 ).'px'." }\n";*/
-		}
 
 		/* Header Options
 		* ========================================================================== */
@@ -1101,7 +1127,7 @@ class stain_gallery_Skin extends Skin
 		}
 
 		/* Footer Custom Options
-       * ========================================================================== */
+		* ========================================================================== */
 		if ( $bg = $this->get_setting( 'footer_bg' ) ) {
 			$custom_css .= '#footer{ background-color: '.$bg.' }';
 		}
@@ -1110,14 +1136,23 @@ class stain_gallery_Skin extends Skin
 			$custom_css .= '#footer .copyright, .footer__social{ float: none; text-align: center; }';
 		}
 
+		/* Search Disp Options
+		 * ========================================================================== */
+		if( $bg = $this->get_setting( 'header_search_bg' ) ) {
+			$custom_css .= '.search_head{ background-image: url( "'.$bg.'" ); }';
+		}
+		if( $height = $this->get_setting( 'header_search_height' ) ) {
+			$custom_css .= '.search_head{ height: '.$height.'px }';
+		}
 
-      /* Output the custom CSS
-       * ========================================================================== */
+
+		/* Output the custom CSS
+		* ========================================================================== */
 		if( !empty( $custom_css ) ) {
 			$custom_css = '
-            <style type="text/css">
-             '.$custom_css.'
-            </style>';
+			<style type="text/css">
+			'.$custom_css.'
+			</style>';
 			add_headline( $custom_css );
 		}
 
