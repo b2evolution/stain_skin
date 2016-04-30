@@ -476,6 +476,127 @@ class stain_gallery_Skin extends Skin
 				'layout'	=> 'end_fieldset',
 			),
 
+			/* Posts Options
+			* ========================================================================== */
+			'section_posts_start' => array(
+				'layout'   => 'begin_fieldset',
+				'label'    => T_( 'Posts Options' ),
+			),
+				'posts_thumb_size' => array(
+					'label'        => T_('Thumbnail size in Posts List'),
+					'note'         => '',
+					'defaultvalue' => 'fit-1280x720',
+					'size'			=> 10,
+					'type'         => 'select',
+					'options'      => array(
+						'original' => T_( 'Original' ),
+						'fit-1280x720' => T_( 'fit-1280x720' ),
+						'crop-480x320' => T_( 'crop-480x320' ),
+					),
+				),
+				'posts_show' => array(
+					'label'        => T_( 'Column Posts' ),
+					'note'         => T_( '' ),
+					'type'         => 'radio',
+					'options'      => array(
+						// array( 'one_column', T_( '1 Column' ) ),
+						array( 'one_column', T_( '1 Column' ) ),
+						array( 'two_column', T_( '2 Column' ) ),
+						array( 'three_column', T_( '3 Column' ) ),
+					),
+					'defaultvalue' => 'three_column'
+				),
+				'posts_list_space' => array(
+					'label'			=> T_( 'Posts List Padding' ),
+					'note'			=> T_( 'px. Set the padding for posts list.' ),
+					'type'			=> 'integer',
+					'defaultvalue' => '4',
+					'size'			=> 3,
+					'allow_empty'  => false,
+				),
+			'section_posts_end' => array(
+				'layout'   => 'end_fieldset',
+			),
+
+
+			/* Single Options
+			 * ========================================================================== */
+			'section_single_start' => array(
+				'layout'		=> 'begin_fieldset',
+				'label'		=> T_( 'Single Options' ),
+			),
+				'single_layout' => array(
+					'label'			=> T_( 'Layout' ),
+					'note'			=> T_( 'Change the layout for single disp.' ),
+					'defaultvalue'  => 'single_column',
+					'type'			=> 'select',
+					'options'		=> array(
+						'single_column'        => T_('Single Column Large'),
+						'single_column_normal' => T_('Single Column'),
+						'left_sidebar'         => T_('Left Sidebar'),
+						'right_sidebar'        => T_('Right Sidebar'),
+					),
+				),
+				'single_thumb_size' => array(
+					'label'        => T_('Thumbnail size for Single Disp'),
+					'note'         => '',
+					'defaultvalue' => 'crop-480x320',
+					'options'      => get_available_thumb_sizes(),
+					'type'         => 'select',
+				),
+			'section_single_end' => array(
+				'layout'		=> 'end_fieldset',
+			),
+
+			/* Footer Options
+			* ========================================================================== */
+			'section_footer_start' => array(
+				'layout'  => 'begin_fieldset',
+				'label'   => T_( 'Footer Options' ),
+			),
+				'footer_bg' => array(
+					'label'        => T_( 'Background Color' ),
+					'note'         => T_( 'Change the main footer background color, default value is #0E1215' ),
+					'type'         => 'color',
+					'defaultvalue' => '#0E1215',
+				),
+				'footer_widget' => array(
+					'label'        => T_( 'Enable Footer Widget' ),
+					'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu <strong>Widgets</strong>.' ),
+					'type'         => 'checkbox',
+					'defaultvalue' => '0'
+				),
+				'footer_widget_column' => array(
+					'label'        => T_( 'Widget Column' ),
+					'note'         => T_( '' ),
+					'type'         => 'radio',
+					'defaultvalue' => '3',
+					'options'      => array(
+						array( '1', T_( '1 Column' ) ),
+						array( '2', T_( '2 Column' ) ),
+						array( '3', T_( '3 Column' ) ),
+						array( '4', T_( '4 Column' ) ),
+					),
+				),
+				'footer_bottom_align' => array(
+					'label'        => T_( 'Footer Bottom Mode' ),
+					'note'         => T_(''),
+					'type'         => 'radio',
+					'defaultvalue' => 'float',
+					'options'      => array(
+						array( 'float', T_( 'Float Mode' ) ),
+						array( 'center', T_( 'Center Mode' ) ),
+					),
+				),
+				'footer_social' => array(
+					'label'		   => T_( 'Enable Social Icon' ),
+					'note'		   => T_( 'Check to enable Social Icon on footer.' ),
+					'type'		   => 'checkbox',
+					'defaultvalue' => 1,
+				),
+			'section_footer_end' => array(
+				'layout'  => 'end_fieldset',
+			),
 
 			/* Mediaidx
 			* ========================================================================== */
@@ -602,128 +723,17 @@ class stain_gallery_Skin extends Skin
 			),
 
 
-			/* Posts Options
-			* ========================================================================== */
-			'section_posts_start' => array(
-				'layout'   => 'begin_fieldset',
-				'label'    => T_( 'Posts Options' ),
-			),
-				'posts_thumb_size' => array(
-					'label'        => T_('Thumbnail size in Posts List'),
-					'note'         => '',
-					'defaultvalue' => 'fit-1280x720',
-					'size'			=> 10,
-					'type'         => 'select',
-					'options'      => array(
-						'original' => T_( 'Original' ),
-						'fit-1280x720' => T_( 'fit-1280x720' ),
-						'crop-480x320' => T_( 'crop-480x320' ),
-					),
-				),
-				'posts_show' => array(
-					'label'        => T_( 'Column Posts' ),
-					'note'         => T_( '' ),
-					'type'         => 'radio',
-					'options'      => array(
-						// array( 'one_column', T_( '1 Column' ) ),
-						array( 'one_column', T_( '1 Column' ) ),
-						array( 'two_column', T_( '2 Column' ) ),
-						array( 'three_column', T_( '3 Column' ) ),
-					),
-					'defaultvalue' => 'three_column'
-				),
-				'posts_list_space' => array(
-					'label'			=> T_( 'Posts List Padding' ),
-					'note'			=> T_( 'px. Set the padding for posts list.' ),
-					'type'			=> 'integer',
-					'defaultvalue' => '4',
-					'size'			=> 3,
-					'allow_empty'  => false,
-				),
-			'section_posts_end' => array(
-				'layout'   => 'end_fieldset',
-			),
-
-
-			/* Single Options
+			/* Search Disp Options
 			 * ========================================================================== */
-			'section_single_start' => array(
-				'layout'		=> 'begin_fieldset',
-				'label'		=> T_( 'Single Options' ),
-			),
-				'single_layout' => array(
-					'label'			=> T_( 'Layout' ),
-					'note'			=> T_( 'Change the layout for single disp.' ),
-					'defaultvalue'  => 'single_column',
-					'type'			=> 'select',
-					'options'		=> array(
-						'single_column'        => T_('Single Column Large'),
-						'single_column_normal' => T_('Single Column'),
-						'left_sidebar'         => T_('Left Sidebar'),
-						'right_sidebar'        => T_('Right Sidebar'),
-					),
-				),
-				'single_thumb_size' => array(
-					'label'        => T_('Thumbnail size for Single Disp'),
-					'note'         => '',
-					'defaultvalue' => 'crop-480x320',
-					'options'      => get_available_thumb_sizes(),
-					'type'         => 'select',
-				),
-			'section_single_end' => array(
-				'layout'		=> 'end_fieldset',
+			'section_search_start' => array(
+				'layout'	=> 'begin_fieldset',
+				'label'		=> T_( 'Search Disp Options' )
 			),
 
+			'section_search_end' => array(
+				'layout'	=> 'end_fieldset',
+			),
 
-			/* Footer Options
-			* ========================================================================== */
-			'section_footer_start' => array(
-				'layout'  => 'begin_fieldset',
-				'label'   => T_( 'Footer Options' ),
-			),
-				'footer_bg' => array(
-					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change the main footer background color, default value is #0E1215' ),
-					'type'         => 'color',
-					'defaultvalue' => '#0E1215',
-				),
-				'footer_widget' => array(
-					'label'        => T_( 'Enable Footer Widget' ),
-					'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu <strong>Widgets</strong>.' ),
-					'type'         => 'checkbox',
-					'defaultvalue' => '0'
-				),
-				'footer_widget_column' => array(
-					'label'        => T_( 'Widget Column' ),
-					'note'         => T_( '' ),
-					'type'         => 'radio',
-					'defaultvalue' => '3',
-					'options'      => array(
-						array( '1', T_( '1 Column' ) ),
-						array( '2', T_( '2 Column' ) ),
-						array( '3', T_( '3 Column' ) ),
-						array( '4', T_( '4 Column' ) ),
-					),
-				),
-				'footer_bottom_align' => array(
-					'label'        => T_( 'Footer Bottom Mode' ),
-					'note'         => T_(''),
-					'type'         => 'radio',
-					'defaultvalue' => 'float',
-					'options'      => array(
-						array( 'float', T_( 'Float Mode' ) ),
-						array( 'center', T_( 'Center Mode' ) ),
-					),
-				),
-				'footer_social' => array(
-					'label'		   => T_( 'Enable Social Icon' ),
-					'note'		   => T_( 'Check to enable Social Icon on footer.' ),
-					'type'		   => 'checkbox',
-					'defaultvalue' => 1,
-				),
-			'section_footer_end' => array(
-				'layout'  => 'end_fieldset',
-			),
 
 			/* Colorbox Image Zoom
 			* ========================================================================== */
@@ -854,6 +864,7 @@ class stain_gallery_Skin extends Skin
 		if ( $this->get_setting( 'nav_sticky' ) == 1 ) {
 		 require_js( $this->get_url().'assets/scripts/jquery.sticky.js' );
 		}
+		require_js( $this->get_url().'assets/scripts/jquery.waypoints.min.js' );
 		require_js( $this->get_url().'assets/scripts/masonry.pkgd.min.js' );
 		require_js( $this->get_url().'assets/scripts/imagesloaded.pkgd.min.js' );
 		require_js( $this->get_url().'assets/scripts/classie.js' );
@@ -1025,7 +1036,7 @@ class stain_gallery_Skin extends Skin
 
 			case 'right':
 			$custom_css .= '.main_navigation .nav-tabs{ text-align: right; }';
-			$custom_css .= '.main_navigation .nav-tabs li{ float: right; }';
+			$custom_css .= '.main_navigation .nav-tabs li{ float: right; } .main_navigation ul ul{ float: right; }';
 			break;
 		}
 

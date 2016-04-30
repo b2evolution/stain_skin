@@ -97,116 +97,128 @@
 // Main Navigation
 // ======================================================================== /
 .main_navigation {
-   position: relative;
-   width: 100%;
-   max-width: 100%;
-   background-color: @c1b;
-   z-index: 997;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    background-color: @c1b;
+    z-index: 997;
 
-   .nav-tabs {
-      position: relative;
-      display: block;
-      width: 100%;
-   	margin: 0 auto;
-      padding: 10px 0;
-      text-align: center;
-      list-style-type: none;
-      border: none;
+    ul {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px 0;
+        text-align: center;
+        list-style-type: none;
+        border: none;
 
-      li {
-         display: inline-block;
-         float: none;
-         padding: 15px;
-         margin: 0;
+        ul {
+            display: inline-block;
+            width: auto;
+            position: relative;
+            padding: 0;
+            margin: 0;
+            // float: left;
+        }
 
-         &.active a {
-            color: @w;
-            background-color: transparent;
-            border: none;
+        li {
+            display: inline-block;
+            padding: 15px;
+            margin: 0;
+            float: none;
 
-            &:hover, &:active, &:focus {
-               cursor: pointer;
+            &.active a {
+                color: @w;
+                background-color: transparent;
+                border: none;
+
+                &:hover, &:active, &:focus {
+                    background-color: transparent;
+                    cursor: pointer;
+                    border: 0;
+                }
+
+                &::before, &:after {
+                    opacity: 1;
+                }
+
+                &::before {
+                    top: -8px;
+                }
+
+                &::after {
+                    bottom: -8px;
+                }
             }
 
-            &::before, &:after {
-               opacity: 1;
+            &:hover, &:active, &:focus {
+                // cursor: pointer;
+
+                a {
+                    color: @w;
+                    background-color: transparent;
+
+                    &::before, &::after {
+                        opacity: 1;
+                    }
+
+                    &::before {
+                        top: -8px;
+                    }
+
+                    &::after {
+                        bottom: -8px;
+                    }
+                }
+            }
+
+        }
+
+        a {
+            position: relative;
+            font-size: 1.4rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            color: @primary;
+            padding: 0;
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            transition: all 0.2s ease;
+
+            &.selected {
+                color: @w;
+            }
+
+            &:hover, &:active, &:focus {
+                background-color: transparent;
+                text-decoration: none;
+            }
+
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                height: 1px;
+                width: 100%;
+                background-color: @w;
+                opacity: 0;
+                transition: all 0.2s ease-in-out;
             }
 
             &::before {
-               top: -8px;
+                top: 0;
             }
 
             &::after {
-               bottom: -8px;
+                bottom: 0;
             }
-         }
 
-         &:hover, &:active, &:focus {
-            // cursor: pointer;
+        }
 
-            a {
-               color: @w;
-               background-color: transparent;
-
-               &::before, &::after {
-                  opacity: 1;
-               }
-
-               &::before {
-                  top: -8px;
-               }
-
-               &::after {
-                  bottom: -8px;
-               }
-            }
-         }
-
-      }
-
-      a {
-         position: relative;
-         font-size: 1.4rem;
-         font-weight: 400;
-         text-transform: uppercase;
-         letter-spacing: 0;
-         color: @primary;
-         padding: 0;
-         margin: 0;
-         border: none;
-         border-radius: 0;
-         transition: all 0.2s ease;
-
-         &.selected {
-            color: @w;
-         }
-
-         &:hover, &:active, &:focus {
-            background-color: transparent;
-         }
-
-         &:before, &:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            height: 1px;
-            width: 100%;
-            background-color: @w;
-            opacity: 0;
-            transition: all 0.2s ease-in-out;
-         }
-
-         &::before {
-            top: 0;
-         }
-
-         &::after {
-            bottom: 0;
-         }
-
-      }
-
-   }
+    }
 
 }
 

@@ -21,7 +21,7 @@ $params = array_merge( array(
     'cell_content_end'         => '</div>',
 	'search_use_editor'        => false,
 	'search_author_format'     => 'avatar_name',
-	'search_cell_author_start' => '<div class="search_info dimmed">',
+	'search_cell_author_start' => '<div class="search_info author dimmed">',
 	'search_cell_author_end'   => '</div>',
 	'search_date_format'       => 'F j, Y',
 
@@ -47,7 +47,7 @@ $params = array_merge( array(
 <?php
 // Perform search (after having displayed the first part of the page) & display results:
 search_result_block( array(
-    'block_start'           => '<ul class="main_result_content">',
+    'block_start'           => '<ul id="main_result_content">',
     'block_end'             => '</ul>',
 
     'row_start'             => $params['row_start'],
@@ -58,6 +58,9 @@ search_result_block( array(
 
 	'use_editor'            => $params['search_use_editor'],
 
+    'cell_chapter_start'    => '<div id="chapter" class="search_info chapter dimmed">',
+	'cell_chapter_end'      => '</div>',
+
 	'cell_author_start'     => $params['search_cell_author_start'],
 	'author_format'         => $params['search_author_format'],
 	'cell_author_end'       => $params['search_cell_author_end'],
@@ -66,7 +69,7 @@ search_result_block( array(
 	'title_suffix_post'     => '<span class="post">'.T_('Posts').'</span>',
 	'title_suffix_comment'  => '<span class="comment">'.T_('Comment').'</span>',
 	'title_suffix_category' => '<span class="category">'.T_('Category').'</span>',
-	'title_suffix_tag'      => '<span class="tag">'.T_('Tag').')</span>',
+	'title_suffix_tag'      => '<span class="tag">'.T_('Tag').'</span>',
 
 	'pagination'            => $params['pagination'],
     'no_match_message'      => $params['no_match_message'],

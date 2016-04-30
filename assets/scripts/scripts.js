@@ -44,8 +44,55 @@
         }
     }
 
+    // Score Search Disp
+    var Score_search = function() {
+        var score_class = document.getElementsByClassName("search_result_score"), i, count;
+        var len = score_class.length;
+
+        var UID = {
+            _current: 0,
+            getNew: function(){
+                this._current++;
+                return this._current;
+            }
+        };
+
+        HTMLElement.prototype.pseudoStyle = function(element,prop,value){
+            var _this = this;
+            var _sheetId = "pseudoStyles";
+            var _head = document.head || document.getElementsByTagName('head')[0];
+            var _sheet = document.getElementById(_sheetId) || document.createElement('style');
+            _sheet.id = _sheetId;
+            var className = "pseudoStyle" + UID.getNew();
+
+            _this.className +=  " "+className;
+
+            _sheet.innerHTML += "\n."+className+":"+element+"{"+prop+":"+value+" !important}";
+            _head.appendChild(_sheet);
+            return this;
+        };
+
+        for( i = 0, count = len; i < count; i++ ) {
+            var get_score = score_class[i].innerHTML;
+            // score_class[i].pseudoStyle( "after", "width", get_score );
+            score_class[i].pseudoStyle( "after", "width", get_score );
+        }
+    }
+
+    var waypoint = function() {
+        new Waypoint({
+            element: document.getElementById('content'),
+            handler: function(direction) {
+                Score_search();
+                this.disable();
+            },
+            offset: '100px',
+        });
+    }
+
 
     // Document on Load
+    //////////////////////////////////////////////////
     $(function() {
         menu_sticky();
         PhotoIndex();
@@ -54,6 +101,8 @@
     $(window).load(function() {
         PostGallery_masonry();
         PostList_masonry();
-    })
+        waypoint();
+    });
+
 
 }());

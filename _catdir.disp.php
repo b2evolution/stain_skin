@@ -72,115 +72,115 @@ init_MainList( $Blog->get_setting('posts_per_page') ); ?>
 <?php
 if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to display: ?>
    <li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post feature_post '.$column, ) ) ?>" lang="<?php $Item->lang() ?>">
-      <div class="main_content_gallery">
-   	<?php
-   	$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
+       <div class="main_content_gallery">
+       <?php
+        $Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
 
-   	$action_links = $Item->get_edit_link( array( // Link to backoffice for editing
-   		'before' => '',
-   		'after'  => '',
-   		'text'   => $Item->is_intro() ? get_icon( 'edit' ).' '.T_('Edit Intro') : '#',
-   		'class'  => button_class( 'text' ),
-   	) );
+        $action_links = $Item->get_edit_link( array( // Link to backoffice for editing
+           'before' => '',
+           'after'  => '',
+           'text'   => $Item->is_intro() ? get_icon( 'edit' ).' '.T_('Edit Intro') : '#',
+           'class'  => button_class( 'text' ),
+        ) );
 
-   	if( $Item->status != 'published' ) {
-   		$Item->format_status( array(
-   			'template' => '<div class="evo_status evo_status__$status$ badge pull-right">$status_title$</div>',
-   		) );
-   	}
+        if( $Item->status != 'published' ) {
+           $Item->format_status( array(
+               'template' => '<div class="evo_status evo_status__$status$ badge pull-right">$status_title$</div>',
+           ) );
+        }
 
-      // Categories
-      $Item->categories( array(
-         'before'          => '<div class="posts__info_cat">',
-         'after'           => '</div>',
-         'include_main'    => true,
-         'include_other'   => true,
-         'include_external'=> true,
-         'link_categories' => true,
-      ) );
+        // Categories
+        $Item->categories( array(
+            'before'          => '<div class="posts__info_cat">',
+            'after'           => '</div>',
+            'include_main'    => true,
+            'include_other'   => true,
+            'include_external'=> true,
+            'link_categories' => true,
+        ) );
 
-      $Item->images( array(
-         'before'              => $params['before_images'],
-         'before_image'        => $params['before_image'],
-         'before_image_legend' => $params['before_image_legend'],
-         'after_image_legend'  => $params['after_image_legend'],
-         'after_image'         => $params['after_image'],
-         'after'               => $params['after_images'],
-         'image_class'         => $params['image_class'],
-         'image_size'          => $params['image_size'],
-         'limit'               => $params['image_limit'],
-         'image_link_to'       => $params['image_link_to'],
-         'before_gallery'      => $params['before_gallery'],
-         'after_gallery'       => $params['after_gallery'],
-         'gallery_table_start' => $params['gallery_table_start'],
-         'gallery_table_end'   => $params['gallery_table_end'],
-         'gallery_row_start'   => $params['gallery_row_start'],
-         'gallery_row_end'     => $params['gallery_row_end'],
-         'gallery_cell_start'  => $params['gallery_cell_start'],
-         'gallery_cell_end'    => $params['gallery_cell_end'],
-         'gallery_image_size'  => $params['gallery_image_size'],
-         'gallery_image_limit' => $params['gallery_image_limit'],
-         'gallery_colls'       => $params['gallery_colls'],
-         'gallery_order'       => $params['gallery_order'],
-         // Optionally restrict to files/images linked to specific position: 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
-         'restrict_to_image_position' => 'teaser',
-      ) );
+        $Item->images( array(
+            'before'              => $params['before_images'],
+            'before_image'        => $params['before_image'],
+            'before_image_legend' => $params['before_image_legend'],
+            'after_image_legend'  => $params['after_image_legend'],
+            'after_image'         => $params['after_image'],
+            'after'               => $params['after_images'],
+            'image_class'         => $params['image_class'],
+            'image_size'          => $params['image_size'],
+            'limit'               => $params['image_limit'],
+            'image_link_to'       => $params['image_link_to'],
+            'before_gallery'      => $params['before_gallery'],
+            'after_gallery'       => $params['after_gallery'],
+            'gallery_table_start' => $params['gallery_table_start'],
+            'gallery_table_end'   => $params['gallery_table_end'],
+            'gallery_row_start'   => $params['gallery_row_start'],
+            'gallery_row_end'     => $params['gallery_row_end'],
+            'gallery_cell_start'  => $params['gallery_cell_start'],
+            'gallery_cell_end'    => $params['gallery_cell_end'],
+            'gallery_image_size'  => $params['gallery_image_size'],
+            'gallery_image_limit' => $params['gallery_image_limit'],
+            'gallery_colls'       => $params['gallery_colls'],
+            'gallery_order'       => $params['gallery_order'],
+            // Optionally restrict to files/images linked to specific position: 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
+            'restrict_to_image_position' => 'teaser',
+        ) );
 
-      ?>
-      <div class="posts__info">
-      <?php
+        ?>
+        <div class="posts__info">
+        <?php
 
-      	$Item->title( array(
-      		// 'link_type'  => 'none',
-      		'before'     => '<div class="posts__info_title"><h2>',
-      		'after'      => '</h2><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
-      		'nav_target' => false,
-      	) );
+            $Item->title( array(
+                // 'link_type'  => 'none',
+                'before'     => '<div class="posts__info_title"><h2>',
+                'after'      => '</h2><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
+                'nav_target' => false,
+            ) );
 
-         // Author Avatar
-         $Item->author( array(
-            'before'       => '<div class="posts__info_author">',
-            'after'        => '</div>',
-            'before_user'  => '',
-            'after_user'   => '',
-            'link_text'    => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-            'link_class'   => 'author_avatar',
-            'thumb_size'   => 'crop-32x32',
-            'thumb_class'  => '',
-         ) );
+            // Author Avatar
+            $Item->author( array(
+                'before'       => '<div class="posts__info_author">',
+                'after'        => '</div>',
+                'before_user'  => '',
+                'after_user'   => '',
+                'link_text'    => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+                'link_class'   => 'author_avatar',
+                'thumb_size'   => 'crop-32x32',
+                'thumb_class'  => '',
+            ) );
 
-         // Author Name
-         $Item->author( array(
-            'before'    => '<div class="posts__info_author">'.T_('By ').'',
-            'after'     => '</div>',
-            'before_user' => '',
-            'after_user'  => '',
-            'link_text'   => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-            'link_class'  => 'author_avatar',
-            'thumb_size'   => 'crop-48x48',
-            'thumb_class'  => '',
-         ) );
+            // Author Name
+            $Item->author( array(
+                'before'    => '<div class="posts__info_author">'.T_('By ').'',
+                'after'     => '</div>',
+                'before_user' => '',
+                'after_user'  => '',
+                'link_text'   => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+                'link_class'  => 'author_avatar',
+                'thumb_size'   => 'crop-48x48',
+                'thumb_class'  => '',
+            ) );
 
-         // We want to display the post time:
-         $Item->issue_time( array(
-            'before'      => '<time class="posts__info_date">'.T_('On '),
-            'after'       => '</time>',
-            'time_format' => 'M j, Y',
-         ) );
+            // We want to display the post time:
+            $Item->issue_time( array(
+                'before'      => '<time class="posts__info_date">'.T_('On '),
+                'after'       => '</time>',
+                'time_format' => 'M j, Y',
+            ) );
 
-         // Content Excerpt
-         $Item->excerpt( array(
-   			'before'              => $params['excerpt_before_text'],
-   			'after'               => $params['excerpt_after_text'],
-   			'excerpt_before_more' => $params['excerpt_before_more'],
-   			'excerpt_after_more'  => $params['excerpt_after_more'],
-   			'excerpt_more_text'   => $params['excerpt_more_text'],
-   		) );
-      ?>
-      </div>
-      <?php
-   	   locale_restore_previous();	// Restore previous locale (Blog locale)
-   	?>
+            // Content Excerpt
+            $Item->excerpt( array(
+                'before'              => $params['excerpt_before_text'],
+                'after'               => $params['excerpt_after_text'],
+                'excerpt_before_more' => $params['excerpt_before_more'],
+                'excerpt_after_more'  => $params['excerpt_after_more'],
+                'excerpt_more_text'   => $params['excerpt_more_text'],
+            ) );
+            ?>
+        </div>
+        <?php
+           locale_restore_previous();	// Restore previous locale (Blog locale)
+        ?>
       </div>
   </li><!-- .evo_post -->
 <?php
@@ -215,64 +215,59 @@ if( ! empty( $chapters ) ) { // Display the posts with chapters
 		$ItemList->query();
 		if( $ItemList->result_num_rows > 0 ) {
 			$no_content_to_display = false;
-				while( $Item = & $ItemList->get_item() )
-				{ // For each blog post, do everything below up to the closing curly brace "}"
-				  // Temporarily switch to post locale (useful for multilingual blogs)
-					$Item->locale_temp_switch();
-				?>
-				<li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post '.$column, ) ); ?>" lang="<?php $Item->lang() ?>">
-               <div class="main_content_gallery <?php echo $hover; ?>">
-                  <a href="<?php echo $Chapter->get_permanent_url(); ?>" class="cat_title">
-                     <div class="cat_title_content">
-      					   <h2 class="cat_title_link"><?php echo $Chapter->get( 'name' ); ?></h2>
-                        <span class="btn_cat">View</span>
-                     </div>
-                  </a>
-      				<?php
-      					// Display images that are linked to this post:
-      					$item_first_image = $Item->get_images( array(
-      						'before'              => '',
-      						'before_image'        => '<div class="feature_image">',
-      						'before_image_legend' => '',
-      						'after_image_legend'  => '',
-      						'after_image'         => '</div>',
-      						'after'               => '',
-      						'image_size'          => $Skin->get_setting( 'gallery_thumb_size' ),
-      						'image_link_to'       => 'single',
-      						'image_desc'          => '',
-      						'limit'                      => 1,
-      						'restrict_to_image_position' => 'cover,teaser,aftermore,inline',
-      						'get_rendered_attachments'   => false,
-      						// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
-      						'links_sql_select'           => ', CASE '
-      							.'WHEN link_position = "cover"     THEN "1" '
-      							.'WHEN link_position = "teaser"    THEN "2" '
-      							.'WHEN link_position = "aftermore" THEN "3" '
-      							.'WHEN link_position = "inline"    THEN "4" '
-      								// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
-      							.'END AS position_order',
-      						'links_sql_orderby'          => 'position_order, link_order',
-      					) );
-      					if( empty( $item_first_image ) )
-      					{ // No images in this post, Display an empty block
-      						$item_first_image = $Item->get_permanent_link( '<div class="no_image"><img src="'.$Skin->get_url().'assets/images/blank_image.png"></div>', '#', 'album_nopic' );
-      					}
-      					else if( $item_first_image == 'plugin_render_attachments' )
-      					{ // No images, but some attachments(e.g. videos) are rendered by plugins
-      						$item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
-      					}
-      					// Display a title
-                     echo $item_first_image;
-      					// echo $Item->get_title( array(
-      					// 	'before' => $item_first_image.'<h3 class="title__post">',
-                     //    'after'  => '</h3>',
-      					// ) );
-      					// Restore previous locale (Blog locale)
-      					locale_restore_previous();
-      				?>
-               </div><!-- .main_content_gallery -->
-           </li><!-- .evo_post -->
-
+			while( $Item = & $ItemList->get_item() )
+			{ // For each blog post, do everything below up to the closing curly brace "}"
+			  // Temporarily switch to post locale (useful for multilingual blogs)
+				$Item->locale_temp_switch();
+			?>
+            <li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_post '.$column, ) ); ?>" lang="<?php $Item->lang() ?>">
+                <div class="main_content_gallery <?php echo $hover; ?>">
+                    <a href="<?php echo $Chapter->get_permanent_url(); ?>" class="cat_title">
+                        <div class="cat_title_content">
+                            <h2 class="cat_title_link"><?php echo $Chapter->get( 'name' ); ?></h2>
+                            <span class="btn_cat">View</span>
+                        </div>
+                    </a>
+                    <?php
+                    // Display images that are linked to this post:
+                    $item_first_image = $Item->get_images( array(
+                        'before'              => '',
+                        'before_image'        => '<div class="feature_image">',
+                        'before_image_legend' => '',
+                        'after_image_legend'  => '',
+                        'after_image'         => '</div>',
+                        'after'               => '',
+                        'image_size'          => $Skin->get_setting( 'gallery_thumb_size' ),
+                        'image_link_to'       => 'single',
+                        'image_desc'          => '',
+                        'limit'                      => 1,
+                        'restrict_to_image_position' => 'teaser,aftermore,inline',
+                        'get_rendered_attachments'   => false,
+                        // Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
+                        'links_sql_select'           => ', CASE '
+                        .'WHEN link_position = "cover"     THEN "1" '
+                        .'WHEN link_position = "teaser"    THEN "2" '
+                        .'WHEN link_position = "aftermore" THEN "3" '
+                        .'WHEN link_position = "inline"    THEN "4" '
+                        // .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
+                        .'END AS position_order',
+                        'links_sql_orderby'          => 'position_order, link_order',
+                    ) );
+                    if( empty( $item_first_image ) )
+                    { // No images in this post, Display an empty block
+                        $item_first_image = $Item->get_permanent_link( '<div class="no_image"><img src="'.$Skin->get_url().'assets/images/blank_image.png"></div>', '#', 'album_nopic' );
+                    }
+                    else if( $item_first_image == 'plugin_render_attachments' )
+                    { // No images, but some attachments(e.g. videos) are rendered by plugins
+                        $item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
+                    }
+                    // Display a title
+                    echo $item_first_image;
+                    // Restore previous locale (Blog locale)
+                    locale_restore_previous();
+                    ?>
+                </div><!-- .main_content_gallery -->
+            </li><!-- .evo_post -->
    <?php } // $item_list
 	} // Chapter
 } // Show Content ?>
