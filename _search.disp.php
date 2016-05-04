@@ -13,6 +13,14 @@
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
+$pagi_align = $Skin->get_setting( 'search_align_pagination' );
+$aling_class = '';
+switch ($pagi_align) {
+    case $pagi_align:
+        $align_class = $pagi_align;
+    break;
+}
+
 $params = array_merge( array(
     // Result Content
     'row_start'                => '<li class="search_result">',
@@ -26,7 +34,7 @@ $params = array_merge( array(
 	'search_date_format'       => 'F j, Y',
 
     'pagination' => array(
-        'block_start'           => '<div class="search_pagination center"><ul class="pagination clearfix">',
+        'block_start'           => '<div class="search_pagination '.$align_class.'"><ul class="pagination clearfix">',
         'block_end'             => '</ul></div>',
         'page_current_template' => '<span>$page_num$</span>',
         'page_item_before'      => '<li>',

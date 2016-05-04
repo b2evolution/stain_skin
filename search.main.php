@@ -26,12 +26,47 @@ skin_init( $disp );
 skin_include( '_html_header.inc.php', array() );
 // -------------------------------- END OF HEADER --------------------------------
 
+?>
+
+<nav class="nav_search sb-slidebar sb-left">
+	<h3 class="nav_search_title">Main Menu</h3>
+	<ul class="nav main_nav">
+		<?php
+		// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
+		// Display container and contents:
+		// Note: this container is designed to be a single <ul> list
+		skin_container( NT_('Menu'), array(
+			// The following params will be used as defaults for widgets included in this container:
+			'block_start'         => '',
+			'block_end'           => '',
+			'block_display_title' => false,
+			'list_start'          => '',
+			'list_end'            => '',
+			'item_start'          => '<li class="evo_widget $wi_class$">',
+			'item_end'            => '</li>',
+			'item_selected_start' => '<li class="active evo_widget $wi_class$">',
+			'item_selected_end'   => '</li>',
+			'item_title_before'   => '',
+			'item_title_after'    => '',
+		) );
+		// ----------------------------- END OF "Menu" CONTAINER -----------------------------
+		?>
+	</ul>
+</nav><!-- /#main_navigation -->
+
+
+
+<div id="sb-site">
+
+<?php
 // ---------------------------- SITE HEADER INCLUDED HERE ----------------------------
 // If site headers are enabled, they will be included here:
 siteskin_include( '_site_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 
 ?>
+
+
 <header class="search_head">
 	<div class="container">
 
@@ -47,37 +82,25 @@ siteskin_include( '_site_body_header.inc.php' );
 				?>
 			</div>
 
-			<nav class="nav_search">
-				<ul class="nav main_nav">
-					<?php
-					// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
-					// Display container and contents:
-					// Note: this container is designed to be a single <ul> list
-					skin_container( NT_('Menu'), array(
-						// The following params will be used as defaults for widgets included in this container:
-						'block_start'         => '',
-						'block_end'           => '',
-						'block_display_title' => false,
-						'list_start'          => '',
-						'list_end'            => '',
-						'item_start'          => '<li class="evo_widget $wi_class$">',
-						'item_end'            => '</li>',
-						'item_selected_start' => '<li class="active evo_widget $wi_class$">',
-						'item_selected_end'   => '</li>',
-						'item_title_before'   => '',
-						'item_title_after'    => '',
-					) );
-					// ----------------------------- END OF "Menu" CONTAINER -----------------------------
-					?>
-				</ul>
-			</nav><!-- /#main_navigation -->
+
+			<button class="sb-toggle-left menu_hamburger">
+				<span>Menu</span>
+				<div class="hamburger">
+				    <div class="menui top-menu"></div>
+				    <div class="menui mid-menu"></div>
+				    <div class="menui bottom-menu"></div>
+				</div>
+			</button>
+
 			<div class="clearfix"></div>
 		</div>
 
 
 		<!-- Search Box -->
 		<div class="search_box">
-			<h3 class="search_box_title"><?php echo $Skin->get_setting( 'header_search_heading' ); ?> <span><?php echo $Skin->get_setting( 'header_search_subhead' ) ?></span></h3>
+			<h3 class="search_box_title">
+				<?php echo $Skin->get_setting( 'header_search_heading' ); ?> <span><?php echo $Skin->get_setting( 'header_search_subhead' ) ?></span>
+			</h3>
 			<?php
 			// ------------------------ START OF SEARCH FORM WIDGET ------------------------
 			skin_widget( array(
@@ -147,8 +170,9 @@ siteskin_include( '_site_body_header.inc.php' );
 // If site footers are enabled, they will be included here:
 skin_include( '_body_footer.inc.php' );
 // ------------------------------- END OF SITE FOOTER --------------------------------
-
-
+?>
+</div>
+<?php
 // ------------------------- HTML FOOTER INCLUDED HERE --------------------------
 skin_include( '_html_footer.inc.php' );
 // ------------------------------- END OF FOOTER --------------------------------

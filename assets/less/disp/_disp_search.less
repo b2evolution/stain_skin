@@ -1,3 +1,87 @@
+// Nav Search
+// ======================================================================== /
+html.sb-active {
+    #sb-site {
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba( 0, 0, 0 ,0.3 );
+            z-index: 3;
+        }
+    }
+}
+
+
+.loggedin {
+    .nav_search.sb-slidebar {
+        top: 26px;
+
+        @media screen and ( max-device-width: 1024px ) {
+            top: 0;
+        }
+    }
+}
+
+.nav_search {
+    display: block;
+
+    &_title {
+        color: @w;
+        font-family: @font_heading;
+        font-size: 2.8rem;
+        font-weight: 700;
+        padding: 0 20px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: block;
+            margin: 0;
+            padding: 0;
+
+            &.active {
+                color: @w;
+                background-color: @primary;
+
+                a {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        a {
+            display: block;
+            color: @w;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            padding: 15px 20px;
+            transition: all 0.32s ease-in;
+
+            &:hover, &:active, &:focus {
+                background-color: @primary;
+                color: @w;
+                text-shadow: none;
+            }
+        }
+    }
+}
+
+
+
 // ======================================================================== /
 // All Style for Disp Search
 // ======================================================================== /
@@ -56,51 +140,81 @@
         }
     }
 
-    // Nav Search
+
+    // Menu Humberger
     // ======================================================================== /
-    .nav_search {
+    .menu_hamburger {
+        position: relative;
+        display: block;
         float: right;
+        width: 38px;
+        height: 38px;
+        background-color: transparent;
+        border: 0;
 
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
+        .hamburger {
+            position: absolute;
+            top: 5px;
+            left: 0;
 
-            li {
-                display: inline-block;
-                float: left;
-                margin: 0 3px 0 0;
-                padding: 0;
+            .menui {
+                background: @w;
+                position: absolute;
+                border-radius: 10px;
+                width: 30px;
+                height: 2px;
+                box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
 
-                &.active {
-                    a {
-                        background-color: @primary;
-                        color: @w;
-                        font-weight: normal;
-                        text-shadow: none;
-                    }
-                }
+                transition: 0.6s ease;
+                transition-timing-function: cubic-bezier(.75, 0, .29, 1.01);
             }
 
-            a {
-                display: inline-block;
-                color: @w;
-                font-size: 1.3rem;
-                text-transform: uppercase;
-                letter-spacing: 0.3px;
-                border-radius: 30px;
-                padding: 10px 18px;
-                text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
-                transition: all 0.32s ease-out;
+            .top-menu {
+                top: 6px;
+            }
 
-                &:hover, &:active, &:focus {
-                    background-color: @primary;
-                    color: @w;
-                    text-shadow: none;
-                }
+            .mid-menu {
+                top: 13px;
+            }
+
+            .bottom-menu {
+                top: 20px;
             }
         }
+
+        &:hover, &:active, &:focus {
+            outline: 0;
+
+            span {
+                opacity: 1;
+                right: 40px;
+            }
+        }
+
+        span {
+            position: absolute;
+            top: 0px;
+            right: 0;
+            display: block;
+            font-family: @font_heading;
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+            line-height: 38px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: @w;
+            opacity: 0;
+
+            transition: all 0.32s ease-in;
+
+            @media screen and ( max-width: @S ){
+                display: none;
+            }
+        }
+
     }
+
 
     // Search Box
     // ======================================================================== /
@@ -128,6 +242,15 @@
                 text-transform: none;
                 letter-spacing: -0.1px;
                 opacity: 0.95;
+            }
+
+            @media screen and ( max-width: @MX ) {
+                font-size: 4.4rem;
+                line-height: 1;
+
+                span {
+                    margin-top: 10px;
+                }
             }
 
             @media screen and ( max-width: @XS ) {
@@ -199,6 +322,7 @@
     }
 
 }
+
 
 // ======================================================================== /
 // Search Result

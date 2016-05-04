@@ -151,6 +151,12 @@ class stain_gallery_Skin extends Skin
 				'layout'	=> 'begin_fieldset',
 				'label' 	=> T_( 'General Options' ),
 			),
+				'color_scheme' => array(
+					'label'			=> T_( 'Color Scheme' ),
+					'note'			=> T_( 'Change your favorite color scheme,' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '#18C54D',
+				),
 				'body_background' => array(
 					'label'        => T_( 'Background Body' ),
 					'note'         => T_( 'Change background for All Disp and Page' ),
@@ -887,7 +893,7 @@ class stain_gallery_Skin extends Skin
 	 */
 	function display_init()
 	{
-		global $Messages, $debug;
+		global $Messages, $debug, $disp;
 
 		// Request some common features that the parent function (Skin::display_init()) knows how to provide:
 		parent::display_init( array(
@@ -909,6 +915,12 @@ class stain_gallery_Skin extends Skin
 		if ( $this->get_setting( 'nav_sticky' ) == 1 ) {
 		 require_js( $this->get_url().'assets/scripts/jquery.sticky.js' );
 		}
+
+		if ( $disp == 'search' ) {
+			require_css( $this->get_url().'assets/css/slidebars.min.css' );
+			require_js( $this->get_url().'assets/scripts/slidebars.min.js' );
+		}
+
 		require_js( $this->get_url().'assets/scripts/jquery.waypoints.min.js' );
 		require_js( $this->get_url().'assets/scripts/masonry.pkgd.min.js' );
 		require_js( $this->get_url().'assets/scripts/imagesloaded.pkgd.min.js' );
@@ -922,7 +934,9 @@ class stain_gallery_Skin extends Skin
 		/* General Options
 		* ========================================================================== */
 		if ( $bg = $this->get_setting( 'body_background' ) ) {
-			$custom_css .= 'body, html{ background-color: '.$bg.' }';
+			$custom_css .= 'body, html,
+			#sb-site, .sb-site-container
+			{ background-color: '.$bg.' }';
 		}
 
 		// Limit images by max height:

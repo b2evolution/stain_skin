@@ -94,6 +94,20 @@
         });
     }
 
+    var Slidebars = function() {
+
+        if( document.getElementById("sb-site") != null ){
+            new $.slidebars({
+                siteClose: true, // true or false
+                // disableOver: 480, // integer or false
+                hideControlClasses: true, // true or false
+                scrollLock: true // true or false
+            });
+
+        }
+
+    }
+
 
     // Document on Load
     //////////////////////////////////////////////////
@@ -106,7 +120,7 @@
         PostGallery_masonry();
         PostList_masonry();
         waypoint();
+        Slidebars();
     });
 
-
-}());
+}(jQuery));
