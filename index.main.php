@@ -105,11 +105,12 @@ skin_include( '_body_header.inc.php' );
 					'activate_page_before'  => '<div class="evo_panel__activation">',
 					'activate_page_after'   => '</div>',
 
-					// Search
-					'search_input_before'   => '<div class="input-group">',
-					'search_input_after'    => '',
-					'search_submit_before'  => '<span class="input-group-btn">',
-					'search_submit_after'   => '</span></div>',
+					// Search Custome
+					'search_class'         => 'compact_search_form',
+					'search_input_before'  => '<div class="input-group">',
+					'search_input_after'   => '',
+					'search_submit_before' => '<span class="input-group-btn">',
+					'search_submit_after'  => '</span></div>',
 
 					// Pagination
   					'pagination' => array(

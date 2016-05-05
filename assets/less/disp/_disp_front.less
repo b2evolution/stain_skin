@@ -6,14 +6,57 @@
     .evo_front_page {
 
         .title_widget_front {
+            font-family: @font_heading;
+            font-weight: 700;
+            letter-spacing: 1px;
             margin-top: 0;
+            margin-bottom: 20px;
         }
 
         .evo_widget {
             background-color: @w;
             box-shadow: @box-shadow;
-            padding: 30px;
+            padding: 40px;
             margin-bottom: 30px;
+
+            ul {
+                list-style-type: circle;
+                margin-left: 20px;
+                margin-bottom: 0;
+                padding: 0;
+
+                ul {
+                    margin: 0;
+                }
+
+                li {
+                    list-style-type: circle;
+                    padding: 0 5px 15px 0;
+                    margin-bottom: 15px;
+                    border-bottom: 1px solid @ce;
+                }
+
+            }
+
+            & > ul:last-child > li:last-child {
+                margin-bottom: 0;
+            }
+
+            // Widget
+            // ======================================================================== /
+            &.widget_core_coll_search_form {
+                .compact_search_form {
+                    .search_field {
+                        border-color: @primary;
+                    }
+
+                    .search_submit {
+                        padding-left: 30px;
+                        padding-right: 30px;
+                    }
+                }
+            }
+
         }
 
     }

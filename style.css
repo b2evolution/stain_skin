@@ -1080,12 +1080,106 @@ div.evo_image_index div:hover {
 .widget_core_user_register .field_register_btn .panel .panel-body #submit_login_form {
   margin-right: 10px;
 }
+.widget_core_profile_menu_link .identity_link_username {
+  text-transform: capitalize;
+  padding-left: 5px;
+}
+.widget_core_coll_tag_cloud .tag_cloud a {
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 1.2rem !important;
+  border-radius: 30px;
+  border: 1px solid #18c54d;
+  margin-bottom: 5px;
+}
+.widget_core_coll_tag_cloud .tag_cloud a:hover,
+.widget_core_coll_tag_cloud .tag_cloud a:active,
+.widget_core_coll_tag_cloud .tag_cloud a:focus {
+  text-decoration: none;
+  background-color: #18c54d;
+  color: #ffffff;
+}
+.widget_core_coll_search_form .compact_search_form .search_field,
+.widget_core_coll_search_form .compact_search_form .search_submit {
+  padding: 12px 15px;
+  box-shadow: none;
+  border-radius: 0;
+}
+.widget_core_coll_search_form .compact_search_form .search_field {
+  border: 1px solid #ffffff;
+  height: auto;
+}
+.widget_core_coll_search_form .compact_search_form .search_submit {
+  padding-left: 18px;
+  padding-right: 18px;
+  border: 1px solid #18c54d;
+  background-color: #18c54d;
+  margin-left: 0;
+}
 #footer {
-  padding: 35px 0;
+  padding: 50px 0 35px;
   background-color: #0e1215;
+}
+#footer .footer__widgets {
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 30px;
+}
+#footer .footer__widgets .widget_title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  color: #ffffff;
 }
 #footer .footer__widgets .evo_widget {
   padding-bottom: 30px;
+}
+#footer .footer__widgets .evo_widget ul {
+  list-style-type: disc;
+  margin: 0;
+  padding: 0;
+}
+#footer .footer__widgets .evo_widget ul li {
+  list-style-type: disc;
+  padding: 5px 0;
+  margin: 5px 0;
+}
+#footer .footer__widgets .evo_widget ul a {
+  color: #ffffff;
+  -webkit-transition: all 0.32s ease-out;
+  transition: all 0.32s ease-out;
+}
+#footer .footer__widgets .evo_widget ul a:hover,
+#footer .footer__widgets .evo_widget ul a:active,
+#footer .footer__widgets .evo_widget ul a:focus {
+  color: #18c54d;
+}
+#footer .footer__widgets .evo_widget > ul {
+  margin: 0 0 0 20px;
+}
+#footer .footer__widgets .evo_widget img {
+  max-width: 100%;
+  height: auto;
+}
+#footer .footer__widgets .evo_widget.widget_core_coll_tag_cloud .tag_cloud a {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+#footer .footer__widgets .evo_widget.widget_core_coll_tag_cloud .tag_cloud a:hover,
+#footer .footer__widgets .evo_widget.widget_core_coll_tag_cloud .tag_cloud a:active,
+#footer .footer__widgets .evo_widget.widget_core_coll_tag_cloud .tag_cloud a:focus {
+  color: #ffffff;
+  border-color: #18c54d;
+}
+#footer .footer__widgets .evo_widget.widget_core_image {
+  text-align: center;
+}
+#footer .footer__widgets .evo_widget.widget_core_org_members {
+  color: #ffffff;
+}
+#footer .footer__widgets .evo_widget.widget_core_org_members a.user_link {
+  color: #ffffff;
 }
 @media screen and (max-width: 768px) {
   #footer .footer__bottom {
@@ -1180,13 +1274,42 @@ div.evo_image_index div:hover {
   border-radius: 4px;
 }
 .disp_front .evo_front_page .title_widget_front {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
   margin-top: 0;
+  margin-bottom: 20px;
 }
 .disp_front .evo_front_page .evo_widget {
   background-color: #ffffff;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
-  padding: 30px;
+  padding: 40px;
   margin-bottom: 30px;
+}
+.disp_front .evo_front_page .evo_widget ul {
+  list-style-type: circle;
+  margin-left: 20px;
+  margin-bottom: 0;
+  padding: 0;
+}
+.disp_front .evo_front_page .evo_widget ul ul {
+  margin: 0;
+}
+.disp_front .evo_front_page .evo_widget ul li {
+  list-style-type: circle;
+  padding: 0 5px 15px 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eeeeee;
+}
+.disp_front .evo_front_page .evo_widget > ul:last-child > li:last-child {
+  margin-bottom: 0;
+}
+.disp_front .evo_front_page .evo_widget.widget_core_coll_search_form .compact_search_form .search_field {
+  border-color: #18c54d;
+}
+.disp_front .evo_front_page .evo_widget.widget_core_coll_search_form .compact_search_form .search_submit {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .posts_gallery {
   margin: 0;

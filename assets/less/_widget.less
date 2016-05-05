@@ -93,3 +93,65 @@
 		}
 	}
 }
+
+
+// Widget Profile Menu Link
+// ======================================================================== /
+.widget_core_profile_menu_link {
+	.identity_link_username {
+		text-transform: capitalize;
+		padding-left: 5px;
+	}
+}
+
+
+// Tag Cloud
+// ======================================================================== /
+.widget_core_coll_tag_cloud {
+	.tag_cloud {
+		a {
+			display: inline-block;
+			padding: 8px 15px;
+			font-size: 1.2rem !important;
+			border-radius: 30px;
+			border: 1px solid @primary;
+			margin-bottom: 5px;
+
+			&:hover, &:active, &:focus {
+				text-decoration: none;
+				background-color: @primary;
+				color: @w;
+			}
+		}
+	}
+}
+
+
+// Search Form
+// ======================================================================== /
+.widget_core_coll_search_form {
+
+	.compact_search_form {
+
+		.search_field,
+		.search_submit {
+			padding: 12px 15px;
+			box-shadow: none;
+			border-radius: 0;
+		}
+
+		.search_field {
+			border: 1px solid @w;
+			height: auto;
+		}
+
+		.search_submit {
+			padding-left: 18px;
+			padding-right: 18px;
+			border: 1px solid @primary;
+			background-color: @primary;
+			margin-left: 0;
+		}
+	}
+
+}

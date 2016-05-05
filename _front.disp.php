@@ -42,6 +42,13 @@ $params = array_merge( array(
     	'block_first_title_end'   => $params['front_block_first_title_end'],
     	'block_title_start'       => $params['front_block_title_start'],
     	'block_title_end'         => $params['front_block_title_end'],
+
+        // Search Custome
+        'search_class'            => 'compact_search_form',
+        'search_input_before'     => '<div class="input-group">',
+        'search_input_after'      => '',
+        'search_submit_before'    => '<span class="input-group-btn">',
+        'search_submit_after'     => '</span></div>',
     ) );
     // --------------------- END OF "Front Page Main Area" CONTAINER -----------------------
 ?>
