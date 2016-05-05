@@ -1,11 +1,11 @@
-# Stain Gallery Skin for b2evolution CMS
+# STAIN GALLERY SKIN
 
-Stain is a Gallery Skin with Awesome Customize for every disp. Stain used Fully Animation for the content, Fully Responsive for all page, Used Masonry and Grid layout and anymore.
+Stain is a Gallery Skin with awesome customize for every disp. Stain used fully animation for the content, fully responsive for all page, used masonry and grid layout and anymore.
 
 ====
 ## Preview
 
-![preview](preview.pgn)
+![preview](preview.png)
 
 
 ====
