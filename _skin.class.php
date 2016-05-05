@@ -749,6 +749,16 @@ class stain_gallery_Skin extends Skin
 					'options'       => $arr_bodybg,
 					'defaultvalue'  => reset( $arr_bodybg[8] ),
 				),
+				'header_search_bg_attach' => array(
+					'label'        => T_( 'Background Attachment' ),
+					'note'         => T_( '' ),
+					'type'         => 'radio',
+					'defaultvalue' => 'initial',
+					'options'      => array(
+						array( 'initial', T_( 'Initial' ) ),
+						array( 'fixed', T_( 'Fixed' ) ),
+					),
+				),
 				'header_search_heading' => array(
 					'label'			=> T_( 'Heading Text' ),
 					'note'			=> T_( 'Change the Heading Text' ),
@@ -1157,6 +1167,9 @@ class stain_gallery_Skin extends Skin
 		}
 		if( $height = $this->get_setting( 'header_search_height' ) ) {
 			$custom_css .= '.search_head{ height: '.$height.'px }';
+		}
+		if( $bg_attach = $this->get_setting( 'header_search_bg_attach' ) ) {
+			$custom_css .= '.search_head{ background-attachment: '.$bg_attach.' }';
 		}
 
 

@@ -151,14 +151,14 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
 
             // Author Name
             $Item->author( array(
-                'before'    => '<div class="posts__info_author">'.T_('By ').'',
-                'after'     => '</div>',
-                'before_user' => '',
-                'after_user'  => '',
-                'link_text'   => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-                'link_class'  => 'author_avatar',
-                'thumb_size'   => 'crop-48x48',
-                'thumb_class'  => '',
+                'before'        => '<div class="posts__info_author">'.T_('By ').'',
+                'after'         => '</div>',
+                'before_user'   => '',
+                'after_user'    => '',
+                'link_text'     => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+                'link_class'    => 'author_avatar',
+                'thumb_size'    => 'crop-48x48',
+                'thumb_class'   => '',
             ) );
 
             // We want to display the post time:

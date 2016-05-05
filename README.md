@@ -1,2 +1,48 @@
-# stain_skin
-Stain skin for b2evolution CMS.
+# Stain Gallery Skin for b2evolution CMS
+
+Stain is a Gallery Skin with Awesome Customize for every disp. Stain used Fully Animation for the content, Fully Responsive for all page, Used Masonry and Grid layout and anymore.
+
+====
+## Preview
+
+![preview](preview.pgn)
+
+
+====
+
+### Some of the Features:
+
+- 100% Responsive Design
+- Unlimited Color Schemes
+- Unlimited Background Color
+- 10 Background Image
+- Styling All Disp Skin
+- Responsive Mobile Menu
+- Full Width Elements
+- Full Post, Sidebar, and Grid
+- One, Two and Three Column
+- Photo Index Style Grid
+- Masonry gallery with fullscreen popup
+- Use Animation CSS
+- Footer Widget
+- Social Icon
+- Back to top button
+- Crossbrowser Compatible
+- Free Updates and new features.
+- Long-term Support
+- And many more!
+
+====
+
+### Need Assistance? Get In Touch!
+
+If you ever get stuck with setting up Cuboid with your B2evolution installation, you can get in touch with our friendly and dedicated support via our [Support Forum](http://forums.b2evolution.net/).
+
+===
+
+### Changes & Updates
+
+```
+Version 0.1
+– Initial Version – Mei, 2016
+```

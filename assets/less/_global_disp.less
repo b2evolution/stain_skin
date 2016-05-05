@@ -1,12 +1,15 @@
 // ======================================================================== /
 // Import the disp style
 // ======================================================================== /
+@import "assets/less/disp/_disp_front";
 @import "assets/less/disp/_disp_catdir";
 @import "assets/less/disp/_disp_posts";
 @import "assets/less/disp/_disp_single";
 @import "assets/less/disp/_disp_404";
 @import "assets/less/disp/_disp_mediaidx";
 @import "assets/less/disp/_disp_search";
+@import "assets/less/disp/_disp_postidx";
+@import "assets/less/disp/_disp_sitemap";
 
 // Style On Disp Profile
 // ======================================================================== /
@@ -21,4 +24,18 @@ ul.profile_tabs {
 	float: right;
 	padding: 10px;
 	margin-left: 10px;
+}
+
+.disp_help {
+
+	.main_content {
+		background-color: @w;
+		padding: 30px;
+		box-shadow: @box-shadow;
+
+		h2 {
+			margin-top: 0;
+		}
+	}
+
 }

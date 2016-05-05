@@ -44,15 +44,10 @@ $params = array_merge( array(
         'prev_text'             => '<i class="fa fa-angle-left"></i>',
         'next_text'             => '<i class="fa fa-angle-right"></i>',
     ),
-    'no_match_message'          => '<p class="alert alert-info msg_nothing" style="margin: 2em 0">'.T_('Sorry, we could not find anything matching your request, please try to broaden your search.').'<p>',
+    'no_match_message'          => '<p class="alert alert-info msg_nothing">'.T_('Sorry, we could not find anything matching your request, please try to broaden your search.').'<p>',
 ), $params );
 
-?>
 
-<!-- <h1>Search Result</h1> -->
-
-
-<?php
 // Perform search (after having displayed the first part of the page) & display results:
 search_result_block( array(
     'block_start'           => '<ul id="main_result_content">',
@@ -81,7 +76,4 @@ search_result_block( array(
 
 	'pagination'            => $params['pagination'],
     'no_match_message'      => $params['no_match_message'],
-
 ) );
-
-?>

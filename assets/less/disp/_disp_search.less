@@ -1,3 +1,4 @@
+// ======================================================================== /
 // Nav Search
 // ======================================================================== /
 html.sb-active {
@@ -12,7 +13,7 @@ html.sb-active {
             height: 100%;
             top: 0;
             left: 0;
-            background-color: rgba( 0, 0, 0 ,0.3 );
+            background-color: rgba( 0, 0, 0 ,0.5 );
             z-index: 3;
         }
     }
@@ -29,8 +30,18 @@ html.sb-active {
     }
 }
 
+
+#sb-site {
+    .sitewide_header {
+        box-shadow: none
+    }
+}
+
+// Nav Search
+// ======================================================================== /
 .nav_search {
     display: block;
+    z-index: 2;
 
     &_title {
         color: @w;
@@ -40,6 +51,10 @@ html.sb-active {
         padding: 0 20px;
         letter-spacing: 1px;
         text-transform: uppercase;
+    }
+
+    .main_nav {
+        padding: 0 0 20px;
     }
 
     ul {
@@ -68,10 +83,12 @@ html.sb-active {
             font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 0.3px;
-            padding: 15px 20px;
-            transition: all 0.32s ease-in;
+            padding: 15px 20px 13px;
+            margin-bottom: 2px;
+            transition: all 0.2s ease-out;
 
             &:hover, &:active, &:focus {
+                text-decoration: none;
                 background-color: @primary;
                 color: @w;
                 text-shadow: none;
@@ -233,6 +250,7 @@ html.sb-active {
             // text-transform: capitalize;
             line-height: 1.3;
             letter-spacing: -1px;
+            padding: 0 15px;
             margin-bottom: 40px;
 
             span {
@@ -245,7 +263,7 @@ html.sb-active {
             }
 
             @media screen and ( max-width: @MX ) {
-                font-size: 4.4rem;
+                font-size: 4.8rem;
                 line-height: 1;
 
                 span {
@@ -253,7 +271,7 @@ html.sb-active {
                 }
             }
 
-            @media screen and ( max-width: @XS ) {
+            @media screen and ( max-width: @S ) {
                 font-size: 4rem;
                 line-height: 1;
 
@@ -477,12 +495,24 @@ html.sb-active {
 }
 
 
-// Pagination Search
+// ======================================================================== /
+// Content Style
 // ======================================================================== /
 .disp_search {
 
     .main_content {
 
+        .msg_nothing {
+            font-size: 1.6rem;
+            text-align: center;
+            box-shadow: @box-shadow;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 0;
+        }
+
+        // Pagination Search
+        // ======================================================================== /
         .pagination {
 
             li {
