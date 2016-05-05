@@ -1,8 +1,7 @@
-# STAIN GALLERY SKIN
+# Stain Gallery Skin
 
 Stain is a Gallery Skin with awesome customize for every disp. Stain used fully animation for the content, fully responsive for all page, used masonry and grid layout and anymore.
 
-====
 ## Preview
 
 ![preview](preview.png)
