@@ -1359,23 +1359,23 @@ div.evo_image_index div:hover {
 }
 #footer .footer__social a.ufld_flickr::after {
   content: 'Flickr';
-  left: -30%;
+  left: -16%;
 }
 #footer .footer__social a.ufld_youtube::after {
   content: 'Youtube';
-  left: -28%;
+  left: -38%;
 }
 #footer .footer__social a.ufld_digg::after {
   content: 'Digg';
-  left: -26%;
+  left: -10%;
 }
 #footer .footer__social a.ufld_stumbleupon::after {
   content: 'Stumbleupon';
-  left: -24%;
+  left: -76%;
 }
 #footer .footer__social a.ufld_pinterest::after {
   content: 'Pinterest';
-  left: -22%;
+  left: -46%;
 }
 #footer .powered_by a img {
   background-color: #ffffff;
