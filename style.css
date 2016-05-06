@@ -2720,11 +2720,18 @@ div.evo_image_index div:hover {
   font-size: 1.3rem;
 }
 #content .item_comments .evo_post_comment_notification .btn {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #444444;
   border: 0;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
-  border-radius: 0;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+#content .item_comments .evo_post_comment_notification .btn:hover,
+#content .item_comments .evo_post_comment_notification .btn:active,
+#content .item_comments .evo_post_comment_notification .btn:focus {
+  background-color: #18c54d;
+  color: #ffffff;
 }
 #content .evo_comment {
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
