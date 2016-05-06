@@ -738,7 +738,7 @@ textarea.message_text {
   width: 100% !important;
 }
 .sticky-wrapper.is-sticky .main_navigation {
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.12);
 }
 .sticky-wrapper.is-sticky .nav-tabs {
   padding: 6px 0;
@@ -1116,6 +1116,62 @@ div.evo_image_index div:hover {
   background-color: #18c54d;
   margin-left: 0;
 }
+.widget_plugin_evo_Calr .bCalendarTable {
+  font-size: 100%;
+}
+.widget_plugin_evo_Calr .bCalendarTable caption {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  padding: 15px;
+  border: 1px solid #18c54d;
+  border-bottom: 0;
+}
+.widget_plugin_evo_Calr .bCalendarTable th,
+.widget_plugin_evo_Calr .bCalendarTable td {
+  max-width: 60px;
+  width: 10ex;
+  padding: 8px 5px;
+  font-size: 100%;
+  text-align: center;
+}
+.widget_plugin_evo_Calr .bCalendarTable th {
+  font-family: "Roboto Slab", sans-serif;
+  letter-spacing: 1px;
+  border: 1px solid #18c54d;
+  border-right: 0;
+}
+.widget_plugin_evo_Calr .bCalendarTable th:last-child {
+  border-right: 1px solid #18c54d;
+}
+.widget_plugin_evo_Calr .bCalendarTable td {
+  border-bottom: 1px solid #18c54d;
+  border-left: 1px solid #18c54d;
+}
+.widget_plugin_evo_Calr .bCalendarTable td:last-child {
+  border-right: 1px solid #18c54d;
+}
+.widget_plugin_evo_Calr .bCalendarTable tbody {
+  border-top: 1px solid #18c54d;
+}
+.widget_plugin_evo_Calr .bCalendarTable tbody > tr:first-child {
+  border-top: 1px solid #18c54d;
+}
+.widget_plugin_evo_Calr .bCalendarTable #bCalendarToday {
+  border-radius: 0;
+  background-color: #18c54d;
+  color: #ffffff;
+  border-color: #18c54d;
+}
+.widget_core_poll .SaveButton {
+  border-radius: 2px;
+  padding: 8px 16px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background-color: #18c54d;
+  border-color: #18c54d;
+  color: #ffffff;
+}
 #footer {
   padding: 50px 0 35px;
   background-color: #0e1215;
@@ -1160,6 +1216,38 @@ div.evo_image_index div:hover {
 }
 #footer .footer__widgets .evo_widget img {
   max-width: 100%;
+  height: auto;
+}
+#footer .footer__widgets .evo_widget .panel {
+  background-color: transparent;
+}
+#footer .footer__widgets .evo_widget .panel .panel-body {
+  padding: 5px 0;
+}
+#footer .footer__widgets .evo_widget .panel .submit {
+  font-size: 1.2rem;
+  border-radius: 2px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  border-color: #ffffff;
+}
+#footer .footer__widgets .evo_widget .panel .submit:hover,
+#footer .footer__widgets .evo_widget .panel .submit:active,
+#footer .footer__widgets .evo_widget .panel .submit:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+  border-color: #18c54d;
+}
+#footer .footer__widgets .evo_widget .form-group {
+  margin-bottom: 5px;
+}
+#footer .footer__widgets .evo_widget .form-group .control-label {
+  margin-bottom: 5px;
+}
+#footer .footer__widgets .evo_widget .form-group .form_text_input {
+  padding: 10px 15px;
+  border-radius: 0;
+  border-color: #ffffff;
   height: auto;
 }
 #footer .footer__widgets .evo_widget.widget_core_coll_tag_cloud .tag_cloud a {
@@ -1304,12 +1392,48 @@ div.evo_image_index div:hover {
 .disp_front .evo_front_page .evo_widget > ul:last-child > li:last-child {
   margin-bottom: 0;
 }
+.disp_front .evo_front_page .evo_widget .form-group .control-label {
+  padding-bottom: 5px;
+}
+.disp_front .evo_front_page .evo_widget .form-group .form_text_input {
+  padding: 10px 15px;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: none;
+}
+.disp_front .evo_front_page .evo_widget .form-group .form_text_input:hover,
+.disp_front .evo_front_page .evo_widget .form-group .form_text_input:active,
+.disp_front .evo_front_page .evo_widget .form-group .form_text_input:focus {
+  border-color: #18c54d;
+}
+.disp_front .evo_front_page .evo_widget .panel .panel-body .submit {
+  padding: 10px 15px;
+  border-radius: 2px;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.disp_front .evo_front_page .evo_widget .panel .panel-body .submit:hover,
+.disp_front .evo_front_page .evo_widget .panel .panel-body .submit:active,
+.disp_front .evo_front_page .evo_widget .panel .panel-body .submit:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+  border-color: #18c54d;
+}
 .disp_front .evo_front_page .evo_widget.widget_core_coll_search_form .compact_search_form .search_field {
   border-color: #18c54d;
 }
 .disp_front .evo_front_page .evo_widget.widget_core_coll_search_form .compact_search_form .search_submit {
   padding-left: 30px;
   padding-right: 30px;
+}
+.disp_front .evo_front_page .evo_widget.widget_core_user_register .fieldset_wrapper,
+.disp_front .evo_front_page .evo_widget.widget_core_user_login .fieldset_wrapper {
+  margin-top: 0 !important;
+}
+.disp_front .evo_front_page .evo_widget.widget_core_user_register .panel-body,
+.disp_front .evo_front_page .evo_widget.widget_core_user_login .panel-body {
+  padding: 5px 0;
 }
 .posts_gallery {
   margin: 0;
@@ -1772,7 +1896,7 @@ div.evo_image_index div:hover {
 .posts_list .evo_posts.three_column .posts__info {
   padding: 20px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .posts_list .evo_posts.three_column .posts__info .posts__title h3 {
     font-size: 2.2rem;
   }
@@ -1807,14 +1931,17 @@ div.evo_image_index div:hover {
   -ms-transform: translateY(-40px);
   transform: translateY(-40px);
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .posts_list .evo_posts {
-    max-width: 50%;
+    max-width: 50% !important;
+    width: 50% !important;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .posts_list .evo_posts {
-    max-width: 100%;
+    float: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 }
 .posts_list .evo_posts .main__posts_content {
@@ -1928,7 +2055,7 @@ div.evo_image_index div:hover {
 }
 .posts_list .evo_posts .posts__title h3 {
   font-family: "Roboto Slab", sans-serif;
-  font-size: 3.6rem;
+  font-size: 3rem;
   font-weight: 700;
   margin: 0;
   padding: 0;
@@ -2588,6 +2715,16 @@ div.evo_image_index div:hover {
   background-color: #18c54d;
   color: #ffffff;
   text-decoration: none;
+}
+#content .item_comments .evo_post_comment_notification {
+  font-size: 1.3rem;
+}
+#content .item_comments .evo_post_comment_notification .btn {
+  font-size: 1.3rem;
+  color: #444444;
+  border: 0;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 0;
 }
 #content .evo_comment {
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);

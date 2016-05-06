@@ -110,10 +110,10 @@ module.exports = function(grunt) {
 
 	// Load the plugin that provides the tasks ( "uglify", "less", "sass", etc. ):
 	grunt.loadNpmTasks('grunt-contrib-less');
-   grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-   grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-browser-sync');
 
 	// Default task(s):
 	grunt.registerTask( 'default', [ 'browserSync', 'less','cssmin', 'autoprefixer', 'watch'] );

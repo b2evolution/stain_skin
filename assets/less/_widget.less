@@ -155,3 +155,80 @@
 	}
 
 }
+
+
+// Widget Plugin Calendar
+// ======================================================================== /
+.widget_plugin_evo_Calr {
+	.bCalendarTable {
+		font-size: 100%;
+
+		caption {
+			font-family: @font_heading;
+			font-size: 1.8rem;
+			text-transform: uppercase;
+			padding: 15px;
+			border: 1px solid @primary;
+			border-bottom: 0;
+		}
+
+		th, td {
+			max-width: 60px;
+			width: 10ex;
+			padding: 8px 5px;
+			font-size: 100%;
+			text-align: center;
+		}
+
+		th {
+			font-family: @font_heading;
+			letter-spacing: 1px;
+			border: 1px solid @primary;
+			border-right: 0;
+
+			&:last-child {
+				border-right: 1px solid @primary;
+			}
+		}
+
+		td {
+			border-bottom: 1px solid @primary;
+			border-left: 1px solid @primary;
+
+			&:last-child {
+				border-right: 1px solid @primary;
+			}
+		}
+
+		tbody {
+			border-top: 1px solid @primary;
+
+			& > tr:first-child {
+				border-top: 1px solid @primary;
+			}
+		}
+
+		#bCalendarToday {
+			border-radius: 0;
+			background-color: @primary;
+			color: @w;
+			border-color: @primary;
+		}
+
+	}
+}
+
+
+// Widget Core Poll
+// ======================================================================== /
+.widget_core_poll {
+	.SaveButton {
+		border-radius: 2px;
+		padding: 8px 16px;
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		background-color: @primary;
+		border-color: @primary;
+		color: @w;
+	}
+}

@@ -157,6 +157,12 @@ class stain_gallery_Skin extends Skin
 					'type'			=> 'color',
 					'defaultvalue'	=> '#18C54D',
 				),
+				'body_color' => array(
+					'label'			=> T_( 'Color Body Text' ),
+					'note'			=> T_( 'Change color text for body. Default color is: #333333' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '#444444'
+				),
 				'body_background' => array(
 					'label'        => T_( 'Background Body' ),
 					'note'         => T_( 'Change background for All Disp and Page' ),

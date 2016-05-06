@@ -42,6 +42,43 @@
                 margin-bottom: 0;
             }
 
+            .form-group {
+
+                .control-label {
+                    padding-bottom: 5px;
+                }
+
+                .form_text_input {
+                    padding: 10px 15px;
+                    height: auto;
+                    border-radius: 2px;
+                    box-shadow: none;
+
+                    &:hover, &:active, &:focus {
+                        border-color: @primary;
+                    }
+                }
+            }
+
+            .panel {
+
+                .panel-body {
+                    .submit {
+                        padding: 10px 15px;
+                        border-radius: 2px;
+                        font-size: 1.1rem;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+
+                        &:hover, &:active, &:focus {
+                            background-color: @primary;
+                            color: @w;
+                            border-color: @primary;
+                        }
+                    }
+                }
+            }
+
             // Widget
             // ======================================================================== /
             &.widget_core_coll_search_form {
@@ -54,6 +91,17 @@
                         padding-left: 30px;
                         padding-right: 30px;
                     }
+                }
+            }
+
+            &.widget_core_user_register,
+            &.widget_core_user_login {
+                .fieldset_wrapper {
+                    margin-top: 0 !important;
+                }
+
+                .panel-body {
+                    padding: 5px 0;
                 }
             }
 

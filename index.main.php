@@ -25,11 +25,11 @@ skin_init( $disp );
 require_js( 'functions.js', 'blog' );	// for opening popup window (comments)
 // -------------------------- HTML HEADER INCLUDED HERE --------------------------
 skin_include( '_html_header.inc.php', array(
-		'arcdir_text'     => T_('Index'),
-		'catdir_text'     => T_('Galleries'),
-		'category_text'   => T_('Gallery').': ',
-		'categories_text' => T_('Galleries').': ',
-	) );
+	'arcdir_text'     => T_('Index'),
+	'catdir_text'     => T_('Galleries'),
+	'category_text'   => T_('Gallery').': ',
+	'categories_text' => T_('Galleries').': ',
+) );
 // -------------------------------- END OF HEADER --------------------------------
 
 // ---------------------------- SITE HEADER INCLUDED HERE ----------------------------

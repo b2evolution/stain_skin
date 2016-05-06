@@ -54,6 +54,44 @@
                 height: auto;
             }
 
+            .panel {
+                background-color: transparent;
+
+                .panel-body {
+                    padding: 5px 0;
+                }
+
+                .submit {
+                    font-size: 1.2rem;
+                    border-radius: 2px;
+                    padding: 10px 15px;
+                    text-transform: uppercase;
+                    border-color: @w;
+
+                    &:hover, &:active, &:focus {
+                        background-color: @primary;
+                        color: @w;
+                        border-color: @primary;
+                    }
+                }
+            }
+
+            .form-group {
+                margin-bottom: 5px;
+
+                .control-label {
+                    margin-bottom: 5px;
+                }
+
+                .form_text_input {
+                    padding: 10px 15px;
+                    border-radius: 0;
+                    border-color: @w;
+                    height: auto;
+                }
+
+            }
+
 
             // Widget
             // ======================================================================== /

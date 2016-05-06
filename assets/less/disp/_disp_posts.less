@@ -84,7 +84,7 @@
                 padding: 20px;
 
                 .posts__title {
-                    @media screen and ( min-width: @M ) {
+                    @media screen and ( max-width: @M ) {
 
                         h3 {
                             font-size: 2.2rem;
@@ -134,11 +134,14 @@
 
         // Responsive Layout
         // ======================================================================== /
-        @media screen and ( max-width: @M ) {
-            max-width: @two_column;
+        @media screen and ( max-width: @MM ) {
+            max-width: @two_column !important;
+            width: @two_column !important;
         }
-        @media screen and ( max-width: @S ) {
-            max-width: @one_column;
+        @media screen and ( max-width: @MX ) {
+            float: none !important;
+            max-width: @one_column !important;
+            width: @one_column !important;
         }
 
         // Main Posts Content
@@ -258,7 +261,7 @@
 
             h3 {
                 font-family: @font_heading;
-                font-size: 3.6rem;
+                font-size: 3rem;
                 font-weight: 700;
                 // letter-spacing: 2px;
                 // text-transform: uppercase;
