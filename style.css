@@ -1357,6 +1357,26 @@ div.evo_image_index div:hover {
   content: 'Github';
   left: -32%;
 }
+#footer .footer__social a.ufld_flickr::after {
+  content: 'Flickr';
+  left: -30%;
+}
+#footer .footer__social a.ufld_youtube::after {
+  content: 'Youtube';
+  left: -28%;
+}
+#footer .footer__social a.ufld_digg::after {
+  content: 'Digg';
+  left: -26%;
+}
+#footer .footer__social a.ufld_stumbleupon::after {
+  content: 'Stumbleupon';
+  left: -24%;
+}
+#footer .footer__social a.ufld_pinterest::after {
+  content: 'Pinterest';
+  left: -22%;
+}
 #footer .powered_by a img {
   background-color: #ffffff;
   border-radius: 4px;
