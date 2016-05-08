@@ -1173,7 +1173,7 @@ div.evo_image_index div:hover {
   color: #ffffff;
 }
 #footer {
-  padding: 50px 0 35px;
+  padding: 40px 0;
   background-color: #0e1215;
 }
 #footer .footer__widgets {
@@ -3657,6 +3657,281 @@ html.sb-active #sb-site::after {
   margin-bottom: 5px;
   border-bottom: 1px solid #f7f7f7;
 }
+.disp_threads .main_content,
+.disp_contacts .main_content {
+  background-color: #ffffff;
+  padding: 40px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
+.disp_threads .main_content .title__content,
+.disp_contacts .main_content .title__content {
+  margin-top: 0;
+}
+.disp_threads .main_content .evo_form__thread .control-label,
+.disp_contacts .main_content .evo_form__thread .control-label {
+  margin-bottom: 5px;
+}
+.disp_threads .main_content .evo_form__thread .token-input-list-facebook,
+.disp_contacts .main_content .evo_form__thread .token-input-list-facebook {
+  box-shadow: none;
+  border-radius: 0;
+  padding: 6px 15px;
+}
+.disp_threads .main_content .evo_form__thread .form_text_input,
+.disp_contacts .main_content .evo_form__thread .form_text_input,
+.disp_threads .main_content .evo_form__thread .form_textarea_input,
+.disp_contacts .main_content .evo_form__thread .form_textarea_input {
+  box-shadow: none;
+  border-radius: 0;
+  height: auto;
+  padding: 10px 15px;
+}
+.disp_threads .main_content .evo_form__thread .form_text_input:focus,
+.disp_contacts .main_content .evo_form__thread .form_text_input:focus,
+.disp_threads .main_content .evo_form__thread .form_textarea_input:focus,
+.disp_contacts .main_content .evo_form__thread .form_textarea_input:focus {
+  border-color: #18c54d;
+}
+.disp_threads .main_content .results,
+.disp_contacts .main_content .results {
+  border-radius: 0;
+  border-bottom: 1px;
+  margin-bottom: 0;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
+.disp_threads .main_content .results .panel-heading,
+.disp_contacts .main_content .results .panel-heading,
+.disp_threads .main_content .results .panel-body,
+.disp_contacts .main_content .results .panel-body {
+  padding: 15px 25px;
+}
+.disp_threads .main_content .results .panel-heading .btn,
+.disp_contacts .main_content .results .panel-heading .btn,
+.disp_threads .main_content .results .panel-body .btn,
+.disp_contacts .main_content .results .panel-body .btn {
+  font-size: 1.2rem;
+  padding: 6px 15px;
+  border-radius: 30px;
+}
+.disp_threads .main_content .results .panel-heading,
+.disp_contacts .main_content .results .panel-heading {
+  border-radius: 0;
+}
+.disp_threads .main_content .results .panel-heading .btn-primary,
+.disp_contacts .main_content .results .panel-heading .btn-primary {
+  background-color: #18c54d;
+  color: #ffffff;
+  border-color: #18c54d;
+}
+.disp_threads .main_content .results .table_scroll th,
+.disp_contacts .main_content .results .table_scroll th,
+.disp_threads .main_content .results .table_scroll td,
+.disp_contacts .main_content .results .table_scroll td {
+  padding: 10px;
+}
+.disp_threads .main_content .results .table_scroll img,
+.disp_contacts .main_content .results .table_scroll img {
+  border-radius: 2px;
+  margin-right: 10px;
+}
+.disp_threads .main_content .results .table_scroll .fa-check,
+.disp_contacts .main_content .results .table_scroll .fa-check {
+  padding-right: 5px;
+}
+.disp_threads .main_content .form_send_contacts,
+.disp_contacts .main_content .form_send_contacts {
+  margin-top: 20px;
+}
+.disp_threads .main_content .form_send_contacts .btn,
+.disp_contacts .main_content .form_send_contacts .btn {
+  border-radius: 30px;
+  font-size: 1.2rem;
+  border-color: #18c54d;
+  color: #18c54d;
+  padding: 6px 12px;
+}
+.disp_threads .main_content .form_send_contacts .btn:hover,
+.disp_contacts .main_content .form_send_contacts .btn:hover,
+.disp_threads .main_content .form_send_contacts .btn:active,
+.disp_contacts .main_content .form_send_contacts .btn:active,
+.disp_threads .main_content .form_send_contacts .btn:focus,
+.disp_contacts .main_content .form_send_contacts .btn:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+}
+.disp_threads .main_content .form_add_contacts .SaveButton,
+.disp_contacts .main_content .form_add_contacts .SaveButton {
+  border: 1px solid #18c54d;
+  padding: 6px 12px;
+  text-transform: capitalize;
+}
+.disp_threads .main_content .form_add_contacts .SaveButton:hover,
+.disp_contacts .main_content .form_add_contacts .SaveButton:hover,
+.disp_threads .main_content .form_add_contacts .SaveButton:active,
+.disp_contacts .main_content .form_add_contacts .SaveButton:active,
+.disp_threads .main_content .form_add_contacts .SaveButton:focus,
+.disp_contacts .main_content .form_add_contacts .SaveButton:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+}
+.disp_messages .evo_private_messages_list > h2 {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+.disp_messages .evo_private_messages_list .messages_navigation .floatleft,
+.disp_messages .evo_private_messages_list .messages_navigation .floatright {
+  display: block;
+  border: 1px solid #18c54d;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 1.3rem;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+.disp_messages .evo_private_messages_list .messages_navigation .floatleft:hover,
+.disp_messages .evo_private_messages_list .messages_navigation .floatright:hover,
+.disp_messages .evo_private_messages_list .messages_navigation .floatleft:active,
+.disp_messages .evo_private_messages_list .messages_navigation .floatright:active,
+.disp_messages .evo_private_messages_list .messages_navigation .floatleft:focus,
+.disp_messages .evo_private_messages_list .messages_navigation .floatright:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
+.disp_messages .evo_private_messages_list .messages_navigation .floatleft:hover a,
+.disp_messages .evo_private_messages_list .messages_navigation .floatright:hover a,
+.disp_messages .evo_private_messages_list .messages_navigation .floatleft:active a,
+.disp_messages .evo_private_messages_list .messages_navigation .floatright:active a,
+.disp_messages .evo_private_messages_list .messages_navigation .floatleft:focus a,
+.disp_messages .evo_private_messages_list .messages_navigation .floatright:focus a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.disp_messages .evo_private_messages_list .messages_navigation .floatleft a:hover,
+.disp_messages .evo_private_messages_list .messages_navigation .floatright a:hover,
+.disp_messages .evo_private_messages_list .messages_navigation .floatleft a:active,
+.disp_messages .evo_private_messages_list .messages_navigation .floatright a:active,
+.disp_messages .evo_private_messages_list .messages_navigation .floatleft a:focus,
+.disp_messages .evo_private_messages_list .messages_navigation .floatright a:focus {
+  text-decoration: none;
+}
+.disp_messages .evo_private_messages_list .panel {
+  border-radius: 0;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+  border-bottom: 0;
+}
+.disp_messages .evo_private_messages_list .panel .panel-heading,
+.disp_messages .evo_private_messages_list .panel .panel-body {
+  padding: 15px 25px;
+}
+.disp_messages .evo_private_messages_list .panel .panel-heading {
+  border-radius: 0;
+}
+.disp_messages .evo_private_messages_list .panel .panel-heading img {
+  border-radius: 100%;
+}
+.disp_messages .evo_private_messages_list .panel .panel-body .SaveButton {
+  border-radius: 30px;
+}
+.disp_messages .evo_private_messages_list .messages_list_actions {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.disp_messages .evo_private_messages_list .messages_list_actions .btn {
+  display: inline-block;
+  border-radius: 30px;
+  padding: 5px 15px;
+  color: #18c54d;
+  border-color: #18c54d;
+}
+.disp_messages .evo_private_messages_list .messages_list_actions .btn:hover,
+.disp_messages .evo_private_messages_list .messages_list_actions .btn:active,
+.disp_messages .evo_private_messages_list .messages_list_actions .btn:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+}
+.disp_messages .evo_private_messages_list .results .table_scroll td {
+  padding: 15px;
+}
+.disp_user .pager {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+.disp_user .pager a {
+  padding: 8px 20px;
+  border-radius: 30px;
+  border-color: #18c54d;
+  font-weight: 400;
+}
+.disp_user .pager a:hover,
+.disp_user .pager a:active,
+.disp_user .pager a:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
+.disp_user .profile_content .profile_column_right {
+  margin-left: 330px;
+}
+@media screen and (max-width: 767px) {
+  .disp_user .profile_content .profile_column_right,
+  .disp_user .profile_content .profile_column_left {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+.disp_user .profile_content .panel {
+  border-radius: 0;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+.disp_user .profile_content .panel .panel-heading {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  border-radius: 0;
+  padding: 15px 20px;
+}
+.disp_user .profile_content .fieldset_wrapper {
+  margin-top: 0 !important;
+}
+.disp_user .profile_content .btn {
+  border-radius: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.disp_users .main_content {
+  background-color: #ffffff;
+  padding: 40px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
+.disp_users .main_content .title__content {
+  margin-top: 0;
+}
+.disp_users .main_content .panel {
+  border-radius: 0;
+  border-bottom: 0;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+  margin-bottom: 0;
+}
+.disp_users .main_content .panel .panel-heading {
+  padding: 15px 20px;
+  border-radius: 0;
+}
+.disp_users .main_content .panel .panel-heading .panel-title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+}
+.disp_users .main_content .panel .btn {
+  border-radius: 30px;
+}
+.disp_users .main_content .table_scroll td {
+  padding: 8px 10px !important;
+}
 ul.profile_tabs {
   margin: 0 2ex 2ex;
   position: relative;
@@ -3696,6 +3971,51 @@ ul.profile_tabs {
   background-color: #18c54d;
   color: #ffffff;
   text-decoration: none;
+}
+.form_text_input,
+.form_textarea_input {
+  box-shadow: none;
+  border-radius: 2px;
+}
+.form_text_input:focus,
+.form_textarea_input:focus {
+  border-color: #18c54d;
+}
+.SaveButton {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding: 10px 25px;
+  border-radius: 30px;
+  background-color: transparent;
+}
+.SaveButton.btn-primary {
+  color: #18c54d;
+  border: 2px solid #18c54d;
+}
+.SaveButton.btn-primary:hover,
+.SaveButton.btn-primary:active,
+.SaveButton.btn-primary:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+}
+.SaveButton.btn-info {
+  color: #5bc0de;
+  border: 2px solid #5bc0de;
+}
+.SaveButton.btn-info:hover,
+.SaveButton.btn-info:active,
+.SaveButton.btn-info:focus {
+  color: #ffffff;
+  background-color: #5bc0de;
+}
+.results .table_scroll h1,
+.results .table_scroll h2,
+.results .table_scroll h3,
+.results .table_scroll h4,
+.results .table_scroll h5,
+.results .table_scroll h6 {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
 }
 .evo_form__comment .form-group label,
 .evo_form__comment .form-group div {
