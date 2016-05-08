@@ -1086,11 +1086,11 @@ div.evo_image_index div:hover {
 }
 .widget_core_coll_tag_cloud .tag_cloud a {
   display: inline-block;
-  padding: 8px 15px;
-  font-size: 1.2rem !important;
+  padding: 6px 15px;
+  font-size: 1.1rem !important;
   border-radius: 30px;
   border: 1px solid #18c54d;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 .widget_core_coll_tag_cloud .tag_cloud a:hover,
 .widget_core_coll_tag_cloud .tag_cloud a:active,
@@ -1185,7 +1185,7 @@ div.evo_image_index div:hover {
   font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #ffffff;
 }
 #footer .footer__widgets .evo_widget {
@@ -3591,6 +3591,72 @@ html.sb-active #sb-site::after {
   padding: 10px 0;
   border-bottom: 1px solid #eeeeee;
 }
+.disp_msgform .main_content {
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
+.disp_msgform .main_content .title__content {
+  margin-top: 0;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eeeeee;
+}
+.disp_msgform .main_content .evo_form .form_text_input,
+.disp_msgform .main_content .evo_form .form_textarea_input {
+  padding: 15px;
+  box-shadow: none;
+  border-radius: 0;
+  height: auto;
+  font-size: 1.3rem;
+  margin-right: 5px;
+  background-color: #eeeeee;
+  border-color: #eeeeee;
+}
+.disp_msgform .main_content .evo_form .form_text_input:focus,
+.disp_msgform .main_content .evo_form .form_textarea_input:focus {
+  border-color: #18c54d;
+}
+.disp_msgform .main_content .evo_form .control-label {
+  font-weight: 400;
+  padding-bottom: 3px;
+}
+.disp_msgform .main_content .evo_form .submit {
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  color: #18c54d;
+  background-color: transparent;
+  border: 2px solid #18c54d;
+  padding: 12px 25px;
+}
+.disp_msgform .main_content .evo_form .submit:hover,
+.disp_msgform .main_content .evo_form .submit:active,
+.disp_msgform .main_content .evo_form .submit:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+}
+.disp_arcdir .main_content {
+  background-color: #ffffff;
+  padding: 40px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
+.disp_arcdir .main_content .title__content {
+  margin-top: 0;
+}
+.disp_arcdir .main_content ul {
+  list-style-type: disc;
+  padding: 0;
+}
+.disp_arcdir .main_content ul li {
+  list-style-type: disc;
+}
+.disp_arcdir .main_content ul a {
+  display: block;
+  padding: 10px 0 15px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #f7f7f7;
+}
 ul.profile_tabs {
   margin: 0 2ex 2ex;
   position: relative;
@@ -3601,13 +3667,35 @@ ul.profile_tabs {
   padding: 10px;
   margin-left: 10px;
 }
-.disp_help .main_content {
+.disp_help .main_content,
+.disp_tags .main_content {
   background-color: #ffffff;
   padding: 30px;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
 }
-.disp_help .main_content h2 {
+.disp_help .main_content h2,
+.disp_tags .main_content h2 {
   margin-top: 0;
+}
+.disp_help .tag_cloud a,
+.disp_tags .tag_cloud a {
+  display: inline-block;
+  font-size: 1.3rem !important;
+  border-radius: 30px;
+  border: 1px solid #18c54d;
+  color: #18c54d;
+  padding: 10px 20px;
+  margin-bottom: 4px;
+}
+.disp_help .tag_cloud a:hover,
+.disp_tags .tag_cloud a:hover,
+.disp_help .tag_cloud a:focus,
+.disp_tags .tag_cloud a:focus,
+.disp_help .tag_cloud a:active,
+.disp_tags .tag_cloud a:active {
+  background-color: #18c54d;
+  color: #ffffff;
+  text-decoration: none;
 }
 .evo_form__comment .form-group label,
 .evo_form__comment .form-group div {

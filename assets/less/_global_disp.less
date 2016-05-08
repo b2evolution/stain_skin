@@ -10,6 +10,8 @@
 @import "assets/less/disp/_disp_search";
 @import "assets/less/disp/_disp_postidx";
 @import "assets/less/disp/_disp_sitemap";
+@import "assets/less/disp/_disp_contact";
+@import "assets/less/disp/_disp_arcdir";
 
 // Style On Disp Profile
 // ======================================================================== /
@@ -26,7 +28,8 @@ ul.profile_tabs {
 	margin-left: 10px;
 }
 
-.disp_help {
+.disp_help,
+.disp_tags {
 
 	.main_content {
 		background-color: @w;
@@ -36,6 +39,26 @@ ul.profile_tabs {
 		h2 {
 			margin-top: 0;
 		}
+	}
+
+	.tag_cloud {
+
+		a {
+			display: inline-block;
+			font-size: 1.3rem !important;
+			border-radius: 30px;
+			border: 1px solid @primary;
+			color: @primary;
+			padding: 10px 20px;
+			margin-bottom: 4px;
+
+			&:hover, &:focus, &:active {
+				background-color: @primary;
+				color: @w;
+				text-decoration: none;
+			}
+		}
+
 	}
 
 }
