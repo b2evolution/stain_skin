@@ -3932,6 +3932,158 @@ html.sb-active #sb-site::after {
 .disp_users .main_content .table_scroll td {
   padding: 8px 10px !important;
 }
+.disp_profile .main_content,
+.disp_avatar .main_content,
+.disp_pwdchange .main_content,
+.disp_userprefs .main_content,
+.disp_subs .main_content {
+  background-color: #ffffff;
+  padding: 40px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
+.disp_profile .main_content .title__content,
+.disp_avatar .main_content .title__content,
+.disp_pwdchange .main_content .title__content,
+.disp_userprefs .main_content .title__content,
+.disp_subs .main_content .title__content {
+  margin-top: 0;
+}
+.disp_profile .main_content .profile_tabs,
+.disp_avatar .main_content .profile_tabs,
+.disp_pwdchange .main_content .profile_tabs,
+.disp_userprefs .main_content .profile_tabs,
+.disp_subs .main_content .profile_tabs {
+  margin: 0;
+  border-color: #18c54d;
+}
+.disp_profile .main_content .profile_tabs li.active a,
+.disp_avatar .main_content .profile_tabs li.active a,
+.disp_pwdchange .main_content .profile_tabs li.active a,
+.disp_userprefs .main_content .profile_tabs li.active a,
+.disp_subs .main_content .profile_tabs li.active a {
+  border-radius: 0;
+  border-top-color: #18c54d;
+  border-left-color: #18c54d;
+  border-right-color: #18c54d;
+  cursor: pointer;
+}
+.disp_profile .main_content .profile_tabs a,
+.disp_avatar .main_content .profile_tabs a,
+.disp_pwdchange .main_content .profile_tabs a,
+.disp_userprefs .main_content .profile_tabs a,
+.disp_subs .main_content .profile_tabs a {
+  border-radius: 0;
+}
+.disp_profile .main_content .profile_tabs a:hover,
+.disp_avatar .main_content .profile_tabs a:hover,
+.disp_pwdchange .main_content .profile_tabs a:hover,
+.disp_userprefs .main_content .profile_tabs a:hover,
+.disp_subs .main_content .profile_tabs a:hover,
+.disp_profile .main_content .profile_tabs a:active,
+.disp_avatar .main_content .profile_tabs a:active,
+.disp_pwdchange .main_content .profile_tabs a:active,
+.disp_userprefs .main_content .profile_tabs a:active,
+.disp_subs .main_content .profile_tabs a:active,
+.disp_profile .main_content .profile_tabs a:focus,
+.disp_avatar .main_content .profile_tabs a:focus,
+.disp_pwdchange .main_content .profile_tabs a:focus,
+.disp_userprefs .main_content .profile_tabs a:focus,
+.disp_subs .main_content .profile_tabs a:focus {
+  background-color: #18c54d;
+  border-color: #18c54d;
+  color: #ffffff;
+}
+.disp_profile .main_content .panel,
+.disp_avatar .main_content .panel,
+.disp_pwdchange .main_content .panel,
+.disp_userprefs .main_content .panel,
+.disp_subs .main_content .panel {
+  border-radius: 0;
+}
+.disp_profile .main_content .panel:hover,
+.disp_avatar .main_content .panel:hover,
+.disp_pwdchange .main_content .panel:hover,
+.disp_userprefs .main_content .panel:hover,
+.disp_subs .main_content .panel:hover,
+.disp_profile .main_content .panel:active,
+.disp_avatar .main_content .panel:active,
+.disp_pwdchange .main_content .panel:active,
+.disp_userprefs .main_content .panel:active,
+.disp_subs .main_content .panel:active,
+.disp_profile .main_content .panel:focus,
+.disp_avatar .main_content .panel:focus,
+.disp_pwdchange .main_content .panel:focus,
+.disp_userprefs .main_content .panel:focus,
+.disp_subs .main_content .panel:focus {
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+}
+.disp_profile .main_content .panel .panel-heading,
+.disp_avatar .main_content .panel .panel-heading,
+.disp_pwdchange .main_content .panel .panel-heading,
+.disp_userprefs .main_content .panel .panel-heading,
+.disp_subs .main_content .panel .panel-heading,
+.disp_profile .main_content .panel .panel-body,
+.disp_avatar .main_content .panel .panel-body,
+.disp_pwdchange .main_content .panel .panel-body,
+.disp_userprefs .main_content .panel .panel-body,
+.disp_subs .main_content .panel .panel-body {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.disp_profile .main_content .panel .panel-heading,
+.disp_avatar .main_content .panel .panel-heading,
+.disp_pwdchange .main_content .panel .panel-heading,
+.disp_userprefs .main_content .panel .panel-heading,
+.disp_subs .main_content .panel .panel-heading {
+  border-radius: 0;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  color: #555555;
+  letter-spacing: 0.2px;
+}
+.disp_profile .main_content .panel .panel-heading .panel-title,
+.disp_avatar .main_content .panel .panel-heading .panel-title,
+.disp_pwdchange .main_content .panel .panel-heading .panel-title,
+.disp_userprefs .main_content .panel .panel-heading .panel-title,
+.disp_subs .main_content .panel .panel-heading .panel-title {
+  font-family: "Roboto Slab", sans-serif;
+}
+.disp_profile .main_content .panel .panel-body #current_user_pass,
+.disp_avatar .main_content .panel .panel-body #current_user_pass,
+.disp_pwdchange .main_content .panel .panel-body #current_user_pass,
+.disp_userprefs .main_content .panel .panel-body #current_user_pass,
+.disp_subs .main_content .panel .panel-body #current_user_pass,
+.disp_profile .main_content .panel .panel-body #edited_user_pass1,
+.disp_avatar .main_content .panel .panel-body #edited_user_pass1,
+.disp_pwdchange .main_content .panel .panel-body #edited_user_pass1,
+.disp_userprefs .main_content .panel .panel-body #edited_user_pass1,
+.disp_subs .main_content .panel .panel-body #edited_user_pass1,
+.disp_profile .main_content .panel .panel-body #edited_user_pass2,
+.disp_avatar .main_content .panel .panel-body #edited_user_pass2,
+.disp_pwdchange .main_content .panel .panel-body #edited_user_pass2,
+.disp_userprefs .main_content .panel .panel-body #edited_user_pass2,
+.disp_subs .main_content .panel .panel-body #edited_user_pass2,
+.disp_profile .main_content .panel .panel-body #p-container,
+.disp_avatar .main_content .panel .panel-body #p-container,
+.disp_pwdchange .main_content .panel .panel-body #p-container,
+.disp_userprefs .main_content .panel .panel-body #p-container,
+.disp_subs .main_content .panel .panel-body #p-container {
+  width: 250px !important;
+}
+.disp_profile .main_content .panel .panel-body #p-status,
+.disp_avatar .main_content .panel .panel-body #p-status,
+.disp_pwdchange .main_content .panel .panel-body #p-status,
+.disp_userprefs .main_content .panel .panel-body #p-status,
+.disp_subs .main_content .panel .panel-body #p-status {
+  left: 255px;
+}
+.disp_profile .main_content .btn,
+.disp_avatar .main_content .btn,
+.disp_pwdchange .main_content .btn,
+.disp_userprefs .main_content .btn,
+.disp_subs .main_content .btn {
+  border-radius: 30px;
+}
 ul.profile_tabs {
   margin: 0 2ex 2ex;
   position: relative;

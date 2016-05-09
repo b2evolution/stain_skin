@@ -1289,9 +1289,9 @@ class stain_gallery_Skin extends Skin
 					'footer_text'           => '<div class="center"><ul class="pagination">'
 					.'$prev$$first$$list_prev$$list$$list_next$$last$$next$'
 					.'</ul></div><div class="center">$page_size$</div>'
-               /* T_('Page $scroll_list$ out of $total_pages$   $prev$ | $next$<br />'. */
-               /* '<strong>$total_pages$ Pages</strong> : $prev$ $list$ $next$' */
-               /* .' <br />$first$  $list_prev$  $list$  $list_next$  $last$ :: $prev$ | $next$') */,
+	               /* T_('Page $scroll_list$ out of $total_pages$   $prev$ | $next$<br />'. */
+	               /* '<strong>$total_pages$ Pages</strong> : $prev$ $list$ $next$' */
+	               /* .' <br />$first$  $list_prev$  $list$  $list_next$  $last$ :: $prev$ | $next$') */,
 					'footer_text_single'    => '<div class="center">$page_size$</div>',
 					'footer_text_no_limit'  => '', // Text if theres no LIMIT and therefor only one page anyway
 					'page_current_template' => '<span>$page_num$</span>',
@@ -1376,15 +1376,15 @@ class stain_gallery_Skin extends Skin
 					'fieldset_end'   => '</div></div></fieldset></div>'."\n",
 					'fieldstart'     => '<div class="form-group" $ID$>'."\n",
 					'fieldend'       => "</div>\n\n",
-					'labelclass'     => 'control-label',
+					'labelclass'     => 'control-label col-sm-3',
 					'labelstart'     => '',
 					'labelend'       => "\n",
-					'labelempty'     => '<label class="control-label"></label>',
-					'inputstart'     => '<div class="controls">',
+					'labelempty'     => '<label class="control-label col-sm-3"></label>',
+					'inputstart'     => '<div class="controls col-sm-9">',
 					'inputend'       => "</div>\n",
-					'infostart'      => '<div class="controls"><div class="form-control-static">',
+					'infostart'      => '<div class="controls col-sm-9"><div class="form-control-static">',
 					'infoend'        => "</div></div>\n",
-					'buttonsstart'   => '<div class="form-group"><div class="control-buttons">',
+					'buttonsstart'   => '<div class="form-group"><div class="control-buttons col-sm-offset-3 col-sm-9">',
 					'buttonsend'     => "</div></div>\n\n",
 					'customstart'    => '<div class="custom_content">',
 					'customend'      => "</div>\n",

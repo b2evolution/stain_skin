@@ -1,0 +1,99 @@
+// Style Disp Profile
+// ======================================================================== /
+.disp_profile,
+.disp_avatar,
+.disp_pwdchange,
+.disp_userprefs,
+.disp_subs {
+
+    .main_content {
+        background-color: @w;
+        padding: 40px;
+        box-shadow: @box-shadow;
+
+        // Title Content
+        // ======================================================================== /
+        .title__content {
+            margin-top: 0;
+        }
+
+        // Profile Tabs
+        // ======================================================================== /
+        .profile_tabs {
+            margin: 0;
+            border-color: @primary;
+
+            li {
+
+                &.active {
+
+                    a {
+                        border-radius: 0;
+                        border-top-color: @primary;
+                        border-left-color: @primary;
+                        border-right-color: @primary;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+
+            a {
+                border-radius: 0;
+
+                &:hover, &:active, &:focus {
+                    background-color: @primary;
+                    border-color: @primary;
+                    color: @w;
+                }
+            }
+
+        }
+
+        .panel {
+            border-radius: 0;
+
+            &:hover, &:active, &:focus {
+                box-shadow: @box-shadow;
+            }
+
+            .panel-heading,
+            .panel-body {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .panel-heading {
+                border-radius: 0;
+                font-family: @font_heading;
+                font-weight: 700;
+                color: @c5;
+                letter-spacing: 0.2px;
+
+                .panel-title {
+                    font-family: @font_heading;
+                }
+            }
+
+            .panel-body {
+                #current_user_pass,
+                #edited_user_pass1,
+                #edited_user_pass2,
+                #p-container {
+                    width: 250px !important;
+                }
+
+                #p-status {
+                    left: 255px;
+                }
+            }
+
+        }
+
+        .btn {
+            border-radius: 30px;
+        }
+
+    }
+
+}
