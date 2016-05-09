@@ -4077,12 +4077,292 @@ html.sb-active #sb-site::after {
 .disp_subs .main_content .panel .panel-body #p-status {
   left: 255px;
 }
+.disp_profile .main_content .panel .panel-body .form_text_input,
+.disp_avatar .main_content .panel .panel-body .form_text_input,
+.disp_pwdchange .main_content .panel .panel-body .form_text_input,
+.disp_userprefs .main_content .panel .panel-body .form_text_input,
+.disp_subs .main_content .panel .panel-body .form_text_input {
+  max-width: 90%;
+  border-radius: 2px;
+  border-color: #dddddd;
+}
+.disp_profile .main_content .panel .panel-body .form_text_input:hover,
+.disp_avatar .main_content .panel .panel-body .form_text_input:hover,
+.disp_pwdchange .main_content .panel .panel-body .form_text_input:hover,
+.disp_userprefs .main_content .panel .panel-body .form_text_input:hover,
+.disp_subs .main_content .panel .panel-body .form_text_input:hover,
+.disp_profile .main_content .panel .panel-body .form_text_input:active,
+.disp_avatar .main_content .panel .panel-body .form_text_input:active,
+.disp_pwdchange .main_content .panel .panel-body .form_text_input:active,
+.disp_userprefs .main_content .panel .panel-body .form_text_input:active,
+.disp_subs .main_content .panel .panel-body .form_text_input:active,
+.disp_profile .main_content .panel .panel-body .form_text_input:focus,
+.disp_avatar .main_content .panel .panel-body .form_text_input:focus,
+.disp_pwdchange .main_content .panel .panel-body .form_text_input:focus,
+.disp_userprefs .main_content .panel .panel-body .form_text_input:focus,
+.disp_subs .main_content .panel .panel-body .form_text_input:focus {
+  box-shadow: none;
+  border-color: #18c54d;
+}
+.disp_profile .main_content .panel .panel-body .help-inline .btn,
+.disp_avatar .main_content .panel .panel-body .help-inline .btn,
+.disp_pwdchange .main_content .panel .panel-body .help-inline .btn,
+.disp_userprefs .main_content .panel .panel-body .help-inline .btn,
+.disp_subs .main_content .panel .panel-body .help-inline .btn {
+  padding: 8px 12px;
+  line-height: 17px;
+  border-radius: 2px;
+}
+.disp_profile .main_content .panel .panel-body .help-inline .btn:hover,
+.disp_avatar .main_content .panel .panel-body .help-inline .btn:hover,
+.disp_pwdchange .main_content .panel .panel-body .help-inline .btn:hover,
+.disp_userprefs .main_content .panel .panel-body .help-inline .btn:hover,
+.disp_subs .main_content .panel .panel-body .help-inline .btn:hover,
+.disp_profile .main_content .panel .panel-body .help-inline .btn:active,
+.disp_avatar .main_content .panel .panel-body .help-inline .btn:active,
+.disp_pwdchange .main_content .panel .panel-body .help-inline .btn:active,
+.disp_userprefs .main_content .panel .panel-body .help-inline .btn:active,
+.disp_subs .main_content .panel .panel-body .help-inline .btn:active,
+.disp_profile .main_content .panel .panel-body .help-inline .btn:focus,
+.disp_avatar .main_content .panel .panel-body .help-inline .btn:focus,
+.disp_pwdchange .main_content .panel .panel-body .help-inline .btn:focus,
+.disp_userprefs .main_content .panel .panel-body .help-inline .btn:focus,
+.disp_subs .main_content .panel .panel-body .help-inline .btn:focus {
+  background-color: #18c54d;
+  color: #ffffff;
+  border-color: #18c54d;
+}
 .disp_profile .main_content .btn,
 .disp_avatar .main_content .btn,
 .disp_pwdchange .main_content .btn,
 .disp_userprefs .main_content .btn,
 .disp_subs .main_content .btn {
   border-radius: 30px;
+}
+.disp_login #content,
+.disp_lostpassword #content,
+.disp_register #content {
+  padding: 120px 0;
+}
+.disp_login #content .title__content,
+.disp_lostpassword #content .title__content,
+.disp_register #content .title__content {
+  margin-top: 0;
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-size: 3rem;
+}
+.disp_login .main_content,
+.disp_lostpassword .main_content,
+.disp_register .main_content {
+  position: relative;
+  background-image: url("assets/images/bg_error.jpg");
+  background-size: cover;
+  max-width: 520px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 50px;
+  z-index: 0;
+  overflow: hidden;
+}
+.disp_login .main_content::after,
+.disp_lostpassword .main_content::after,
+.disp_register .main_content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.75;
+  z-index: -1;
+}
+.disp_login #login_form,
+.disp_lostpassword #login_form,
+.disp_register #login_form,
+.disp_login #lostpass_form,
+.disp_lostpassword #lostpass_form,
+.disp_register #lostpass_form {
+  color: #ffffff;
+}
+.disp_login #login_form .panel,
+.disp_lostpassword #login_form .panel,
+.disp_register #login_form .panel,
+.disp_login #lostpass_form .panel,
+.disp_lostpassword #lostpass_form .panel,
+.disp_register #lostpass_form .panel {
+  background-color: transparent;
+}
+.disp_login #login_form .panel .panel-body,
+.disp_lostpassword #login_form .panel .panel-body,
+.disp_register #login_form .panel .panel-body,
+.disp_login #lostpass_form .panel .panel-body,
+.disp_lostpassword #lostpass_form .panel .panel-body,
+.disp_register #lostpass_form .panel .panel-body {
+  border-radius: 2px;
+  padding: 20px;
+}
+.disp_login #login_form .controls,
+.disp_lostpassword #login_form .controls,
+.disp_register #login_form .controls,
+.disp_login #lostpass_form .controls,
+.disp_lostpassword #lostpass_form .controls,
+.disp_register #lostpass_form .controls {
+  width: 100%;
+}
+.disp_login #login_form .controls .form-control,
+.disp_lostpassword #login_form .controls .form-control,
+.disp_register #login_form .controls .form-control,
+.disp_login #lostpass_form .controls .form-control,
+.disp_lostpassword #lostpass_form .controls .form-control,
+.disp_register #lostpass_form .controls .form-control {
+  width: 100%;
+  padding: 12px 15px;
+  height: auto;
+  border-radius: 0;
+  border-color: #ffffff;
+}
+.disp_login #login_form .controls .form-control:hover,
+.disp_lostpassword #login_form .controls .form-control:hover,
+.disp_register #login_form .controls .form-control:hover,
+.disp_login #lostpass_form .controls .form-control:hover,
+.disp_lostpassword #lostpass_form .controls .form-control:hover,
+.disp_register #lostpass_form .controls .form-control:hover,
+.disp_login #login_form .controls .form-control:active,
+.disp_lostpassword #login_form .controls .form-control:active,
+.disp_register #login_form .controls .form-control:active,
+.disp_login #lostpass_form .controls .form-control:active,
+.disp_lostpassword #lostpass_form .controls .form-control:active,
+.disp_register #lostpass_form .controls .form-control:active,
+.disp_login #login_form .controls .form-control:focus,
+.disp_lostpassword #login_form .controls .form-control:focus,
+.disp_register #login_form .controls .form-control:focus,
+.disp_login #lostpass_form .controls .form-control:focus,
+.disp_lostpassword #lostpass_form .controls .form-control:focus,
+.disp_register #lostpass_form .controls .form-control:focus {
+  border-color: #ffffff;
+  box-shadow: none;
+}
+.disp_login #login_form .control-buttons,
+.disp_lostpassword #login_form .control-buttons,
+.disp_register #login_form .control-buttons,
+.disp_login #lostpass_form .control-buttons,
+.disp_lostpassword #lostpass_form .control-buttons,
+.disp_register #lostpass_form .control-buttons {
+  margin: 30px 0 20px;
+  padding: 0;
+  width: 100%;
+}
+.disp_login #login_form .control-buttons .btn,
+.disp_lostpassword #login_form .control-buttons .btn,
+.disp_register #login_form .control-buttons .btn,
+.disp_login #lostpass_form .control-buttons .btn,
+.disp_lostpassword #lostpass_form .control-buttons .btn,
+.disp_register #lostpass_form .control-buttons .btn {
+  border-radius: 0;
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+.disp_login #login_form .control-buttons .btn.btn-success,
+.disp_lostpassword #login_form .control-buttons .btn.btn-success,
+.disp_register #login_form .control-buttons .btn.btn-success,
+.disp_login #lostpass_form .control-buttons .btn.btn-success,
+.disp_lostpassword #lostpass_form .control-buttons .btn.btn-success,
+.disp_register #lostpass_form .control-buttons .btn.btn-success {
+  background-color: #18c54d;
+  border-color: #18c54d;
+}
+.disp_login #login_form .control-buttons .btn.btn-primary,
+.disp_lostpassword #login_form .control-buttons .btn.btn-primary,
+.disp_register #login_form .control-buttons .btn.btn-primary,
+.disp_login #lostpass_form .control-buttons .btn.btn-primary,
+.disp_lostpassword #lostpass_form .control-buttons .btn.btn-primary,
+.disp_register #lostpass_form .control-buttons .btn.btn-primary {
+  border-color: #337ab7;
+}
+.disp_login #login_form .control-buttons .btn.btn-primary:hover,
+.disp_lostpassword #login_form .control-buttons .btn.btn-primary:hover,
+.disp_register #login_form .control-buttons .btn.btn-primary:hover,
+.disp_login #lostpass_form .control-buttons .btn.btn-primary:hover,
+.disp_lostpassword #lostpass_form .control-buttons .btn.btn-primary:hover,
+.disp_register #lostpass_form .control-buttons .btn.btn-primary:hover,
+.disp_login #login_form .control-buttons .btn.btn-primary:active,
+.disp_lostpassword #login_form .control-buttons .btn.btn-primary:active,
+.disp_register #login_form .control-buttons .btn.btn-primary:active,
+.disp_login #lostpass_form .control-buttons .btn.btn-primary:active,
+.disp_lostpassword #lostpass_form .control-buttons .btn.btn-primary:active,
+.disp_register #lostpass_form .control-buttons .btn.btn-primary:active,
+.disp_login #login_form .control-buttons .btn.btn-primary:focus,
+.disp_lostpassword #login_form .control-buttons .btn.btn-primary:focus,
+.disp_register #login_form .control-buttons .btn.btn-primary:focus,
+.disp_login #lostpass_form .control-buttons .btn.btn-primary:focus,
+.disp_lostpassword #lostpass_form .control-buttons .btn.btn-primary:focus,
+.disp_register #lostpass_form .control-buttons .btn.btn-primary:focus {
+  border-color: #286090;
+}
+.disp_login #register_form .control-label,
+.disp_lostpassword #register_form .control-label,
+.disp_register #register_form .control-label {
+  color: #ffffff;
+}
+.disp_login #register_form .input_text,
+.disp_lostpassword #register_form .input_text,
+.disp_register #register_form .input_text {
+  width: 265px !important;
+}
+.disp_login #register_form .form-control,
+.disp_lostpassword #register_form .form-control,
+.disp_register #register_form .form-control {
+  width: 100%;
+  padding: 10px 15px;
+  height: auto;
+  border-radius: 0;
+  border-color: #ffffff;
+}
+.disp_login #register_form .form-control:hover,
+.disp_lostpassword #register_form .form-control:hover,
+.disp_register #register_form .form-control:hover,
+.disp_login #register_form .form-control:active,
+.disp_lostpassword #register_form .form-control:active,
+.disp_register #register_form .form-control:active,
+.disp_login #register_form .form-control:focus,
+.disp_lostpassword #register_form .form-control:focus,
+.disp_register #register_form .form-control:focus {
+  border-color: #ffffff;
+  box-shadow: none;
+}
+.disp_login #register_form #p-container,
+.disp_lostpassword #register_form #p-container,
+.disp_register #register_form #p-container {
+  border-color: #ffffff;
+}
+.disp_login #register_form #p-status,
+.disp_lostpassword #register_form #p-status,
+.disp_register #register_form #p-status,
+.disp_login #register_form .help-inline,
+.disp_lostpassword #register_form .help-inline,
+.disp_register #register_form .help-inline {
+  color: #ffffff;
+}
+.disp_login #register_form #p-status,
+.disp_lostpassword #register_form #p-status,
+.disp_register #register_form #p-status {
+  padding-left: 12px;
+}
+.disp_login #register_form #p-result,
+.disp_lostpassword #register_form #p-result,
+.disp_register #register_form #p-result {
+  height: 3px;
+}
+.disp_login #register_form .btn,
+.disp_lostpassword #register_form .btn,
+.disp_register #register_form .btn {
+  border-radius: 0;
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
 }
 ul.profile_tabs {
   margin: 0 2ex 2ex;

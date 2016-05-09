@@ -50,6 +50,9 @@
 
         }
 
+
+        // Panel
+        // ======================================================================== /
         .panel {
             border-radius: 0;
 
@@ -86,6 +89,32 @@
                 #p-status {
                     left: 255px;
                 }
+
+                .form_text_input {
+                    max-width: 90%;
+                    border-radius: 2px;
+                    border-color: @cd;
+
+                    &:hover, &:active, &:focus {
+                        box-shadow: none;
+                        border-color: @primary;
+                    }
+                }
+
+                .help-inline {
+                    .btn {
+                        padding: 8px 12px;
+                        line-height: 17px;
+                        border-radius: 2px;
+
+                        &:hover, &:active, &:focus {
+                            background-color: @primary;
+                            color: @w;
+                            border-color: @primary;
+                        }
+                    }
+                }
+
             }
 
         }

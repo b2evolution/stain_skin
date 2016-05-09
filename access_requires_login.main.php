@@ -136,10 +136,10 @@ if( $Skin->is_visible_container( 'menu' ) )
 			skin_include( '$disp$', array(
 					// Form params for the forms below: login, register, lostpassword, activateinfo and msgform
 					'skin_form_before'      => '<div class="panel panel-default skin-form">'
-																				.'<div class="panel-heading">'
-																					.'<h3 class="panel-title">$form_title$</h3>'
-																				.'</div>'
-																				.'<div class="panel-body">',
+												.'<div class="panel-heading">'
+													.'<h3 class="panel-title">$form_title$</h3>'
+												.'</div>'
+												.'<div class="panel-body">',
 					'skin_form_after'       => '</div></div>',
 					// Login
 					'display_form_messages' => true,
@@ -231,16 +231,16 @@ if( $Skin->is_visible_container( 'menu' ) )
 		<?php
 			// Please help us promote b2evolution and leave this logo on your blog:
 			powered_by( array(
-					'block_start' => '<div class="powered_by">',
-					'block_end'   => '</div>',
-					// Check /rsc/img/ for other possible images -- Don't forget to change or remove width & height too
-					'img_url'     => '$rsc$img/powered-by-b2evolution-120t.gif',
-					'img_width'   => 120,
-					'img_height'  => 32,
-				) );
+				'block_start' => '<div class="powered_by">',
+				'block_end'   => '</div>',
+				// Check /rsc/img/ for other possible images -- Don't forget to change or remove width & height too
+				'img_url'     => '$rsc$img/powered-by-b2evolution-120t.gif',
+				'img_width'   => 120,
+				'img_height'  => 32,
+			) );
 		?>
 	</div><!-- .col -->
-	
+
 </footer><!-- .row -->
 
 
