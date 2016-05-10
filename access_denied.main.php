@@ -153,7 +153,7 @@ if( $Skin->is_visible_container( 'menu' ) )
 
 		<?php
 			// -------------- MAIN CONTENT TEMPLATE INCLUDED HERE (Based on $disp) --------------
-			skin_include( '_access_denied.disp.php' );
+			// skin_include( '_access_denied.disp.php' );
 			// Note: you can customize any of the sub templates included here by
 			// copying the matching php file into your skin directory.
 			// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
@@ -241,7 +241,7 @@ if( $Skin->is_visible_container( 'menu' ) )
 				) );
 		?>
 	</div><!-- .col -->
-	
+
 </footer><!-- .row -->
 
 

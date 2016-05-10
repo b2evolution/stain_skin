@@ -42,14 +42,12 @@ skin_include( '_body_header.inc.php' );
 		<div class="main_content">
 			<!-- ================================= START OF MAIN AREA ================================== -->
 			<?php
-				if ( $disp !== 'login' ) :
-					// ------------------------- MESSAGES GENERATED FROM ACTIONS -------------------------
-					messages( array(
-						'block_start' => '<div class="action_messages">',
-						'block_end'   => '</div>',
-					) );
-					// --------------------------------- END OF MESSAGES ---------------------------------
-				endif;
+				// ------------------------- MESSAGES GENERATED FROM ACTIONS -------------------------
+				messages( array(
+					'block_start' => '<div class="action_messages">',
+					'block_end'   => '</div>',
+				) );
+				// --------------------------------- END OF MESSAGES ---------------------------------
 			?>
 
 			<?php
@@ -80,7 +78,7 @@ skin_include( '_body_header.inc.php' );
 					'item_status_class'     => 'evo_post__',
 
 					// Login
-					'display_form_messages' => true,
+					'display_form_messages' => false,
 					'form_title_login'      => T_('Log in to your account').'$form_links$',
 					'form_title_lostpass'   => get_request_title().'$form_links$',
 					'lostpass_page_class'   => 'evo_panel__lostpass',

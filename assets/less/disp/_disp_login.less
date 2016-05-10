@@ -2,18 +2,26 @@
 // ======================================================================== /
 .disp_login,
 .disp_lostpassword,
-.disp_register {
+.disp_register,
+.disp_access_requires_login {
 
     #content {
         padding: 120px 0;
+
+        @media screen and ( max-width: @S ) {
+            padding: 40px 0;
+        }
 
         .title__content {
             // font-family: @font_body;
             margin-top: 0;
             color: @w;
-            letter-spacing: 2px;
-            // text-align: center;
+            letter-spacing: 1.5px;
             font-size: 3rem;
+
+            @media screen and ( max-width: @S ) {
+                margin-bottom: 0;
+            }
         }
     }
 
@@ -26,7 +34,15 @@
         background-color: @w;
         padding: 50px;
         z-index: 0;
-        overflow: hidden;
+        // overflow: hidden;
+
+        @media screen and ( max-width: @S ) {
+            padding: 30px;
+        }
+
+        @media screen and ( max-width: @XS ) {
+            padding: 25px;
+        }
 
         &::after {
             content: '';
@@ -38,6 +54,12 @@
             background-color: @b;
             opacity: 0.75;
             z-index: -1;
+        }
+
+        .form-group {
+            @media screen and ( max-width: @S ) {
+                margin-bottom: 10px;
+            }
         }
 
     }
@@ -78,12 +100,19 @@
             padding: 0;
             width: 100%;
 
+            @media screen and ( max-width: @S ) {
+                margin: 20px 0;
+            }
+
             .btn {
                 border-radius: 0;
                 padding: 10px 20px;
                 font-size: 1.6rem;
                 text-transform: uppercase;
-                // transition: all 0.1s ease-out;
+
+                @media screen and ( max-width: @S ) {
+                    font-size: 1.3rem;
+                }
 
                 &:hover, &:active, &:focus{
                     // box-shadow: 1px 2px 3px rgba(51, 51, 51, 0.2);
@@ -154,6 +183,60 @@
             text-transform: uppercase;
         }
 
+    }
+
+
+    #lostpass_form {
+        .control-buttons {
+            margin-top: 0;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+
+            .btn-primary {
+                font-size: 1.4rem;
+            }
+
+        }
+    }
+
+
+    #register_form {
+
+        .input_text {
+            font-size: 1.3rem;
+        }
+
+        .btn-primary {
+            font-size: 1.4rem;
+        }
+
+        @media screen and ( max-width: @MF ) and ( min-width: @S ) {
+            .control-label {
+                width: 25%;;
+                float: left;
+            }
+
+            .controls {
+                width: 75%;
+                float: left;
+            }
+
+            .control-buttons {
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+
+// Requires Login and Login
+// ======================================================================== /
+.disp_access_requires_login.loggedin {
+
+    .main_content {
+        color: @w;
     }
 
 }
