@@ -574,12 +574,13 @@ textarea.message_text {
   margin: 0 auto;
   padding: 0 15px;
   text-align: center;
+  color: #ffffff;
 }
 .main_header .brand .evo_widget.widget_core_coll_title h1 {
   font-family: "Roboto Slab", sans-serif;
   font-size: 4.6rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   margin: 0;
 }
@@ -606,6 +607,7 @@ textarea.message_text {
   font-size: 1.5rem;
   color: #ffffff;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 768px) {
   .main_header .brand .evo_widget.widget_core_coll_tagline {
@@ -616,6 +618,12 @@ textarea.message_text {
   .main_header .brand .evo_widget.widget_core_coll_tagline {
     font-size: 1.3rem;
   }
+}
+.main_header .brand .evo_widget.widget_core_user_links {
+  margin-bottom: 10px;
+}
+.main_header .brand .evo_widget.widget_core_coll_avatar img {
+  border-radius: 100%;
 }
 .main_navigation {
   position: relative;
@@ -727,6 +735,8 @@ textarea.message_text {
   opacity: 0;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  -webkit-transform: rotateZ(0);
+  transform: rotateZ(0);
 }
 .main_navigation ul a::before {
   top: 0;

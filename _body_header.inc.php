@@ -29,6 +29,13 @@ siteskin_include( '_site_body_header.inc.php' );
             'block_end'         => '</div>',
             'block_title_start' => '<h1>',
             'block_title_end'   => '</h1>',
+
+            // Search Custome
+            'search_class'         => 'compact_search_form',
+            'search_input_before'  => '<div class="input-group">',
+            'search_input_after'   => '',
+            'search_submit_before' => '<span class="input-group-btn">',
+            'search_submit_after'  => '</span></div>',
          ) );
          // ----------------------------- END OF "Header" CONTAINER -----------------------------
       ?>
@@ -50,9 +57,9 @@ siteskin_include( '_site_body_header.inc.php' );
                        'block_display_title' => false,
                        'list_start'          => '',
                        'list_end'            => '',
-                       'item_start'          => '<li class="evo_widget $wi_class$">',
+                       'item_start'          => '<li class="evo_widget $wi_class$ hover-1">',
                        'item_end'            => '</li>',
-                       'item_selected_start' => '<li class="active evo_widget $wi_class$">',
+                       'item_selected_start' => '<li class="active evo_widget $wi_class$ hover-1">',
                        'item_selected_end'   => '</li>',
                        'item_title_before'   => '',
                        'item_title_after'    => '',

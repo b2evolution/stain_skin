@@ -135,6 +135,9 @@ class stain_gallery_Skin extends Skin
 	 * @param local params like 'for_editing' => true
 	 */
 	function get_param_definitions( $params ) {
+
+		global $Blog;
+
 		// Load to use function get_available_thumb_sizes()
 		load_funcs( 'files/model/_image.funcs.php' );
 		load_class( 'widgets/model/_widget.class.php', 'ComponentWidget' );
@@ -142,6 +145,10 @@ class stain_gallery_Skin extends Skin
 		// System provide bg images
 		$bodybg_cat = 'assets/images/header/'; // Background images folder relative to this skin folder
 		$arr_bodybg = $this -> get_arr_pics_from_folder( $this->get_path().$bodybg_cat, $this->get_url().$bodybg_cat, 80, 80 );
+
+		// User Custom bg images
+		$custom_headerbg_cat  = "headerbg/"; // Background images folder which created by users themselves, and it's relative to collection media dir
+		$arr_custom_headerbg = $this->get_arr_pics_from_folder( $Blog->get_media_dir().$custom_headerbg_cat, $Blog->get_media_url().$custom_headerbg_cat, 65 ,65);
 
 		$r = array_merge( array(
 
@@ -229,12 +236,29 @@ class stain_gallery_Skin extends Skin
 					'size'         => '3px',
 					'allow_empty'  => false,
 				),
+				'header_bg_type' => array(
+					'label'			=> T_( 'Background Image Source' ),
+					'note'			=> T_( '<br />Select the source for background image, you can choose default background image on file asset or upload custom background image' ),
+					'type'			=> 'select',
+					'options'		=> array(
+						'images' 		=> T_( 'Image Asset' ),
+						'custom_image'  => T_( 'Custom Backgroung Image' ),
+					),
+					'defaultvalue'	=> 'images',
+				),
 				'header_bg' => array(
 					'label'        => T_( 'Background Image' ),
 					'note'         => T_( '' ),
 					'type'         => 'radio',
 					'options'      => $arr_bodybg,
 					'defaultvalue' => reset( $arr_bodybg[3] ),
+				),
+				'header_custom_bg' => array(
+					'label'			=> T_( 'User Custom Background Image' ),
+					'note'			=> T_('（Please create a folder named <b><i>'.str_replace("/","",$custom_headerbg_cat).'</i></b> in your collection media folder and put the images into it. Now <a href="admin.php?ctrl=files" target="_blank"><i>Create folder or Upload images</i></a>）'),
+					'type'         => 'radio',
+					'options'      => $arr_custom_headerbg,
+					'defaultvalue' => reset($arr_custom_headerbg[0]),
 				),
 				'header_bg_position_x' => array(
 					'label'        => T_( 'Background Position X' ),
@@ -288,18 +312,36 @@ class stain_gallery_Skin extends Skin
 					'note'         => T_( 'Set the opacity Color Overlay value is 0.1 - 1' ),
 					'type'         => 'select',
 					'options'      => array(
+						'0'	   => T_( '0' ),
 						'0.1'  => T_( '0.1' ),
+						'0.15' => T_( '0.15' ),
 						'0.2'  => T_( '0.2' ),
+						'0.25' => T_( '0.25' ),
 						'0.3'  => T_( '0.3' ),
+						'0.35' => T_( '0.35' ),
 						'0.4'  => T_( '0.4' ),
+						'0.45' => T_( '0.45' ),
 						'0.5'  => T_( '0.5' ),
+						'0.55' => T_( '0.55' ),
 						'0.6'  => T_( '0.6' ),
+						'0.65' => T_( '0.65' ),
 						'0.7'  => T_( '0.7' ),
+						'0.75' => T_( '0.75' ),
 						'0.8'  => T_( '0.8' ),
+						'0.85' => T_( '0.85' ),
 						'0.9'  => T_( '0.9' ),
-						'10'  => T_( '1' ),
+						'0.95' => T_( '0.95' ),
+						'1'   => T_( '1' ),
 					),
 					'defaultvalue' => '0.2',
+				),
+				'header_content_top' => array(
+					'label'			=> T_( 'Content Top Position' ),
+					'note'			=> T_( '%. Change the content top position if you have many content in the header. Default value is <strong>38%</strong>' ),
+					'type'			=> 'integer',
+					'allow_empty'	=> false,
+					'defaultvalue'	=> '38',
+					'size'			=> 5,
 				),
 				'header_content_align' => array(
 					'label'        => T_( 'Content Align' ),
@@ -311,6 +353,24 @@ class stain_gallery_Skin extends Skin
 						array( 'center', T_( 'Center' ) ),
 						array( 'right', T_( 'Right' ) ),
 					),
+				),
+				'header_color_heading' => array(
+					'label'			=> T_( 'Color Text Heading' ),
+					'note'			=> T_( 'Change color text heading and choose your favorite color.' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '#ffffff',
+				),
+				'header_color_tagline' => array(
+					'label'			=> T_( 'Color Text Tagline' ),
+					'note'			=> T_( 'Change color text tagline with your favorite color.' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '#ffffff',
+				),
+				'header_text_shadow_content' => array(
+					'label'			=> T_( 'Show Text Shadow Content' ),
+					'note'			=> T_( 'Checklist to show text-shadow on text content' ),
+					'type'			=> 'checkbox',
+					'default'		=> 1,
 				),
 			'section_header_end' => array(
 				'layout'   => 'end_fieldset'
@@ -334,6 +394,12 @@ class stain_gallery_Skin extends Skin
 					'note'         => T_( 'Check to enable <strong>Sticky Nav</strong>.' ),
 					'type'         => 'checkbox',
 					'defaultvalue' => 1,
+				),
+				'nav_sticky_shadow' => array(
+					'label'			=> T_( 'Show Box Shadow' ),
+					'note'			=> T_( 'Checklist to show box-shadow Main Menu if sticky activated.' ),
+					'type'			=> 'checkbox',
+					'defaultvalue'	=> 1,
 				),
 				'nav_align' => array(
 					'label'        => T_( 'Menu Align' ),
@@ -949,6 +1015,15 @@ class stain_gallery_Skin extends Skin
 
 		/* General Options
 		* ========================================================================== */
+		if( $color_scheme = $this->get_setting( 'color_scheme' ) ) {
+			$custom_css .= '
+			a,
+			/* Header */
+			.main_navigation ul a
+			{ color: '.$color_scheme.' }
+			';
+		}
+
 		if ( $bg = $this->get_setting( 'body_background' ) ) {
 			$custom_css .= 'body, html,
 			#sb-site, .sb-site-container
@@ -1028,7 +1103,12 @@ class stain_gallery_Skin extends Skin
 			$custom_css .= '.main_header{ height: '.$height.'px; }';
 		}
 
-		$bg_header = $this->get_setting( 'header_bg' );
+		$bg_header = '';
+		if ( $this->get_setting( 'header_bg_type' ) == 'images' ) {
+			$bg_header = $this->get_setting( 'header_bg' );
+		} else {
+			$bg_header = $this->get_setting( 'header_custom_bg' );
+		}
 		switch ( $bg_header ) {
 			case $bg_header:
 			$custom_css .= ".main_header{ background-image: url('$bg_header') }";
@@ -1070,13 +1150,30 @@ class stain_gallery_Skin extends Skin
 			break;
 		}
 
-		// Brand Content Align
+		// Content Header
+		if( $top = $this->get_setting( 'header_content_top' ) ) {
+			$custom_css .= '.main_header .brand { top: '.$top.'% }';
+		}
+
 		$align = $this->get_setting( 'header_content_align' );
 		switch ( $align ) {
 			case $align:
 			$custom_css .= '.main_header .brand{ text-align: '.$align.'; }';
 			break;
 		}
+
+		if ( $color_title = $this->get_setting( 'header_color_heading' ) ) {
+			$custom_css .= '.main_header .brand .evo_widget.widget_core_coll_title a{ color: '.$color_title.' }';
+		}
+
+		if( $color_tagline = $this->get_setting( 'header_color_tagline' ) ) {
+			$custom_css .= '.main_header .brand .evo_widget.widget_core_coll_tagline{ color: '.$color_tagline.' }';
+		}
+
+		if( $this->get_setting( 'header_text_shadow_content' ) == 0 ) {
+			$custom_css .= '.main_header .brand .evo_widget.widget_core_coll_title a, .main_header .brand .evo_widget.widget_core_coll_tagline { text-shadow: none; }';
+		}
+
 
 		/* Main Navigation
 		* ========================================================================== */
@@ -1094,6 +1191,10 @@ class stain_gallery_Skin extends Skin
 			$custom_css .= '.main_navigation .nav-tabs{ text-align: right; }';
 			$custom_css .= '.main_navigation .nav-tabs li{ float: right; } .main_navigation ul ul{ float: right; }';
 			break;
+		}
+
+		if ( $this->get_setting( 'nav_sticky_shadow' ) == 0 ) {
+			$custom_css .= '.sticky-wrapper.is-sticky .main_navigation { box-shadow: none; }';
 		}
 
 		if ( $color = $this->get_setting( 'nav_color' ) ) {
