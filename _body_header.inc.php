@@ -57,9 +57,9 @@ siteskin_include( '_site_body_header.inc.php' );
                        'block_display_title' => false,
                        'list_start'          => '',
                        'list_end'            => '',
-                       'item_start'          => '<li class="evo_widget $wi_class$ hover-1">',
+                       'item_start'          => '<li class="evo_widget $wi_class$ hover-3">',
                        'item_end'            => '</li>',
-                       'item_selected_start' => '<li class="active evo_widget $wi_class$ hover-1">',
+                       'item_selected_start' => '<li class="active evo_widget $wi_class$ hover-3">',
                        'item_selected_end'   => '</li>',
                        'item_title_before'   => '',
                        'item_title_after'    => '',
@@ -69,20 +69,6 @@ siteskin_include( '_site_body_header.inc.php' );
                </ul>
            </div>
        </div><!-- /.container -->
-
-       <div class="user_links">
-           <div class="evo_container evo_container__header">
-               <?php
-               // skin_widget( array(
-               //    // CODE for the widget:
-               //    'widget' => 'coll_member_count',
-               //    // Optional display params
-               //    'before' => '(',
-               //    'after'  => ')',
-               // ) );
-               ?>
-           </div>
-       </div><!-- /.user_links -->
 
    </nav><!-- /#main_navigation -->
 </header><!-- /#Header -->

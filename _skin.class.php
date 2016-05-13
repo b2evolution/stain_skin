@@ -222,6 +222,42 @@ class stain_gallery_Skin extends Skin
 				'layout' => 'end_fieldset',
 			),
 
+
+			/* Custom Sitewide Header
+			 * ========================================================================== */
+			'section_sitewide_header_start' => array(
+				'layout'			=> 'begin_fieldset',
+				'label'				=> T_( 'Custom Sitewide Header' ),
+			),
+				'sitewide_background' => array(
+					'label'			=> T_( 'Background Color' ),
+					'note'			=> T_( 'Change background color with your favorite color. Default is <strong>empty</strong>.' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '',
+				),
+				'sitewide_color_text' => array(
+					'label'			=> T_( 'Color Text' ),
+					'note'			=> T_( 'Change text color for sitewide with your favorite color. Default is <strong>empty</strong>.' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '',
+				),
+				'sitewide_bg_active' => array(
+					'label'			=> T_( 'Background Color Active & Hover' ),
+					'note'			=> T_( 'Change background color sitewide if the current active page and hover. Default is <strong>empty</strong>.' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '',
+				),
+				'sitewide_color_text_active' => array(
+					'label'			=> T_( 'Color Text Active & Hover' ),
+					'note'			=> T_( 'Change color text sitewide if the current link active and hover. Default is <strong>empty</strong>' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '',
+				),
+			'section_sitewide_header_end' => array(
+				'layout'			=> 'end_fieldset',
+			),
+
+
 			/* Header Options
 			* ========================================================================== */
 			'section_header_start' => array(
@@ -354,15 +390,9 @@ class stain_gallery_Skin extends Skin
 						array( 'right', T_( 'Right' ) ),
 					),
 				),
-				'header_color_heading' => array(
-					'label'			=> T_( 'Color Text Heading' ),
-					'note'			=> T_( 'Change color text heading and choose your favorite color.' ),
-					'type'			=> 'color',
-					'defaultvalue'	=> '#ffffff',
-				),
-				'header_color_tagline' => array(
-					'label'			=> T_( 'Color Text Tagline' ),
-					'note'			=> T_( 'Change color text tagline with your favorite color.' ),
+				'header_color_content' => array(
+					'label'			=> T_( 'Color Text Content Header' ),
+					'note'			=> T_( 'Change Color text content header and choose your favorite color.' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#ffffff',
 				),
@@ -370,7 +400,7 @@ class stain_gallery_Skin extends Skin
 					'label'			=> T_( 'Show Text Shadow Content' ),
 					'note'			=> T_( 'Checklist to show text-shadow on text content' ),
 					'type'			=> 'checkbox',
-					'default'		=> 1,
+					'defaultvalue'	=> 1,
 				),
 			'section_header_end' => array(
 				'layout'   => 'end_fieldset'
@@ -1097,6 +1127,25 @@ class stain_gallery_Skin extends Skin
 		// }
 
 
+		/* Sitewide Custom
+		 * ========================================================================== */
+		if( $bg = $this->get_setting( 'sitewide_background' ) ) {
+			$custom_css .= '.sitewide_header{ background: '.$bg.' !important }';
+		}
+
+		if( $color = $this->get_setting( 'sitewide_color_text' ) ) {
+			$custom_css .= '.sitewide_header a, .sitewide_footer a, .sitewide_header .swhead_item.user { color:'.$color.' !important }';
+		}
+
+		if( $bg = $this->get_setting( 'sitewide_bg_active' ) ) {
+			$custom_css .= '.sitewide_header a.swhead_item_selected, .sitewide_header a.swhead_item:hover { background: '.$bg.' !important }';
+		}
+
+		if( $color = $this->get_setting( 'sitewide_color_text_active' ) ) {
+			$custom_css .= '.sitewide_header a.swhead_item_selected, .sitewide_header a.swhead_item:hover { color: '.$color.' !important }';
+		}
+
+
 		/* Header Options
 		* ========================================================================== */
 		if ( $height = $this->get_setting( 'header_height' ) ) {
@@ -1162,12 +1211,8 @@ class stain_gallery_Skin extends Skin
 			break;
 		}
 
-		if ( $color_title = $this->get_setting( 'header_color_heading' ) ) {
-			$custom_css .= '.main_header .brand .evo_widget.widget_core_coll_title a{ color: '.$color_title.' }';
-		}
-
-		if( $color_tagline = $this->get_setting( 'header_color_tagline' ) ) {
-			$custom_css .= '.main_header .brand .evo_widget.widget_core_coll_tagline{ color: '.$color_tagline.' }';
+		if ( $color = $this->get_setting( 'header_color_content' ) ) {
+			$custom_css .= '.main_header .brand .evo_widget.widget_core_coll_title a, .main_header .brand .evo_widget.widget_core_coll_tagline { color: '.$color.' }';
 		}
 
 		if( $this->get_setting( 'header_text_shadow_content' ) == 0 ) {

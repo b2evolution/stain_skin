@@ -150,39 +150,6 @@
                     cursor: pointer;
                     border: 0;
                 }
-
-                &::before, &:after {
-                    opacity: 1;
-                }
-
-                &::before {
-                    top: -8px;
-                }
-
-                &::after {
-                    bottom: -8px;
-                }
-            }
-
-            &:hover, &:active, &:focus {
-                // cursor: pointer;
-
-                a {
-                    color: @w;
-                    background-color: transparent;
-
-                    &::before, &::after {
-                        opacity: 1;
-                    }
-
-                    &::before {
-                        top: -8px;
-                    }
-
-                    &::after {
-                        bottom: -8px;
-                    }
-                }
             }
 
         }
@@ -209,53 +176,252 @@
                 text-decoration: none;
             }
 
-            &:before, &:after {
+            &::before, &::after {
                 content: '';
                 position: absolute;
-                left: 0;
-                height: 1px;
-                width: 100%;
-                background-color: @w;
-                opacity: 0;
-                transition: all 0.2s ease-in-out;
-
-                transform: rotateZ(0);
             }
 
-            &::before {
-                top: 0;
+        }
+
+        // Hover 1
+        // ======================================================================== /
+        li.hover-1 {
+
+            a {
+                &::before, &::after {
+                    left: 0;
+                    height: 1px;
+                    width: 100%;
+                    background-color: @w;
+                    opacity: 0;
+                    transition: all 0.2s ease-in-out;
+                    transform: rotateZ(0);
+                }
+                &::before {
+                    top: 0;
+                }
+                &::after {
+                    bottom: 0;
+                }
+
+
+                &.selected {
+                    &::before, &:after {
+                        opacity: 1;
+                    }
+                    &::before {
+                        top: -8px;
+                    }
+                    &::after {
+                        bottom: -8px;
+                    }
+                }
+
             }
 
-            &::after {
-                bottom: 0;
+
+            &:hover, &:active, &:focus {
+                a {
+                    color: @w;
+                    background-color: transparent;
+
+                    &::before, &::after {
+                        opacity: 1;
+                    }
+                    &::before {
+                        top: -8px;
+                    }
+                    &::after {
+                        bottom: -8px;
+                    }
+                }
             }
 
         }
 
 
-        // li.hover-1 {
-        //
-        //     a {
-        //
-        //         &::before,
-        //         &::after {
-        //             width: 90px;
-        //             max-width: 100%;
-        //         }
-        //
-        //         &::before {
-        //             top: 10px;
-        //             transform: rotateZ(-25deg);
-        //         }
-        //
-        //         &::after {
-        //             bottom: 10px;
-        //             transform: rotateZ(25deg);
-        //         }
-        //
-        //     }
-        //
-        // }
+        // Hover 2
+        // ======================================================================== /
+        li.hover-2 {
+            a::after {
+                bottom: 20px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: @w;
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 0.32s, transform 0.32s;
+            }
+
+            &:hover, &:active, &:focus {
+                a::after {
+                    opacity: 1;
+                    transform: translateY(30px);
+                }
+            }
+
+            .selected {
+                &::after {
+                    opacity: 1;
+                    transform: translateY(30px);
+                }
+            }
+        }
+
+
+        // Hover 3
+        // ======================================================================== /
+        li.hover-3 {
+            a::before, a::after {
+                top: 25px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: @primary;
+                transform: scale(0.80);
+                transition: transform 0.3s;
+                opacity: 0.8;
+            }
+
+            a::after {
+                opacity: 0;
+                transition: top 0.3s, opacity 0.3s, transform 0.3s;
+            }
+
+            &:hover, &:active, &:focus {
+
+                a::before, a::after {
+                    background-color: @w;
+                    transform: scale(1);
+                    opacity: 1;
+                }
+
+                a::after {
+                    top: -5px;
+                    opacity: 1;
+                }
+            }
+
+            .selected {
+                &::before, &::after {
+                    background-color: @w;
+                    transform: scale(1);
+                }
+
+                &:after {
+                    top: -5px;
+                    opacity: 1;
+                }
+            }
+        }
+
+
+        // Hover 4
+        // ======================================================================== /
+        li.hover-4 {
+            padding: 10px;
+
+            a {
+                padding: 10px 15px;
+            }
+
+            a::before, a::after {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 1px solid @primary;
+                background-color: transparent;
+                transition: transform 0.5s, opacity 0.5s;
+            }
+
+            a::after {
+                border-color: @w;
+                opacity: 0;
+                transform: translateY(-7px) translateX(6px);
+            }
+
+            &:hover, &:active, &:focus {
+                a::before {
+                    opacity: 0;
+                    transform: translateY(5px) translateX(-5px);
+                }
+
+                a::after {
+                    opacity: 1;
+                    transform: translateY(0) translateX(0);
+                }
+            }
+
+            .selected {
+                &::after {
+                    opacity: 1;
+                    transform: translateY(0) translateX(0);
+                }
+                &::before {
+                    opacity: 0;
+                }
+            }
+
+        }
+
+        // Hover 5
+        // ======================================================================== /
+        li.hover-5 {
+
+            a {
+                padding: 0 10px;
+                height: 20px;
+                line-height: 20px;
+            }
+
+            a::before, a::after {
+                width: 20px;
+                height: 1px;
+                background-color: @w;
+                opacity: 0.6;
+                transition: all 0.3s;
+                pointer-events: none;
+            }
+
+            a::before {
+                top: 0;
+                left: 0;
+                -moz-transform: rotate(90deg);
+                transform: rotate(90deg);
+                -moz-transform-origin: 0 0;
+                transform-origin: 0 0;
+            }
+
+            a::after  {
+                bottom: 0;
+                right: 0;
+                -moz-transform: rotate(90deg);
+                transform: rotate(90deg);
+                -moz-transform-origin: 100% 0;
+                transform-origin: 100% 0;
+            }
+
+            &:hover, &:active, &:focus {
+                a::before, a::after {
+                    opacity: 1;
+                    width: 80%;
+                }
+
+                a::before {
+                    top: -5px;
+                    left: 50%;
+                    transform: rotate(0deg) translate(-50%);
+                }
+
+                a::after {
+                    bottom: -5px;
+                    right: 50%;
+                    transform: rotate(0deg) translate(50%);
+                }
+            }
+        }
 
 
     }

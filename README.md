@@ -35,13 +35,4 @@ Stain is a Gallery Skin with awesome customize for every disp. Stain used fully 
 
 ### Need Assistance? Get In Touch!
 
-If you ever get stuck with setting up Stain with your B2evolution installation, you can get in touch with our friendly and dedicated support via our [Support Forum](http://forums.b2evolution.net/).
-
-===
-
-### Changes & Updates
-
-```
-Version 0.1
-– Initial Version – May, 2016
-```
+If you ever get stuck with setting up Stain with your b2evolution installation, you can get in touch with our friendly and dedicated support via our [Support Forum](http://forums.b2evolution.net/).
