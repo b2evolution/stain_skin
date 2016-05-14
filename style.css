@@ -704,7 +704,7 @@ textarea.message_text {
 .main_navigation ul li.hover-1 a::before,
 .main_navigation ul li.hover-1 a::after {
   left: 0;
-  height: 1px;
+  height: 2px;
   width: 100%;
   background-color: #ffffff;
   opacity: 0;
@@ -814,8 +814,7 @@ textarea.message_text {
 .main_navigation ul li.hover-3:hover a::after,
 .main_navigation ul li.hover-3:active a::after,
 .main_navigation ul li.hover-3:focus a::after {
-  top: -5px;
-  opacity: 1;
+  top: -7px;
 }
 .main_navigation ul li.hover-3 .selected::before,
 .main_navigation ul li.hover-3 .selected::after {
@@ -823,16 +822,17 @@ textarea.message_text {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
-}
-.main_navigation ul li.hover-3 .selected:after {
-  top: -5px;
   opacity: 1;
 }
+.main_navigation ul li.hover-3 .selected:after {
+  top: -7px;
+}
 .main_navigation ul li.hover-4 {
-  padding: 10px;
+  padding: 10px 8px !important;
 }
 .main_navigation ul li.hover-4 a {
   padding: 10px 15px;
+  font-size: 1.2rem !important;
 }
 .main_navigation ul li.hover-4 a::before,
 .main_navigation ul li.hover-4 a::after {
@@ -885,7 +885,7 @@ textarea.message_text {
 .main_navigation ul li.hover-5 a::before,
 .main_navigation ul li.hover-5 a::after {
   width: 20px;
-  height: 1px;
+  height: 2px;
   background-color: #ffffff;
   opacity: 0.6;
   -webkit-transition: all 0.3s;
@@ -898,9 +898,9 @@ textarea.message_text {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
-  -webkit-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
-  transform-origin: 0 0;
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
 }
 .main_navigation ul li.hover-5 a::after {
   bottom: 0;
@@ -908,9 +908,9 @@ textarea.message_text {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
-  -webkit-transform-origin: 100% 0;
-  -ms-transform-origin: 100% 0;
-  transform-origin: 100% 0;
+  -webkit-transform-origin: 100%;
+  -ms-transform-origin: 100%;
+  transform-origin: 100%;
 }
 .main_navigation ul li.hover-5:hover a::before,
 .main_navigation ul li.hover-5:active a::before,
@@ -919,7 +919,6 @@ textarea.message_text {
 .main_navigation ul li.hover-5:active a::after,
 .main_navigation ul li.hover-5:focus a::after {
   opacity: 1;
-  width: 80%;
 }
 .main_navigation ul li.hover-5:hover a::before,
 .main_navigation ul li.hover-5:active a::before,
@@ -938,6 +937,94 @@ textarea.message_text {
   -webkit-transform: rotate(0deg) translate(50%);
   -ms-transform: rotate(0deg) translate(50%);
   transform: rotate(0deg) translate(50%);
+}
+.main_navigation ul li.hover-5 .selected::before,
+.main_navigation ul li.hover-5 .selected::after {
+  opacity: 1;
+}
+.main_navigation ul li.hover-5 .selected::before {
+  top: -5px;
+  left: 50%;
+  -webkit-transform: rotate(0deg) translate(-50%);
+  -ms-transform: rotate(0deg) translate(-50%);
+  transform: rotate(0deg) translate(-50%);
+}
+.main_navigation ul li.hover-5 .selected::after {
+  bottom: -5px;
+  right: 50%;
+  -webkit-transform: rotate(0deg) translate(50%);
+  -ms-transform: rotate(0deg) translate(50%);
+  transform: rotate(0deg) translate(50%);
+}
+.main_navigation ul li.hover-6 a {
+  -webkit-transition: color 0.32s;
+  transition: color 0.32s;
+}
+.main_navigation ul li.hover-6 a::before,
+.main_navigation ul li.hover-6 a::after {
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  -webkit-transform: translateY(-15px);
+  -ms-transform: translateY(-15px);
+  transform: translateY(-15px);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s ;
+  transition: opacity 0.3s, transform 0.3s ;
+  opacity: 0;
+}
+.main_navigation ul li.hover-6 a::before {
+  top: 0;
+  -webkit-transform: translateY(-15px);
+  -ms-transform: translateY(-15px);
+  transform: translateY(-15px);
+}
+.main_navigation ul li.hover-6 a::after {
+  bottom: 0;
+  -webkit-transform: translateY(15px);
+  -ms-transform: translateY(15px);
+  transform: translateY(15px);
+}
+.main_navigation ul li.hover-6:hover a,
+.main_navigation ul li.hover-6:active a,
+.main_navigation ul li.hover-6:focus a {
+  color: #ffffff;
+}
+.main_navigation ul li.hover-6:hover a::before,
+.main_navigation ul li.hover-6:active a::before,
+.main_navigation ul li.hover-6:focus a::before,
+.main_navigation ul li.hover-6:hover a::after,
+.main_navigation ul li.hover-6:active a::after,
+.main_navigation ul li.hover-6:focus a::after {
+  opacity: 1;
+}
+.main_navigation ul li.hover-6:hover a::before,
+.main_navigation ul li.hover-6:active a::before,
+.main_navigation ul li.hover-6:focus a::before {
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+.main_navigation ul li.hover-6:hover a::after,
+.main_navigation ul li.hover-6:active a::after,
+.main_navigation ul li.hover-6:focus a::after {
+  -webkit-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
+}
+.main_navigation ul li.hover-6 .selected::before,
+.main_navigation ul li.hover-6 .selected::after {
+  opacity: 1;
+}
+.main_navigation ul li.hover-6 .selected::before {
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+.main_navigation ul li.hover-6 .selected::after {
+  -webkit-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
 }
 .sticky-wrapper {
   width: 100% !important;
