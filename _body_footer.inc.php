@@ -123,6 +123,9 @@ global $Skin;
     </div><!-- /.container -->
 </footer><!-- /footer -->
 
+<?php if ( $Skin->get_setting( 'back_to_top' ) == 1 ) { ?>
+<a href="#0" class="cd_top"><i class="fa fa-angle-up"></i></a>
+<?php } ?>
 
 <?php
 // ---------------------------- SITE FOOTER INCLUDED HERE ----------------------------
