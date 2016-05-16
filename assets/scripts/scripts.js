@@ -6,7 +6,9 @@
         if ( $.fn.sticky ) {
             $(".main_navigation").sticky({
                 topSpacing: 0,
-                center:true
+                center: true,
+                getWidthFrom: '768',
+                responsiveWidth: true,
             });
         }
     }

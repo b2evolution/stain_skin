@@ -6,6 +6,53 @@
 	@widget_core_org_members-user-link-hover-color: #23527c;
 // -------------------------------------------------------
 
+// Widget RWD Content
+// ======================================================================== /
+.widget_rwd_blocks {
+
+	.widget_rwd_content {
+		padding: 0 0 20px;
+	}
+
+	.col-md-6 {
+		.item_title {
+			font-size: 2rem;
+		}
+	}
+
+	.col-md-4 {
+		.item_title {
+			font-size: 1.8rem;
+		}
+	}
+
+	.item_title {
+		font-family: @font_heading;
+		font-size: 1.6rem;
+		font-weight: 700;
+		letter-spacing: 0.2px;
+		line-height: 1.2;
+		margin: 10px 0;
+	}
+
+	.item_content, .item_excerpt {
+		font-size: 1.3rem;
+		opacity: 0.8;
+	}
+
+	.item_content {
+		p {
+			&::after {
+				content: '...';
+				display: inline-block;
+			}
+		}
+		a {
+			display: none;
+		}
+	}
+}
+
 // ======================================================================== /
 // Login widget form
 // ======================================================================== /

@@ -115,6 +115,10 @@ label.control-label[for=evo_post_title] {
 textarea.message_text {
   width: 95%;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
 .btn:hover,
 .btn:active,
 .btn:focus,
@@ -127,6 +131,9 @@ textarea.message_text {
 }
 .sitewide_header a {
   letter-spacing: 0.2px;
+}
+.sitewide_footer {
+  box-shadow: none !important;
 }
 /* XL Bootstrap Grid Layout */
 .visible-xl-block,
@@ -1054,17 +1061,20 @@ textarea.message_text {
   }
 }
 #content {
-  padding: 60px 0;
+  padding: 50px 0;
 }
 #content .title__content {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-family: "Roboto Slab", sans-serif;
   font-size: 2.6rem;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #555555;
+  color: #333333;
   text-transform: uppercase;
-  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
 }
 #content .feature_post {
   border-radius: 0;
@@ -1291,6 +1301,35 @@ textarea.message_text {
     line-height: 45px;
   }
 }
+.widget_rwd_blocks .widget_rwd_content {
+  padding: 0 0 20px;
+}
+.widget_rwd_blocks .col-md-6 .item_title {
+  font-size: 2rem;
+}
+.widget_rwd_blocks .col-md-4 .item_title {
+  font-size: 1.8rem;
+}
+.widget_rwd_blocks .item_title {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+.widget_rwd_blocks .item_content,
+.widget_rwd_blocks .item_excerpt {
+  font-size: 1.3rem;
+  opacity: 0.8;
+}
+.widget_rwd_blocks .item_content p::after {
+  content: '...';
+  display: inline-block;
+}
+.widget_rwd_blocks .item_content a {
+  display: none;
+}
 .widget_core_user_login #login_form .form-group {
   margin: 0;
 }
@@ -1462,12 +1501,14 @@ textarea.message_text {
 #footer .footer__widgets {
   color: #ffffff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 20px;
   margin-bottom: 30px;
 }
 #footer .footer__widgets .widget_title {
   font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
+  margin-top: 10px;
   margin-bottom: 20px;
   color: #ffffff;
 }
@@ -1569,7 +1610,7 @@ textarea.message_text {
   padding: 0;
   margin: 0;
   height: 38px;
-  line-height: 38px;
+  line-height: 1.6;
   opacity: 0.95;
 }
 @media screen and (min-width: 991px) {
@@ -4073,6 +4114,10 @@ html.sb-active #sb-site::after {
 .disp_contacts .main_content .results .table_scroll td {
   padding: 10px;
 }
+.disp_threads .main_content .results .table_scroll td.firstcol img,
+.disp_contacts .main_content .results .table_scroll td.firstcol img {
+  max-width: 32px;
+}
 .disp_threads .main_content .results .table_scroll img,
 .disp_contacts .main_content .results .table_scroll img {
   border-radius: 2px;
@@ -4868,6 +4913,23 @@ html.sb-active #sb-site::after {
 }
 .disp_access_requires_login.loggedin .main_content {
   color: #ffffff;
+}
+.disp_arcdir #content .title__content,
+.disp_msgform #content .title__content,
+.disp_contacts #content .title__content,
+.disp_users #content .title__content,
+.disp_login #content .title__content,
+.disp_lostpassword #content .title__content,
+.disp_register #content .title__content,
+.disp_threads #content .title__content,
+.disp_tags #content .title__content {
+  text-align: left;
+  padding: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+.disp_msgform #content .title__content {
+  padding-bottom: 30px;
 }
 ul.profile_tabs {
   margin: 0 2ex 2ex;
