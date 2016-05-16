@@ -236,7 +236,7 @@ if( ! $list_is_empty ) { ?>
 
 			if( empty( $item_first_image ) )
 			{ // No images in this post, Display an empty block
-				$item_first_image = $Item->get_permanent_link( '<b>'.T_('No pictures yet').'</b>', '#', 'album_nopic' );
+				$item_first_image = $Item->get_permanent_link( '<div class="no_image"><img src="'.$Skin->get_url().'assets/images/blank_image.png"></div>', '#', 'album_nopic' );
 			}
 			else if( $item_first_image == 'plugin_render_attachments' )
 			{ // No images, but some attachments(e.g. videos) are rendered by plugins
