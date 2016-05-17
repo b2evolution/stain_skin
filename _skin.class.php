@@ -166,9 +166,9 @@ class stain_gallery_Skin extends Skin
 				),
 				'body_color' => array(
 					'label'			=> T_( 'Color Body Text' ),
-					'note'			=> T_( 'Change color text for body. Default color is: #333333' ),
+					'note'			=> T_( 'Change color text for body. Default color is: #555555' ),
 					'type'			=> 'color',
-					'defaultvalue'	=> '#444444'
+					'defaultvalue'	=> '#555555'
 				),
 				'body_background' => array(
 					'label'        => T_( 'Background Body' ),

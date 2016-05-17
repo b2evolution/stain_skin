@@ -11,7 +11,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 1.4rem;
   background-color: #f6f6f6;
-  color: #444444;
+  color: #555555;
 }
 body a {
   color: #18c54d;
@@ -1500,9 +1500,9 @@ img {
 }
 #footer .footer__widgets {
   color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   margin-top: 20px;
   margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 #footer .footer__widgets .widget_title {
   font-family: "Roboto Slab", sans-serif;
@@ -2849,6 +2849,7 @@ img {
   background-color: #ffffff;
   padding: 30px;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #eeeeee;
 }
 #content .evo_post_header .evo_post_title h1 {
   margin: 0 0 5px;
@@ -2859,7 +2860,6 @@ img {
   color: #444444;
 }
 #content .evo_post_content {
-  margin-top: 30px;
   margin: 0;
 }
 #content .evo_post_content .panel {
@@ -2926,7 +2926,7 @@ img {
 #content .evo_post_content .evo_post__except .evo_post__except_text h6 {
   font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
-  margin: 20px 0 10px 0;
+  margin: 10px 0 20px 0;
   text-transform: inherit;
 }
 #content .evo_post_content .evo_post__full .evo_post__full_text h3,
@@ -2941,6 +2941,12 @@ img {
 #content .evo_post_content .evo_post__except .evo_post__except_text p {
   font-weight: 300;
   letter-spacing: -0.1px;
+}
+#content .evo_post_content .evo_post__full .evo_post__full_text p:last-child,
+#content .evo_post_content .evo_post__except .evo_post__full_text p:last-child,
+#content .evo_post_content .evo_post__full .evo_post__except_text p:last-child,
+#content .evo_post_content .evo_post__except .evo_post__except_text p:last-child {
+  margin-bottom: 0;
 }
 #content .evo_post_content .evo_post__full .evo_post__full_text pre,
 #content .evo_post_content .evo_post__except .evo_post__full_text pre,
@@ -2969,11 +2975,11 @@ img {
 }
 #content .evo_post_content .evo_post__full .evo_post_images,
 #content .evo_post_content .evo_post__except .evo_post_images {
-  margin-bottom: -30px;
+  padding-top: 20px;
 }
 #content .evo_post_content .evo_post__full .evo_post_images .evo_image_block,
 #content .evo_post_content .evo_post__except .evo_post_images .evo_image_block {
-  margin: 0 0 30px;
+  margin: 0;
 }
 #content .evo_post_content .evo_post__full .evo_post_images img,
 #content .evo_post_content .evo_post__except .evo_post_images img {
@@ -3000,7 +3006,7 @@ img {
 }
 #content .evo_post_content .evo_post__full .evo_post__full_text,
 #content .evo_post_content .evo_post__except .evo_post__full_text {
-  padding: 30px 30px 20px;
+  padding: 30px;
 }
 #content .evo_post_content .widget_core_item_small_print {
   display: inline-block;

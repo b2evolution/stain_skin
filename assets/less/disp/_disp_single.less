@@ -225,6 +225,7 @@
         background-color: @w;
         padding: 30px;
         box-shadow: @box-shadow;
+        border-bottom: 1px solid @ce;
 
         .evo_post_title h1 {
             margin: 0 0 5px;
@@ -245,7 +246,6 @@
     // Evo Post Content
     // ======================================================================== /
     .evo_post_content {
-        margin-top: 30px;
         margin: 0;
 
         // Panel
@@ -309,7 +309,7 @@
                 h1, h2, h3, h4, h5, h6 {
                     font-family: @font_heading;
                     font-weight: 700;
-                    margin: 20px 0 10px 0;
+                    margin: 10px 0 20px 0;
                     text-transform: inherit;
                 }
 
@@ -320,6 +320,10 @@
                 p {
                     font-weight: 300;
                     letter-spacing: -0.1px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
                 }
 
                 pre {
@@ -345,10 +349,10 @@
             // Evo Post Image
             // ======================================================================== /
             .evo_post_images {
-                margin-bottom: -30px;
+                padding-top: 20px;
 
                 .evo_image_block {
-                    margin: 0 0 30px;
+                    margin: 0;
                 }
 
                 img {
@@ -376,7 +380,7 @@
             }
 
             .evo_post__full_text {
-                padding: 30px 30px 20px;
+                padding: 30px;
             }
 
         }
