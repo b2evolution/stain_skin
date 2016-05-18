@@ -57,6 +57,13 @@ siteskin_include( '_site_body_header.inc.php' );
                <ul class="nav nav-tabs">
                    <?php
                    // ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
+				   $hover_style = '';
+				   $hover_nav = $Skin->get_setting( 'nav_hover_style' );
+				   switch ($hover_nav) {
+					   case $hover_nav:
+						   $hover_style = 'hover-'.$hover_nav;
+						   break;
+				   }
                    // Display container and contents:
                    // Note: this container is designed to be a single <ul> list
                    skin_container( NT_('Menu'), array(
@@ -66,9 +73,9 @@ siteskin_include( '_site_body_header.inc.php' );
                        'block_display_title' => false,
                        'list_start'          => '',
                        'list_end'            => '',
-                       'item_start'          => '<li class="evo_widget $wi_class$">',
+                       'item_start'          => '<li class="evo_widget $wi_class$ '.$hover_style.'">',
                        'item_end'            => '</li>',
-                       'item_selected_start' => '<li class="active evo_widget $wi_class$">',
+                       'item_selected_start' => '<li class="active evo_widget $wi_class$ '.$hover_style.'">',
                        'item_selected_end'   => '</li>',
                        'item_title_before'   => '',
                        'item_title_after'    => '',

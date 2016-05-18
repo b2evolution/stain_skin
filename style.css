@@ -4928,7 +4928,12 @@ html.sb-active #sb-site::after {
 .disp_lostpassword #content .title__content,
 .disp_register #content .title__content,
 .disp_threads #content .title__content,
-.disp_tags #content .title__content {
+.disp_tags #content .title__content,
+.disp_profile #content .title__content,
+.disp_avatar #content .title__content,
+.disp_pwdchange #content .title__content,
+.disp_userprefs #content .title__content,
+.disp_subs #content .title__content {
   text-align: left;
   padding: 0;
   box-shadow: none;
