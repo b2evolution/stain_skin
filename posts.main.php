@@ -29,8 +29,14 @@ skin_include( '_html_header.inc.php', array( ) );
 // If site headers are enabled, they will be included here:
 skin_include( '_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
+
+$container = '';
+if ( $Skin->get_setting( 'posts_full_width' ) == 1 ) {
+	$container = 'class="full_widgth"';
+}
+
 ?>
-<main id="content"><!-- This is were a link like "Jump to main content" would land -->
+<main id="content" <?php echo $container; ?>><!-- This is were a link like "Jump to main content" would land -->
 	<div class="container">
 		<!-- ================================= START OF MAIN AREA ================================== -->
 		<?php

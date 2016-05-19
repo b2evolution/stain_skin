@@ -565,7 +565,7 @@ class stain_gallery_Skin extends Skin
 				),
 				'gallery_gutter' => array(
 					'label'			=> T_( 'Spance Gallery' ),
-					'note'			=> T_( 'px. Set the space for Gallery Images.' ),
+					'note'			=> T_( 'px. Set the space for Gallery Images. If you want no space content, you can set the padding is <strong>0 px</strong>.' ),
 					'type'		   	=> 'integer',
 					'defaultvalue' 	=> '5',
 					'size'		   	=> 5
@@ -617,6 +617,12 @@ class stain_gallery_Skin extends Skin
 				'layout'   => 'begin_fieldset',
 				'label'    => T_( 'Posts Options' ),
 			),
+				'posts_full_width' => array(
+					'label'			=> T_( 'Full Width Container' ),
+					'note'			=> T_( 'Check to make post container full width' ),
+					'type'			=> 'checkbox',
+					'defaultvalue'  => 0,
+				),
 				'posts_thumb_size' => array(
 					'label'        => T_('Thumbnail size in Posts List'),
 					'note'         => '',
@@ -643,7 +649,7 @@ class stain_gallery_Skin extends Skin
 				),
 				'posts_list_space' => array(
 					'label'			=> T_( 'Posts List Padding' ),
-					'note'			=> T_( 'px. Set the padding for posts list.' ),
+					'note'			=> T_( 'px. Set the padding for posts list. If you want no space content, you can set the padding is <strong>0 px</strong>.' ),
 					'type'			=> 'integer',
 					'defaultvalue' => '4',
 					'size'			=> 3,

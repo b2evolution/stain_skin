@@ -179,7 +179,7 @@ skin_include( '_body_header.inc.php' );
 								'before_section_title' => '<h4 class="tite_comment_status">',
 								'after_section_title'  => '</h4>',
 								'author_link_text'     => 'preferredname',
-								'comment_image_size'   => 'fit-256x256',
+								// 'comment_image_size'   => 'fit-256x256',
 
 								// Pagination:
 								'pagination' => array(
