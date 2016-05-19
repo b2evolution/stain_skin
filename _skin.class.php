@@ -165,20 +165,20 @@ class stain_gallery_Skin extends Skin
 					'defaultvalue'	=> '#18C54D',
 				),
 				'body_color' => array(
-					'label'			=> T_( 'Color Body Text' ),
+					'label'			=> T_( 'Text Body Color' ),
 					'note'			=> T_( 'Change color text for body. Default color is: #555555' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#555555'
 				),
 				'body_background' => array(
-					'label'        => T_( 'Background Body' ),
-					'note'         => T_( 'Change background for All Disp and Page' ),
+					'label'        => T_( 'Background Color' ),
+					'note'         => T_( 'Change background for All Disp and Page. Default is: #f6f6f6' ),
 					'type'         => 'color',
 					'defaultvalue' => '#F6F6F6',
 				),
 				'favicon' => array(
 					'label'          => T_('Favicon'),
-					'note'           => T_('Change the default favicon'),
+					'note'           => T_('Change the default favicon from Skin Folder.'),
 					'defaultvalue'   => 'assets/images/favicon.png',
 					'type'           => 'text',
 					'size'           => '50'
@@ -210,18 +210,6 @@ class stain_gallery_Skin extends Skin
 			// 	'page_text_color' => array(
 			// 		'label'        => T_('Page text color'),
 			// 		'note'         => T_('E-g: #00ff00 for green'),
-			// 		'defaultvalue' => '#333',
-			// 		'type'         => 'color',
-			// 	),
-			// 	'page_link_color' => array(
-			// 		'label'        => T_('Page link color'),
-			// 		'note'         => T_('E-g: #00ff00 for green'),
-			// 		'defaultvalue' => '#337ab7',
-			// 		'type'         => 'color',
-			// 	),
-			// 	'current_tab_text_color' => array(
-			// 		'label'        => T_('Current tab text color'),
-			// 		'note'         => T_('E-g: #ff6600 for orange'),
 			// 		'defaultvalue' => '#333',
 			// 		'type'         => 'color',
 			// 	),

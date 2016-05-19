@@ -337,12 +337,14 @@ img {
     display: none !important;
   }
 }
-.disp_posts #content.full_widgth {
-  padding: 15px 0;
+.disp_posts.detail_posts #content.full_widgth {
+  padding: 30px 0;
 }
 @media screen and (min-width: 1025px) {
-  .disp_posts #content.full_widgth .container {
+  .disp_posts.detail_posts #content.full_widgth .container {
     width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 .effect-0 li {
@@ -1073,7 +1075,7 @@ img {
   padding: 50px 0;
 }
 #content .title__content {
-  margin-bottom: 30px;
+  margin: 0 0 30px;
   font-family: "Roboto Slab", sans-serif;
   font-size: 2.6rem;
   font-weight: 700;
@@ -3717,9 +3719,8 @@ html.sb-active #sb-site::after {
 .search_head .search_box .main_search_box .extended_search_form input {
   display: inline-block;
   float: left;
-  height: 50px;
-  line-height: 50px;
-  padding: 0;
+  height: auto;
+  padding: 16px 20px;
   box-shadow: none;
   border-radius: 0;
 }
@@ -3732,8 +3733,6 @@ html.sb-active #sb-site::after {
 .search_head .search_box .main_search_box .extended_search_form .search_field {
   width: 74%;
   border: 1px solid #ffffff;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 .search_head .search_box .main_search_box .extended_search_form .search_submit {
   width: 26%;
