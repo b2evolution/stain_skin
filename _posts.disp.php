@@ -18,13 +18,6 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 global $Item;
 
-$post_column = '';
-if( $Skin->get_setting( 'posts_show' ) == 'one_column' ){
-	$post_column = 'post_full';
-};
-
-$column = $Skin->Change_class( 'posts_show' );
-
  // Default params:
  $params = array_merge( array(
 	'before_images'            => '<div class="feature_image">',
@@ -64,13 +57,23 @@ $column = $Skin->Change_class( 'posts_show' );
  ), $params );
 
 // ------------------------------- START OF INTRO POST -------------------------------
+
+$post_column = '';
+if( $Skin->get_setting( 'posts_show' ) == 'one_column' ){
+	$post_column = 'post_full';
+};
+$column = $Skin->Change_class( 'posts_show' );
+
+$effect = $Skin->Change_class( 'posts_effect' );
+
+
 ?>
-<div class="posts_list <?php echo $post_column ?>">
+<ul id="posts_list" class="posts_list <?php echo $post_column; echo 'effect-'.$effect; ?>">
 <?php
 if( $Item = get_featured_Item() )
 { // We have a intro-front post to display:
 ?>
-	<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_posts feature_post '.$column, ) ) ?>" lang="<?php $Item->lang() ?>">
+	<li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_posts feature_post '.$column, ) ) ?>" lang="<?php $Item->lang() ?>">
 		<div class="main_content_gallery">
 		<?php
 		$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
@@ -181,7 +184,7 @@ if( $Item = get_featured_Item() )
 			locale_restore_previous();	// Restore previous locale (Blog locale)
 		?>
 		</div>
-	</div><!-- .evo_post -->
+	</li><!-- .evo_post -->
 <?php
 // ------------------------------- END OF INTRO-FRONT POST -------------------------------
 }
@@ -205,7 +208,7 @@ if( ! $list_is_empty ) { ?>
 		// Temporarily switch to post locale (useful for multilingual blogs)
 		$Item->locale_temp_switch();
    ?>
-   <div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
+   <li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
 		<div class="main__posts_content">
 		<a href="<?php echo $Item->get_permanent_url(); ?>" class="evo__post_link"></a>
 	   <?php
@@ -306,10 +309,10 @@ if( ! $list_is_empty ) { ?>
 			locale_restore_previous();
 	   ?>
 		</div><!-- .main__posts_content -->
-   </div><!-- /.evo_post -->
+   </li><!-- /.evo_post -->
    <?php
 	} // ---------------------------------- END OF POSTS ------------------------------------
 ?>
-</div>
+</ul>
 <?php
 }

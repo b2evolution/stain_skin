@@ -2276,6 +2276,10 @@ img {
   position: relative;
   display: inline-block;
   z-index: 1;
+  opacity: 0;
+}
+.posts_list .evo_posts.shown {
+  opacity: 1;
 }
 .posts_list .evo_posts.one_column {
   right: 0;

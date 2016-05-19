@@ -559,7 +559,7 @@ class stain_gallery_Skin extends Skin
 						'flip'         => T_( 'Flip' ),
 						'zoom'         => T_( 'Zoom' ),
 						'sweep_right'  => T_( 'Sweep Right' ),
-						'sweep_left'  => T_( 'Sweep Left' ),
+						'sweep_left'   => T_( 'Sweep Left' ),
 						// '4'  => T_( 'Style 4' ),
 					),
 				),
@@ -649,6 +649,23 @@ class stain_gallery_Skin extends Skin
 					'size'			=> 3,
 					'allow_empty'  => false,
 				),
+				'posts_effect' => array(
+					'label'		=> T_( 'Choose the Animation Image' ),
+					'note'		=> T_( 'Select your favorite Animation load for first open page.' ),
+					'type'		=> 'select',
+					'options'	=> array(
+						'0'	=> T_('None'),
+						'1' => T_('Opacity'),
+						'2' => T_('Move Up'),
+						'3' => T_('Sclae Up'),
+						'4' => T_('Fall Perspective'),
+						'5' => T_('Fly'),
+						'6' => T_('Flip'),
+						'7' => T_('Helix'),
+						'8' => T_('Pop Up'),
+					),
+					'defaultvalue' => '4',
+				),
 			'section_posts_end' => array(
 				'layout'   => 'end_fieldset',
 			),
@@ -681,56 +698,6 @@ class stain_gallery_Skin extends Skin
 				),
 			'section_single_end' => array(
 				'layout'		=> 'end_fieldset',
-			),
-
-			/* Footer Options
-			* ========================================================================== */
-			'section_footer_start' => array(
-				'layout'  => 'begin_fieldset',
-				'label'   => T_( 'Footer Options' ),
-			),
-				'footer_bg' => array(
-					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change the main footer background color, default value is #0E1215' ),
-					'type'         => 'color',
-					'defaultvalue' => '#0E1215',
-				),
-				'footer_widget' => array(
-					'label'        => T_( 'Enable Footer Widget' ),
-					'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu <strong>Widgets</strong>.' ),
-					'type'         => 'checkbox',
-					'defaultvalue' => '0'
-				),
-				'footer_widget_column' => array(
-					'label'        => T_( 'Widget Column' ),
-					'note'         => T_( '' ),
-					'type'         => 'radio',
-					'defaultvalue' => '3',
-					'options'      => array(
-						array( '1', T_( '1 Column' ) ),
-						array( '2', T_( '2 Column' ) ),
-						array( '3', T_( '3 Column' ) ),
-						array( '4', T_( '4 Column' ) ),
-					),
-				),
-				'footer_bottom_align' => array(
-					'label'        => T_( 'Footer Bottom Mode' ),
-					'note'         => T_(''),
-					'type'         => 'radio',
-					'defaultvalue' => 'float',
-					'options'      => array(
-						array( 'float', T_( 'Float Mode' ) ),
-						array( 'center', T_( 'Center Mode' ) ),
-					),
-				),
-				'footer_social' => array(
-					'label'		   => T_( 'Enable Social Icon' ),
-					'note'		   => T_( 'Check to enable Social Icon on footer.' ),
-					'type'		   => 'checkbox',
-					'defaultvalue' => 1,
-				),
-			'section_footer_end' => array(
-				'layout'  => 'end_fieldset',
 			),
 
 			/* Mediaidx
@@ -922,6 +889,57 @@ class stain_gallery_Skin extends Skin
 				),
 			'section_search_end' => array(
 				'layout'	=> 'end_fieldset',
+			),
+
+
+			/* Footer Options
+			* ========================================================================== */
+			'section_footer_start' => array(
+				'layout'  => 'begin_fieldset',
+				'label'   => T_( 'Footer Options' ),
+			),
+				'footer_bg' => array(
+					'label'        => T_( 'Background Color' ),
+					'note'         => T_( 'Change the main footer background color, default value is #0E1215' ),
+					'type'         => 'color',
+					'defaultvalue' => '#0E1215',
+				),
+				'footer_widget' => array(
+					'label'        => T_( 'Enable Footer Widget' ),
+					'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu <strong>Widgets</strong>.' ),
+					'type'         => 'checkbox',
+					'defaultvalue' => '0'
+				),
+				'footer_widget_column' => array(
+					'label'        => T_( 'Widget Column' ),
+					'note'         => T_( '' ),
+					'type'         => 'radio',
+					'defaultvalue' => '3',
+					'options'      => array(
+						array( '1', T_( '1 Column' ) ),
+						array( '2', T_( '2 Column' ) ),
+						array( '3', T_( '3 Column' ) ),
+						array( '4', T_( '4 Column' ) ),
+					),
+				),
+				'footer_bottom_align' => array(
+					'label'        => T_( 'Footer Bottom Mode' ),
+					'note'         => T_(''),
+					'type'         => 'radio',
+					'defaultvalue' => 'float',
+					'options'      => array(
+						array( 'float', T_( 'Float Mode' ) ),
+						array( 'center', T_( 'Center Mode' ) ),
+					),
+				),
+				'footer_social' => array(
+					'label'		   => T_( 'Enable Social Icon' ),
+					'note'		   => T_( 'Check to enable Social Icon on footer.' ),
+					'type'		   => 'checkbox',
+					'defaultvalue' => 1,
+				),
+			'section_footer_end' => array(
+				'layout'  => 'end_fieldset',
 			),
 
 
@@ -1765,7 +1783,7 @@ class stain_gallery_Skin extends Skin
 		return ( ! empty( $access ) && ! empty( $access[ $container_key ] ) );
 	}
 
-   /* Title Comment
+   /* Change Class
     * ========================================================================== */
    function Change_class( $id ) {
 

@@ -24,16 +24,27 @@
         }
     }
 
-    var PostList_masonry = function(){
-        if ( $.fn.masonry ) {
-            $('.posts_list').masonry({
-                // options
-                itemSelector: '.evo_posts',
-                percentPosition: true,
-                //   columnWidth: 100
-            });
+    // Posts Masonry and Load Animation
+    var Postlist = function(){
+        if( document.getElementById("posts_list") != null ){
+            new AnimOnScroll( document.getElementById( 'posts_list' ), {
+                minDuration : 0.4,
+                maxDuration : 0.7,
+                viewportFactor : 0.2
+            } );
         }
     }
+
+    // var PostList_masonry = function(){
+    //     if ( $.fn.masonry ) {
+    //         $('.posts_list').masonry({
+    //             // options
+    //             itemSelector: '.evo_posts',
+    //             percentPosition: true,
+    //             //   columnWidth: 100
+    //         });
+    //     }
+    // }
 
     // Photo Index
     var PhotoIndex = function(){
@@ -114,31 +125,31 @@
     var Back_top = function() {
         // Back to Top
         // ======================================================================== /
-         // browser window scroll ( in pixels ) after which the "back to top" link is show
-         var offset = 500,
-            // browser window scroll (in pixels) after which the "back to top" link opacity is reduced
-            offset_opacity = 1200,
-            // duration of the top scrolling animatiion (in ms)
-            scroll_top_duration = 700,
-            // grab the "back to top" link
-            $back_to_top = $( '.cd_top' );
+        // browser window scroll ( in pixels ) after which the "back to top" link is show
+        var offset = 500,
+        // browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+        offset_opacity = 1200,
+        // duration of the top scrolling animatiion (in ms)
+        scroll_top_duration = 700,
+        // grab the "back to top" link
+        $back_to_top = $( '.cd_top' );
 
-         // hide or show the "back to top" link
-         $(window).scroll( function() {
+        // hide or show the "back to top" link
+        $(window).scroll( function() {
             ( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
             if( $(this).scrollTop() > offset_opacity ) {
-               $back_to_top.addClass('cd-fade-out');
+                $back_to_top.addClass('cd-fade-out');
             }
-         });
+        });
 
-         // Smooth scroll to top
-         $back_to_top.on( 'click', function(event) {
+        // Smooth scroll to top
+        $back_to_top.on( 'click', function(event) {
             event.preventDefault();
             $( 'body, html' ).animate({
-               scrollTop: 0,
-               }, scroll_top_duration
+                scrollTop: 0,
+                }, scroll_top_duration
             );
-         });
+        });
     }
 
 
@@ -150,7 +161,9 @@
 
     $(window).load(function() {
         PostGallery_masonry();
-        PostList_masonry();
+        // PostList_masonry();
+        Postlist();
+
         waypoint();
         Slidebars();
         menu_sticky();
