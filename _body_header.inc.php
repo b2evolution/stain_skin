@@ -45,6 +45,16 @@ siteskin_include( '_site_body_header.inc.php' );
     <nav class="main_navigation">
         <div class="container">
             <div class="row">
+                <div class="mobile_nav">
+                    <button id="main_nav" class="menu_hamburger">
+                        <span>Menu</span>
+                        <div class="hamburger">
+                            <div class="menui top-menu"></div>
+                            <div class="menui mid-menu"></div>
+                            <div class="menui bottom-menu"></div>
+                        </div>
+                    </button>
+                </div>
                 <ul class="nav nav-tabs">
                     <?php
                     // ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------

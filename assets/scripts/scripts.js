@@ -8,9 +8,22 @@
                 topSpacing: 0,
                 center: true,
                 getWidthFrom: '768',
-                responsiveWidth: true,
+                responsiveWidth: false,
             });
         }
+    }
+
+    var Mobile_Nav = function(){
+
+        // $( '#main_nav' ).click( function(){
+        //     $( '.nav-tabs' ).fadetoggle( 200 );
+        //     $(this).toggleClass( 'active' )
+        // })
+
+        $('#main_nav').click(function() {
+           $('.mobile_nav').toggleClass('active');
+           $('.nav-tabs').toggleClass('open');
+        });
     }
 
     // Photo Index
@@ -160,13 +173,14 @@
     });
 
     $(window).load(function() {
+        menu_sticky();
+        Mobile_Nav();
         PostGallery_masonry();
         // PostList_masonry();
         Postlist();
 
         waypoint();
         Slidebars();
-        menu_sticky();
         PhotoIndex();
         Back_top();
     });
