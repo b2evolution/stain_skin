@@ -92,13 +92,18 @@ body {
 	}
 }
 
-&.four_column {
+.four_column {
 	@media screen and ( min-width: @ML ) {
 		max-width: @four_column;
 	}
-
 	@media screen and ( min-width: @MF ) and ( max-width: @ML ) {
 		max-width: @three_column;
+	}
+	@media screen and ( max-width: @M ) {
+		max-width: @two_column;
+	}
+	@media screen and ( max-width: @S ) {
+		max-width: @one_column;
 	}
 }
 

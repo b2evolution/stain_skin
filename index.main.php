@@ -141,19 +141,6 @@ skin_include( '_body_header.inc.php' );
 				// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
 			?>
 
-			<?php
-			// if( $disp != 'catdir' )
-			// {	// Don't display the pages on disp=catdir because we don't have a limit by page there
-			// 	// -------------------- PREV/NEXT PAGE LINKS (POST LIST MODE) --------------------
-			// 	mainlist_page_links( array(
-			// 		'block_start' => '<div class="nav_pages">',
-			// 		'block_end'   => '</div>',
-			// 		'prev_text'   => '&lt;&lt;',
-			// 		'next_text'   => '&gt;&gt;',
-			// 	) );
-			// 	// ------------------------- END OF PREV/NEXT PAGE LINKS -------------------------
-			// }
-			?>
 		</div><!-- .main_content -->
 	</div><!-- .container -->
 </main>

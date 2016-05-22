@@ -14,12 +14,6 @@
     }
 
     var Mobile_Nav = function(){
-
-        // $( '#main_nav' ).click( function(){
-        //     $( '.nav-tabs' ).fadetoggle( 200 );
-        //     $(this).toggleClass( 'active' )
-        // })
-
         $('#main_nav').click(function() {
            $('.mobile_nav').toggleClass('active');
            $('.nav-tabs').toggleClass('open');
@@ -48,16 +42,16 @@
         }
     }
 
-    // var PostList_masonry = function(){
-    //     if ( $.fn.masonry ) {
-    //         $('.posts_list').masonry({
-    //             // options
-    //             itemSelector: '.evo_posts',
-    //             percentPosition: true,
-    //             //   columnWidth: 100
-    //         });
-    //     }
-    // }
+    var single_gallery_masonry = function(){
+        if ( $.fn.masonry ) {
+            $('.single_masonry').masonry({
+                // options
+                itemSelector: '.single-image',
+                percentPosition: true,
+                //   columnWidth: 100
+            });
+        }
+    }
 
     // Photo Index
     var PhotoIndex = function(){
@@ -176,9 +170,8 @@
         menu_sticky();
         Mobile_Nav();
         PostGallery_masonry();
-        // PostList_masonry();
+        single_gallery_masonry();
         Postlist();
-
         waypoint();
         Slidebars();
         PhotoIndex();

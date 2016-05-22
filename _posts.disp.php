@@ -228,11 +228,11 @@ if( ! $list_is_empty ) { ?>
 					'get_rendered_attachments'   => false,
 					// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
 					'links_sql_select'           => ', CASE '
-							.'WHEN link_position = "cover"     THEN "1" '
-							.'WHEN link_position = "teaser"    THEN "2" '
-							.'WHEN link_position = "aftermore" THEN "3" '
-							.'WHEN link_position = "inline"    THEN "4" '
-							// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
+						.'WHEN link_position = "cover"     THEN "1" '
+						.'WHEN link_position = "teaser"    THEN "2" '
+						.'WHEN link_position = "aftermore" THEN "3" '
+						.'WHEN link_position = "inline"    THEN "4" '
+						// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
 						.'END AS position_order',
 					'links_sql_orderby'          => 'position_order, link_order',
 				) );

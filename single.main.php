@@ -115,13 +115,43 @@ skin_include( '_body_header.inc.php' );
 			?>
 
 			<article>
-				<?php $Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs) ?>
-				<div class="single__post_images">
+				<?php
+					$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
+
+					$column = $Skin->Change_class( 'single_image_grid' );
+					$grid = '';
+					$masonry = '';
+
+					if ( $Skin->get_setting( 'single_image_style' ) == 'masonry' ) {
+						$masonry = 'single_masonry';
+						switch( $Skin->get_setting( 'single_image_grid' ) ) {
+							case '12':
+								$grid = 'one_column';
+								break;
+							case '6':
+								$grid = 'two_column';
+								break;
+							case '4':
+								$grid = 'three_column';
+								break;
+							case '3':
+								$grid = 'four_column';
+								break;
+							default:
+								$grid = 'three_column';
+								break;
+						}
+					} else {
+						$grid = "col-lg-$column col-md-$column. col-sm-6 col-xs-6";
+					}
+
+				?>
+				<div class="single__post_images <?php echo $masonry; ?>">
 					<?php
 					// Display images that are linked to this post:
 					$Item->images( array(
 						'before'              => '',
-						'before_image'        => '<figure class="single-image col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6">',
+						'before_image'        => '<figure class="single-image '.$grid.'">',
 						'before_image_legend' => '<figcaption class="evo_image_legend">',
 						'after_image_legend'  => '</figcaption>',
 						'after_image'         => '</figure>',
@@ -137,6 +167,7 @@ skin_include( '_body_header.inc.php' );
 						'gallery_row_end'     => '',
 						'gallery_cell_start'  => '<div class="evo_post_gallery__image">',
 						'gallery_cell_end'    => '</div>',
+						// 'links_sql_orderby'   => 'position_order, link_order',
 					) );
 					?>
 				</div>

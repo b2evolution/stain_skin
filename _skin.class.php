@@ -207,18 +207,6 @@ class stain_gallery_Skin extends Skin
 			// 		'size'         => '4px',
 			// 		'type'         => 'text',
 			// 	),
-			// 	'page_text_color' => array(
-			// 		'label'        => T_('Page text color'),
-			// 		'note'         => T_('E-g: #00ff00 for green'),
-			// 		'defaultvalue' => '#333',
-			// 		'type'         => 'color',
-			// 	),
-			// 	'page_bg_color' => array(
-			// 		'label'        => T_('Page background color'),
-			// 		'note'         => T_('E-g: #ff0000 for red'),
-			// 		'defaultvalue' => '#fff',
-			// 		'type'         => 'color',
-			// 	),
 			// 'section_page_end' => array(
 			// 	'layout' => 'end_fieldset',
 			// ),
@@ -671,21 +659,31 @@ class stain_gallery_Skin extends Skin
 				'layout'		=> 'begin_fieldset',
 				'label'		=> T_( 'Single Options' ),
 			),
-				'single_layout' => array(
-					'label'			=> T_( 'Layout' ),
-					'note'			=> T_( 'Change the layout for single disp.' ),
-					'defaultvalue'  => 'single_column',
+				'single_image_style' => array(
+					'label'			=> T_( 'Style Image Gallery' ),
+					'note'			=> T_( 'Change the style layout image gallery.' ),
 					'type'			=> 'select',
+					'defaultvalue'  => 'grid',
 					'options'		=> array(
-						'single_column'        => T_('Single Column Large'),
-						'single_column_normal' => T_('Single Column'),
-						'left_sidebar'         => T_('Left Sidebar'),
-						'right_sidebar'        => T_('Right Sidebar'),
+						'grid'    => T_('Grid'),
+						'masonry' => T_('Masonry'),
 					),
+				),
+				'single_image_grid' => array(
+					'label'			=> T_( 'Image Gallery Column' ),
+					'note'			=> T_( '( Change the gallery column for single Image Gallery. )' ),
+					'type'			=> 'radio',
+					'options'		=> array(
+						array( '12', T_( '1 Column' ) ),
+						array( '6', T_( '2 Column' ) ),
+						array( '4', T_( '3 Column' ) ),
+						array( '3', T_( '4 Column' ) ),
+					),
+					'defaultvalue' => '4',
 				),
 				'single_thumb_size' => array(
 					'label'        => T_('Thumbnail size for Single Disp'),
-					'note'         => '',
+					'note'         => T_('If you select <strong>Masonry Style Image Gallery</strong>, the thumbnail size we recommended to <strong>fit-1280x720</strong>.'),
 					'defaultvalue' => 'crop-480x320',
 					'options'      => get_available_thumb_sizes(),
 					'type'         => 'select',
@@ -1777,16 +1775,19 @@ class stain_gallery_Skin extends Skin
 		return ( ! empty( $access ) && ! empty( $access[ $container_key ] ) );
 	}
 
-   /* Change Class
-    * ========================================================================== */
-   function Change_class( $id ) {
+	/* Change Class
+	* ========================================================================== */
+	function Change_class( $id ) {
 
-	$id = $this->get_setting( $id );
-	if ( $id == $id ) {
-		return $id;
+		$id = $this->get_setting( $id );
+		if ( $id == $id ) {
+			return $id;
+		}
+
 	}
 
-   }
+
+
 
 }
 
