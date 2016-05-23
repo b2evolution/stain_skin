@@ -12,7 +12,7 @@ The skin highlights your images which makes it great to show off your projects o
 ![posts_page](skinshot_posts.jpg)
 
 ## Single Page
-![single_page](skinshot_singke.jpg)
+![single_page](skinshot_single.jpg)
 
 ## Media Page
 ![media_page](skinshot_media.jpg)
