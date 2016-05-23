@@ -4,8 +4,12 @@ Stain – it’s a Photography Portfolio b2evolution skin, with modern design & 
 
 The skin highlights your images which makes it great to show off your projects or photography. It includes all the flexibility you need to create your own unique b2evolution website for you brand. It’s big, full width layout & responsive design looks great on all devices and screen sizes.
 
-## Front Page
+====
 
+## Preview
+![preview](main_screen.jpg)
+
+## Front Page
 ![front_page](skinshot_front.jpg)
 
 ## Posts Page
