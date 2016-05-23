@@ -1,28 +1,44 @@
 # Stain Gallery Skin
 
-Stain is a Gallery Skin with awesome customize for every disp. Stain used fully animation for the content, fully responsive for all page, used masonry and grid layout and anymore.
+Stain – it’s a Photography Portfolio b2evolution skin, with modern design & focus on content, we have created plenty of layout designs, skin options & different styles for disp.
 
-## Preview
+The skin highlights your images which makes it great to show off your projects or photography. It includes all the flexibility you need to create your own unique b2evolution website for you brand. It’s big, full width layout & responsive design looks great on all devices and screen sizes.
 
-![preview](preview.png)
+## Front Page
+
+![front_page](skinshot_front.jpg)
+
+## Posts Page
+![posts_page](skinshot_posts.jpg)
+
+## Single Page
+![single_page](skinshot_singke.jpg)
+
+## Media Page
+![media_page](skinshot_media.jpg)
 
 
 ====
 
-### Some of the Features:
+### Feature Lists:
 
-- 100% Responsive Design
+- Compatible with latest b2evolution versions
+- Beautiful Responsive Design
+- Fully Retina-Ready
 - Unlimited Color Schemes
 - Unlimited Background Color
-- 10 Background Image
-- Styling All Disp Skin
+- Custom Background Image
+- Front disp Customizer
+- Search disp different style
+- 404 disp
+- Login disp
+- Register Disp
 - Responsive Mobile Menu
 - Full Width Elements
-- Full Post, Sidebar, and Grid
 - One, Two and Three Column
-- Photo Index Style Grid
 - Masonry gallery with fullscreen popup
-- Use Animation CSS
+- Amazing Animation
+- Clean and Minimalist
 - Footer Widget
 - Social Icon
 - Back to top button

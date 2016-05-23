@@ -163,7 +163,7 @@
     // Document on Load
     //////////////////////////////////////////////////
     $(function() {
-
+        Back_top();
     });
 
     $(window).load(function() {
@@ -175,7 +175,6 @@
         waypoint();
         Slidebars();
         PhotoIndex();
-        Back_top();
     });
 
 }(jQuery));

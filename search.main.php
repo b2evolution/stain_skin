@@ -54,8 +54,6 @@ skin_include( '_html_header.inc.php', array() );
 	</ul>
 </nav><!-- /#main_navigation -->
 
-
-
 <div id="sb-site">
 
 <?php
@@ -66,7 +64,6 @@ siteskin_include( '_site_body_header.inc.php' );
 
 ?>
 
-
 <header class="search_head">
 	<div class="container">
 
@@ -75,13 +72,12 @@ siteskin_include( '_site_body_header.inc.php' );
 				<?php
 				// ------------------------ START OF Brand FORM WIDGET ------------------------
 				skin_widget( array(
-						// CODE for the widget:
-						'widget'               => 'coll_title',
-					) );
+					// CODE for the widget:
+					'widget'               => 'coll_title',
+				) );
 				// ------------------------- END OF Brand FORM WIDGET -------------------------
 				?>
 			</div>
-
 
 			<button class="sb-toggle-left menu_hamburger">
 				<span>Menu</span>
@@ -94,7 +90,6 @@ siteskin_include( '_site_body_header.inc.php' );
 
 			<div class="clearfix"></div>
 		</div>
-
 
 		<!-- Search Box -->
 		<div class="search_box">
