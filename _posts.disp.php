@@ -170,14 +170,20 @@ if( $Item = get_featured_Item() )
 				'time_format' => 'M j, Y',
 			) );
 
-			// Content Excerpt
-			$Item->excerpt( array(
-				'before'              => $params['excerpt_before_text'],
-				'after'               => $params['excerpt_after_text'],
-				'excerpt_before_more' => $params['excerpt_before_more'],
-				'excerpt_after_more'  => $params['excerpt_after_more'],
-				'excerpt_more_text'   => $params['excerpt_more_text'],
-			) );
+            if( !$Item->is_intro() ) {
+    			// Content Excerpt
+    			$Item->excerpt( array(
+    				'before'              => $params['excerpt_before_text'],
+    				'after'               => $params['excerpt_after_text'],
+    				'excerpt_before_more' => $params['excerpt_before_more'],
+    				'excerpt_after_more'  => $params['excerpt_after_more'],
+    				'excerpt_more_text'   => $params['excerpt_more_text'],
+    			) );
+            }
+
+            if( $Item->is_intro() ) {
+                skin_include( '_item_content.inc.php', $params );
+            }
 		?>
 		</div>
 		<?php
