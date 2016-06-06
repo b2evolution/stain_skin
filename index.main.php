@@ -59,7 +59,6 @@ skin_include( '_body_header.inc.php' );
 					'glue'              => ' - ',
 					'title_single_disp' => false,
 					'format'            => 'htmlbody',
-					'arcdir_text'       => T_('Index'),
 					'catdir_text'       => '',
 					'category_text'     => T_('Gallery').': ',
 					'categories_text'   => T_('Galleries').': ',

@@ -75,6 +75,10 @@ global $Skin;
                         'widget'          => 'user_links',
                         'block_start'     => '<div class="footer__social float-right">',
                         'block_end'       => '</div>',
+                        'list_start'      => '<li>',
+                        'list_end'        => '</li>',
+                        'item_start'      => '<li>',
+						'item_end'        => '</li>',
                     ));
                 }
                 ?>

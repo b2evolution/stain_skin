@@ -3,13 +3,14 @@
 // ======================================================================== /
 .main_header {
     position: relative;
-    height: 500px;
+    // min-height: 500px;
     background-image: url('assets/images/header/header-3.jpg');
     // background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
     margin-top: -1px;
     z-index: 0;
+    overflow: hidden;
 
     &::after {
         content: '';
@@ -24,25 +25,36 @@
     }
 
     @media screen and ( max-width: @S ) {
-        height: 260px;
+        min-height: 220px !important;
+        height: 100%;
     }
 
     // Brand Style
     // ======================================================================== /
     .brand {
-        position: absolute;
         max-width: 1170px;
-        top: 38%;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        padding: 0 15px;
+        // position: absolute;
+        // top: 38%;
+        // left: 0;
+        // right: 0;
+        // padding: 0 15px;
+        margin: auto;
         text-align: center;
         color: @w;
+
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 30px 15px;
+        // padding-top: 180px !important;
 
         //   @media screen and ( min-width: 1440px ) {
         //      max-width: 1410px;
         //   }
+
+        @media screen and ( max-width: @S ){
+            padding-top: 80px !important;
+        }
 
         .evo_widget{
 
@@ -110,7 +122,7 @@
 // ======================================================================== /
 .main_navigation {
     position: relative;
-    width: 100%;
+    width: 100% !important;
     max-width: 100%;
     background-color: @c1b;
     z-index: 997;
@@ -608,6 +620,10 @@
                 }
             }
 
+            @media screen and ( max-width: @S ){
+                margin: 5px auto;
+            }
+
         }
 
         // When Menu Active
@@ -660,7 +676,7 @@
 
             @media screen and ( max-width: @M ) {
                 .mobile_nav .menu_hamburger {
-                    margin: 6px auto;
+                    margin: 3px auto;
                 }
             }
         }
@@ -688,13 +704,20 @@
 
 .loggedin {
 
-   .sticky-wrapper.is-sticky {
+    @media screen and ( min-width: @M ) {
 
-      @media screen and ( min-width: @ML ) {
-         .main_navigation {
-            top: 25px !important;
-         }
-      }
-   }
+        .nav-tabs.open {
+            top: 22px;
+        }
+    }
+
+    .sticky-wrapper.is-sticky {
+
+        @media screen and ( min-width: @ML ) {
+            .main_navigation {
+                top: 25px !important;
+            }
+        }
+    }
 
 }

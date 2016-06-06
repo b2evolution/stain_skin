@@ -99,7 +99,7 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
             'link_categories' => true,
         ) );
 
-        $Item->images( array(
+        $item_feature_image = $Item->get_images( array(
             'before'              => $params['before_images'],
             'before_image'        => $params['before_image'],
             'before_image_legend' => $params['before_image_legend'],
@@ -125,6 +125,11 @@ if( $Item = get_featured_Item( 'catdir' ) ) { // We have a intro-front post to d
             // Optionally restrict to files/images linked to specific position: 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
             'restrict_to_image_position' => 'teaser',
         ) );
+        if( empty( $item_feature_image ) )
+        { // No images in this post, Display an empty block
+            $item_feature_image = $Item->get_permanent_link( '<div class="no_image"><img src="'.$Skin->get_url().'assets/images/blank_image.png"></div>', '#', 'album_nopic' );
+        }
+        echo $item_feature_image;
 
         ?>
         <div class="posts__info">

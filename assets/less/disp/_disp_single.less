@@ -205,8 +205,6 @@
             float: none !important;
             transition: all 0.52s cubic-bezier(0.87, 0.32, 0.04, 0.82);
 
-
-
             img {
                 max-width: 100%;
                 text-align: center;
@@ -218,7 +216,8 @@
                 transform: translateY(-8px);
 
                 img {
-                    box-shadow: 0px 10px 40px 6px rgba(0, 0, 0, 0.3);
+                    // box-shadow: 0px 10px 40px 6px rgba(0, 0, 0, 0.3);
+                    box-shadow: 0px 20px 40px -8px rgba(0, 0, 0, 0.5);
                 }
             }
 
@@ -231,6 +230,28 @@
             }
         }
 
+        // SINGLE POST GALLERY
+        // ======================================================================== /
+        .evo_post_gallery {
+            margin-left: 15px;
+            margin-right: 15px;
+
+            .evo_post_gallery__image {
+                img {
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+
+                &:hover, &:active, &:focus {
+                    img {
+                        box-shadow: 0px 8px 18px -6px rgba(0, 0, 0, 0.6);
+                        transform: translateY(-5px);
+                    }
+
+                }
+            }
+
+        }
+
     }
 
     // Evo Content Header -- Disp Page --
@@ -240,6 +261,10 @@
         padding: 30px;
         box-shadow: @box-shadow;
         border-bottom: 1px solid @ce;
+
+        @media screen and ( max-width: @S ) {
+            padding: 20px;
+        }
 
         .evo_post_title h1 {
             margin: 0 0 5px;
@@ -399,11 +424,29 @@
                     a {
                         color: @primary;
                     }
+
+                    @media screen and ( max-width: @S ) {
+                        padding: 20px;
+                    }
                 }
             }
 
             .evo_post__full_text {
                 padding: 30px;
+
+                @media screen and ( max-width: @S ) {
+                    padding: 20px;
+                }
+            }
+
+            .item_custom_fields {
+                display: block;
+                padding: 0 30px 30px;
+
+                td, tr {
+                    border: 1px solid @ce;
+                    padding: 6px;
+                }
             }
 
         }
@@ -495,10 +538,21 @@
             font-weight: bold;
             text-transform: uppercase;
             margin: 0 0 20px;
+
+            @media screen and ( max-width: @XS ) {
+                float: none;
+                display: block;
+            }
         }
 
         .evo_comment__meta_info {
             padding: 0;
+
+            @media screen and ( max-width: @XS ) {
+                float: none;
+                display: block;
+                margin-bottom: 20px;
+            }
         }
 
         .evo_comment__meta_info {
@@ -523,6 +577,10 @@
         .panel-heading {
             padding: 18px 30px;
 
+            @media screen and ( max-width: @S ) {
+                padding: 18px 20px;
+            }
+
             .panel-title {
                 font-family: @font_heading;
                 font-weight: 700;
@@ -543,6 +601,10 @@
         .panel-body {
             position: relative;
             padding: 20px 30px 25px;
+
+            @media screen and ( max-width: @S ) {
+                padding: 20px 20px 25px;
+            }
 
             .action_icon {
                 display: inline-block;
@@ -579,6 +641,7 @@
                 box-shadow: @box-shadow;
                 border-radius: 30px;
                 padding: 10px 20px;
+                white-space: normal;
 
                 &:hover, &:active, &:focus {
                     background-color: @primary;
@@ -785,7 +848,12 @@
                 text-transform: uppercase;
                 border-radius: 50px;
                 padding: 10px 18px;
+                margin-bottom: 2px;
                 transition: all 0.32s ease;
+
+                @media screen and ( max-width: @S ) {
+                    margin-bottom: 6px;
+                }
             }
 
             &.preview {

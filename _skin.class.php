@@ -15,7 +15,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
  *
  * ATTENTION: if you make a new skin you have to change the class name below accordingly
  */
-class stain_gallery_Skin extends Skin
+class stain_Skin extends Skin
 {
 
 	/**
@@ -28,7 +28,7 @@ class stain_gallery_Skin extends Skin
 	 */
 	function get_default_name()
 	{
-		return 'Stain Gallery Skin';
+		return 'Stain Skin';
 	}
 
 
@@ -255,7 +255,7 @@ class stain_gallery_Skin extends Skin
 			),
 				'header_height' => array(
 					'label'        => T_('Height'),
-					'note'         => T_( 'px <br> Set <strong>Height</strong> the Header.' ),
+					'note'         => T_( 'px <br> Set <strong>Height</strong> the Header. If the content header higher from this option. Height will follow the content.' ),
 					'type'         => 'integer',
 					'defaultvalue' => '320',
 					'size'         => '3px',
@@ -360,12 +360,22 @@ class stain_gallery_Skin extends Skin
 					),
 					'defaultvalue' => '0.2',
 				),
+			'section_header_end' => array(
+				'layout'   => 'end_fieldset'
+			),
+
+			/* HEADER CONTENT OPTIONS
+			 * ========================================================================== */
+			'section_head_con_start' => array(
+				'layout'	=> 'begin_fieldset',
+				'label'		=> T_('Header Content Options'),
+			),
 				'header_content_top' => array(
-					'label'			=> T_( 'Content Top Position' ),
-					'note'			=> T_( '%. Change the content top position if you have many content in the header. Default value is <strong>38%</strong>' ),
+					'label'			=> T_( 'Content Padding Top' ),
+					'note'			=> T_( 'px. Change the content padding top if you set the hight header and want to center content. Default value is <strong>125px</strong>' ),
 					'type'			=> 'integer',
 					'allow_empty'	=> false,
-					'defaultvalue'	=> '38',
+					'defaultvalue'	=> '125',
 					'size'			=> 5,
 				),
 				'header_content_align' => array(
@@ -391,8 +401,8 @@ class stain_gallery_Skin extends Skin
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
-			'section_header_end' => array(
-				'layout'   => 'end_fieldset'
+			'section_head_con_end' => array(
+				'layout'	=>	'end_fieldset',
 			),
 
 			/* Main Navigation
@@ -493,7 +503,7 @@ class stain_gallery_Skin extends Skin
 						array( 'two_column', T_( '2 Column' ) ),
 						array( 'three_column', T_( '3 Column' ) ),
 						array( 'four_column', T_( '4 Column' ) ),
-						array( 'random', T_( 'Random' ) ),
+						// array( 'random', T_( 'Random' ) ),
 					),
 					'defaultvalue' => 'three_column',
 				),
@@ -587,7 +597,8 @@ class stain_gallery_Skin extends Skin
 				'layout'	=> 'end_fieldset',
 			),
 
-			/* Posts Options
+
+			/* POST OPTIONS
 			* ========================================================================== */
 			'section_posts_start' => array(
 				'layout'   => 'begin_fieldset',
@@ -764,6 +775,12 @@ class stain_gallery_Skin extends Skin
 						'8' => T_('Pop Up'),
 					),
 					'defaultvalue' => '3',
+				),
+				'mediaidx_hover_action' => array(
+					'label'			=> T_( 'Image Hover Style' ),
+					'note'			=> T_( 'Checklist to activated hover style for Images gallery' ),
+					'type'			=> 'checkbox',
+					'defaultvalue'	=> 1,
 				),
 				'mediaidx_title' => array(
 					'label'			=> T_( 'Display Title Image' ),
@@ -1201,7 +1218,7 @@ class stain_gallery_Skin extends Skin
 		/* Header Options
 		* ========================================================================== */
 		if ( $height = $this->get_setting( 'header_height' ) ) {
-			$custom_css .= '.main_header{ height: '.$height.'px; }';
+			$custom_css .= '.main_header{ min-height: '.$height.'px; }';
 		}
 
 		$bg_header = '';
@@ -1253,7 +1270,7 @@ class stain_gallery_Skin extends Skin
 
 		// Content Header
 		if( $top = $this->get_setting( 'header_content_top' ) ) {
-			$custom_css .= '.main_header .brand { top: '.$top.'% }';
+			$custom_css .= '.main_header .brand { padding-top: '.$top.'px }';
 		}
 
 		$align = $this->get_setting( 'header_content_align' );
@@ -1339,6 +1356,12 @@ class stain_gallery_Skin extends Skin
 		if ( $space = $this->get_setting( 'mediaidx_space' ) ) {
 			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content { padding: '.$space.'px }';
 			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .evo_image_index { margin-left: -'.$space.'px;  margin-right: -'.$space.'px }';
+		}
+
+		if( $this->get_setting( 'mediaidx_hover_action' ) == 0 ) {
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content a:before, .disp_mediaidx .main_content .widget_core_coll_media_index .image_content a:after{ display: none; }';
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content:hover, .disp_mediaidx .main_content .widget_core_coll_media_index .image_content:active, .disp_mediaidx .main_content .widget_core_coll_media_index .image_content:focus { margin: 0 }';
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content:hover img, .disp_mediaidx .main_content .widget_core_coll_media_index .image_content:active img, .disp_mediaidx .main_content .widget_core_coll_media_index .image_content:focus img{ box-shadow: none }';
 		}
 
 		if ( $bg = $this->get_setting( 'mediaidx_title_bg' ) ) {

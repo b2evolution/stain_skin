@@ -22,7 +22,7 @@ global $Blog;
 <div class="error_404">
     <div class="error_404_content">
         <h1>Ooops!</h1>
-        <p>We can't seem to find the page you're <span>l<span>oo</span>king</span> for.</p>
+        <p>We can't seem to find the page you're looking for.</p>
         <span>Error code: 403</span>
     </div>
 

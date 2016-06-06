@@ -228,7 +228,7 @@ if( ! $list_is_empty ) { ?>
 					'get_rendered_attachments'   => false,
 					// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
 					'links_sql_select'           => ', CASE '
-						.'WHEN link_position = "cover"     THEN "1" '
+						// .'WHEN link_position = "cover"     THEN "1" '
 						.'WHEN link_position = "teaser"    THEN "2" '
 						.'WHEN link_position = "aftermore" THEN "3" '
 						.'WHEN link_position = "inline"    THEN "4" '
