@@ -182,7 +182,11 @@ if( $Item = get_featured_Item() )
             }
 
             if( $Item->is_intro() ) {
-                skin_include( '_item_content.inc.php', $params );
+                // ---------------------- POST CONTENT INCLUDED HERE ----------------------
+        		skin_include( '_item_content.inc.php', $params );
+        		// Note: You can customize the default item content by copying the generic
+        		// /skins/_item_content.inc.php file into the current skin folder.
+        		// -------------------------- END OF POST CONTENT -------------------------
             }
 		?>
 		</div>

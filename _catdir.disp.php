@@ -212,7 +212,7 @@ $no_content_to_display = true;
 if( ! empty( $chapters ) ) { // Display the posts with chapters
 	foreach( $chapters as $Chapter ) {
 		// Get the posts of current category
-		$ItemList = new ItemList2( $Blog, $Blog->get_timestamp_min(), $Blog->get_timestamp_max() );
+		$ItemList = new ItemList2( $Blog, $Blog->get_timestamp_min( 1 ), $Blog->get_timestamp_max() );
 		$ItemList->set_filters( array(
 			'cat_array'    => array( $Chapter->ID ), // Limit only by selected cat (exclude posts from child categories)
 			'cat_modifier' => NULL,

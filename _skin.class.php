@@ -144,11 +144,19 @@ class stain_Skin extends Skin
 
 		// System provide bg images
 		$bodybg_cat = 'assets/images/header/'; // Background images folder relative to this skin folder
-		$arr_bodybg = $this -> get_arr_pics_from_folder( $this->get_path().$bodybg_cat, $this->get_url().$bodybg_cat, 80, 80 );
+		$arr_bodybg = $this ->get_arr_pics_from_folder( $this->get_path().$bodybg_cat, $this->get_url().$bodybg_cat, 80, 80 );
 
 		// User Custom bg images
 		$custom_headerbg_cat  = "headerbg/"; // Background images folder which created by users themselves, and it's relative to collection media dir
 		$arr_custom_headerbg = $this->get_arr_pics_from_folder( $Blog->get_media_dir().$custom_headerbg_cat, $Blog->get_media_url().$custom_headerbg_cat, 65 ,65);
+
+		// BACKGROUND CONTENT LOGIN, LOSTPASSWORD, REGISTER, 404
+		$bgc_img = 'assets/images/content/';
+		$arr_bgc_img = $this->get_arr_pics_from_folder( $this->get_path().$bgc_img, $this->get_url().$bgc_img, 80, 80 );
+
+		// Custom Background Content
+		$custom_bgc = 'contentbg/';
+		$arr_custom_bgc = $this->get_arr_pics_from_folder( $Blog->get_media_dir().$custom_bgc, $Blog->get_media_url().$custom_bgc, 80,80 );
 
 		$r = array_merge( array(
 
@@ -900,6 +908,86 @@ class stain_Skin extends Skin
 				'layout'	=> 'end_fieldset',
 			),
 
+			/* BACKGROUND CONTENT FOR LOGIN, LOSSPASWORD, REGISTER AND 404
+			 * ========================================================================== */
+			'section_bg_content_start' => array(
+				'layout'	=> 'begin_fieldset',
+				'label'		=> T_( 'Background Content Disp ( Login | Lostpassword | Register | 404/403 )' ),
+			),
+				'bgc_style' => array(
+					'label'			=> T_( 'Background Style' ),
+					'note'			=> T_( 'Select the background style for background content' ),
+					'type'			=> 'select',
+					'defaultvalue'	=> 'bg_img',
+					'options'		=> array(
+						'bg_img'	=> T_( 'Background Image' ),
+						'bg_custom'	=> T_( 'Background Custom Image' ),
+						'bg_color'	=> T_( 'Background Color' ),
+					),
+				),
+				'bgc_img' => array(
+					'label'        => T_( 'Background Image' ),
+					'note'         => T_( '' ),
+					'type'         => 'radio',
+					'options'      => $arr_bgc_img,
+					'defaultvalue' => reset( $arr_bgc_img[0] ),
+				),
+				'bgc_img_custom' => array(
+					'label'			=> T_( 'User Custom Background Image' ),
+					'note'			=> T_('（Please create a folder named <b><i>'.str_replace("/","",$custom_bgc).'</i></b> in your collection media folder and put the images into it. Now <a href="admin.php?ctrl=files" target="_blank"><i>Create folder or Upload images</i></a>）'),
+					'type'         	=> 'radio',
+					'options'      	=> $arr_custom_bgc,
+					'defaultvalue' 	=> reset($arr_custom_bgc[0]),
+				),
+				'bgc_color'	=> array(
+					'label'			=> T_( 'Background Color' ),
+					'note'			=> T_( 'Choose your favoite background color.' ),
+					'type'			=> 'color',
+					'defaultvalue'  => '#FFFFFF',
+				),
+				'bgc_img_overlay' => array(
+					'label'			=> T_( 'Color Overlay' ),
+					'note'			=> T_( 'Change color overlay if using background image for content element ( Only works on <strong>disp 404/403</strong> ).' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '#FFFFFF',
+				),
+				'bgc_overlay_opacity' => array(
+					'label'			=> T_( 'Opacity Color Overlay' ),
+					'note'			=> T_( 'Set Opacity for color content ( Only works on <strong>disp 404/403</strong> ).' ),
+					'type'			=> 'select',
+					'defaultvalue'	=> '0.5',
+					'options'		=> array(
+						'0' 	=> T_( '0' ),
+						'0.05'	=> T_( '0.05' ),
+						'0.1'	=> T_( '0.1' ),
+						'0.15'	=> T_( '0.15' ),
+						'0.2'	=> T_( '0.2' ),
+						'0.25'	=> T_( '0.25' ),
+						'0.3'	=> T_( '0.3' ),
+						'0.35'	=> T_( '0.35' ),
+						'0.4'	=> T_( '0.4' ),
+						'0.45'	=> T_( '0.45' ),
+						'0.5'	=> T_( '0.5' ),
+						'0.55'	=> T_( '0.55' ),
+						'0.6'	=> T_( '0.6' ),
+						'0.65'	=> T_( '0.65' ),
+						'0.7'	=> T_( '0.7' ),
+						'0.75'	=> T_( '0.75' ),
+						'0.8'	=> T_( '0.8' ),
+						'0.85'	=> T_( '0.85' ),
+						'0.9'	=> T_( '0.9' ),
+						'0.95'	=> T_( '0.95' ),
+					)
+				),
+				'bgc_color_content' => array(
+					'label'		=> T_( 'Change Color Content' ),
+					'note'		=> T_( 'Set the color content ( Only works on <strong>disp 404/403</strong> ). Default color is <strong>#555555</strong>.' ),
+					'type'		=> 'color',
+					'defaultvalue' => '#5555555',
+				),
+			'section_bg_content_end' => array(
+				'layout'	=> 'end_fieldset',
+			),
 
 			/* Footer Options
 			* ========================================================================== */
@@ -1138,64 +1226,6 @@ class stain_Skin extends Skin
 			$custom_css .= '.evo_image_block img { max-height: '.$max_image_height.'px; width: auto; }'."\n";
 		}
 
-		// ===== Custom page styles: =====
-		$custom_styles = array();
-
-		// Text size <=== THIS IS A WORK IN PROGRESS
-		// if( $text_size = $this->get_setting( 'page_text_size' ) )
-		// {
-		// 	$custom_styles[] = 'font-size: '.$text_size;
-		// }
-		// if( ! empty( $custom_styles ) )
-		// {
-		// 	$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
-		// }
-
-		$custom_styles = array();
-		// Text color
-		// if( $text_color = $this->get_setting( 'page_text_color' ) )
-		// {
-		// 	$custom_styles[] = 'color: '.$text_color;
-		// }
-		// if( ! empty( $custom_styles ) )
-		// {
-		// 	$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
-		// }
-		//
-		// // Link color
-		// if( $text_color = $this->get_setting( 'page_link_color' ) )
-		// {
-		// 	$custom_styles[] = 'color: '.$text_color;
-		// }
-		if( ! empty( $custom_styles ) )
-		{
-			// $custom_css .= '	body .container a { '.implode( ';', $custom_styles )." }\n";
-			// $custom_css .= '	ul li a { '.implode( ';', $custom_styles )." }\n";
-			// $custom_css .= "	ul li a {background-color: transparent;}\n";
-			// $custom_css .= "	.ufld_icon_links a {color: #fff !important;}\n";
-		}
-
-		// Current tab text color
-		// if( $text_color = $this->get_setting( 'current_tab_text_color' ) )
-		// {
-		// 	$custom_styles[] = 'color: '.$text_color;
-		// }
-		// if( ! empty( $custom_styles ) )
-		// {
-		// 	$custom_css .= '	ul.nav.nav-tabs li a.selected { '.implode( ';', $custom_styles )." }\n";
-		// }
-
-		// Page background color
-		// if( $bg_color = $this->get_setting( 'page_bg_color' ) )
-		// {
-		// 	$custom_styles[] = 'background-color: '.$bg_color;
-		// }
-		// if( ! empty( $custom_styles ) )
-		// {
-		// 	$custom_css .= '	body { '.implode( ';', $custom_styles )." }\n";
-		// }
-
-
 		/* Sitewide Custom
 		 * ========================================================================== */
 		if( $bg = $this->get_setting( 'sitewide_background' ) ) {
@@ -1289,7 +1319,7 @@ class stain_Skin extends Skin
 		}
 
 
-		/* Main Navigation
+		/* MAIN NAVIGATION
 		* ========================================================================== */
 		if ( $bg = $this->get_setting( 'nav_bg' ) ) {
 			$custom_css .= '.main_navigation{ background-color: '.$bg.' }';
@@ -1325,7 +1355,7 @@ class stain_Skin extends Skin
 			$custom_css .= '.main_navigation ul li.hover-4 a::after { border-color: '.$color.' }';
 		}
 
-		/* Gallery Options
+		/* GALLERY OPTIONS
 		* ========================================================================== */
 		if ( $bg = $this->get_setting( 'gallery_bg' ) ) {
 			$custom_css .= '.posts_gallery .main_content_gallery .cat_title::after { background-color: '.$bg.' }';
@@ -1351,7 +1381,7 @@ class stain_Skin extends Skin
 			$custom_css .= '.posts_gallery .main_content_gallery .btn_cat:after { background-color: '.$bg.' }';
 		}
 
-		/* Photo Index
+		/* MEDIAIDX OPTION | PHOTOBLOG OPTIONS
 		 * ========================================================================== */
 		if ( $space = $this->get_setting( 'mediaidx_space' ) ) {
 			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content { padding: '.$space.'px }';
@@ -1374,24 +1404,14 @@ class stain_Skin extends Skin
 			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .note{ box-shadow: none; }';
 		}
 
-		/* Posts Custom Options
+		/* POST CUSTOM OPTIONS
 		 * ========================================================================== */
 		if ( $space = $this->get_setting( 'posts_list_space' ) ) {
 			$custom_css .= '.posts_list .evo_posts { padding: '.$space.'px; }';
 			$custom_css .= '.posts_list { margin-left: -'.$space.'px; margin-right: -'.$space.'px; }';
 		}
 
-		/* Footer Custom Options
-		* ========================================================================== */
-		if ( $bg = $this->get_setting( 'footer_bg' ) ) {
-			$custom_css .= '#footer{ background-color: '.$bg.' }';
-		}
-
-		if ( $this->get_setting( 'footer_bottom_align' ) == 'center' ) {
-			$custom_css .= '#footer .copyright, .footer__social{ float: none; text-align: center; }';
-		}
-
-		/* Search Disp Options
+		/* SEARCH DISP OPTIONS
 		 * ========================================================================== */
 		if( $bg = $this->get_setting( 'header_search_bg' ) ) {
 			$custom_css .= '.search_head{ background-image: url( "'.$bg.'" ); }';
@@ -1401,6 +1421,49 @@ class stain_Skin extends Skin
 		}
 		if( $bg_attach = $this->get_setting( 'header_search_bg_attach' ) ) {
 			$custom_css .= '.search_head{ background-attachment: '.$bg_attach.' }';
+		}
+
+
+		/* FOOTER CUSTOM OPTIONS
+		* ========================================================================== */
+		if ( $bg = $this->get_setting( 'footer_bg' ) ) {
+			$custom_css .= '#footer{ background-color: '.$bg.' }';
+		}
+
+		if ( $this->get_setting( 'footer_bottom_align' ) == 'center' ) {
+			$custom_css .= '#footer .copyright, .footer__social{ float: none; text-align: center; }';
+		}
+
+		/* BACKGROUND CONTENT
+		 * ========================================================================== */
+		$bgc_value = $this->get_setting( 'bgc_style' );
+		$bgc_img_value = $this->get_setting( 'bgc_img' );
+		$bgc_img_custom_value = $this->get_setting( 'bgc_img_custom' );
+		$bgc_color_value = $this->get_setting( 'bgc_color' );
+		switch ( $this->get_setting( 'bgc_style' ) ) {
+			case 'bg_img':
+				$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: url('.$bgc_img_value.') }';
+				break;
+
+			case 'bg_custom':
+				$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: url('.$bgc_img_custom_value.') }';
+				break;
+
+			case 'bg_color':
+				$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: none; background: '.$bgc_color_value.' }';
+				break;
+		}
+
+		if ( $bgc_value == 'bg_img' || $bgc_value == 'bg_custom' ) {
+			$bgc_overlay = $this->get_setting( 'bgc_img_overlay' );
+			$bgc_opacity = $this->get_setting( 'bgc_overlay_opacity' );
+
+			$custom_css .= '.main_content .error_404::after { background: '.$bgc_overlay.' }';
+			$custom_css .= '.main_content .error_404::after { opacity: '.$bgc_opacity.' }';
+		}
+
+		if( $color = $this->get_setting('bgc_color_content') ) {
+			$custom_css .= '.main_content .error_404_content p {color: '.$color.'}';
 		}
 
 
@@ -1808,9 +1871,6 @@ class stain_Skin extends Skin
 		}
 
 	}
-
-
-
 
 }
 
