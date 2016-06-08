@@ -17,21 +17,9 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 global $Skin, $Blog;
 
-$column = '';
-$column_set = $Skin->get_setting( 'mediaidx_column' );
-switch ( $column_set ) {
-    case $column_set:
-        $column = $column_set.'_column';
-    break;
-}
-
-$effect = '';
-$effect_skin = $Skin->get_setting( 'mediaidx_effect' );
-switch ($effect_skin) {
-	case $effect_skin:
-		$effect = $effect_skin;
-	break;
-}
+$column = $Skin->Change_class( 'mediaidx_column' );
+$effect = $Skin->Change_class( 'mediaidx_effect' );
+$hover = $Skin->Change_class( 'mediaidx_hover_style' );
 
 // --------------------------------- START OF MEDIA INDEX --------------------------------
 skin_widget( array(
@@ -46,7 +34,7 @@ skin_widget( array(
 	'thumb_layout'        => 'list',
 	'list_start'          => '<ul id="grid" class="evo_image_index effect-'.$effect.'">',
 	'list_end'            => '</ul>',
-    'item_start'          => '<li class="image_content '.$column.'">',
+    'item_start'          => '<li class="image_content '.$hover.' '.$column.'_column ">',
     'item_end'            => '</li>',
 	'order_by'            => $Skin->get_setting( 'mediaidx_by' ),
 	'order_dir'           => $Skin->get_setting( 'mediaidx_dir' ),
