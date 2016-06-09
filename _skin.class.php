@@ -202,24 +202,6 @@ class stain_Skin extends Skin
 			),
 
 
-			/* Page Styles
-			* ========================================================================== */
-			// 'section_page_start' => array(
-			// 	'layout' => 'begin_fieldset',
-			// 	'label'  => T_('Page Styles')
-			// ),
-			// 	'page_text_size' => array(
-			// 		'label'        => T_('Page text size'),
-			// 		'note'         => T_('Default value is 14 pixels.'),
-			// 		'defaultvalue' => '14px',
-			// 		'size'         => '4px',
-			// 		'type'         => 'text',
-			// 	),
-			// 'section_page_end' => array(
-			// 	'layout' => 'end_fieldset',
-			// ),
-
-
 			/* Custom Sitewide Header
 			 * ========================================================================== */
 			'section_sitewide_header_start' => array(
@@ -790,16 +772,55 @@ class stain_Skin extends Skin
 					'type'			=> 'select',
 					'defaultvalue'	=> 'flip',
 					'options'		=> array(
-						'none'	=> T_( 'None' ),
-						'flip'	=> T_( 'Flip' ),
-						'opacity'	=> T_( 'Opacity' ),
+						'none'	  => T_( 'None' ),
+						'opacity' => T_( 'Opacity' ),
+						'flip'	  => T_( 'Flip' ),
+						'zoom'	  => T_( 'Zoom' ),
+						'tb'	  => T_( 'Top Bottom' ),
+						'bt'	  => T_( 'Bottom Top' ),
+						'rl'	  => T_( 'Right Left' ),
+						'lr'	  => T_( 'Left Right' ),
 					)
+				),
+				'mediaidx_view_btn' => array(
+					'label'			=> T_( 'Show View Button' ),
+					'note'			=> T_( 'Check to show button view when image hover' ),
+					'type'			=> 'checkbox',
+					'defaultvalue'	=> 1,
 				),
 				'mediaidx_hover_bg' => array(
 					'label'			=> T_( 'Hover Overlay Color' ),
-					'note'			=> T_( 'Change background color when image hover.' ),
+					'note'			=> T_( 'Change background overlay color when image hover.' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
+				),
+				'mediaidx_overlay_opacity' => array(
+					'label'			=> T_( 'Opacity Color Overlay' ),
+					'note'			=> T_( 'Set Opacity for color overlay content.' ),
+					'type'			=> 'select',
+					'defaultvalue'	=> '0.5',
+					'options'		=> array(
+						'0' 	=> T_( '0' ),
+						'0.05'	=> T_( '0.05' ),
+						'0.1'	=> T_( '0.1' ),
+						'0.15'	=> T_( '0.15' ),
+						'0.2'	=> T_( '0.2' ),
+						'0.25'	=> T_( '0.25' ),
+						'0.3'	=> T_( '0.3' ),
+						'0.35'	=> T_( '0.35' ),
+						'0.4'	=> T_( '0.4' ),
+						'0.45'	=> T_( '0.45' ),
+						'0.5'	=> T_( '0.5' ),
+						'0.55'	=> T_( '0.55' ),
+						'0.6'	=> T_( '0.6' ),
+						'0.65'	=> T_( '0.65' ),
+						'0.7'	=> T_( '0.7' ),
+						'0.75'	=> T_( '0.75' ),
+						'0.8'	=> T_( '0.8' ),
+						'0.85'	=> T_( '0.85' ),
+						'0.9'	=> T_( '0.9' ),
+						'0.95'	=> T_( '0.95' ),
+					)
 				),
 				'mediaidx_title' => array(
 					'label'			=> T_( 'Display Title Image' ),
@@ -820,7 +841,7 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> '#555555'
 				),
 				'mediaidx_title_shadow' => array(
-					'label'			=> T_( 'Show Box Shadow' ),
+					'label'			=> T_( 'Show Box Shadow Title Content' ),
 					'note'			=> T_( 'Checkbox to show box shadow in title box.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
@@ -1151,6 +1172,18 @@ class stain_Skin extends Skin
 	}
 
 
+	/* Change Class
+	* ========================================================================== */
+	function Change_class( $id ) {
+
+		$id = $this->get_setting( $id );
+		if ( $id == $id ) {
+			return $id;
+		}
+
+	}
+
+
 	/**
 	 * Get ready for displaying the skin.
 	 *
@@ -1210,7 +1243,7 @@ class stain_Skin extends Skin
 			/* Category | Posts | Global*/
 			#content .feature_post .posts__info_author a, .posts_list .feature_post .main_content_gallery .posts__info_author .identity_link_username, .main_pagination .pagination a, .main_pagination .pagination span, .main_content .error_404_content h1, #content .evo_comment .permalink_right, #content .evo_comment .comment_reply, .disp_threads .main_content .form_send_contacts .btn, .disp_contacts .main_content .form_send_contacts .btn, .disp_threads .main_content .form_add_contacts .SaveButton, .disp_contacts .main_content .form_add_contacts .SaveButton, .SaveButton.btn-primary, .disp_messages .evo_private_messages_list .messages_list_actions .btn, .disp_msgform .main_content .evo_form .submit, .disp_search .main_content .pagination a, .disp_search .main_content .pagination span, .disp_help .tag_cloud a, .disp_tags .tag_cloud a, #content .nav_album .all_albums, #content .nav_album .nav_posts .previous a, #content .nav_album .nav_posts .next a, #content .evo_post_content .evo_post__full .gallery-single-content .panel-title a, #content .evo_post_content .evo_post__except .gallery-single-content .panel-title a, #content .item_comments .evo_comment__meta_info .btn, #content .item_comments .panel-heading .user, #footer .footer__widgets .evo_widget ul a:hover, #footer .footer__widgets .evo_widget ul a:active, #footer .footer__widgets .evo_widget ul a:focus, #main_result_content .search_result .search_title a:hover, #main_result_content .search_result .search_title a:active, #main_result_content .search_result .search_title a:focus
 			{color: '.$cs.'}
-			.posts_gallery .main_content_gallery .btn_cat::after, #content .feature_post .posts__info_cat, #content .feature_post .posts__info_excerpt_link a:hover, #content .feature_post .posts__info_excerpt_link a:active, #content .feature_post .posts__info_excerpt_link a:focus, .posts_list .evo_posts .posts__info_cat a:hover, .posts_list .evo_posts .posts__info_cat a:active, .posts_list .evo_posts .posts__info_cat a:focus, .posts_list .evo_posts .posts_divider, .main_pagination .pagination li.active span, .main_pagination .pagination li.active a, .main_pagination .pagination a:hover, .main_pagination .pagination span:hover, .main_pagination .pagination a:active, .main_pagination .pagination span:active, .main_pagination .pagination a:focus, .main_pagination .pagination span:focus, .main_content .error_back .back_to_home, #content .evo_comment .permalink_right:hover, #content .evo_comment .comment_reply:hover, #content .evo_comment .permalink_right:active, #content .evo_comment .comment_reply:active, #content .evo_comment .permalink_right:focus, #content .evo_comment .comment_reply:focus, .disp_threads .main_content .form_send_contacts .btn:hover, .disp_contacts .main_content .form_send_contacts .btn:hover, .disp_threads .main_content .form_send_contacts .btn:active, .disp_contacts .main_content .form_send_contacts .btn:active, .disp_threads .main_content .form_send_contacts .btn:focus, .disp_contacts .main_content .form_send_contacts .btn:focus, .disp_threads .main_content .form_add_contacts .SaveButton:hover, .disp_contacts .main_content .form_add_contacts .SaveButton:hover, .disp_threads .main_content .form_add_contacts .SaveButton:active, .disp_contacts .main_content .form_add_contacts .SaveButton:active, .disp_threads .main_content .form_add_contacts .SaveButton:focus, .disp_contacts .main_content .form_add_contacts .SaveButton:focus, .disp_threads .main_content .results .panel-heading .btn-primary, .disp_contacts .main_content .results .panel-heading .btn-primary, .disp_messages .evo_private_messages_list .messages_navigation .floatleft:hover, .disp_messages .evo_private_messages_list .messages_navigation .floatright:hover, .disp_messages .evo_private_messages_list .messages_navigation .floatleft:active, .disp_messages .evo_private_messages_list .messages_navigation .floatright:active, .disp_messages .evo_private_messages_list .messages_navigation .floatleft:focus, .disp_messages .evo_private_messages_list .messages_navigation .floatright:focus, .SaveButton.btn-primary:hover, .SaveButton.btn-primary:active, .SaveButton.btn-primary:focus, .disp_messages .evo_private_messages_list .messages_list_actions .btn:hover, .disp_messages .evo_private_messages_list .messages_list_actions .btn:active, .disp_messages .evo_private_messages_list .messages_list_actions .btn:focus, .disp_msgform .main_content .evo_form .submit:hover, .disp_msgform .main_content .evo_form .submit:active, .disp_msgform .main_content .evo_form .submit:focus, .nav_search ul li.active, .nav_search ul a:hover, .nav_search ul a:active, .nav_search ul a:focus, .search_head .search_box .main_search_box .extended_search_form .search_submit, .disp_search .main_content .pagination li.active a, .disp_search .main_content .pagination li.active span, .disp_search .main_content .pagination a:hover, .disp_search .main_content .pagination span:hover, .disp_search .main_content .pagination a:active, .disp_search .main_content .pagination span:active, .disp_search .main_content .pagination a:focus, .disp_search .main_content .pagination span:focus, #main_result_content .search_result .search_result_score::before, #main_result_content .search_result  .search_result_score::after, .disp_help .tag_cloud a:hover, .disp_tags .tag_cloud a:hover, .disp_help .tag_cloud a:focus, .disp_tags .tag_cloud a:focus, .disp_help .tag_cloud a:active, .disp_tags .tag_cloud a:active, .disp_user .pager a:hover, .disp_user .pager a:active, .disp_user .pager a:focus, #content .nav_album .all_albums:hover, #content .nav_album .all_albums:focus, #content .nav_album .nav_posts .previous a:hover, #content .nav_album .nav_posts .next a:hover, #content .nav_album .nav_posts .previous a:active, #content .nav_album .nav_posts .next a:active, #content .nav_album .nav_posts .previous a:focus, #content .nav_album .nav_posts .next a:focus, #content .item_comments .evo_comment__meta_info .btn:hover, #content .item_comments .evo_comment__meta_info .btn:active, #content .item_comments .evo_comment__meta_info .btn:focus, #content .item_comments .panel-body .action_icon:hover, #content .item_comments .panel-body .action_icon:active, #content .item_comments .panel-body .action_icon:focus, .widget_core_coll_search_form .compact_search_form .search_submit, .widget_core_coll_tag_cloud .tag_cloud a:hover, .widget_core_coll_tag_cloud .tag_cloud a:active, .widget_core_coll_tag_cloud .tag_cloud a:focus, .widget_plugin_evo_Calr .bCalendarTable #bCalendarToday, .widget_core_poll .SaveButton, .disp_front .evo_front_page .evo_widget .panel .panel-body .submit:hover, .disp_front .evo_front_page .evo_widget .panel .panel-body .submit:active, .disp_front .evo_front_page .evo_widget .panel .panel-body .submit:focus, #footer .footer__widgets .evo_widget .panel .submit:hover, #footer .footer__widgets .evo_widget .panel .submit:active, #footer .footer__widgets .evo_widget .panel .submit:focus, .cd_top, .cd_top:hover, .cd_top:active, .cd_top:focus, #content .evo_post_content .post_tags a:hover, #content .evo_post_content .post_tags a:focus, #content .evo_post_content .post_tags a:active, #content .item_comments .evo_post_comment_notification .btn:hover, #content .item_comments .evo_post_comment_notification .btn:active, #content .item_comments .evo_post_comment_notification .btn:focus, .disp_profile .main_content .profile_tabs a:hover, .disp_avatar .main_content .profile_tabs a:hover, .disp_pwdchange .main_content .profile_tabs a:hover, .disp_userprefs .main_content .profile_tabs a:hover, .disp_subs .main_content .profile_tabs a:hover, .disp_profile .main_content .profile_tabs a:active, .disp_avatar .main_content .profile_tabs a:active, .disp_pwdchange .main_content .profile_tabs a:active, .disp_userprefs .main_content .profile_tabs a:active, .disp_subs .main_content .profile_tabs a:active, .disp_profile .main_content .profile_tabs a:focus, .disp_avatar .main_content .profile_tabs a:focus, .disp_pwdchange .main_content .profile_tabs a:focus, .disp_userprefs .main_content .profile_tabs a:focus, .disp_subs .main_content .profile_tabs a:focus, .disp_profile .main_content .panel .panel-body .help-inline .btn:hover, .disp_avatar .main_content .panel .panel-body .help-inline .btn:hover, .disp_pwdchange .main_content .panel .panel-body .help-inline .btn:hover, .disp_userprefs .main_content .panel .panel-body .help-inline .btn:hover, .disp_subs .main_content .panel .panel-body .help-inline .btn:hover, .disp_profile .main_content .panel .panel-body .help-inline .btn:active, .disp_avatar .main_content .panel .panel-body .help-inline .btn:active, .disp_pwdchange .main_content .panel .panel-body .help-inline .btn:active, .disp_userprefs .main_content .panel .panel-body .help-inline .btn:active, .disp_subs .main_content .panel .panel-body .help-inline .btn:active, .disp_profile .main_content .panel .panel-body .help-inline .btn:focus, .disp_avatar .main_content .panel .panel-body .help-inline .btn:focus, .disp_pwdchange .main_content .panel .panel-body .help-inline .btn:focus, .disp_userprefs .main_content .panel .panel-body .help-inline .btn:focus, .disp_subs .main_content .panel .panel-body .help-inline .btn:focus
+			.posts_gallery .main_content_gallery .btn_cat::after, #content .feature_post .posts__info_cat, #content .feature_post .posts__info_excerpt_link a:hover, #content .feature_post .posts__info_excerpt_link a:active, #content .feature_post .posts__info_excerpt_link a:focus, .posts_list .evo_posts .posts__info_cat a:hover, .posts_list .evo_posts .posts__info_cat a:active, .posts_list .evo_posts .posts__info_cat a:focus, .posts_list .evo_posts .posts_divider, .main_pagination .pagination li.active span, .main_pagination .pagination li.active a, .main_pagination .pagination a:hover, .main_pagination .pagination span:hover, .main_pagination .pagination a:active, .main_pagination .pagination span:active, .main_pagination .pagination a:focus, .main_pagination .pagination span:focus, .main_content .error_back .back_to_home, #content .evo_comment .permalink_right:hover, #content .evo_comment .comment_reply:hover, #content .evo_comment .permalink_right:active, #content .evo_comment .comment_reply:active, #content .evo_comment .permalink_right:focus, #content .evo_comment .comment_reply:focus, .disp_threads .main_content .form_send_contacts .btn:hover, .disp_contacts .main_content .form_send_contacts .btn:hover, .disp_threads .main_content .form_send_contacts .btn:active, .disp_contacts .main_content .form_send_contacts .btn:active, .disp_threads .main_content .form_send_contacts .btn:focus, .disp_contacts .main_content .form_send_contacts .btn:focus, .disp_threads .main_content .form_add_contacts .SaveButton:hover, .disp_contacts .main_content .form_add_contacts .SaveButton:hover, .disp_threads .main_content .form_add_contacts .SaveButton:active, .disp_contacts .main_content .form_add_contacts .SaveButton:active, .disp_threads .main_content .form_add_contacts .SaveButton:focus, .disp_contacts .main_content .form_add_contacts .SaveButton:focus, .disp_threads .main_content .results .panel-heading .btn-primary, .disp_contacts .main_content .results .panel-heading .btn-primary, .disp_messages .evo_private_messages_list .messages_navigation .floatleft:hover, .disp_messages .evo_private_messages_list .messages_navigation .floatright:hover, .disp_messages .evo_private_messages_list .messages_navigation .floatleft:active, .disp_messages .evo_private_messages_list .messages_navigation .floatright:active, .disp_messages .evo_private_messages_list .messages_navigation .floatleft:focus, .disp_messages .evo_private_messages_list .messages_navigation .floatright:focus, .SaveButton.btn-primary:hover, .SaveButton.btn-primary:active, .SaveButton.btn-primary:focus, .disp_messages .evo_private_messages_list .messages_list_actions .btn:hover, .disp_messages .evo_private_messages_list .messages_list_actions .btn:active, .disp_messages .evo_private_messages_list .messages_list_actions .btn:focus, .disp_msgform .main_content .evo_form .submit:hover, .disp_msgform .main_content .evo_form .submit:active, .disp_msgform .main_content .evo_form .submit:focus, .nav_search ul li.active, .nav_search ul a:hover, .nav_search ul a:active, .nav_search ul a:focus, .search_head .search_box .main_search_box .extended_search_form .search_submit, .disp_search .main_content .pagination li.active a, .disp_search .main_content .pagination li.active span, .disp_search .main_content .pagination a:hover, .disp_search .main_content .pagination span:hover, .disp_search .main_content .pagination a:active, .disp_search .main_content .pagination span:active, .disp_search .main_content .pagination a:focus, .disp_search .main_content .pagination span:focus, #main_result_content .search_result .search_result_score::before, #main_result_content .search_result  .search_result_score::after, .disp_help .tag_cloud a:hover, .disp_tags .tag_cloud a:hover, .disp_help .tag_cloud a:focus, .disp_tags .tag_cloud a:focus, .disp_help .tag_cloud a:active, .disp_tags .tag_cloud a:active, .disp_user .pager a:hover, .disp_user .pager a:active, .disp_user .pager a:focus, #content .nav_album .all_albums:hover, #content .nav_album .all_albums:focus, #content .nav_album .nav_posts .previous a:hover, #content .nav_album .nav_posts .next a:hover, #content .nav_album .nav_posts .previous a:active, #content .nav_album .nav_posts .next a:active, #content .nav_album .nav_posts .previous a:focus, #content .nav_album .nav_posts .next a:focus, #content .item_comments .evo_comment__meta_info .btn:hover, #content .item_comments .evo_comment__meta_info .btn:active, #content .item_comments .evo_comment__meta_info .btn:focus, #content .item_comments .panel-body .action_icon:hover, #content .item_comments .panel-body .action_icon:active, #content .item_comments .panel-body .action_icon:focus, .widget_core_coll_search_form .compact_search_form .search_submit, .widget_core_coll_tag_cloud .tag_cloud a:hover, .widget_core_coll_tag_cloud .tag_cloud a:active, .widget_core_coll_tag_cloud .tag_cloud a:focus, .widget_plugin_evo_Calr .bCalendarTable #bCalendarToday, .widget_core_poll .SaveButton, .disp_front .evo_front_page .evo_widget .panel .panel-body .submit:hover, .disp_front .evo_front_page .evo_widget .panel .panel-body .submit:active, .disp_front .evo_front_page .evo_widget .panel .panel-body .submit:focus, #footer .footer__widgets .evo_widget .panel .submit:hover, #footer .footer__widgets .evo_widget .panel .submit:active, #footer .footer__widgets .evo_widget .panel .submit:focus, .cd_top, .cd_top:hover, .cd_top:active, .cd_top:focus, #content .evo_post_content .post_tags a:hover, #content .evo_post_content .post_tags a:focus, #content .evo_post_content .post_tags a:active, #content .item_comments .evo_post_comment_notification .btn:hover, #content .item_comments .evo_post_comment_notification .btn:active, #content .item_comments .evo_post_comment_notification .btn:focus, .disp_profile .main_content .profile_tabs a:hover, .disp_avatar .main_content .profile_tabs a:hover, .disp_pwdchange .main_content .profile_tabs a:hover, .disp_userprefs .main_content .profile_tabs a:hover, .disp_subs .main_content .profile_tabs a:hover, .disp_profile .main_content .profile_tabs a:active, .disp_avatar .main_content .profile_tabs a:active, .disp_pwdchange .main_content .profile_tabs a:active, .disp_userprefs .main_content .profile_tabs a:active, .disp_subs .main_content .profile_tabs a:active, .disp_profile .main_content .profile_tabs a:focus, .disp_avatar .main_content .profile_tabs a:focus, .disp_pwdchange .main_content .profile_tabs a:focus, .disp_userprefs .main_content .profile_tabs a:focus, .disp_subs .main_content .profile_tabs a:focus, .disp_profile .main_content .panel .panel-body .help-inline .btn:hover, .disp_avatar .main_content .panel .panel-body .help-inline .btn:hover, .disp_pwdchange .main_content .panel .panel-body .help-inline .btn:hover, .disp_userprefs .main_content .panel .panel-body .help-inline .btn:hover, .disp_subs .main_content .panel .panel-body .help-inline .btn:hover, .disp_profile .main_content .panel .panel-body .help-inline .btn:active, .disp_avatar .main_content .panel .panel-body .help-inline .btn:active, .disp_pwdchange .main_content .panel .panel-body .help-inline .btn:active, .disp_userprefs .main_content .panel .panel-body .help-inline .btn:active, .disp_subs .main_content .panel .panel-body .help-inline .btn:active, .disp_profile .main_content .panel .panel-body .help-inline .btn:focus, .disp_avatar .main_content .panel .panel-body .help-inline .btn:focus, .disp_pwdchange .main_content .panel .panel-body .help-inline .btn:focus, .disp_userprefs .main_content .panel .panel-body .help-inline .btn:focus, .disp_subs .main_content .panel .panel-body .help-inline .btn:focus, .disp_mediaidx .main_content .widget_core_coll_media_index .image_content a:after
 			{background-color: '.$cs.'}
 			.posts_list .evo_posts .posts__info_cat a:hover, .posts_list .evo_posts .posts__info_cat a:active, .posts_list .evo_posts .posts__info_cat a:focus, .main_pagination .pagination li.active span, .main_pagination .pagination li.active a, .main_pagination .pagination a, .main_pagination .pagination span, .main_pagination .pagination a:hover, .main_pagination .pagination span:hover, .main_pagination .pagination a:active, .main_pagination .pagination span:active, .main_pagination .pagination a:focus, .main_pagination .pagination span:focus, #content .evo_comment .permalink_right, #content .evo_comment .comment_reply, .disp_threads .main_content .form_send_contacts .btn, .disp_contacts .main_content .form_send_contacts .btn, .disp_threads .main_content .form_add_contacts .SaveButton, .disp_contacts .main_content .form_add_contacts .SaveButton, .disp_threads .main_content .results .panel-heading .btn-primary, .disp_contacts .main_content .results .panel-heading .btn-primary, .disp_messages .evo_private_messages_list .messages_navigation .floatleft, .disp_messages .evo_private_messages_list .messages_navigation .floatright, .SaveButton.btn-primary, .disp_messages .evo_private_messages_list .messages_list_actions .btn, .disp_threads .main_content .evo_form__thread .form_text_input:focus, .disp_contacts .main_content .evo_form__thread .form_text_input:focus, .disp_threads .main_content .evo_form__thread .form_textarea_input:focus, .disp_contacts .main_content .evo_form__thread .form_textarea_input:focus, .disp_msgform .main_content .evo_form .form_text_input:focus, .disp_msgform .main_content .evo_form .form_textarea_input:focus, .disp_msgform .main_content .evo_form .submit, .disp_postidx .widget_core_coll_post_list ul a:hover, .disp_postidx .widget_core_coll_post_list ul a:active, .disp_postidx .widget_core_coll_post_list ul a:focus, .search_head .search_box .main_search_box .extended_search_form .search_submit, #main_result_content .search_result .search_result_score, .disp_help .tag_cloud a, .disp_tags .tag_cloud a, .disp_user .pager a, #content .nav_album .all_albums, #content .nav_album .all_albums:hover, #content .nav_album .all_albums:focus, #content .nav_album .nav_posts .previous a, #content .nav_album .nav_posts .next a, #content .evo_post_content .widget_core_item_small_print, #content .evo_post_content .widget_core_item_tags, #content .evo_post_content .widget_core_item_about_author, #content .evo_post_content .panel-heading, #content .item_comments .evo_comment__meta_info .btn, #content .evo_form__comment .form_text_input, #content .evo_form__comment .form_textarea_input, #content .item_comments .panel-body .action_icon, #content .evo_post_content .evo_post__full .evo_post__full_text blockquote, #content .evo_post_content .evo_post__except .evo_post__full_text blockquote, #content .evo_post_content .evo_post__full .evo_post__except_text blockquote, #content .evo_post_content .evo_post__except .evo_post__except_text blockquote, .disp_front .evo_front_page .evo_widget.widget_core_coll_search_form .compact_search_form .search_field, .widget_core_coll_search_form .compact_search_form .search_submit, .widget_core_coll_tag_cloud .tag_cloud a, .widget_plugin_evo_Calr .bCalendarTable caption, .widget_plugin_evo_Calr .bCalendarTable #bCalendarToday, .widget_plugin_evo_Calr .bCalendarTable td, .widget_plugin_evo_Calr .bCalendarTable td:last-child, .widget_plugin_evo_Calr .bCalendarTable th, .widget_core_poll .SaveButton, .form_text_input:focus, .form_textarea_input:focus, #footer .footer__widgets .evo_widget.widget_core_coll_tag_cloud .tag_cloud a:hover, #footer .footer__widgets .evo_widget.widget_core_coll_tag_cloud .tag_cloud a:active, #footer .footer__widgets .evo_widget.widget_core_coll_tag_cloud .tag_cloud a:focus, .disp_front .evo_front_page .evo_widget .form-group .form_text_input:hover, .disp_front .evo_front_page .evo_widget .form-group .form_text_input:active, .disp_front .evo_front_page .evo_widget .form-group .form_text_input:focus, .disp_front .evo_front_page .evo_widget .panel .panel-body .submit:hover, .disp_front .evo_front_page .evo_widget .panel .panel-body .submit:active, .disp_front .evo_front_page .evo_widget .panel .panel-body .submit:focus, #footer .footer__widgets .evo_widget .panel .submit:hover, #footer .footer__widgets .evo_widget .panel .submit:active, #footer .footer__widgets .evo_widget .panel .submit:focus, #content .evo_post_content .post_tags a, .disp_profile .main_content .profile_tabs, .disp_avatar .main_content .profile_tabs, .disp_pwdchange .main_content .profile_tabs, .disp_userprefs .main_content .profile_tabs, .disp_subs .main_content .profile_tabs, .disp_profile .main_content .profile_tabs a:hover, .disp_avatar .main_content .profile_tabs a:hover, .disp_pwdchange .main_content .profile_tabs a:hover, .disp_userprefs .main_content .profile_tabs a:hover, .disp_subs .main_content .profile_tabs a:hover, .disp_profile .main_content .profile_tabs a:active, .disp_avatar .main_content .profile_tabs a:active, .disp_pwdchange .main_content .profile_tabs a:active, .disp_userprefs .main_content .profile_tabs a:active, .disp_subs .main_content .profile_tabs a:active, .disp_profile .main_content .profile_tabs a:focus, .disp_avatar .main_content .profile_tabs a:focus, .disp_pwdchange .main_content .profile_tabs a:focus, .disp_userprefs .main_content .profile_tabs a:focus, .disp_subs .main_content .profile_tabs a:focus, .form_text_input:focus, .form_textarea_input:focus, .disp_profile .main_content .panel .panel-body .form_text_input:hover, .disp_avatar .main_content .panel .panel-body .form_text_input:hover, .disp_pwdchange .main_content .panel .panel-body .form_text_input:hover, .disp_userprefs .main_content .panel .panel-body .form_text_input:hover, .disp_subs .main_content .panel .panel-body .form_text_input:hover, .disp_profile .main_content .panel .panel-body .form_text_input:active, .disp_avatar .main_content .panel .panel-body .form_text_input:active, .disp_pwdchange .main_content .panel .panel-body .form_text_input:active, .disp_userprefs .main_content .panel .panel-body .form_text_input:active, .disp_subs .main_content .panel .panel-body .form_text_input:active, .disp_profile .main_content .panel .panel-body .form_text_input:focus, .disp_avatar .main_content .panel .panel-body .form_text_input:focus, .disp_pwdchange .main_content .panel .panel-body .form_text_input:focus, .disp_userprefs .main_content .panel .panel-body .form_text_input:focus, .disp_subs .main_content .panel .panel-body .form_text_input:focus, .disp_profile .main_content .panel .panel-body .help-inline .btn:hover, .disp_avatar .main_content .panel .panel-body .help-inline .btn:hover, .disp_pwdchange .main_content .panel .panel-body .help-inline .btn:hover, .disp_userprefs .main_content .panel .panel-body .help-inline .btn:hover, .disp_subs .main_content .panel .panel-body .help-inline .btn:hover, .disp_profile .main_content .panel .panel-body .help-inline .btn:active, .disp_avatar .main_content .panel .panel-body .help-inline .btn:active, .disp_pwdchange .main_content .panel .panel-body .help-inline .btn:active, .disp_userprefs .main_content .panel .panel-body .help-inline .btn:active, .disp_subs .main_content .panel .panel-body .help-inline .btn:active, .disp_profile .main_content .panel .panel-body .help-inline .btn:focus, .disp_avatar .main_content .panel .panel-body .help-inline .btn:focus, .disp_pwdchange .main_content .panel .panel-body .help-inline .btn:focus, .disp_userprefs .main_content .panel .panel-body .help-inline .btn:focus, .disp_subs .main_content .panel .panel-body .help-inline .btn:focus
 			{border-color: '.$cs.'}
@@ -1407,6 +1440,17 @@ class stain_Skin extends Skin
 		}
 		if( $this->get_setting( 'mediaidx_title_shadow' ) == false ) {
 			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content .note{ box-shadow: none; }';
+		}
+
+		if( $this->get_setting('mediaidx_view_btn') == 0 ) {
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content a:after { display: none; }';
+		}
+
+		if( $color = $this->get_setting( 'mediaidx_hover_bg' ) ) {
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content a:before { background-color: '.$color.' }';
+		}
+		if ( $opacity = $this->Change_class('mediaidx_overlay_opacity') ) {
+			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content:hover a:before, .disp_mediaidx .main_content .widget_core_coll_media_index .image_content:active a:before, .disp_mediaidx .main_content .widget_core_coll_media_index .image_content:focus a:before { opacity: '.$opacity.' }';
 		}
 
 		/* POST CUSTOM OPTIONS
@@ -1864,17 +1908,6 @@ class stain_Skin extends Skin
 		$access = $this->get_setting( $setting_name );
 
 		return ( ! empty( $access ) && ! empty( $access[ $container_key ] ) );
-	}
-
-	/* Change Class
-	* ========================================================================== */
-	function Change_class( $id ) {
-
-		$id = $this->get_setting( $id );
-		if ( $id == $id ) {
-			return $id;
-		}
-
 	}
 
 }
