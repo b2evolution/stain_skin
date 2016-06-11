@@ -53,6 +53,17 @@
         }
     }
 
+    var cat_masonry = function(){
+        if ( $.fn.masonry ) {
+            $('.cats_list').masonry({
+                // options
+                itemSelector: '.evo_post',
+                percentPosition: true,
+                //   columnWidth: 100
+            });
+        }
+    }
+
     // Photo Index
     var PhotoIndex = function(){
         if( document.getElementById("post_gallery") != null ){
@@ -175,6 +186,7 @@
         waypoint();
         Slidebars();
         PhotoIndex();
+        cat_masonry();
     });
 
 }(jQuery));

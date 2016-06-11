@@ -153,12 +153,12 @@ if( $Item = get_featured_Item() )
 
 			// Author Name
 			$Item->author( array(
-				'before'    => '<div class="posts__info_author">'.T_('By ').'',
-				'after'     => '</div>',
-				'before_user' => '',
-				'after_user'  => '',
-				'link_text'   => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-				'link_class'  => 'author_avatar',
+				'before'       => '<div class="posts__info_author">'.T_('By ').'',
+				'after'        => '</div>',
+				'before_user'  => '',
+				'after_user'   => '',
+				'link_text'    => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+				'link_class'   => 'author_avatar',
 				'thumb_size'   => 'crop-48x48',
 				'thumb_class'  => '',
 			) );
