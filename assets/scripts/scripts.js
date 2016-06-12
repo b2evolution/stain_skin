@@ -126,7 +126,6 @@
     }
 
     var Slidebars = function() {
-
         if( document.getElementById("sb-site") != null ){
             new $.slidebars({
                 siteClose: true, // true or false
@@ -136,7 +135,6 @@
             });
 
         }
-
     }
 
 

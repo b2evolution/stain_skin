@@ -70,24 +70,30 @@ body {
 // ======================================================================== /
 .one_column {
 	max-width: @one_column;
-	// width: 100%;
+	width: @one_column;
 }
 
 .two_column {
 	max-width: @two_column;
-	// width: 100%;
+
+	@media screen and ( max-width: @S ) {
+		width: @one_column;
+	}
 }
 
 .three_column {
 	max-width: @three_column;
+	width: @three_column;
 	margin: 0 -1px 0 0;
 
 	@media screen and ( max-width: @M ) {
 		max-width: @two_column;
+		width: @two_column;
 	}
 
 	@media screen and ( max-width: @S ) {
 		max-width: @one_column;
+		width: @one_column;
 	}
 }
 
@@ -100,9 +106,11 @@ body {
 	}
 	@media screen and ( max-width: @M ) {
 		max-width: @two_column;
+		width: @two_column;
 	}
 	@media screen and ( max-width: @S ) {
 		max-width: @one_column;
+		width: @one_column;
 	}
 }
 

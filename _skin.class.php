@@ -550,10 +550,11 @@ class stain_Skin extends Skin
 					'label'			=> T_( 'Post Style' ),
 					'note'			=> T_( 'Choose your favorite post style every category list.' ),
 					'type'			=> 'select',
-					'defaultvalue'	=> '',
+					'defaultvalue'	=> 'default',
 					'options'		=> array(
-						'default' => T_( 'Default' ),
+						'default' 	 => T_( 'Default' ),
 						'only_image' => T_( 'Only Images' ),
+						'bg_img' 	 => T_( 'Background Image' ),
 					)
 				),
 				'gallery_hover_style' => array(
@@ -562,20 +563,19 @@ class stain_Skin extends Skin
 					'type'         => 'select',
 					'defaultvalue' => 'opacity',
 					'options'      => array(
-						'none'      => T_( 'none' ),
-						'opacity'      => T_( 'Opacity' ),
-						'zoom'         => T_( 'Zoom' ),
-						'flip'         => T_( 'Flip' ),
-						'right_left'   => T_( 'Right Left' ),
-						'left_right'   => T_( 'Left Right' ),
-						// '4'  => T_( 'Style 4' ),
+						'none'        => T_( 'None' ),
+						'opacity'     => T_( 'Opacity' ),
+						'zoom'        => T_( 'Zoom' ),
+						'flip'        => T_( 'Flip' ),
+						'right_left'  => T_( 'Right Left' ),
+						'left_right'  => T_( 'Left Right' ),
 					),
 				),
 				'cat_img_color_overlay' => array(
 					'label'			=> T_( 'Color Hover Overlay' ),
 					'note'			=> T_( 'Cahange the color image overlay when the posts category hover.' ),
 					'type'			=> 'color',
-					'defaultvalue'	=> '#000000'
+					'defaultvalue'	=> '#FFFFFF'
 				),
 				'cat_opcity_overlay' => array(
 					'label'        => T_( 'Opacity Color Overlay' ),
@@ -680,7 +680,7 @@ class stain_Skin extends Skin
 				'posts_thumb_size' => array(
 					'label'        => T_('Thumbnail size in Posts List'),
 					'note'         => '',
-					'defaultvalue' => 'fit-1280x720',
+					'defaultvalue' => 'crop-480x320',
 					'size'			=> 10,
 					'type'         => 'select',
 					'options'      => array(
@@ -1483,6 +1483,10 @@ class stain_Skin extends Skin
 			$custom_css .= '#content .cat_content .cats_list .evo_post_content { background-color: '.$bg.' }';
 		}
 
+		if( $this->get_setting( 'cat_post_style' ) == 'bg_img' ) {
+			// $custom_css .= '#content .cat_content .cats_list .evo_post{  margin-top: 10px; }';
+		}
+
 		if( $color = $this->get_setting( 'cat_img_color_overlay' ) ) {
 			$op = $this->Change_class( 'cat_opcity_overlay' );
 			$custom_css .= '#content .cat_content .cats_list .evo_post_images a:before { background-color: '.$color.';}';
@@ -1496,14 +1500,20 @@ class stain_Skin extends Skin
 		}
 
 		if ( $this->get_setting( 'gallery_shadow' )  == 0 ) {
-			$custom_css .= '.posts_gallery .main_content_gallery:hover, .posts_gallery .main_content_gallery:active, .posts_gallery .main_content_gallery:focus
-			{ box-shadow: none; }';
+			// $custom_css .= '.posts_gallery .main_content_gallery:hover, .posts_gallery .main_content_gallery:active, .posts_gallery .main_content_gallery:focus
+			// { box-shadow: none; }';
+			$custom_css .= '#content .cat_content .cats_list .evo_post_content{ box-shadow: none }';
+		}
+
+		if ( $this->get_setting( 'gallery_hover_style' ) == 'none' ) {
+			$custom_css .= '#content .cat_content .cats_list .evo_post:hover .evo_post_content, #content .cat_content .cats_list .evo_post:focus .evo_post_content, #content .cat_content .cats_list .evo_post:active .evo_post_content { box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05); transform: none; }';
 		}
 
 		if ( $fz = $this->get_setting( 'cat_title_size' ) ) {
 			$custom_css .= '@media screen and ( min-width: 1024px ) { .posts_gallery .main_content_gallery .cat_title_link { font-size: '.$fz.'px; } }';
 			$custom_css .= '@media screen and ( min-width: 1024px ) { #content .cat_content .cats_list .evo_post_content .evo_post_title h3 { font-size: '.$fz.'px; } }';
 		}
+
 		if ( $color = $this->get_setting( 'cat_title_color' ) ) {
 			$custom_css .= '.posts_gallery .main_content_gallery .cat_title_link { color: '.$color.'; }';
 		}

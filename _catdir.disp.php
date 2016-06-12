@@ -26,6 +26,11 @@ $params = array_merge( array(
 
 // Column Class
 $column = $Skin->Change_class( 'gallery_show' );
+$cat_post_style = $Skin->get_setting('cat_post_style');
+$cp_bg_img = '';
+if( $cat_post_style == 'bg_img' ) {
+    $cp_bg_img = 'post_bg_image';
+}
 
 // --------------------------------- START OF POSTS -------------------------------------
 // Display message if no post:
@@ -75,9 +80,8 @@ $no_content_to_display = true;
         		$Item->locale_temp_switch();
             ?>
             <div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ); echo ' '.$column; ?> " lang="<?php $Item->lang() ?>">
-    		    <section class="evo_post_content">
+                <section class="evo_post_content <?php echo $cp_bg_img; ?>">
                 <?php
-
                     $hover = $Skin->Change_class( 'gallery_hover_style' );
             		// Display images that are linked to this post:
             		$item_first_image = $Item->get_images( array(
@@ -113,7 +117,9 @@ $no_content_to_display = true;
             		}
 
             		// Print first image
+                    // if ( $cat_post_style !== 'bg_img' ) {
             		echo $item_first_image;
+                    // }
 
                     echo '<div class="avatar_post">';
                     // Author Avatar
@@ -138,6 +144,7 @@ $no_content_to_display = true;
                         'thumb_class'  => '',
                     ) );
                     echo '</div>';
+
                     echo '<div class="evo_post_title">';
             		// Display a title
             		echo $Item->get_title( array(
@@ -193,9 +200,9 @@ $no_content_to_display = true;
                                 endif;
             			?>
 
-            			<nav class="comment_info">
             			<?php
                             if ( $Skin->get_setting( 'cat_post_comment' ) == 1 ) :
+                            echo '<nav class="comment_info">';
                 				// Link to comments, trackbacks, etc.:
                 				$Item->feedback_link( array(
                 					'type' => 'comments',
@@ -220,10 +227,9 @@ $no_content_to_display = true;
                 					'link_text_more' => '#',
                 					'link_title' => '#',
                 				) );
-
+                            echo '</nav>';
                             endif;
             			?>
-            			</nav>
                 	<?php } ?>
             		</footer>
 	            </section>  <!-- ../content_end_full -->
