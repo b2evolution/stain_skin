@@ -174,13 +174,13 @@ class stain_Skin extends Skin
 				),
 				'body_color' => array(
 					'label'			=> T_( 'Text Body Color' ),
-					'note'			=> T_( 'Change color text for body. Default color is: #555555' ),
+					'note'			=> T_( 'Change color text for body. Default color is: <strong>#555555</strong>.' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#555555'
 				),
 				'body_background' => array(
 					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change background for All Disp and Page. Default is: #f6f6f6' ),
+					'note'         => T_( 'Change background for All Disp and Page. Default is: <strong>#f6f6f6</strong>.' ),
 					'type'         => 'color',
 					'defaultvalue' => '#F6F6F6',
 				),
@@ -318,7 +318,7 @@ class stain_Skin extends Skin
 				),
 				'color_overlay' => array(
 					'label'        => T_( 'Change Color Overlay' ),
-					'note'         => T_( 'Set your favorite color for Header Color Overlay' ),
+					'note'         => T_( 'Set your favorite color for Header Color Overlay. Default value is <strong>#000000</strong>.' ),
 					'type'         => 'color',
 					'defaultvalue' => '#000000',
 				),
@@ -381,7 +381,7 @@ class stain_Skin extends Skin
 				),
 				'header_color_content' => array(
 					'label'			=> T_( 'Color Text Content Header' ),
-					'note'			=> T_( 'Change Color text content header and choose your favorite color.' ),
+					'note'			=> T_( 'Change Color text content header and choose your favorite color. Default value is <strong>#FFFFFF</strong>.' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#ffffff',
 				),
@@ -403,7 +403,7 @@ class stain_Skin extends Skin
 			),
 				'nav_bg'  => array(
 					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change background color main navigation. Default value is <strong>#1B1B1B</strong>' ),
+					'note'         => T_( 'Change background color main navigation. Default value is <strong>#1B1B1B</strong>.' ),
 					'type'         => 'color',
 					'defaultvalue' => '#1B1B1B',
 					'size'		   => 20,
@@ -453,7 +453,7 @@ class stain_Skin extends Skin
 				),
 				'nav_color_hov' => array(
 					'label'        => T_( 'Nav Color Hover' ),
-					'note'         => T_( 'Set the color when hover. Default value is #FFFFFF' ),
+					'note'         => T_( 'Set the color when hover. Default value is <strong>#FFFFFF</strong>.' ),
 					'type'         => 'color',
 					'defaultvalue' => '#FFFFFF',
 				),
@@ -573,7 +573,7 @@ class stain_Skin extends Skin
 				),
 				'cat_img_color_overlay' => array(
 					'label'			=> T_( 'Color Hover Overlay' ),
-					'note'			=> T_( 'Cahange the color image overlay when the posts category hover.' ),
+					'note'			=> T_( 'Cahange the color image overlay when the posts category hover. Default value is <strong>#FFFFFF</strong>.' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF'
 				),
@@ -607,9 +607,15 @@ class stain_Skin extends Skin
 				),
 				'gallery_bg' => array(
 					'label'        => T_( 'Background Content Posts' ),
-					'note'         => T_( 'Change background content Gallery if the image is hover.' ),
+					'note'         => T_( 'Change background content Gallery if the image is hover. Default value is <strong>#FFFFFF</strong>.' ),
 					'type'         => 'color',
 					'defaultvalue' => '#FFFFFF'
+				),
+				'cat_color_content' => array(
+					'label'			=> T_( 'Content Color' ),
+					'note'			=> T_( 'Change the color content. Default value is <strong>#777777</strong>.' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '#777777'
 				),
 				'gallery_shadow' => array(
 					'label'        => T_( 'Show Box Shadow' ),
@@ -619,7 +625,7 @@ class stain_Skin extends Skin
 				),
 				'cat_title_size' => array(
 					'label'        => T_( 'Size Title Category' ),
-					'note'         => T_( 'px. Change font size for Title Category.' ),
+					'note'         => T_( 'px. Change font size for Title Category. Default value is <strong>28px</strong>.' ),
 					'type'         => 'integer',
 					'defaultvalue' => '28',
 					'size'         => 3,
@@ -867,7 +873,7 @@ class stain_Skin extends Skin
 				),
 				'mediaidx_hover_bg' => array(
 					'label'			=> T_( 'Hover Overlay Color' ),
-					'note'			=> T_( 'Change background overlay color when image hover.' ),
+					'note'			=> T_( 'Change background overlay color when image hover. Default value is <strong>#FFFFFF</strong>.' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
 				),
@@ -907,13 +913,13 @@ class stain_Skin extends Skin
 				),
 				'mediaidx_title_bg' => array(
 					'label'			=> T_( 'Change Title Background Color' ),
-					'note'			=> T_( 'Choose your favorite bakcground color for image title section.' ),
+					'note'			=> T_( 'Choose your favorite bakcground color for image title section. Default value is <strong>#FFFFFF</strong>.' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#ffffff',
 				),
 				'mediaidx_title_color' => array(
 					'label'			=> T_( 'Change Title Color' ),
-					'note'			=> T_( 'Choose your favorite color scheme for the title text.' ),
+					'note'			=> T_( 'Choose your favorite color scheme for the title text. Default value is <strong>#555555</strong>.' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#555555'
 				),
@@ -1050,7 +1056,7 @@ class stain_Skin extends Skin
 				),
 				'bgc_color'	=> array(
 					'label'			=> T_( 'Background Color' ),
-					'note'			=> T_( 'Choose your favoite background color.' ),
+					'note'			=> T_( 'Choose your favoite background color. Default value is <strong>#FFFFFF</strong>.' ),
 					'type'			=> 'color',
 					'defaultvalue'  => '#FFFFFF',
 				),
@@ -1106,7 +1112,7 @@ class stain_Skin extends Skin
 			),
 				'footer_bg' => array(
 					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change the main footer background color, default value is #0E1215' ),
+					'note'         => T_( 'Change the main footer background color, default value is <strong>#0E1215</strong>.' ),
 					'type'         => 'color',
 					'defaultvalue' => '#0E1215',
 				),
@@ -1481,6 +1487,10 @@ class stain_Skin extends Skin
 		if ( $bg = $this->get_setting( 'gallery_bg' ) ) {
 			$custom_css .= '.posts_gallery .main_content_gallery .cat_title::after { background-color: '.$bg.' }';
 			$custom_css .= '#content .cat_content .cats_list .evo_post_content { background-color: '.$bg.' }';
+		}
+
+		if( $color = $this->get_setting( 'cat_color_content' ) ) {
+			$custom_css .= '#content .cat_content .cats_list .evo_post_content .evo_post_title .date, #content .cat_content .cats_list .evo_post_content .evo_post__text { color: '.$color.' }';
 		}
 
 		if( $this->get_setting( 'cat_post_style' ) == 'bg_img' ) {
