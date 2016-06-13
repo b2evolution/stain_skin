@@ -553,7 +553,7 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> 'default',
 					'options'		=> array(
 						'default' 	 => T_( 'Default' ),
-						'only_image' => T_( 'Only Images' ),
+						// 'only_image' => T_( 'Only Images' ),
 						'bg_img' 	 => T_( 'Background Image' ),
 					)
 				),
