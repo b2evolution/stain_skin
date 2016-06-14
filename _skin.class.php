@@ -484,8 +484,14 @@ class stain_Skin extends Skin
 				'layout'	=> 'begin_fieldset',
 				'label' 	=> T_( 'Gallery Options' ),
 			),
+				'cat_heading_bgc' => array(
+					'label'			=> T_( 'Background Title Category' ),
+					'note'			=> T_( 'Choose your favorite background color for title category. Default value is <strong>#FFFFFF</strong>.' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '#FFFFFF',
+				),
 				'gallery_show' => array(
-					'label'        => T_( 'Column Gallery' ),
+					'label'        => T_( 'Column Posts Show' ),
 					'note'         => T_( '' ),
 					'type'         => 'radio',
 					'options'      => array(
@@ -498,8 +504,8 @@ class stain_Skin extends Skin
 					'defaultvalue' => 'three_column',
 				),
 				'gallery_gutter' => array(
-					'label'			=> T_( 'Spance Gallery' ),
-					'note'			=> T_( 'px. Set the space for Gallery Images. If you want no space content, you can set the padding is <strong>0 px</strong>.' ),
+					'label'			=> T_( 'Spance Posts Category' ),
+					'note'			=> T_( 'px. Set the space for Gallery Images. If you want no space content, you can set the padding is <strong>10 px</strong>.' ),
 					'type'		   	=> 'integer',
 					'defaultvalue' 	=> '10',
 					'size'		   	=> 5
@@ -532,20 +538,6 @@ class stain_Skin extends Skin
 				// 	),
 				// 	'defaultvalue' => '2',
 				// ),
-				// 'gallery_hover_style' => array(
-				// 	'label'        => T_( 'Style Image Hover' ),
-				// 	'note'         => T_( 'Select the favorite Image Hover Style for Gallery.' ),
-				// 	'type'         => 'select',
-				// 	'defaultvalue' => 'flip',
-				// 	'options'      => array(
-				// 		'default'      => T_( 'Default' ),
-				// 		'flip'         => T_( 'Flip' ),
-				// 		'zoom'         => T_( 'Zoom' ),
-				// 		'sweep_right'  => T_( 'Sweep Right' ),
-				// 		'sweep_left'   => T_( 'Sweep Left' ),
-				// 		// '4'  => T_( 'Style 4' ),
-				// 	),
-				// ),
 				'cat_post_style' => array(
 					'label'			=> T_( 'Post Style' ),
 					'note'			=> T_( 'Choose your favorite post style every category list.' ),
@@ -567,8 +559,10 @@ class stain_Skin extends Skin
 						'opacity'     => T_( 'Opacity' ),
 						'zoom'        => T_( 'Zoom' ),
 						'flip'        => T_( 'Flip' ),
-						'right_left'  => T_( 'Right Left' ),
-						'left_right'  => T_( 'Left Right' ),
+						'right_left'  => T_( 'Right to Left' ),
+						'left_right'  => T_( 'Left to Right' ),
+						'bt_top'	  => T_( 'Bottom to Top' ),
+						'top_bt'	  => T_( 'Top to Bottom' ),
 					),
 				),
 				'cat_img_color_overlay' => array(
@@ -1484,8 +1478,12 @@ class stain_Skin extends Skin
 
 		/* GALLERY OPTIONS
 		* ========================================================================== */
+		if( $bg = $this->get_setting( 'cat_heading_bgc' ) ) {
+			$custom_css .= '#content .cat_content .category_title { background-color: '.$bg.' }';
+		}
+
 		if ( $bg = $this->get_setting( 'gallery_bg' ) ) {
-			$custom_css .= '.posts_gallery .main_content_gallery .cat_title::after { background-color: '.$bg.' }';
+			// $custom_css .= '.posts_gallery .main_content_gallery .cat_title::after { background-color: '.$bg.' }';
 			$custom_css .= '#content .cat_content .cats_list .evo_post_content { background-color: '.$bg.' }';
 		}
 
@@ -1499,8 +1497,8 @@ class stain_Skin extends Skin
 
 		if( $color = $this->get_setting( 'cat_img_color_overlay' ) ) {
 			$op = $this->Change_class( 'cat_opcity_overlay' );
-			$custom_css .= '#content .cat_content .cats_list .evo_post_images a:before { background-color: '.$color.';}';
-			$custom_css .= '#content .cat_content .cats_list .evo_post:hover .evo_post_images a:before, #content .cat_content .cats_list .evo_post:focus .evo_post_images a:before, #content .cat_content .cats_list .evo_post:active .evo_post_images a:before{ opacity: '.$op.' }';
+			$custom_css .= '#content .cat_content .cats_list .evo_post_images a:before, #content .cat_content .cats_list .no_image a:before { background-color: '.$color.';}';
+			$custom_css .= '#content .cat_content .cats_list .evo_post:hover .evo_post_images a:before, #content .cat_content .cats_list .evo_post:focus .evo_post_images a:before, #content .cat_content .cats_list .evo_post:active .evo_post_images a:before, #content .cat_content .cats_list .evo_post:hover .no_image a:before, #content .cat_content .cats_list .evo_post:focus .no_image a:before, #content .cat_content .cats_list .evo_post:active .no_image a:before{ opacity: '.$op.' }';
 		}
 
 		if ( $space = $this->get_setting('gallery_gutter') ) {
@@ -1512,7 +1510,7 @@ class stain_Skin extends Skin
 		if ( $this->get_setting( 'gallery_shadow' )  == 0 ) {
 			// $custom_css .= '.posts_gallery .main_content_gallery:hover, .posts_gallery .main_content_gallery:active, .posts_gallery .main_content_gallery:focus
 			// { box-shadow: none; }';
-			$custom_css .= '#content .cat_content .cats_list .evo_post_content{ box-shadow: none }';
+			$custom_css .= '#content .cat_content .cats_list .evo_post_content, #content .cat_content .category_title { box-shadow: none !important; }';
 		}
 
 		if ( $this->get_setting( 'gallery_hover_style' ) == 'none' ) {

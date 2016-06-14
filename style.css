@@ -2706,6 +2706,7 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   padding: 5px 0;
 }
 #content .cat_content {
+  width: 100%;
   margin-bottom: 30px;
 }
 #content .cat_content .category_title {
@@ -2734,16 +2735,20 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 #content .cat_content .cats_list .no_image {
   margin: -25px -25px 25px;
 }
-#content .cat_content .cats_list .evo_post_images a {
+#content .cat_content .cats_list .evo_post_images a,
+#content .cat_content .cats_list .no_image a {
   z-index: 1;
 }
-#content .cat_content .cats_list .evo_post_images a:before {
+#content .cat_content .cats_list .evo_post_images a:before,
+#content .cat_content .cats_list .no_image a:before {
   content: '';
   position: absolute;
   width: 100%;
   height: 100%;
   opacity: 0;
   z-index: 1;
+  -webkit-transition: all 0.32s ease;
+  transition: all 0.32s ease;
 }
 #content .cat_content .cats_list .evo_image_block img,
 #content .cat_content .cats_list .no_image img {
@@ -2754,6 +2759,7 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   z-index: 0;
 }
 #content .cat_content .cats_list .no_image {
+  overflow: hidden;
   border-bottom: 1px solid #f7f7f7;
 }
 #content .cat_content .cats_list .evo_post_content {
@@ -2869,30 +2875,36 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 #content .cat_content .cats_list .evo_post_content .comment_info .comment_cat {
   font-size: 1.3rem;
 }
-#content .cat_content .cats_list .evo_post_images {
+#content .cat_content .cats_list .evo_post_images,
+#content .cat_content .cats_list .no_image {
   position: relative;
 }
-#content .cat_content .cats_list .evo_post_images.none a:before {
+#content .cat_content .cats_list .evo_post_images.none a:before,
+#content .cat_content .cats_list .no_image.none a:before {
   display: none;
 }
-#content .cat_content .cats_list .evo_post_images.opacity a:before {
+#content .cat_content .cats_list .evo_post_images.opacity a:before,
+#content .cat_content .cats_list .no_image.opacity a:before {
   bottom: 0;
   left: 0;
   -webkit-transition: all 0.32s ease-in-out;
   transition: all 0.32s ease-in-out;
 }
-#content .cat_content .cats_list .evo_post_images.zoom .evo_image_block {
+#content .cat_content .cats_list .evo_post_images.zoom .evo_image_block,
+#content .cat_content .cats_list .no_image.zoom .evo_image_block {
   overflow: hidden;
   position: relative;
 }
-#content .cat_content .cats_list .evo_post_images.zoom a img {
+#content .cat_content .cats_list .evo_post_images.zoom a img,
+#content .cat_content .cats_list .no_image.zoom a img {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
   -webkit-transition: -webkit-transform .3s ease;
   transition: transform .3s ease;
 }
-#content .cat_content .cats_list .evo_post_images.zoom a:before {
+#content .cat_content .cats_list .evo_post_images.zoom a:before,
+#content .cat_content .cats_list .no_image.zoom a:before {
   top: 0;
   left: 0;
   -webkit-transform: scale(0);
@@ -2901,15 +2913,18 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
 }
-#content .cat_content .cats_list .evo_post_images.flip {
+#content .cat_content .cats_list .evo_post_images.flip,
+#content .cat_content .cats_list .no_image.flip {
   -webkit-perspective: 1300px;
   perspective: 1300px;
 }
-#content .cat_content .cats_list .evo_post_images.flip a {
+#content .cat_content .cats_list .evo_post_images.flip a,
+#content .cat_content .cats_list .no_image.flip a {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-#content .cat_content .cats_list .evo_post_images.flip a:before {
+#content .cat_content .cats_list .evo_post_images.flip a:before,
+#content .cat_content .cats_list .no_image.flip a:before {
   top: 0;
   bottom: 0;
   left: 0;
@@ -2920,23 +2935,32 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-#content .cat_content .cats_list .evo_post_images.flip a img {
+#content .cat_content .cats_list .evo_post_images.flip a img,
+#content .cat_content .cats_list .no_image.flip a img {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-#content .cat_content .cats_list .evo_post_images.right_left a:before {
+#content .cat_content .cats_list .evo_post_images.right_left a:before,
+#content .cat_content .cats_list .no_image.right_left a:before {
   width: 0;
   right: 0;
   opacity: 0.5;
-  -webkit-transition: all 0.32s ease;
-  transition: all 0.32s ease;
 }
-#content .cat_content .cats_list .evo_post_images.left_right a:before {
+#content .cat_content .cats_list .evo_post_images.left_right a:before,
+#content .cat_content .cats_list .no_image.left_right a:before {
   width: 0;
   left: 0;
   opacity: 0.5;
-  -webkit-transition: all 0.32s ease;
-  transition: all 0.32s ease;
+}
+#content .cat_content .cats_list .evo_post_images.bt_top a:before,
+#content .cat_content .cats_list .no_image.bt_top a:before {
+  height: 0;
+  bottom: 0;
+}
+#content .cat_content .cats_list .evo_post_images.top_bt a:before,
+#content .cat_content .cats_list .no_image.top_bt a:before {
+  height: 0;
+  top: 0;
 }
 #content .cat_content .cats_list .evo_post:hover .evo_post_content,
 #content .cat_content .cats_list .evo_post:focus .evo_post_content,
@@ -2948,7 +2972,10 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 }
 #content .cat_content .cats_list .evo_post:hover .evo_post_images.zoom a img,
 #content .cat_content .cats_list .evo_post:focus .evo_post_images.zoom a img,
-#content .cat_content .cats_list .evo_post:active .evo_post_images.zoom a img {
+#content .cat_content .cats_list .evo_post:active .evo_post_images.zoom a img,
+#content .cat_content .cats_list .evo_post:hover .no_image.zoom a img,
+#content .cat_content .cats_list .evo_post:focus .no_image.zoom a img,
+#content .cat_content .cats_list .evo_post:active .no_image.zoom a img {
   -webkit-transform: scale(1.1) rotate(3deg);
   -ms-transform: scale(1.1) rotate(3deg);
   transform: scale(1.1) rotate(3deg);
@@ -2961,28 +2988,57 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 }
 #content .cat_content .cats_list .evo_post:hover .evo_post_images.zoom a:before,
 #content .cat_content .cats_list .evo_post:focus .evo_post_images.zoom a:before,
-#content .cat_content .cats_list .evo_post:active .evo_post_images.zoom a:before {
+#content .cat_content .cats_list .evo_post:active .evo_post_images.zoom a:before,
+#content .cat_content .cats_list .evo_post:hover .no_image.zoom a:before,
+#content .cat_content .cats_list .evo_post:focus .no_image.zoom a:before,
+#content .cat_content .cats_list .evo_post:active .no_image.zoom a:before {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
 }
 #content .cat_content .cats_list .evo_post:hover .evo_post_images.flip a:before,
 #content .cat_content .cats_list .evo_post:focus .evo_post_images.flip a:before,
-#content .cat_content .cats_list .evo_post:active .evo_post_images.flip a:before {
+#content .cat_content .cats_list .evo_post:active .evo_post_images.flip a:before,
+#content .cat_content .cats_list .evo_post:hover .no_image.flip a:before,
+#content .cat_content .cats_list .evo_post:focus .no_image.flip a:before,
+#content .cat_content .cats_list .evo_post:active .no_image.flip a:before {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 #content .cat_content .cats_list .evo_post:hover .evo_post_images.right_left a:before,
 #content .cat_content .cats_list .evo_post:focus .evo_post_images.right_left a:before,
 #content .cat_content .cats_list .evo_post:active .evo_post_images.right_left a:before,
+#content .cat_content .cats_list .evo_post:hover .no_image.right_left a:before,
+#content .cat_content .cats_list .evo_post:focus .no_image.right_left a:before,
+#content .cat_content .cats_list .evo_post:active .no_image.right_left a:before,
 #content .cat_content .cats_list .evo_post:hover .evo_post_images.left_right a:before,
 #content .cat_content .cats_list .evo_post:focus .evo_post_images.left_right a:before,
-#content .cat_content .cats_list .evo_post:active .evo_post_images.left_right a:before {
+#content .cat_content .cats_list .evo_post:active .evo_post_images.left_right a:before,
+#content .cat_content .cats_list .evo_post:hover .no_image.left_right a:before,
+#content .cat_content .cats_list .evo_post:focus .no_image.left_right a:before,
+#content .cat_content .cats_list .evo_post:active .no_image.left_right a:before {
   width: 100%;
+}
+#content .cat_content .cats_list .evo_post:hover .evo_post_images.bt_top a:before,
+#content .cat_content .cats_list .evo_post:focus .evo_post_images.bt_top a:before,
+#content .cat_content .cats_list .evo_post:active .evo_post_images.bt_top a:before,
+#content .cat_content .cats_list .evo_post:hover .no_image.bt_top a:before,
+#content .cat_content .cats_list .evo_post:focus .no_image.bt_top a:before,
+#content .cat_content .cats_list .evo_post:active .no_image.bt_top a:before,
+#content .cat_content .cats_list .evo_post:hover .evo_post_images.top_bt a:before,
+#content .cat_content .cats_list .evo_post:focus .evo_post_images.top_bt a:before,
+#content .cat_content .cats_list .evo_post:active .evo_post_images.top_bt a:before,
+#content .cat_content .cats_list .evo_post:hover .no_image.top_bt a:before,
+#content .cat_content .cats_list .evo_post:focus .no_image.top_bt a:before,
+#content .cat_content .cats_list .evo_post:active .no_image.top_bt a:before {
+  height: 100%;
 }
 #content .cat_content .cats_list .post_bg_image {
   z-index: 1;
   overflow: hidden;
+}
+#content .cat_content .cats_list .post_bg_image .evo_image_block {
+  position: static !important;
 }
 #content .cat_content .cats_list .post_bg_image .no_image img {
   position: absolute;
@@ -2990,12 +3046,12 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   top: 0;
   bottom: 0;
   margin: auto;
+  width: auto;
   height: auto;
-  opacity: 0.1;
+  max-height: none;
+  min-height: 100%;
+  opacity: 0.85;
   z-index: -2;
-}
-#content .cat_content .cats_list .post_bg_image .evo_image_block {
-  position: static !important;
 }
 #content .cat_content .cats_list .post_bg_image .evo_post_images {
   position: static;
@@ -3018,7 +3074,7 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   height: auto;
   max-height: none;
   min-height: 100%;
-  opacity: 0.7;
+  opacity: 0.25;
   z-index: -2;
   -webkit-transform: none !important;
   -ms-transform: none !important;

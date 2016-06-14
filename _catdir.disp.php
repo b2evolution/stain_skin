@@ -72,7 +72,7 @@ $no_content_to_display = true;
             <h2><a href="<?php echo $Chapter->get_permanent_url(); ?>"><?php echo $Chapter->get( 'name' ); ?></a></h2>
         </div>
 
-        <div class="cats_list">
+        <div id="cats_list_<?php echo $Chapter->ID; ?>" class="cats_list">
             <?php
         	while( $Item = & $ItemList->get_item() ){
                 // For each blog post, do everything below up to the closing curly brace "}"
@@ -109,7 +109,7 @@ $no_content_to_display = true;
         			) );
             		if( empty( $item_first_image ) )
             		{ // No images in this post, Display an empty block
-            			$item_first_image = $Item->get_permanent_link( '<div class="no_image '.$hover.'"><img src="'.$Skin->get_url().'assets/images/blank_image.png"></div>', '#', 'album_nopic' );
+            			$item_first_image = '<div class="no_image '.$hover.'"><a href="'.$Item->get_permanent_url( 'album_nopic' ).'"><img src="'.$Skin->get_url().'assets/images/blank_image.png"></a></div>';
             		}
             		else if( $item_first_image == 'plugin_render_attachments' )
             		{ // No images, but some attachments(e.g. videos) are rendered by plugins
