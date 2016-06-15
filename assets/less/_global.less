@@ -15,6 +15,11 @@ html {
 	}
 }
 
+html, html a {
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
 body {
 	width: 100%;
 	height: 100%;
@@ -22,6 +27,10 @@ body {
 	font-size: 1.4rem;
 	background-color: @bg_body;
 	color: @c5;
+
+    text-rendering: optimizelegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+	-moz-osx-font-smoothing: grayscale;
 
 	a {
 		color: @primary;
