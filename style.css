@@ -73,16 +73,19 @@ body a[rel~=nofollow]:not([class~=btn]):hover:focus {
 }
 .two_column {
   max-width: 50%;
+  float: left;
 }
 @media screen and (max-width: 480px) {
   .two_column {
     width: 100%;
+    float: none;
   }
 }
 .three_column {
   max-width: 33.32%;
   width: 33.32%;
   margin: 0 -1px 0 0;
+  float: left;
 }
 @media screen and (max-width: 768px) {
   .three_column {
@@ -94,7 +97,11 @@ body a[rel~=nofollow]:not([class~=btn]):hover:focus {
   .three_column {
     max-width: 100%;
     width: 100%;
+    float: none;
   }
+}
+.four_column {
+  float: left;
 }
 @media screen and (min-width: 1025px) {
   .four_column {
@@ -116,6 +123,7 @@ body a[rel~=nofollow]:not([class~=btn]):hover:focus {
   .four_column {
     max-width: 100%;
     width: 100%;
+    float: none;
   }
 }
 .form-horizontal .controls textarea.form-control {

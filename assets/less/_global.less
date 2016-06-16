@@ -84,9 +84,11 @@ body {
 
 .two_column {
 	max-width: @two_column;
+	float: left;
 
 	@media screen and ( max-width: @S ) {
 		width: @one_column;
+		float: none;
 	}
 }
 
@@ -94,6 +96,7 @@ body {
 	max-width: @three_column;
 	width: @three_column;
 	margin: 0 -1px 0 0;
+	float: left;
 
 	@media screen and ( max-width: @M ) {
 		max-width: @two_column;
@@ -103,10 +106,13 @@ body {
 	@media screen and ( max-width: @S ) {
 		max-width: @one_column;
 		width: @one_column;
+		float: none;
 	}
 }
 
 .four_column {
+	float: left;
+
 	@media screen and ( min-width: @ML ) {
 		max-width: @four_column;
 	}
@@ -120,6 +126,7 @@ body {
 	@media screen and ( max-width: @S ) {
 		max-width: @one_column;
 		width: @one_column;
+		float: none;
 	}
 }
 

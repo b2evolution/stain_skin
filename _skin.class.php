@@ -164,7 +164,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_general_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label' 	=> T_( 'General Options' ),
+				'label' 	=> T_( 'General Options (All disps)' ),
 			),
 				'color_scheme' => array(
 					'label'			=> T_( 'Color Scheme' ),
@@ -206,7 +206,7 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_sitewide_header_start' => array(
 				'layout'			=> 'begin_fieldset',
-				'label'				=> T_( 'Custom Sitewide Header' ),
+				'label'				=> T_( 'Custom Sitewide Header (All disps)' ),
 			),
 				'sitewide_background' => array(
 					'label'			=> T_( 'Background Color' ),
@@ -241,7 +241,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_header_start' => array(
 				'layout'   => 'begin_fieldset',
-				'label'    => T_( 'Header Options' )
+				'label'    => T_( 'Header Options (All disps)' )
 			),
 				'header_height' => array(
 					'label'        => T_('Height'),
@@ -358,7 +358,7 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_head_con_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_('Header Content Options'),
+				'label'		=> T_('Header Content Options (All disps)'),
 			),
 				'header_content_top' => array(
 					'label'			=> T_( 'Content Padding Top' ),
@@ -399,7 +399,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_nav_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Main Navigation'),
+				'label'  => T_('Main Navigation Options (All disps)'),
 			),
 				'nav_bg'  => array(
 					'label'        => T_( 'Background Color' ),
@@ -482,7 +482,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_gallery_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label' 	=> T_( 'Gallery Options' ),
+				'label' 	=> T_( 'Gallery Options (disp=catdir)' ),
 			),
 				'cat_heading_bgc' => array(
 					'label'			=> T_( 'Background Title Category' ),
@@ -493,13 +493,13 @@ class stain_Skin extends Skin
 				'gallery_show' => array(
 					'label'        => T_( 'Column Posts Show' ),
 					'note'         => T_( '' ),
-					'type'         => 'radio',
+					'type'         => 'select',
 					'options'      => array(
-						array( 'one_column', T_( '1 Column' ) ),
-						array( 'two_column', T_( '2 Column' ) ),
-						array( 'three_column', T_( '3 Column' ) ),
-						array( 'four_column', T_( '4 Column' ) ),
-						// array( 'random', T_( 'Random' ) ),
+						'one_column' 	=> T_( '1 Column' ),
+						'two_column' 	=> T_( '2 Columns' ),
+						'three_column' 	=> T_( '3 Columns' ),
+						'four_column' 	=> T_( '4 Columns' ),
+						// 'random' 		=> T_( 'Random' ),
 					),
 					'defaultvalue' => 'three_column',
 				),
@@ -642,24 +642,6 @@ class stain_Skin extends Skin
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 0,
 				),
-				// 'cat_title_color' => array(
-				// 	'label'        => T_( 'Color Title Category' ),
-				// 	'note'         => T_( 'Change the color of title category.' ),
-				// 	'type'         => 'color',
-				// 	'defaultvalue' => '#444444'
-				// ),
-				// 'cat_view_bg' => array(
-				// 	'label'        => T_( 'Background Button View' ),
-				// 	'note'         => T_( 'Change the background color of button view when the button when hover. Default is <strong>Empty</strong>' ),
-				// 	'type'         => 'color',
-				// 	'defaultvalue' => '',
-				// ),
-				// 'cat_view_text' => array(
-				// 	'label'        => T_( 'Color Text Button View' ),
-				// 	'note'         => T_( 'Change the Color Text for Button View when hover. Default is <strong>Empty</strong>' ),
-				// 	'type'         => 'color',
-				// 	'defaultvalue' => '',
-				// ),
 			'section_gallery_end' => array(
 				'layout'	=> 'end_fieldset',
 			),
@@ -669,7 +651,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_posts_start' => array(
 				'layout'   => 'begin_fieldset',
-				'label'    => T_( 'Posts Options' ),
+				'label'    => T_( 'Posts Options (disp=posts)' ),
 			),
 				'posts_full_width' => array(
 					'label'			=> T_( 'Full Width Container' ),
@@ -692,12 +674,11 @@ class stain_Skin extends Skin
 				'posts_show' => array(
 					'label'        => T_( 'Column Posts' ),
 					'note'         => T_( '' ),
-					'type'         => 'radio',
+					'type'         => 'select',
 					'options'      => array(
-						// array( 'one_column', T_( '1 Column' ) ),
-						array( 'one_column', T_( '1 Column' ) ),
-						array( 'two_column', T_( '2 Column' ) ),
-						array( 'three_column', T_( '3 Column' ) ),
+						'one_column' 	=> T_( '1 Column' ),
+						'two_column' 	=> T_( '2 Columns' ),
+						'three_column'  => T_( '3 Columns' ),
 					),
 					'defaultvalue' => 'three_column'
 				),
@@ -735,7 +716,7 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_single_start' => array(
 				'layout'		=> 'begin_fieldset',
-				'label'		=> T_( 'Single Options' ),
+				'label'		=> T_( 'Single Options (disp=single)' ),
 			),
 				'single_image_style' => array(
 					'label'			=> T_( 'Style Image Gallery' ),
@@ -750,12 +731,12 @@ class stain_Skin extends Skin
 				'single_image_grid' => array(
 					'label'			=> T_( 'Image Gallery Column' ),
 					'note'			=> T_( '( Change the gallery column for single Image Gallery. )' ),
-					'type'			=> 'radio',
+					'type'			=> 'select',
 					'options'		=> array(
-						array( '12', T_( '1 Column' ) ),
-						array( '6', T_( '2 Column' ) ),
-						array( '4', T_( '3 Column' ) ),
-						array( '3', T_( '4 Column' ) ),
+						'12' => T_( '1 Column' ),
+						'6'  => T_( '2 Column' ),
+						'4'  => T_( '3 Column' ),
+						'3'  => T_( '4 Column' ),
 					),
 					'defaultvalue' => '4',
 				),
@@ -774,7 +755,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_media_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Photo Index Options')
+				'label'  => T_('Photo Index Options (disp=mediaidx)')
 			),
 				'max_mediaidx_height' => array(
 					'label'        => T_('Max Mediaidx image height'),
@@ -786,12 +767,12 @@ class stain_Skin extends Skin
 				'mediaidx_column' => array(
 					'label'			=> T_( 'Display Columns Image' ),
 					'note'			=> T_( '' ),
-					'type'			=> 'radio',
+					'type'			=> 'select',
 					'options'		=> array(
-						array( 'one', T_( '1 Column' )),
-						array( 'two', T_('2 Columns')),
-						array( 'three', T_('3 Columns')),
-						array( 'four' , T_('4 Columns')),
+						'one'	=> T_( '1 Column' ),
+						'two'	=> T_('2 Columns'),
+						'three'	=> T_('3 Columns'),
+						'four' 	=> T_('4 Columns'),
 					),
 					'defaultvalue'	=> 'three',
 				),
@@ -955,7 +936,7 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_search_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_( 'Search Disp Options' )
+				'label'		=> T_( 'Search Disp Options (disp=search)' )
 			),
 				'header_search_height' => array(
 					'label'			=> T_( 'Header Height' ),
@@ -1021,7 +1002,7 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_bg_content_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_( 'Background Content Disp ( Login | Lostpassword | Register | 404/403 )' ),
+				'label'		=> T_( 'Background Content Disp ( disp=login | disp=lostpassword | disp=register | disp=404/403 )' ),
 			),
 				'bgc_style' => array(
 					'label'			=> T_( 'Background Style' ),
@@ -1102,7 +1083,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_footer_start' => array(
 				'layout'  => 'begin_fieldset',
-				'label'   => T_( 'Footer Options' ),
+				'label'   => T_( 'Footer Options (All disps)' ),
 			),
 				'footer_bg' => array(
 					'label'        => T_( 'Background Color' ),
@@ -1119,23 +1100,23 @@ class stain_Skin extends Skin
 				'footer_widget_column' => array(
 					'label'        => T_( 'Widget Column' ),
 					'note'         => T_( '' ),
-					'type'         => 'radio',
+					'type'         => 'select',
 					'defaultvalue' => '3',
 					'options'      => array(
-						array( '1', T_( '1 Column' ) ),
-						array( '2', T_( '2 Column' ) ),
-						array( '3', T_( '3 Column' ) ),
-						array( '4', T_( '4 Column' ) ),
+						'1' => T_( '1 Column' ),
+						'2' => T_( '2 Columns' ),
+						'3' => T_( '3 Columns' ),
+						'4' => T_( '4 Columns' ),
 					),
 				),
 				'footer_bottom_align' => array(
 					'label'        => T_( 'Footer Bottom Mode' ),
 					'note'         => T_(''),
-					'type'         => 'radio',
+					'type'         => 'select',
 					'defaultvalue' => 'float',
 					'options'      => array(
-						array( 'float', T_( 'Float Mode' ) ),
-						array( 'center', T_( 'Center Mode' ) ),
+						'float' => T_( 'Float Mode' ),
+						'center' => T_( 'Center Mode' ),
 					),
 				),
 				'footer_social' => array(
@@ -1153,7 +1134,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_colorbox_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Colorbox Image Zoom')
+				'label'  => T_('Colorbox Image Zoom (All disps)')
 			),
 				'colorbox' => array(
 					'label'        => T_('Colorbox Image Zoom'),
@@ -1205,7 +1186,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_username_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Username options')
+				'label'  => T_('Username options (All disps)')
 			),
 				'bubbletip' => array(
 					'label'        => T_('Username bubble tips'),
@@ -1227,7 +1208,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_access_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('When access is denied or requires login...')
+				'label'  => T_('When access is denied or requires login... (disp=access_denied and disp=access_requires_login)')
 			),
 				'access_login_containers' => array(
 					'label'   => T_('Display on login screen'),

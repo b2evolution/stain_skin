@@ -2,6 +2,7 @@
 
     'use strict';
 
+    // MENU STICKY
     var menu_sticky = function(){
         if ( $.fn.sticky ) {
             $(".main_navigation").sticky({
@@ -13,6 +14,7 @@
         }
     }
 
+    // MOBILE NAV
     var Mobile_Nav = function(){
         $('#main_nav').click(function() {
            $('.mobile_nav').toggleClass('active');
@@ -20,9 +22,9 @@
         });
     }
 
-    // Photo Index
+    // MEDIAIDX
     var PostGallery_masonry = function(){
-        if( document.getElementById("grid") != null ){
+        if( document.getElementById('grid') != null ){
             new AnimOnScroll( document.getElementById( 'grid' ), {
                 minDuration : 0.4,
                 maxDuration : 0.7,
@@ -31,7 +33,7 @@
         }
     }
 
-    // Posts Masonry and Load Animation
+    // DISP POSTS
     var Postlist = function(){
         if( document.getElementById("posts_list") != null ){
             new AnimOnScroll( document.getElementById( 'posts_list' ), {
@@ -42,6 +44,7 @@
         }
     }
 
+    // SINGLE GALLERY MASONRY
     var single_gallery_masonry = function(){
         if ( $.fn.masonry ) {
             $('.single_masonry').masonry({
@@ -53,6 +56,7 @@
         }
     }
 
+    // DISP CATEGORY MASONRY
     var cat_masonry = function(){
         if ( $.fn.masonry ) {
             $('.cats_list').masonry({
@@ -64,7 +68,7 @@
         }
     }
 
-    // Photo Index
+    // DISP CATEGORY ANIMATION
     var PhotoIndex = function(){
         if( document.getElementById("post_gallery") != null ){
             new AnimOnScroll( document.getElementById( 'post_gallery' ), {
@@ -114,6 +118,7 @@
         }
     }
 
+
     var waypoint = function() {
         new Waypoint({
             element: document.getElementById('content'),
@@ -137,10 +142,9 @@
         }
     }
 
-
+    // Back to Top
+    // ======================================================================== /
     var Back_top = function() {
-        // Back to Top
-        // ======================================================================== /
         // browser window scroll ( in pixels ) after which the "back to top" link is show
         var offset = 500,
         // browser window scroll (in pixels) after which the "back to top" link opacity is reduced
@@ -178,12 +182,14 @@
     $(window).load(function() {
         menu_sticky();
         Mobile_Nav();
+
+        waypoint();
+        Slidebars();
+        // PhotoIndex();
+
         PostGallery_masonry();
         single_gallery_masonry();
         Postlist();
-        waypoint();
-        Slidebars();
-        PhotoIndex();
         cat_masonry();
     });
 
