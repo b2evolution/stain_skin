@@ -164,7 +164,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_general_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label' 	=> T_( 'General Options (All disps)' ),
+				'label' 	=> T_( 'General Settings (All disps)' ),
 			),
 				'color_scheme' => array(
 					'label'			=> T_( 'Color Scheme' ),
@@ -184,13 +184,13 @@ class stain_Skin extends Skin
 					'type'         => 'color',
 					'defaultvalue' => '#F6F6F6',
 				),
-				'favicon' => array(
-					'label'          => T_('Favicon'),
-					'note'           => T_('Change the default favicon from Skin Folder.'),
-					'defaultvalue'   => 'assets/images/favicon.png',
-					'type'           => 'text',
-					'size'           => '50'
-				),
+				// 'favicon' => array(
+				// 	'label'          => T_('Favicon'),
+				// 	'note'           => T_('Change the default favicon from Skin Folder.'),
+				// 	'defaultvalue'   => 'assets/images/favicon.png',
+				// 	'type'           => 'text',
+				// 	'size'           => '50'
+				// ),
 				'back_to_top' => array(
 					'label'			=> T_( 'Back To Top Button' ),
 					'note'			=> T_( 'Check to show button back to top.' ),
@@ -237,11 +237,11 @@ class stain_Skin extends Skin
 			),
 
 
-			/* Header Options
+			/* Header
 			* ========================================================================== */
 			'section_header_start' => array(
 				'layout'   => 'begin_fieldset',
-				'label'    => T_( 'Header Options (All disps)' )
+				'label'    => T_( 'Header Settings (All disps)' )
 			),
 				'header_height' => array(
 					'label'        => T_('Height'),
@@ -358,7 +358,7 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_head_con_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_('Header Content Options (All disps)'),
+				'label'		=> T_('Header Content Settings (All disps)'),
 			),
 				'header_content_top' => array(
 					'label'			=> T_( 'Content Padding Top' ),
@@ -399,7 +399,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_nav_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Main Navigation Options (All disps)'),
+				'label'  => T_('Main Navigation Settings (All disps)'),
 			),
 				'nav_bg'  => array(
 					'label'        => T_( 'Background Color' ),
@@ -461,11 +461,11 @@ class stain_Skin extends Skin
 				'layout'   => 'end_fieldset',
 			),
 
-			/* Gallery Featured Post Options
+			/* Gallery Featured Post Settings
 			* ========================================================================== */
 			// 'section_gallery_featured_start' => array(
 			// 	'layout'      => 'begin_fieldset',
-			// 	'label'       => T_( 'Gallery Featured Post Options' ),
+			// 	'label'       => T_( 'Gallery Featured Post Settings' ),
 			// ),
 			// 	'gal_feature_cat' => array(
 			// 		'label'		   => T_( 'Show Post Cagetory' ),
@@ -478,11 +478,11 @@ class stain_Skin extends Skin
 			// ),
 
 
-			/* Content Options
+			/* Content Settings
 			* ========================================================================== */
 			'section_gallery_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label' 	=> T_( 'Gallery Options (disp=catdir)' ),
+				'label' 	=> T_( 'Gallery Settings (disp=catdir)' ),
 			),
 				'cat_heading_bgc' => array(
 					'label'			=> T_( 'Background Title Category' ),
@@ -647,11 +647,11 @@ class stain_Skin extends Skin
 			),
 
 
-			/* POST OPTIONS
+			/* POST Settings
 			* ========================================================================== */
 			'section_posts_start' => array(
 				'layout'   => 'begin_fieldset',
-				'label'    => T_( 'Posts Options (disp=posts)' ),
+				'label'    => T_( 'Posts Settings (disp=posts)' ),
 			),
 				'posts_full_width' => array(
 					'label'			=> T_( 'Full Width Container' ),
@@ -712,11 +712,11 @@ class stain_Skin extends Skin
 			),
 
 
-			/* Single Options
+			/* Single Settings
 			 * ========================================================================== */
 			'section_single_start' => array(
 				'layout'		=> 'begin_fieldset',
-				'label'		=> T_( 'Single Options (disp=single)' ),
+				'label'		=> T_( 'Single Settings (disp=single)' ),
 			),
 				'single_image_style' => array(
 					'label'			=> T_( 'Style Image Gallery' ),
@@ -755,7 +755,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_media_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Photo Index Options (disp=mediaidx)')
+				'label'  => T_('Photo Index Settings (disp=mediaidx)')
 			),
 				'max_mediaidx_height' => array(
 					'label'        => T_('Max Mediaidx image height'),
@@ -932,11 +932,11 @@ class stain_Skin extends Skin
 			),
 
 
-			/* Search Disp Options
+			/* Search Disp Settings
 			 * ========================================================================== */
 			'section_search_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_( 'Search Disp Options (disp=search)' )
+				'label'		=> T_( 'Search Disp Settings (disp=search)' )
 			),
 				'header_search_height' => array(
 					'label'			=> T_( 'Header Height' ),
@@ -1079,11 +1079,11 @@ class stain_Skin extends Skin
 				'layout'	=> 'end_fieldset',
 			),
 
-			/* Footer Options
+			/* Footer Settings
 			* ========================================================================== */
 			'section_footer_start' => array(
 				'layout'  => 'begin_fieldset',
-				'label'   => T_( 'Footer Options (All disps)' ),
+				'label'   => T_( 'Footer Settings (All disps)' ),
 			),
 				'footer_bg' => array(
 					'label'        => T_( 'Background Color' ),
@@ -1204,7 +1204,7 @@ class stain_Skin extends Skin
 				'layout' => 'end_fieldset',
 			),
 
-			/* Acces Options
+			/* Acces Settings
 			* ========================================================================== */
 			'section_access_start' => array(
 				'layout' => 'begin_fieldset',
@@ -1287,7 +1287,7 @@ class stain_Skin extends Skin
 		// Add custom CSS:
 		$custom_css = '';
 
-		/* General Options
+		/* General
 		* ========================================================================== */
 		if( $cs = $this->get_setting( 'color_scheme' ) ) {
 			$custom_css .= 'body a, body a:hover, body a:focus, body a:active, #footer .copyright a,
@@ -1347,7 +1347,7 @@ class stain_Skin extends Skin
 		}
 
 
-		/* Header Options
+		/* Header Settings
 		* ========================================================================== */
 		if ( $height = $this->get_setting( 'header_height' ) ) {
 			$custom_css .= '.main_header{ min-height: '.$height.'px; }';
@@ -1611,8 +1611,8 @@ class stain_Skin extends Skin
 			add_headline( $custom_css );
 
 			// Add Favicon
-			$favicon = $this->get_setting( 'favicon' );
-			add_headline( '<link rel="shortcut icon" href="'. $favicon .'"/>' );
+			// $favicon = $this->get_setting( 'favicon' );
+			// add_headline( '<link rel="shortcut icon" href="'. $favicon .'"/>' );
 		}
 
 	}

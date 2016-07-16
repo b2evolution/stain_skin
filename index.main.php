@@ -62,6 +62,7 @@ skin_include( '_body_header.inc.php' );
 					'catdir_text'       => '',
 					'category_text'     => T_('Gallery').': ',
 					'categories_text'   => T_('Galleries').': ',
+					'messages_text'		=> T_( 'Sending a message' ),
 					'user_text'         => '',
 					'display_edit_links'=> false,
 				) );
