@@ -335,7 +335,10 @@
 
             a {
                 padding: 10px 15px;
-                font-size: 1.2rem !important;
+
+                @media screen and ( min-width: @MX ){
+                    font-size: 1.2rem !important;
+                }
             }
 
             a::before, a::after {
@@ -357,7 +360,7 @@
             &:hover, &:active, &:focus {
                 a::before {
                     opacity: 0;
-                    transform: translateY(5px) translateX(10px);
+                    transform: translateY(5px) translateX(-8px);
                 }
 
                 a::after {
@@ -572,8 +575,11 @@
             height: 38px;
             border: none;
             margin: 8px auto;
-
             transition: all 0.32s ease-in-out;
+
+            @media screen and ( max-width: @S ) {
+                width: 30px;
+            }
 
             &:hover, &:active, &:focus {
                 outline: none;
@@ -622,6 +628,10 @@
 
             @media screen and ( max-width: @S ){
                 margin: 5px auto;
+
+                .hamburger {
+                    width: 30px;
+                }
             }
 
         }
@@ -644,6 +654,9 @@
                 top: 6px;
                 right: 15px;
                 z-index: 981;
+
+                animation-delay: 2s;
+                transition: 0.32s ease;
 
                 .hamburger {
                     width: 30px;

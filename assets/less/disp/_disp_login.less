@@ -20,7 +20,9 @@
             font-size: 3rem;
 
             @media screen and ( max-width: @S ) {
+                font-size: 2.8rem;
                 margin-bottom: 0;
+                text-align: center;
             }
         }
     }
@@ -36,11 +38,11 @@
         z-index: 0;
         // overflow: hidden;
 
-        @media screen and ( max-width: @S ) {
+        @media screen and ( max-width: @MX ) {
             padding: 30px;
         }
 
-        @media screen and ( max-width: @XS ) {
+        @media screen and ( max-width: @S ) {
             padding: 25px;
         }
 
@@ -187,16 +189,34 @@
 
 
     #lostpass_form {
+
         .control-buttons {
             margin-top: 0;
             margin-right: auto;
             margin-left: auto;
-            text-align: center;
+
+            @media screen and ( min-width: @MX ) {
+                text-align: center;
+            }
 
             .btn-primary {
                 font-size: 1.4rem;
             }
 
+        }
+
+        @media screen and ( max-width: @MX ) {
+            .fieldset_wrapper {
+                margin-top: 10px;
+
+                .panel {
+                    border: none;
+                }
+
+                .panel-body {
+                    padding: 0;
+                }
+            }
         }
     }
 

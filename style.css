@@ -68,36 +68,31 @@ body a[rel~=nofollow]:not([class~=btn]):hover:focus {
   font-size: 14px !important;
 }
 .one_column {
-  max-width: 100%;
   width: 100%;
 }
 .two_column {
-  max-width: 50%;
+  width: 50%;
   float: left;
 }
 @media screen and (max-width: 480px) {
   .two_column {
-    width: 100%;
-    float: none;
+    width: 50% !important;
+    float: none !important;
   }
 }
 .three_column {
-  max-width: 33.32%;
   width: 33.32%;
-  margin: 0 -1px 0 0;
   float: left;
 }
 @media screen and (max-width: 768px) {
   .three_column {
-    max-width: 50%;
     width: 50%;
   }
 }
 @media screen and (max-width: 480px) {
   .three_column {
-    max-width: 100%;
-    width: 100%;
-    float: none;
+    width: 50% !important;
+    float: none !important;
   }
 }
 .four_column {
@@ -105,25 +100,23 @@ body a[rel~=nofollow]:not([class~=btn]):hover:focus {
 }
 @media screen and (min-width: 1025px) {
   .four_column {
-    max-width: 25%;
+    width: 25%;
   }
 }
 @media screen and (min-width: 767px) and (max-width: 1025px) {
   .four_column {
-    max-width: 33.32%;
+    width: 33.32%;
   }
 }
 @media screen and (max-width: 768px) {
   .four_column {
-    max-width: 50%;
     width: 50%;
   }
 }
 @media screen and (max-width: 480px) {
   .four_column {
-    max-width: 100%;
     width: 100%;
-    float: none;
+    float: none !important;
   }
 }
 .form-horizontal .controls textarea.form-control {
@@ -1651,7 +1644,11 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 }
 .main_navigation ul li.hover-4 a {
   padding: 10px 15px;
-  font-size: 1.2rem !important;
+}
+@media screen and (min-width: 600px) {
+  .main_navigation ul li.hover-4 a {
+    font-size: 1.2rem !important;
+  }
 }
 .main_navigation ul li.hover-4 a::before,
 .main_navigation ul li.hover-4 a::after {
@@ -1675,9 +1672,9 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 .main_navigation ul li.hover-4:active a::before,
 .main_navigation ul li.hover-4:focus a::before {
   opacity: 0;
-  -webkit-transform: translateY(5px) translateX(10px);
-  -ms-transform: translateY(5px) translateX(10px);
-  transform: translateY(5px) translateX(10px);
+  -webkit-transform: translateY(5px) translateX(-8px);
+  -ms-transform: translateY(5px) translateX(-8px);
+  transform: translateY(5px) translateX(-8px);
 }
 .main_navigation ul li.hover-4:hover a::after,
 .main_navigation ul li.hover-4:active a::after,
@@ -1905,6 +1902,11 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   -webkit-transition: all 0.32s ease-in-out;
   transition: all 0.32s ease-in-out;
 }
+@media screen and (max-width: 480px) {
+  .main_navigation .mobile_nav .menu_hamburger {
+    width: 30px;
+  }
+}
 .main_navigation .mobile_nav .menu_hamburger:hover,
 .main_navigation .mobile_nav .menu_hamburger:active,
 .main_navigation .mobile_nav .menu_hamburger:focus {
@@ -1951,6 +1953,9 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   .main_navigation .mobile_nav .menu_hamburger {
     margin: 5px auto;
   }
+  .main_navigation .mobile_nav .menu_hamburger .hamburger {
+    width: 30px;
+  }
 }
 .main_navigation .mobile_nav.active {
   height: 54px;
@@ -1970,6 +1975,10 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   top: 6px;
   right: 15px;
   z-index: 981;
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+  -webkit-transition: 0.32s ease;
+  transition: 0.32s ease;
 }
 .main_navigation .mobile_nav.active .menu_hamburger .hamburger {
   width: 30px;
@@ -4668,16 +4677,6 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   font-size: 1.3rem;
   padding: 12px;
 }
-@media screen and (max-width: 768px) {
-  .disp_mediaidx .main_content .widget_core_coll_media_index .image_content {
-    max-width: 50%;
-  }
-}
-@media screen and (max-width: 480px) {
-  .disp_mediaidx .main_content .widget_core_coll_media_index .image_content {
-    max-width: 100%;
-  }
-}
 .disp_mediaidx .evo_image_index .image_content a {
   -webkit-perspective: 1300px;
   perspective: 1300px;
@@ -5974,7 +5973,9 @@ html.sb-active #sb-site::after {
   .disp_lostpassword #content .title__content,
   .disp_register #content .title__content,
   .disp_access_requires_login #content .title__content {
+    font-size: 2.8rem;
     margin-bottom: 0;
+    text-align: center;
   }
 }
 .disp_login .main_content,
@@ -5990,7 +5991,7 @@ html.sb-active #sb-site::after {
   padding: 50px;
   z-index: 0;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .disp_login .main_content,
   .disp_lostpassword .main_content,
   .disp_register .main_content,
@@ -5998,7 +5999,7 @@ html.sb-active #sb-site::after {
     padding: 30px;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
   .disp_login .main_content,
   .disp_lostpassword .main_content,
   .disp_register .main_content,
@@ -6287,13 +6288,40 @@ html.sb-active #sb-site::after {
   margin-top: 0;
   margin-right: auto;
   margin-left: auto;
-  text-align: center;
+}
+@media screen and (min-width: 600px) {
+  .disp_login #lostpass_form .control-buttons,
+  .disp_lostpassword #lostpass_form .control-buttons,
+  .disp_register #lostpass_form .control-buttons,
+  .disp_access_requires_login #lostpass_form .control-buttons {
+    text-align: center;
+  }
 }
 .disp_login #lostpass_form .control-buttons .btn-primary,
 .disp_lostpassword #lostpass_form .control-buttons .btn-primary,
 .disp_register #lostpass_form .control-buttons .btn-primary,
 .disp_access_requires_login #lostpass_form .control-buttons .btn-primary {
   font-size: 1.4rem;
+}
+@media screen and (max-width: 600px) {
+  .disp_login #lostpass_form .fieldset_wrapper,
+  .disp_lostpassword #lostpass_form .fieldset_wrapper,
+  .disp_register #lostpass_form .fieldset_wrapper,
+  .disp_access_requires_login #lostpass_form .fieldset_wrapper {
+    margin-top: 10px;
+  }
+  .disp_login #lostpass_form .fieldset_wrapper .panel,
+  .disp_lostpassword #lostpass_form .fieldset_wrapper .panel,
+  .disp_register #lostpass_form .fieldset_wrapper .panel,
+  .disp_access_requires_login #lostpass_form .fieldset_wrapper .panel {
+    border: none;
+  }
+  .disp_login #lostpass_form .fieldset_wrapper .panel-body,
+  .disp_lostpassword #lostpass_form .fieldset_wrapper .panel-body,
+  .disp_register #lostpass_form .fieldset_wrapper .panel-body,
+  .disp_access_requires_login #lostpass_form .fieldset_wrapper .panel-body {
+    padding: 0;
+  }
 }
 .disp_login #register_form .input_text,
 .disp_lostpassword #register_form .input_text,
