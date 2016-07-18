@@ -327,7 +327,8 @@
 
         .widget_core_item_small_print,
         .widget_core_item_tags,
-        .widget_core_item_about_author {
+        .widget_core_item_about_author,
+        .widget_core_item_attachments {
             display: table;
             padding-right: 12px;
             border-left: 2px solid @primary;
@@ -439,9 +440,13 @@
                 }
             }
 
+            .evo_post_attachments {
+                padding: 0 30px 20px;
+            }
+
             .item_custom_fields {
                 display: block;
-                padding: 0 30px 30px;
+                padding: 0 30px 20px;
 
                 td, tr {
                     border: 1px solid @ce;
@@ -513,7 +518,12 @@
         // Item About Author
         // ======================================================================== /
         .widget_core_item_about_author {
-
+            .evo_avatar {
+                .avatar {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
         }
 
     }

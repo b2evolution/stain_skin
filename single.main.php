@@ -45,21 +45,21 @@ skin_include( '_body_header.inc.php' );
 			<?php
 			if( $single_Item = & mainlist_get_item() ){
 
-			// Display images that are linked to this post:
-			$Item->images( array(
-			  // Optionally restrict to files/images linked to specific position: 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
-			  'restrict_to_image_position' => 'cover',
-			  'before'                     => '<div class="evo_post_images cover_image">',
-			  'before_image'               => '',
-			  'before_image_legend'        => '<figcaption class="evo_image_legend">',
-			  'after_image_legend'         => '</figcaption>',
-			  'after_image'                => '</figure>',
-			  'after'                      => '</div>',
-			  'image_class'                => 'img-responsive',
-			  'image_size'                 => 'original',
-			  'limit'                      => 1,
-			  'image_link_to'              => 'original', // Can be 'original', 'single' or empty
-			) );
+				// Display images that are linked to this post:
+				$Item->images( array(
+				  // Optionally restrict to files/images linked to specific position: 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
+				  'restrict_to_image_position' => 'cover',
+				  'before'                     => '<div class="evo_post_images cover_image">',
+				  'before_image'               => '',
+				  'before_image_legend'        => '<figcaption class="evo_image_legend">',
+				  'after_image_legend'         => '</figcaption>',
+				  'after_image'                => '</figure>',
+				  'after'                      => '</div>',
+				  'image_class'                => 'img-responsive',
+				  'image_size'                 => 'original',
+				  'limit'                      => 1,
+				  'image_link_to'              => 'original', // Can be 'original', 'single' or empty
+				) );
 
 			// Get Item here, because it can be not defined yet, e.g. in Preview mode ?>
 			<nav class="nav_album">

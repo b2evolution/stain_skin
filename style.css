@@ -3965,7 +3965,8 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 }
 #content .evo_post_content .widget_core_item_small_print,
 #content .evo_post_content .widget_core_item_tags,
-#content .evo_post_content .widget_core_item_about_author {
+#content .evo_post_content .widget_core_item_about_author,
+#content .evo_post_content .widget_core_item_attachments {
   display: table;
   padding-right: 12px;
   border-left: 2px solid #18c54d;
@@ -4109,10 +4110,14 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
     padding: 20px;
   }
 }
+#content .evo_post_content .evo_post__full .evo_post_attachments,
+#content .evo_post_content .evo_post__except .evo_post_attachments {
+  padding: 0 30px 20px;
+}
 #content .evo_post_content .evo_post__full .item_custom_fields,
 #content .evo_post_content .evo_post__except .item_custom_fields {
   display: block;
-  padding: 0 30px 30px;
+  padding: 0 30px 20px;
 }
 #content .evo_post_content .evo_post__full .item_custom_fields td,
 #content .evo_post_content .evo_post__except .item_custom_fields td,
@@ -4163,6 +4168,10 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 #content .evo_post_content .post_tags a:focus::before,
 #content .evo_post_content .post_tags a:active::before {
   color: #ffffff;
+}
+#content .evo_post_content .widget_core_item_about_author .evo_avatar .avatar {
+  width: 40px;
+  height: 40px;
 }
 #content .fieldset_wrapper {
   margin-top: 30px;
