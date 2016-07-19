@@ -78,12 +78,12 @@ body {
 // Content Column
 // ======================================================================== /
 .one_column {
-	// max-width: @one_column;
+	max-width: @one_column;
 	width: @one_column;
 }
 
 .two_column {
-	// max-width: @two_column;
+	max-width: @two_column;
 	width: @two_column;
 	float: left;
 
@@ -94,41 +94,39 @@ body {
 }
 
 .three_column {
-	// max-width: @three_column;
+	max-width: @three_column;
 	width: @three_column;
-	// margin: 0 -1px 0 0;
+	margin: 0 -1px 0 0;
 	float: left;
 
 	@media screen and ( max-width: @M ) {
-		// max-width: @two_column;
-		width: @two_column;
+		max-width: @two_column !important;
+		width: @two_column !important;
 	}
 
 	@media screen and ( max-width: @S ) {
-		// max-width: @one_column;
-		width: @two_column !important;
+		max-width: @one_column !important;
+		width: @one_column !important;
 		float: none !important;
 	}
 }
 
 .four_column {
+	max-width: @four_column;
+	width: @four_column;
 	float: left;
 
-	@media screen and ( min-width: @ML ) {
-		// max-width: @four_column;
-		width: @four_column;
-	}
-	@media screen and ( min-width: @MF ) and ( max-width: @ML ) {
-		// max-width: @three_column;
-		width: @three_column;
+	@media screen and ( min-width: @MF ) and ( max-width: @MM ) {
+		max-width: @three_column !important;
+		width: @three_column !important;
 	}
 	@media screen and ( max-width: @M ) {
-		// max-width: @two_column;
-		width: @two_column;
+		max-width: @two_column !important;
+		width: @two_column !important;
 	}
 	@media screen and ( max-width: @S ) {
-		// max-width: @one_column;
-		width: @one_column;
+		max-width: @one_column !important;
+		width: @one_column !important;
 		float: none !important;
 	}
 }

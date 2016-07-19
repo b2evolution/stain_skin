@@ -68,9 +68,11 @@ body a[rel~=nofollow]:not([class~=btn]):hover:focus {
   font-size: 14px !important;
 }
 .one_column {
+  max-width: 100%;
   width: 100%;
 }
 .two_column {
+  max-width: 50%;
   width: 50%;
   float: left;
 }
@@ -81,41 +83,45 @@ body a[rel~=nofollow]:not([class~=btn]):hover:focus {
   }
 }
 .three_column {
+  max-width: 33.32%;
   width: 33.32%;
+  margin: 0 -1px 0 0;
   float: left;
 }
 @media screen and (max-width: 768px) {
   .three_column {
-    width: 50%;
+    max-width: 50% !important;
+    width: 50% !important;
   }
 }
 @media screen and (max-width: 480px) {
   .three_column {
-    width: 50% !important;
+    max-width: 100% !important;
+    width: 100% !important;
     float: none !important;
   }
 }
 .four_column {
+  max-width: 25%;
+  width: 25%;
   float: left;
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 767px) and (max-width: 991px) {
   .four_column {
-    width: 25%;
-  }
-}
-@media screen and (min-width: 767px) and (max-width: 1025px) {
-  .four_column {
-    width: 33.32%;
+    max-width: 33.32% !important;
+    width: 33.32% !important;
   }
 }
 @media screen and (max-width: 768px) {
   .four_column {
-    width: 50%;
+    max-width: 50% !important;
+    width: 50% !important;
   }
 }
 @media screen and (max-width: 480px) {
   .four_column {
-    width: 100%;
+    max-width: 100% !important;
+    width: 100% !important;
     float: none !important;
   }
 }
@@ -4576,14 +4582,14 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 }
 .disp_mediaidx .main_content .widget_core_coll_media_index .evo_image_index {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 .disp_mediaidx .main_content .widget_core_coll_media_index .image_content {
-  display: block;
-  float: left;
   opacity: 0;
   padding: 0;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: left 0.3s ease;
+  transition: left 0.3s ease;
 }
 .disp_mediaidx .main_content .widget_core_coll_media_index .image_content a {
   position: relative;
