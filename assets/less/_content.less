@@ -22,6 +22,67 @@
         box-shadow: @box-shadow;
     }
 
+    .special_cover_intro {
+        margin-bottom: 0;
+    }
+
+    // Intro Post
+    // ======================================================================== /
+    .evo_intro_post {
+        padding: 40px;
+        margin-bottom: 30px;
+        box-shadow: @box-shadow;
+        background-color: @w;
+
+        @media screen and ( max-width: @M ){
+            padding: 30px;
+        }
+
+        @media screen and ( max-width: @S ) {
+            padding: 25px;
+        }
+
+        .evo_post_title {
+            h1 {
+                font-family: @font_heading;
+                font-weight: 700;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+
+            .btn-group {
+                padding-top: 0;
+            }
+        }
+
+        .evo_post__full,
+        .evo_post__excerpt {
+            padding: 20px;
+            border-radius: 2px;
+            margin-bottom: 0;
+            border: 1px solid @e;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            background-color: @cf7;
+
+            .evo_image_block {
+                margin: -20px -20px 20px;
+            }
+
+            .panel-body,
+            .posts__info_excerpt {
+                padding: 0;
+            }
+
+            .evo_post_attachments {
+                h3 {
+                    font-family: @font_heading;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
     // Feature Post
     // ======================================================================== /
     .feature_post {

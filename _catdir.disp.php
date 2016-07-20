@@ -32,6 +32,7 @@ if( $cat_post_style == 'bg_img' ) {
     $cp_bg_img = 'post_bg_image';
 }
 
+
 // --------------------------------- START OF POSTS -------------------------------------
 // Display message if no post:
 $params_no_content = array(

@@ -17,7 +17,7 @@ if( evo_version_compare( $app_version, '6.4' ) < 0 )
 	die( 'This skin is designed for b2evolution 6.4 and above. Please <a href="http://b2evolution.net/downloads/index.html">upgrade your b2evolution</a>.' );
 }
 
-global $Skin;
+global $Skin, $Item;
 // This is the main template; it may be used to display very different things.
 // Do inits depending on current $disp:
 skin_init( $disp );
@@ -68,6 +68,7 @@ skin_include( '_body_header.inc.php' );
 				) );
 				// ------------------------------ END OF REQUEST TITLE -----------------------------
 			?>
+
 			<?php
 				// -------------- MAIN CONTENT TEMPLATE INCLUDED HERE (Based on $disp) --------------
 				skin_include( '$disp$', array(

@@ -63,141 +63,67 @@ if( $Skin->get_setting( 'posts_show' ) == 'one_column' ){
 	$post_column = 'post_full';
 };
 $column = $Skin->Change_class( 'posts_show' );
-
 $effect = $Skin->Change_class( 'posts_effect' );
 
 
-?>
-<ul id="posts_list" class="posts_list <?php echo $post_column; echo 'effect-'.$effect; ?>">
-<?php
+// ------------------------------- START OF INTRO POST -------------------------------
 if( $Item = get_featured_Item() )
 { // We have a intro-front post to display:
-?>
-	<li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_posts feature_post '.$column, ) ) ?>" lang="<?php $Item->lang() ?>">
-		<div class="main_content_gallery">
-		<?php
-		$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
 
-		$action_links = $Item->get_edit_link( array( // Link to backoffice for editing
-			'before' => '',
-			'after'  => '',
-			'text'   => $Item->is_intro() ? get_icon( 'edit' ).' '.T_('Edit Intro') : '#',
-			'class'  => button_class( 'text' ),
-		) );
-
-		if( $Item->status != 'published' ) {
-			$Item->format_status( array(
-				'template' => '<div class="evo_status evo_status__$status$ badge pull-right">$status_title$</div>',
-			) );
-		}
-
-		// Categories
-		$Item->categories( array(
-			'before'          => '<div class="posts__info_cat">',
-			'after'           => '</div>',
-			'include_main'    => true,
-			'include_other'   => true,
-			'include_external'=> true,
-			'link_categories' => true,
-		) );
-
+    if( $Item->is_intro() )
+	{	// Display images that are linked to this post:
 		$Item->images( array(
-			'before'              => $params['before_images'],
-			'before_image'        => $params['before_image'],
-			'before_image_legend' => $params['before_image_legend'],
-			'after_image_legend'  => $params['after_image_legend'],
-			'after_image'         => $params['after_image'],
-			'after'               => $params['after_images'],
-			'image_class'         => $params['image_class'],
-			'image_size'          => $params['image_size'],
-			'limit'               => $params['image_limit'],
-			'image_link_to'       => $params['image_link_to'],
-			'before_gallery'      => $params['before_gallery'],
-			'after_gallery'       => $params['after_gallery'],
-			'gallery_table_start' => $params['gallery_table_start'],
-			'gallery_table_end'   => $params['gallery_table_end'],
-			'gallery_row_start'   => $params['gallery_row_start'],
-			'gallery_row_end'     => $params['gallery_row_end'],
-			'gallery_cell_start'  => $params['gallery_cell_start'],
-			'gallery_cell_end'    => $params['gallery_cell_end'],
-			'gallery_image_size'  => $params['gallery_image_size'],
-			'gallery_image_limit' => $params['gallery_image_limit'],
-			'gallery_colls'       => $params['gallery_colls'],
-			'gallery_order'       => $params['gallery_order'],
-			// Optionally restrict to files/images linked to specific position: 'teaser'|'teaserperm'|'teaserlink'|'aftermore'|'inline'|'cover'
-			'restrict_to_image_position' => 'teaser',
+			'before_image'             => '<div class="evo_post_images"><figure class="special_cover_intro">',
+			'before_image_legend'      => '<figcaption class="evo_image_legend">',
+			'after_image_legend'       => '</figcaption>',
+			'after_image'              => '</figure></div>',
+			'image_class'              => 'img-responsive',
+			'image_size'               => 'fit-1280x720',
+			'image_limit'              =>  1,
+			'image_link_to'            => 'original', // Can be 'original', 'single' or empty
+			// We DO NOT want to display galleries here, only one cover image
+			'gallery_image_limit'      => 0,
+			'gallery_colls'            => 0,
+			// We want ONLY cover image to display here
+			'restrict_to_image_position' => 'cover',
 		) );
+	}
 
-		?>
-		<div class="posts__info">
-		<?php
+?>
+<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_intro_post' ) ) ?>" lang="<?php $Item->lang() ?>">
 
-			$Item->title( array(
-				// 'link_type'  => 'none',
-				'before'     => '<div class="posts__info_title"><h2>',
-				'after'      => '</h2><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
-				'nav_target' => false,
-			) );
-
-			// Author Avatar
-			$Item->author( array(
-				'before'       => '<div class="posts__info_author">',
-				'after'        => '</div>',
-				'before_user'  => '',
-				'after_user'   => '',
-				'link_text'    => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-				'link_class'   => 'author_avatar',
-				'thumb_size'   => 'crop-32x32',
-				'thumb_class'  => '',
-			) );
-
-			// Author Name
-			$Item->author( array(
-				'before'       => '<div class="posts__info_author">'.T_('By ').'',
-				'after'        => '</div>',
-				'before_user'  => '',
-				'after_user'   => '',
-				'link_text'    => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-				'link_class'   => 'author_avatar',
-				'thumb_size'   => 'crop-48x48',
-				'thumb_class'  => '',
-			) );
-
-			// We want to display the post time:
-			$Item->issue_time( array(
-				'before'      => '<time class="posts__info_date">'.T_('On '),
-				'after'       => '</time>',
-				'time_format' => 'M j, Y',
-			) );
-
-            if( !$Item->is_intro() ) {
-    			// Content Excerpt
-    			$Item->excerpt( array(
-    				'before'              => $params['excerpt_before_text'],
-    				'after'               => $params['excerpt_after_text'],
-    				'excerpt_before_more' => $params['excerpt_before_more'],
-    				'excerpt_after_more'  => $params['excerpt_after_more'],
-    				'excerpt_more_text'   => $params['excerpt_more_text'],
-    			) );
-            }
-
-            if( $Item->is_intro() ) {
-                // ---------------------- POST CONTENT INCLUDED HERE ----------------------
-        		skin_include( '_item_content.inc.php', $params );
-        		// Note: You can customize the default item content by copying the generic
-        		// /skins/_item_content.inc.php file into the current skin folder.
-        		// -------------------------- END OF POST CONTENT -------------------------
-            }
-		?>
-		</div>
-		<?php
-			locale_restore_previous();	// Restore previous locale (Blog locale)
-		?>
-		</div>
-	</li><!-- .evo_post -->
+    <?php
+    $Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
+    $action_links = $Item->get_edit_link( array( // Link to backoffice for editing
+            'before' => '',
+            'after'  => '',
+            'text'   => $Item->is_intro() ? get_icon( 'edit' ).' '.T_('Edit Intro') : '#',
+            'class'  => button_class( 'text' ),
+        ) );
+    if( $Item->status != 'published' )
+    {
+        $Item->format_status( array(
+                'template' => '<div class="evo_status evo_status__$status$ badge pull-right">$status_title$</div>',
+            ) );
+    }
+    $Item->title( array(
+            'link_type'  => 'none',
+            'before'     => '<div class="evo_post_title"><h1>',
+            'after'      => '</h1><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
+            'nav_target' => false,
+        ) );
+    // ---------------------- POST CONTENT INCLUDED HERE ----------------------
+    skin_include( '_item_content.inc.php', $params );
+    // Note: You can customize the default item content by copying the generic
+    // /skins/_item_content.inc.php file into the current skin folder.
+    // -------------------------- END OF POST CONTENT -------------------------
+    locale_restore_previous();	// Restore previous locale (Blog locale)
+    ?>
+</div>
 <?php
 // ------------------------------- END OF INTRO-FRONT POST -------------------------------
 }
+
 
 // --------------------------------- START OF POSTS -------------------------------------
 // Display message if no post:
@@ -209,14 +135,14 @@ if( ! is_logged_in() )
 	$url = get_login_url( 'no public content' );
 	$params_no_content['msg_empty'] = '<p>'.T_('This site has no public contents.').'</p><p><a href="'.$url.'">'.T_('Log in now!').'</a></p>';
 }
-$list_is_empty = display_if_empty( $params_no_content );
+$list_is_empty = display_if_empty( $params_no_content ); ?>
 
-if( ! $list_is_empty ) { ?>
-   <?php
-   	while( $Item = & mainlist_get_item() ){
-      // For each blog post, do everything below up to the closing curly brace "}"
-		// Temporarily switch to post locale (useful for multilingual blogs)
-		$Item->locale_temp_switch();
+<ul id="posts_list" class="posts_list <?php echo $post_column; echo 'effect-'.$effect; ?>">
+<? if( ! $list_is_empty ) {
+    while( $Item = & mainlist_get_item() ){
+        // For each blog post, do everything below up to the closing curly brace "}"
+    	// Temporarily switch to post locale (useful for multilingual blogs)
+    	$Item->locale_temp_switch();
    ?>
    <li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
 		<div class="main__posts_content">
@@ -224,28 +150,28 @@ if( ! $list_is_empty ) { ?>
 	   <?php
 			// Display images that are linked to this post:
 			$item_first_image = $Item->get_images( array(
-					'before'              => '<div class="feature__image">',
-					'before_image'        => '',
-					'before_image_legend' => '',
-					'after_image_legend'  => '',
-					'after_image'         => '',
-					'after'               => '</div>',
-					'image_size'          => $Skin->get_setting( 'posts_thumb_size' ),
-					'image_link_to'       => 'single',
-					'image_desc'          => '',
-					'limit'                      => 1,
-					'restrict_to_image_position' => 'teaser,aftermore,inline',
-					'get_rendered_attachments'   => false,
-					// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
-					'links_sql_select'           => ', CASE '
-						// .'WHEN link_position = "cover"     THEN "1" '
-						.'WHEN link_position = "teaser"    THEN "2" '
-						.'WHEN link_position = "aftermore" THEN "3" '
-						.'WHEN link_position = "inline"    THEN "4" '
-						// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
-						.'END AS position_order',
-					'links_sql_orderby'          => 'position_order, link_order',
-				) );
+				'before'              => '<div class="feature__image">',
+				'before_image'        => '',
+				'before_image_legend' => '',
+				'after_image_legend'  => '',
+				'after_image'         => '',
+				'after'               => '</div>',
+				'image_size'          => $Skin->get_setting( 'posts_thumb_size' ),
+				'image_link_to'       => 'single',
+				'image_desc'          => '',
+				'limit'                      => 1,
+				'restrict_to_image_position' => 'teaser,aftermore,inline',
+				'get_rendered_attachments'   => false,
+				// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
+				'links_sql_select'           => ', CASE '
+					// .'WHEN link_position = "cover"     THEN "1" '
+					.'WHEN link_position = "teaser"    THEN "2" '
+					.'WHEN link_position = "aftermore" THEN "3" '
+					.'WHEN link_position = "inline"    THEN "4" '
+					// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
+					.'END AS position_order',
+				'links_sql_orderby'          => 'position_order, link_order',
+			) );
 
 			if( empty( $item_first_image ) )
 			{ // No images in this post, Display an empty block
