@@ -1079,6 +1079,25 @@ class stain_Skin extends Skin
 				'layout'	=> 'end_fieldset',
 			),
 
+
+
+			/* Special Widget Setting
+			 * ========================================================================== */
+			'section_special_widget_start' => array(
+				'layout'	=> 'begin_fieldset',
+				'label'		=> T_( 'Special Widget Settings (All Disps)' ),
+			),
+				'ltw_readmore' => array(
+					'label'			=> T_('List-type Widgets "Read more" button:'),
+					'note'			=> T_( 'Check to display the "Read more" button after content on all list-type widgets (Excerpt and Teaser)' ),
+					'type'			=> 'checkbox',
+					'defaultvalue'	=> 1,
+				),
+			'section_special_widget_end' => array(
+				'layout'	=> 'end_fieldset',
+			),
+
+
 			/* Footer Settings
 			* ========================================================================== */
 			'section_footer_start' => array(
