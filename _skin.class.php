@@ -1093,6 +1093,12 @@ class stain_Skin extends Skin
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
+				'rwd_bgc_widget' => array(
+					'label'			=> T_( 'Background RWD Widget List' ),
+					'note'			=> T_( 'Change background content for RWD widget list.' ),
+					'type'			=> 'color',
+					'defaultvalue'	=> '#FAFAFA'
+				),
 			'section_special_widget_end' => array(
 				'layout'	=> 'end_fieldset',
 			),

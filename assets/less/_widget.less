@@ -1,3 +1,12 @@
+// ------------- Organization Members widget -------------
+@import "../../rsc/less/_org_members_widget.module.less";
+	// Override constants used in the module:
+	@widget_core_org_members-color: #333;
+	@widget_core_org_members-user-link-color: #000;
+	@widget_core_org_members-user-link-hover-color: #23527c;
+// -------------------------------------------------------
+
+
 // Global Widget
 // ======================================================================== /
 .evo_widget {
@@ -8,13 +17,125 @@
 	}
 }
 
-// ------------- Organization Members widget -------------
-@import "../../rsc/less/_org_members_widget.module.less";
-	// Override constants used in the module:
-	@widget_core_org_members-color: #333;
-	@widget_core_org_members-user-link-color: #000;
-	@widget_core_org_members-user-link-hover-color: #23527c;
-// -------------------------------------------------------
+
+// WIDGET LIST
+// ======================================================================== /
+.evo_widget.widget_core_coll_featured_posts,
+.evo_widget.widget_core_coll_post_list,
+.evo_widget.widget_core_coll_page_list,
+.evo_widget.widget_core_coll_related_post_list,
+.evo_widget.widget_core_coll_flagged_list,
+.evo_widget.widget_core_coll_item_list {
+
+	&.evo_withtitle.evo_withexcerpt,
+	&.evo_withtitle.evo_withteaser {
+		.item_title {
+			a {
+				display: inline-block;
+				font-family: @font_heading;
+				font-size: 17px;
+				font-weight: 700;
+				text-decoration: none;
+				margin-bottom: 3px;
+			}
+		}
+	}
+
+	// EVO LAYOUT LIST
+	// ======================================================================== /
+	&.evo_layout_list {
+		&.evo_1pic__special {
+			.item_first_image {
+				margin-right: 15px;
+				margin-top: 4px;
+			}
+		}
+
+		&.evo_1pic__special.evo_noexcerpt,
+		&.evo_1pic__special.evo_noteaser {
+			.item_title {
+				font-family: @font_heading;
+				font-weight: 700;
+			}
+		}
+
+		&.evo_1pic__normal {
+			.item_images {
+				margin-top: 5px;
+			}
+
+			&.evo_noexcerpt,
+			&.evo_noteaser {
+				.item_title {
+					font-family: @font_heading;
+					font-size: 17px;
+					font-weight: 700;
+				}
+			}
+		}
+
+	}
+
+	// EVO LAYOUT FLOW
+	// ======================================================================== /
+
+
+	// EVO LAYOUT RWD
+	// ======================================================================== /
+	&.evo_layout_rwd {
+
+		&.evo_noexcerpt.evo_noteaser {
+			.widget_rwd_content {
+				font-family: @font_heading;
+				font-size: 17px;
+				line-height: 1.2;
+				font-weight: 700;
+				text-align: center;
+			}
+		}
+
+		.widget_rwd_blocks {
+			.widget_rwd_content {
+				padding: 15px;
+			}
+		}
+
+		&.evo_1pic.evo_1pic__special {
+			.widget_rwd_blocks {
+				.item_first_image {
+					margin: -15px -15px 15px;
+
+					img {
+						border-radius: 0;
+					}
+				}
+
+				.item_title {
+					line-height: 1.2;
+				}
+			}
+		}
+
+		&.evo_withtitle.evo_nopic,
+		&.evo_withtitle.evo_1pic__normal {
+			.widget_rwd_blocks {
+				.item_title {
+					margin-top: 0;
+				}
+			}
+		}
+
+		&.evo_1pic.evo_1pic__normal {
+			.widget_rwd_content {
+				.item_images {
+					margin-top: 8px;
+				}
+			}
+		}
+
+	}
+}
+
 
 
 // Widget RWD Content
