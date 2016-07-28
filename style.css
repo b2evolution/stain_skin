@@ -5684,14 +5684,12 @@ html.sb-active #sb-site::after {
   margin-top: 0;
 }
 .disp_arcdir .main_content ul {
-  list-style-type: disc;
+  list-style-type: circle;
   padding: 0;
 }
 .disp_arcdir .main_content ul li {
-  list-style-type: disc;
-}
-.disp_arcdir .main_content ul a {
-  display: block;
+  display: list-item;
+  list-style-type: circle;
   padding: 10px 0 15px;
   margin-bottom: 5px;
   border-bottom: 1px solid #f7f7f7;
