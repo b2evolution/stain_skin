@@ -183,14 +183,14 @@ skin_include( '_body_header.inc.php' );
 							// WARNING: EXPERIMENTAL -- NOT RECOMMENDED FOR PRODUCTION -- MAY CHANGE DRAMATICALLY BEFORE RELEASE.
 							// Display container contents:
 							skin_container( /* TRANS: Widget container name */ NT_('Item Single'), array(
-								'widget_context'    => 'item',	// Signal that we are displaying within an Item
+								'widget_context'    		 => 'item',	// Signal that we are displaying within an Item
 								// The following (optional) params will be used as defaults for widgets included in this container:
 								// This will enclose each widget in a block:
-								'block_start'       => '<div class="$wi_class$">',
-								'block_end'         => '</div>',
+								'block_start'       		 => '<div class="$wi_class$">',
+								'block_end'         		 => '</div>',
 								// This will enclose the title of each widget:
-								'block_title_start' => '<h3>',
-								'block_title_end'   => '</h3>',
+								'block_title_start' 		 => '<h3>',
+								'block_title_end'   		 => '</h3>',
 								// Params for skin file "_item_content.inc.php"
 								'widget_item_content_params' => array(
 									'feature_block'          => false,
@@ -201,6 +201,9 @@ skin_include( '_body_header.inc.php' );
 									'image_size'             => '', // Do not display images in content block - Image is handled separately
 									'url_link_text_template' => '', // link will be displayed (except player if podcast)
 								),
+								// Template params for "Item Tags" widget
+								'widget_item_tags_before'    => '<div class="evo_post_tags">'.T_('Tags').': ',
+								'widget_item_tags_after'     => '</div>',
 								'widget_item_attachments_params' => array(
 									'limit_attach'       => 1000,
 									'before'             => '<div class="evo_post_attachments"><h3>'.T_('Attachments').':</h3><ul class="evo_files">',

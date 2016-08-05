@@ -548,6 +548,7 @@
                 z-index: 980;
                 transition: all 0.32s ease-in-out;
 
+                padding-top: 35px;
                 height: 100%;
                 opacity: 1;
                 visibility: visible;
@@ -597,9 +598,12 @@
             @media screen and ( max-width: @M ) {
                 .hamburger {
                     position: absolute;
-                    top: 5px;
+                    top: 8px;
                     right: 0;
+                    left: 0;
                     width: 38px;
+                    margin: 0 auto;
+                    cursor: pointer;
 
                     .menui {
                         background: #ffffff;
@@ -650,9 +654,9 @@
             }
 
             .menu_hamburger {
-                position: fixed;
-                top: 6px;
-                right: 15px;
+                position: relative;
+                // top: 6px;
+                // right: 15px;
                 z-index: 981;
 
                 animation-delay: 2s;
@@ -678,7 +682,7 @@
                 }
 
                 @media screen and ( max-width: @S ) {
-                    top: 18px;
+                    // top: 18px;
 
                     .hamburger {
                         width: 25px;
@@ -741,9 +745,15 @@
 
     .sticky-wrapper.is-sticky {
 
-        @media screen and ( min-width: @ML ) {
+        @media screen and ( min-width: @M ) {
             .main_navigation {
                 top: 25px !important;
+            }
+        }
+
+        @media only screen and (max-device-width: 1024px) {
+            .main_navigation {
+                top: 0px !important;
             }
         }
     }

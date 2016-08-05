@@ -326,9 +326,10 @@
         }
 
         .widget_core_item_small_print,
-        .widget_core_item_tags,
+        .evo_post_tags,
         .widget_core_item_about_author,
-        .widget_core_item_attachments {
+        .widget_core_item_vote,
+        .widget_core_item_attachments .evo_post_attachments {
             display: table;
             padding-right: 12px;
             border-left: 2px solid @primary;
@@ -336,6 +337,18 @@
             border-bottom: 2px solid #18c54d;
             padding-bottom: 8px;
             margin-bottom: 30px;
+        }
+
+        .widget_core_item_tags,
+        .widget_core_item_attachments {
+            margin-bottom: 30px;
+        }
+
+
+        .widget_core_item_tags {
+            h3 {
+                // display: none;
+            }
         }
 
         // Item Content

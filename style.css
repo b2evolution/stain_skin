@@ -1882,6 +1882,7 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
     z-index: 980;
     -webkit-transition: all 0.32s ease-in-out;
     transition: all 0.32s ease-in-out;
+    padding-top: 35px;
     height: 100%;
     opacity: 1;
     visibility: visible;
@@ -1929,9 +1930,12 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 @media screen and (max-width: 768px) {
   .main_navigation .mobile_nav .menu_hamburger .hamburger {
     position: absolute;
-    top: 5px;
+    top: 8px;
     right: 0;
+    left: 0;
     width: 38px;
+    margin: 0 auto;
+    cursor: pointer;
   }
   .main_navigation .mobile_nav .menu_hamburger .hamburger .menui {
     background: #ffffff;
@@ -1977,9 +1981,7 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   }
 }
 .main_navigation .mobile_nav.active .menu_hamburger {
-  position: fixed;
-  top: 6px;
-  right: 15px;
+  position: relative;
   z-index: 981;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
@@ -2008,9 +2010,6 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   transform: rotate(-45deg);
 }
 @media screen and (max-width: 480px) {
-  .main_navigation .mobile_nav.active .menu_hamburger {
-    top: 18px;
-  }
   .main_navigation .mobile_nav.active .menu_hamburger .hamburger {
     width: 25px;
   }
@@ -2041,9 +2040,14 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   -webkit-transition: all 0.32s ease;
   transition: all 0.32s ease;
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 768px) {
   .loggedin .sticky-wrapper.is-sticky .main_navigation {
     top: 25px !important;
+  }
+}
+@media only screen and (max-device-width: 1024px) {
+  .loggedin .sticky-wrapper.is-sticky .main_navigation {
+    top: 0px !important;
   }
 }
 #content {
@@ -4205,15 +4209,20 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   border-radius: 100%;
 }
 #content .evo_post_content .widget_core_item_small_print,
-#content .evo_post_content .widget_core_item_tags,
+#content .evo_post_content .evo_post_tags,
 #content .evo_post_content .widget_core_item_about_author,
-#content .evo_post_content .widget_core_item_attachments {
+#content .evo_post_content .widget_core_item_vote,
+#content .evo_post_content .widget_core_item_attachments .evo_post_attachments {
   display: table;
   padding-right: 12px;
   border-left: 2px solid #18c54d;
   padding-left: 14px;
   border-bottom: 2px solid #18c54d;
   padding-bottom: 8px;
+  margin-bottom: 30px;
+}
+#content .evo_post_content .widget_core_item_tags,
+#content .evo_post_content .widget_core_item_attachments {
   margin-bottom: 30px;
 }
 #content .evo_post_content .evo_post__full .evo_post__full_text h1,

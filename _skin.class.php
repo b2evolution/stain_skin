@@ -204,37 +204,37 @@ class stain_Skin extends Skin
 
 			/* Custom Sitewide Header
 			 * ========================================================================== */
-			'section_sitewide_header_start' => array(
-				'layout'			=> 'begin_fieldset',
-				'label'				=> T_( 'Custom Sitewide Header (All disps)' ),
-			),
-				'sitewide_background' => array(
-					'label'			=> T_( 'Background Color' ),
-					'note'			=> T_( 'Change background color with your favorite color. Default is <strong>empty</strong>.' ),
-					'type'			=> 'color',
-					'defaultvalue'	=> '',
-				),
-				'sitewide_color_text' => array(
-					'label'			=> T_( 'Color Text' ),
-					'note'			=> T_( 'Change text color for sitewide with your favorite color. Default is <strong>empty</strong>.' ),
-					'type'			=> 'color',
-					'defaultvalue'	=> '',
-				),
-				'sitewide_bg_active' => array(
-					'label'			=> T_( 'Background Color Active & Hover' ),
-					'note'			=> T_( 'Change background color sitewide if the current active page and hover. Default is <strong>empty</strong>.' ),
-					'type'			=> 'color',
-					'defaultvalue'	=> '',
-				),
-				'sitewide_color_text_active' => array(
-					'label'			=> T_( 'Color Text Active & Hover' ),
-					'note'			=> T_( 'Change color text sitewide if the current link active and hover. Default is <strong>empty</strong>' ),
-					'type'			=> 'color',
-					'defaultvalue'	=> '',
-				),
-			'section_sitewide_header_end' => array(
-				'layout'			=> 'end_fieldset',
-			),
+			// 'section_sitewide_header_start' => array(
+			// 	'layout'			=> 'begin_fieldset',
+			// 	'label'				=> T_( 'Custom Sitewide Header (All disps)' ),
+			// ),
+			// 	'sitewide_background' => array(
+			// 		'label'			=> T_( 'Background Color' ),
+			// 		'note'			=> T_( 'Change background color with your favorite color. Default is <strong>empty</strong>.' ),
+			// 		'type'			=> 'color',
+			// 		'defaultvalue'	=> '',
+			// 	),
+			// 	'sitewide_color_text' => array(
+			// 		'label'			=> T_( 'Color Text' ),
+			// 		'note'			=> T_( 'Change text color for sitewide with your favorite color. Default is <strong>empty</strong>.' ),
+			// 		'type'			=> 'color',
+			// 		'defaultvalue'	=> '',
+			// 	),
+			// 	'sitewide_bg_active' => array(
+			// 		'label'			=> T_( 'Background Color Active & Hover' ),
+			// 		'note'			=> T_( 'Change background color sitewide if the current active page and hover. Default is <strong>empty</strong>.' ),
+			// 		'type'			=> 'color',
+			// 		'defaultvalue'	=> '',
+			// 	),
+			// 	'sitewide_color_text_active' => array(
+			// 		'label'			=> T_( 'Color Text Active & Hover' ),
+			// 		'note'			=> T_( 'Change color text sitewide if the current link active and hover. Default is <strong>empty</strong>' ),
+			// 		'type'			=> 'color',
+			// 		'defaultvalue'	=> '',
+			// 	),
+			// 'section_sitewide_header_end' => array(
+			// 	'layout'			=> 'end_fieldset',
+			// ),
 
 
 			/* Header
@@ -1582,6 +1582,25 @@ class stain_Skin extends Skin
 			$custom_css .= '.search_head{ background-attachment: '.$bg_attach.' }';
 		}
 
+		/* SPESIAL CUSTOM STYLE
+		 * ========================================================================== */
+		if( $this->get_setting('ltw_readmore') == 0 ) {
+			$custom_css .= '
+			.widget_core_coll_post_list .item_content a,
+			.widget_core_coll_featured_posts .item_content a,
+			.widget_core_coll_related_post_list, .item_content a,
+			.widget_core_coll_page_list .item_content a,
+			.widget_core_coll_item_list .item_content a,
+			.widget_core_coll_flagged_list .item_content a,
+			.widget_core_coll_post_list .item_excerpt a,
+			.widget_core_coll_featured_posts .item_excerpt a,
+			.widget_core_coll_related_post_list, .item_excerpt a,
+			.widget_core_coll_page_list .item_excerpt a,
+			.widget_core_coll_item_list .item_excerpt a,
+			.widget_core_coll_flagged_list .item_excerpt a
+			{ display: none !important }
+			';
+		}
 
 		/* FOOTER CUSTOM OPTIONS
 		* ========================================================================== */

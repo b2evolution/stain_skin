@@ -18,6 +18,7 @@ if( evo_version_compare( $app_version, '6.4' ) < 0 )
 }
 
 global $Skin;
+
 // This is the main template; it may be used to display very different things.
 // Do inits depending on current $disp:
 skin_init( $disp );
