@@ -1289,25 +1289,25 @@ class stain_Skin extends Skin
 			'disp_auto',               // Automatically include additional CSS and/or JS required by certain disps (replace with 'disp_off' to disable this)
 		) );
 
-		require_js( $this->get_url().'assets/scripts/modernizr.custom.js' );
+		require_js( 'assets/scripts/modernizr.custom.js', 'relative' );
 
 		// Skin specific initializations:
 		// Include Script
 		if ( $this->get_setting( 'nav_sticky' ) == 1 ) {
-		 require_js( $this->get_url().'assets/scripts/jquery.sticky.js' );
+		 require_js( 'assets/scripts/jquery.sticky.js',	'relative' );
 		}
 
 		if ( $disp == 'search' ) {
-			require_css( $this->get_url().'assets/css/slidebars.min.css' );
-			require_js( $this->get_url().'assets/scripts/slidebars.min.js' );
+			require_css( 'assets/css/slidebars.min.css', 'relative' );
+			require_js( 'assets/scripts/slidebars.min.js', 'relative' );
 		}
 
-		require_js( $this->get_url().'assets/scripts/jquery.waypoints.min.js' );
-		require_js( $this->get_url().'assets/scripts/masonry.pkgd.min.js' );
-		require_js( $this->get_url().'assets/scripts/imagesloaded.pkgd.min.js' );
-		require_js( $this->get_url().'assets/scripts/classie.js' );
-		require_js( $this->get_url().'assets/scripts/AnimOnScroll.js' );
-		require_js( $this->get_url().'assets/scripts/scripts.js' );
+		require_js( 'assets/scripts/jquery.waypoints.min.js', 'relative' );
+		require_js( 'assets/scripts/masonry.pkgd.min.js', 'relative' );
+		require_js( 'assets/scripts/imagesloaded.pkgd.min.js', 'relative' );
+		require_js( 'assets/scripts/classie.js', 'relative' );
+		require_js( 'assets/scripts/AnimOnScroll.js', 'relative' );
+		require_js( 'assets/scripts/scripts.js', 'relative' );
 
 		// Add custom CSS:
 		$custom_css = '';
