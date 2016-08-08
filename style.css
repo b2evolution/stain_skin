@@ -178,6 +178,9 @@ img {
   outline: 0;
   box-shadow: none;
 }
+.alert {
+  border-radius: 0;
+}
 .sitewide_header a.swhead_item.user img {
   border-radius: 100%;
 }
@@ -4606,6 +4609,10 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 #content .evo_comment .evo_comment_text {
   font-size: 1.3rem;
 }
+#content .evo_comment .evo_comment_text .bFiles .action_icon {
+  padding: 0;
+  border: 0;
+}
 #content .evo_comment .panel-footer {
   margin-top: 30px;
   border-top: 0;
@@ -4661,11 +4668,12 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   color: #ffffff;
   background-color: red;
 }
-#content .evo_comment__preview.panel .panel-heading {
+#content .evo_comment__preview .panel-heading {
   background-color: #8c8c8c;
   border-bottom-color: #8c8c8c;
 }
-#content .evo_comment__preview.panel .panel-heading .panel-title {
+#content .evo_comment__preview .panel-heading .panel-title,
+#content .evo_comment__preview .panel-heading .panel-title .user {
   color: #ffffff;
 }
 #content .evo_form__comment .form-group {
@@ -5196,6 +5204,11 @@ html.sb-active #sb-site::after {
   background-size: cover;
   z-index: 0;
 }
+@media screen and (max-width: 480px) {
+  .search_head {
+    height: 380px !important;
+  }
+}
 .search_head::after {
   content: '';
   position: absolute;
@@ -5304,6 +5317,11 @@ html.sb-active #sb-site::after {
   text-align: center;
   color: #ffffff;
 }
+@media screen and (max-width: 480px) {
+  .search_head .search_box {
+    top: 20%;
+  }
+}
 .search_head .search_box_title {
   display: inline-block;
   font-size: 5rem;
@@ -5389,6 +5407,7 @@ html.sb-active #sb-site::after {
 @media screen and (max-width: 320px) {
   .search_head .search_box .main_search_box .extended_search_form .search_submit {
     font-size: 1.2rem;
+    padding: 1px 8px 17px;
   }
 }
 #main_result_content {

@@ -114,8 +114,8 @@ html.sb-active {
     background-size: cover;
     z-index: 0;
 
-    @media screen and ( min-width: @M ) {
-        // height: 100;
+    @media screen and ( max-width: @S ) {
+        height: 380px !important;
     }
 
     &::after {
@@ -243,6 +243,10 @@ html.sb-active {
         text-align: center;
         color: @w;
 
+        @media screen and ( max-width: @S ) {
+            top: 20%;
+        }
+
         &_title {
             display: inline-block;
             font-size: 5rem;
@@ -333,6 +337,7 @@ html.sb-active {
 
                     @media screen and ( max-width: @XS ) {
                         font-size: 1.2rem;
+                        padding: 1px 8px 17px;
                     }
                 }
 

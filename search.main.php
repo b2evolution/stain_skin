@@ -26,37 +26,6 @@ skin_init( $disp );
 skin_include( '_html_header.inc.php', array() );
 // -------------------------------- END OF HEADER --------------------------------
 
-?>
-
-<nav class="nav_search sb-slidebar sb-left">
-	<h3 class="nav_search_title">Main Menu</h3>
-	<ul class="nav main_nav">
-		<?php
-		// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
-		// Display container and contents:
-		// Note: this container is designed to be a single <ul> list
-		skin_container( NT_('Menu'), array(
-			// The following params will be used as defaults for widgets included in this container:
-			'block_start'         => '',
-			'block_end'           => '',
-			'block_display_title' => false,
-			'list_start'          => '',
-			'list_end'            => '',
-			'item_start'          => '<li class="evo_widget $wi_class$">',
-			'item_end'            => '</li>',
-			'item_selected_start' => '<li class="active evo_widget $wi_class$">',
-			'item_selected_end'   => '</li>',
-			'item_title_before'   => '',
-			'item_title_after'    => '',
-		) );
-		// ----------------------------- END OF "Menu" CONTAINER -----------------------------
-		?>
-	</ul>
-</nav><!-- /#main_navigation -->
-
-<div id="sb-site">
-
-<?php
 // ---------------------------- SITE HEADER INCLUDED HERE ----------------------------
 // If site headers are enabled, they will be included here:
 siteskin_include( '_site_body_header.inc.php' );
@@ -64,61 +33,101 @@ siteskin_include( '_site_body_header.inc.php' );
 
 ?>
 
-<header class="search_head">
-	<div class="container">
+<header id="header">
 
-		<div class="search_head_main">
-			<div class="brand">
+	<div class="search_head">
+		<div class="container">
+
+			<!-- <div class="search_head_main">
+				<div class="brand"> -->
+					<?php
+					// ------------------------ START OF Brand FORM WIDGET ------------------------
+					// skin_widget( array(
+					// 	// CODE for the widget:
+					// 	'widget'   => 'coll_title',
+					// ) );
+					// ------------------------- END OF Brand FORM WIDGET -------------------------
+					?>
+				<!-- </div>
+				<div class="clearfix"></div>
+			</div> -->
+
+			<!-- Search Box -->
+			<div class="search_box">
+				<h3 class="search_box_title">
+					<?php echo $Skin->get_setting( 'header_search_heading' ); ?> <span><?php echo $Skin->get_setting( 'header_search_subhead' ) ?></span>
+				</h3>
 				<?php
-				// ------------------------ START OF Brand FORM WIDGET ------------------------
+				// ------------------------ START OF SEARCH FORM WIDGET ------------------------
 				skin_widget( array(
 					// CODE for the widget:
-					'widget'               => 'coll_title',
+					'widget'               => 'coll_search_form',
+					// Optional display params
+					'block_start'          => '<div class="main_search_box $wi_class$">',
+					'block_end'            => '</div>',
+					'block_display_title'  => false,
+					'search_class'         => 'extended_search_form clearfix',
+					'search_input_before'  => '',
+					'search_input_after'   => '',
+					'search_submit_before' => '',
+					'search_submit_after'  => '',
+					'use_search_disp'      => 1,
+			        'button'               => $Skin->get_setting( 'header_btn_search' ),
 				) );
-				// ------------------------- END OF Brand FORM WIDGET -------------------------
+				// ------------------------- END OF SEARCH FORM WIDGET -------------------------
 				?>
 			</div>
-
-			<button class="sb-toggle-left menu_hamburger">
-				<span>Menu</span>
-				<div class="hamburger">
-				    <div class="menui top-menu"></div>
-				    <div class="menui mid-menu"></div>
-				    <div class="menui bottom-menu"></div>
-				</div>
-			</button>
-
-			<div class="clearfix"></div>
 		</div>
-
-		<!-- Search Box -->
-		<div class="search_box">
-			<h3 class="search_box_title">
-				<?php echo $Skin->get_setting( 'header_search_heading' ); ?> <span><?php echo $Skin->get_setting( 'header_search_subhead' ) ?></span>
-			</h3>
-			<?php
-			// ------------------------ START OF SEARCH FORM WIDGET ------------------------
-			skin_widget( array(
-				// CODE for the widget:
-				'widget'               => 'coll_search_form',
-				// Optional display params
-				'block_start'          => '<div class="main_search_box $wi_class$">',
-				'block_end'            => '</div>',
-				'block_display_title'  => false,
-				'search_class'         => 'extended_search_form clearfix',
-				'search_input_before'  => '',
-				'search_input_after'   => '',
-				'search_submit_before' => '',
-				'search_submit_after'  => '',
-				'use_search_disp'      => 1,
-		        'button'               => $Skin->get_setting( 'header_btn_search' ),
-			) );
-			// ------------------------- END OF SEARCH FORM WIDGET -------------------------
-			?>
-		</div>
-
 	</div>
-</header>
+
+    <nav class="main_navigation">
+        <div class="container">
+            <div class="row">
+                <div class="mobile_nav">
+                    <button id="main_nav" class="menu_hamburger">
+                        <span>Menu</span>
+                        <div class="hamburger">
+                            <div class="menui top-menu"></div>
+                            <div class="menui mid-menu"></div>
+                            <div class="menui bottom-menu"></div>
+                        </div>
+                    </button>
+                </div>
+                <ul class="nav nav-tabs">
+                    <?php
+                    // ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
+                    $hover_style = '';
+                    $hover_nav = $Skin->get_setting( 'nav_hover_style' );
+                    switch ($hover_nav) {
+                        case $hover_nav:
+                        $hover_style = 'hover-'.$hover_nav;
+                        break;
+                    }
+
+                    // Display container and contents:
+                    // Note: this container is designed to be a single <ul> list
+                    skin_container( NT_('Menu'), array(
+                        // The following params will be used as defaults for widgets included in this container:
+                        'block_start'         => '',
+                        'block_end'           => '',
+                        'block_display_title' => false,
+                        'list_start'          => '',
+                        'list_end'            => '',
+                        'item_start'          => '<li class="evo_widget $wi_class$ '.$hover_style.'">',
+                        'item_end'            => '</li>',
+                        'item_selected_start' => '<li class="active evo_widget $wi_class$ '.$hover_style.'">',
+                        'item_selected_end'   => '</li>',
+                        'item_title_before'   => '',
+                        'item_title_after'    => '',
+                    ) );
+                    // ----------------------------- END OF "Menu" CONTAINER -----------------------------
+                    ?>
+                </ul>
+            </div>
+        </div><!-- /.container -->
+
+    </nav><!-- /#main_navigation -->
+</header><!-- /#Header -->
 
 
 <main id="content"><!-- This is were a link like "Jump to main content" would land -->
@@ -165,9 +174,7 @@ siteskin_include( '_site_body_header.inc.php' );
 // If site footers are enabled, they will be included here:
 skin_include( '_body_footer.inc.php' );
 // ------------------------------- END OF SITE FOOTER --------------------------------
-?>
-</div>
-<?php
+
 // ------------------------- HTML FOOTER INCLUDED HERE --------------------------
 skin_include( '_html_footer.inc.php' );
 // ------------------------------- END OF FOOTER --------------------------------

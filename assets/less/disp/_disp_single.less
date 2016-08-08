@@ -754,6 +754,13 @@
 
         .evo_comment_text {
             font-size: 1.3rem;
+
+            .bFiles {
+                .action_icon {
+                    padding: 0;
+                    border: 0;
+                }
+            }
         }
 
         .panel-footer {
@@ -821,14 +828,15 @@
 
     // Evo Comment Preview
     // ======================================================================== /
-    .evo_comment__preview.panel {
+    .evo_comment__preview {
         // background-color: @primary;
 
         .panel-heading {
             background-color: @c8c;
             border-bottom-color: @c8c;
 
-            .panel-title {
+            .panel-title,
+            .panel-title .user {
                 color: @w;
             }
         }
