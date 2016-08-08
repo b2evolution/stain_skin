@@ -4629,6 +4629,18 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 #content .evo_comment .evo_comment_info {
   margin-top: 20px;
 }
+#content .evo_comment .evo_comment_footer .evo_voting_panel .action_icon {
+  padding: 2px 10px;
+  text-align: center;
+}
+#content .evo_comment .evo_comment_footer .evo_voting_panel .action_icon:hover,
+#content .evo_comment .evo_comment_footer .evo_voting_panel .action_icon:active,
+#content .evo_comment .evo_comment_footer .evo_voting_panel .action_icon:focus {
+  background-color: transparent;
+}
+#content .evo_comment .evo_comment_footer .evo_voting_panel .action_icon .fa {
+  padding-right: 0;
+}
 #content .evo_comment .permalink_right,
 #content .evo_comment .comment_reply {
   display: inline-block;
