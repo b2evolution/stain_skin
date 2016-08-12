@@ -16,8 +16,8 @@
 
     // MOBILE NAV
     var Mobile_Nav = function(){
-        $('#main_nav').click(function() {
-           $('.mobile_nav').toggleClass('active');
+        $('.menu_hamburger').click(function() {
+           $('.mobile_nav_close').toggleClass('active');
            $('.nav-tabs').toggleClass('open');
         });
     }

@@ -44,7 +44,7 @@ siteskin_include( '_site_body_header.inc.php' );
 
     <nav class="main_navigation">
         <div class="container">
-            <div class="row">
+            <div class="row evo_nav">
                 <div class="mobile_nav">
                     <button id="main_nav" class="menu_hamburger">
                         <span>Menu</span>
@@ -56,6 +56,16 @@ siteskin_include( '_site_body_header.inc.php' );
                     </button>
                 </div>
                 <ul class="nav nav-tabs">
+                    <div class="mobile_nav_close">
+                        <button class="menu_hamburger close_nav">
+                            <span>Menu</span>
+                            <div class="hamburger">
+                                <div class="menui top-menu"></div>
+                                <div class="menui mid-menu"></div>
+                                <div class="menui bottom-menu"></div>
+                            </div>
+                        </button>
+                    </div>
                     <?php
                     // ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
                     $hover_style = '';

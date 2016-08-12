@@ -511,12 +511,14 @@
 
     }
 
+
     .nav-tabs {
         @media screen and ( max-width: @M ) {
             display: inline-block;
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
             width: 100%;
             height: 0;
             opacity: 0;
@@ -540,15 +542,9 @@
             }
 
             &.open {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
                 overflow: auto;
-                z-index: 980;
-                transition: all 0.32s ease-in-out;
 
-                padding-top: 35px;
+                // padding-top: 35px;
                 height: 100%;
                 opacity: 1;
                 visibility: visible;
@@ -558,7 +554,8 @@
 
     // Mobile Menu
     // ======================================================================== /
-    .mobile_nav {
+    .mobile_nav,
+    .mobile_nav_close {
 
         @media screen and ( min-width: @M ) {
             display: none !important;
@@ -640,30 +637,26 @@
 
         }
 
+    }
+
+    .mobile_nav_close {
         // When Menu Active
         // ======================================================================== /
         &.active {
-            height: 54px;
 
             @media screen and ( max-width: @M ) {
                 display: block !important;
             }
 
-            @media screen and ( max-width: @S ) {
-                height: 48px;
-            }
-
             .menu_hamburger {
                 position: relative;
-                // top: 6px;
-                // right: 15px;
                 z-index: 981;
 
                 animation-delay: 2s;
                 transition: 0.32s ease;
 
                 .hamburger {
-                    width: 30px;
+                    // width: 30px;
 
                     .mid-menu {
                         visibility: hidden;
@@ -682,8 +675,6 @@
                 }
 
                 @media screen and ( max-width: @S ) {
-                    // top: 18px;
-
                     .hamburger {
                         width: 25px;
                     }
