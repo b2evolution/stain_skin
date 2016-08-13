@@ -67,8 +67,7 @@ $effect = $Skin->Change_class( 'posts_effect' );
 
 
 // ------------------------------- START OF INTRO POST -------------------------------
-if( $Item = get_featured_Item() )
-{ // We have a intro-front post to display:
+if( $Item = get_featured_Item() ) { // We have a intro-front post to display:
 
     if( $Item->is_intro() )
 	{	// Display images that are linked to this post:
@@ -88,30 +87,32 @@ if( $Item = get_featured_Item() )
 			'restrict_to_image_position' => 'cover',
 		) );
 	}
-
 ?>
-<div id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_intro_post' ) ) ?>" lang="<?php $Item->lang() ?>">
+<div id="<?php $Item->anchor_id(); ?>" class="<?php $Item->div_classes( array( 'item_class' => 'evo_intro_post' ) ); ?>" lang="<?php $Item->lang(); ?>">
 
     <?php
     $Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
+
     $action_links = $Item->get_edit_link( array( // Link to backoffice for editing
         'before' => '',
         'after'  => '',
         'text'   => $Item->is_intro() ? get_icon( 'edit' ).' '.T_('Edit Intro') : '#',
         'class'  => button_class( 'text' ),
     ) );
-    if( $Item->status != 'published' )
-    {
+
+    if( $Item->status != 'published' ) {
         $Item->format_status( array(
             'template' => '<div class="evo_status evo_status__$status$ badge">$status_title$</div>',
         ) );
     }
+
     $Item->title( array(
         'link_type'  => 'none',
         'before'     => '<div class="evo_post_title"><h1>',
         'after'      => '</h1><div class="'.button_class( 'group' ).'">'.$action_links.'</div></div>',
         'nav_target' => false,
     ) );
+
     // ---------------------- POST CONTENT INCLUDED HERE ----------------------
     skin_include( '_item_content.inc.php', $params );
     // Note: You can customize the default item content by copying the generic
@@ -129,16 +130,20 @@ if( $Item = get_featured_Item() )
 // Display message if no post:
 $params_no_content = array(
 	'before'      => '<div class="msg_nothing">',
-	'after'       => '</div>' );
+	'after'       => '</div>'
+);
+
 if( ! is_logged_in() )
 { // fp> the following is kind of a hack. It's not really correct.
 	$url = get_login_url( 'no public content' );
 	$params_no_content['msg_empty'] = '<p>'.T_('This site has no public contents.').'</p><p><a href="'.$url.'">'.T_('Log in now!').'</a></p>';
 }
-$list_is_empty = display_if_empty( $params_no_content ); ?>
+
+$list_is_empty = display_if_empty( $params_no_content );
+?>
 
 <ul id="posts_list" class="posts_list <?php echo $post_column; echo 'effect-'.$effect; ?>">
-<? if( ! $list_is_empty ) {
+<?php if( ! $list_is_empty ) {
     while( $Item = & mainlist_get_item() ){
         // For each blog post, do everything below up to the closing curly brace "}"
     	// Temporarily switch to post locale (useful for multilingual blogs)
@@ -147,7 +152,7 @@ $list_is_empty = display_if_empty( $params_no_content ); ?>
    <li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
 		<div class="main__posts_content">
 		<a href="<?php echo $Item->get_permanent_url(); ?>" class="evo__post_link"></a>
-	   <?php
+	    <?php
 			// Display images that are linked to this post:
 			$item_first_image = $Item->get_images( array(
 				'before'              => '<div class="feature__image">',
@@ -182,12 +187,11 @@ $list_is_empty = display_if_empty( $params_no_content ); ?>
 				$item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
 			}
 
-	      echo $item_first_image;
+	        echo $item_first_image;
 
 			?>
 			<div class="posts__info">
 			<?php
-
 				// Categories
 				$Item->categories( array(
 					'before'           => '<div class="posts__info_cat">',
@@ -210,24 +214,24 @@ $list_is_empty = display_if_empty( $params_no_content ); ?>
 				$Item->author( array(
 					'before'    	=> '<div class="posts__info_author">',
 					'after'     	=> '</div>',
-					'before_user'  => '',
-					'after_user'   => '',
-					'link_text'    => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-					'link_class'   => 'author_avatar',
-					'thumb_size'   => 'crop-48x48',
-					'thumb_class'  => '',
+					'before_user'   => '',
+					'after_user'    => '',
+					'link_text'     => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+					'link_class'    => 'author_avatar',
+					'thumb_size'    => 'crop-48x48',
+					'thumb_class'   => '',
 				) );
 
 				// Author Name
 				$Item->author( array(
 					'before'    	=> '<div class="posts__info_author">'.T_('By ').'',
-					'after'     	=> '</div>',
-					'before_user'  => '',
-					'after_user'   => '',
-					'link_text'    => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-					'link_class'   => 'author_avatar',
-					'thumb_size'   => 'crop-48x48',
-					'thumb_class'  => '',
+					'after'         => '</div>',
+					'before_user'   => '',
+					'after_user'    => '',
+					'link_text'     => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+					'link_class'    => 'author_avatar',
+					'thumb_size'    => 'crop-48x48',
+					'thumb_class'   => '',
 				) );
 
 				// We want to display the post time:
@@ -236,19 +240,18 @@ $list_is_empty = display_if_empty( $params_no_content ); ?>
 					'after'       => '</time>',
 					'time_format' => 'M j, Y',
 				) );
-
 			?>
 			</div><!-- .posts__info -->
 			<span class="posts_divider"></span>
 			<?php
 			// Restore previous locale (Blog locale)
 			locale_restore_previous();
-	   ?>
+	    ?>
 		</div><!-- .main__posts_content -->
-   </li><!-- /.evo_post -->
-   <?php
+    </li><!-- /.evo_post -->
+    <?php
 	} // ---------------------------------- END OF POSTS ------------------------------------
-?>
+    ?>
 </ul>
 <?php
 }
