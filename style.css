@@ -3254,6 +3254,10 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   display: block;
   font-size: 1.2rem;
 }
+#content .cat_content .cats_list .evo_post_content .evo_status {
+  display: table;
+  margin: -10px auto 20px;
+}
 #content .cat_content .cats_list .evo_post_content .evo_post__text {
   font-size: 1.3rem;
   color: #777777;
