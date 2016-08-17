@@ -4433,6 +4433,10 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 #content .evo_post_content .post_tags a:active::before {
   color: #ffffff;
 }
+#content .evo_post_content .widget_core_item_about_author .evo_avatar {
+  float: left;
+  margin: 0 10px 5px 0;
+}
 #content .evo_post_content .widget_core_item_about_author .evo_avatar .avatar {
   width: 40px;
   height: 40px;
