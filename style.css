@@ -4440,6 +4440,7 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 #content .evo_post_content .widget_core_item_about_author .evo_avatar .avatar {
   width: 40px;
   height: 40px;
+  border-radius: 100%;
 }
 #content .fieldset_wrapper {
   margin-top: 30px;
