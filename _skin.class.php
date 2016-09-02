@@ -168,19 +168,19 @@ class stain_Skin extends Skin
 			),
 				'color_scheme' => array(
 					'label'			=> T_( 'Color Scheme' ),
-					'note'			=> T_( 'Change your favorite color scheme,' ),
+					'note'			=> T_( 'Change your favorite color scheme. Default value is' ).' <code>#18C54D</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#18C54D',
 				),
 				'body_color' => array(
 					'label'			=> T_( 'Text Body Color' ),
-					'note'			=> T_( 'Change color text for body. Default color is: <strong>#555555</strong>.' ),
+					'note'			=> T_( 'Change color text for body. Default color is:' ).' <code>#555555</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#555555'
 				),
 				'body_background' => array(
 					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change background for All Disp and Page. Default is: <strong>#f6f6f6</strong>.' ),
+					'note'         => T_( 'Change background for All Disp and Page. Default is:' ).' <code>#f6f6f6</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#F6F6F6',
 				),
@@ -245,7 +245,7 @@ class stain_Skin extends Skin
 			),
 				'header_height' => array(
 					'label'        => T_('Height'),
-					'note'         => T_( 'px <br> Set <strong>Height</strong> the Header. If the content header higher from this option. Height will follow the content.' ),
+					'note'         => T_( 'px. If the content header higher from this option. Height will follow the content.' ),
 					'type'         => 'integer',
 					'defaultvalue' => '320',
 					'size'         => '3px',
@@ -253,7 +253,7 @@ class stain_Skin extends Skin
 				),
 				'header_bg_type' => array(
 					'label'			=> T_( 'Background Image Source' ),
-					'note'			=> T_( '<br />Select the source for background image, you can choose default background image on file asset or upload custom background image' ),
+					'note'			=> '<br />'.T_( 'Select the source for background image, you can choose default background image on file asset or upload custom background image' ),
 					'type'			=> 'select',
 					'options'		=> array(
 						'images' 		=> T_( 'Image Asset' ),
@@ -270,21 +270,21 @@ class stain_Skin extends Skin
 				),
 				'header_custom_bg' => array(
 					'label'			=> T_( 'User Custom Background Image' ),
-					'note'			=> T_('（Please create a folder named <b><i>'.str_replace("/","",$custom_headerbg_cat).'</i></b> in your collection media folder and put the images into it. Now <a href="admin.php?ctrl=files" target="_blank"><i>Create folder or Upload images</i></a>）'),
+					'note'			=> T_('（Please create a folder named ').'<b><i>'.str_replace("/","",$custom_headerbg_cat).'</i></b>'.T_(' in your collection media folder and put the images into it. Now ').'<a href="admin.php?ctrl=files" target="_blank"><i>'.T_('Create folder or Upload images').'</i></a>',
 					'type'         => 'radio',
 					'options'      => $arr_custom_headerbg,
 					'defaultvalue' => reset($arr_custom_headerbg[0]),
 				),
 				'header_bg_position_x' => array(
 					'label'        => T_( 'Background Position X' ),
-					'note'         => T_( '% <br>Default value is <strong>50%</strong>.' ),
+					'note'         => T_( '%').'<br>'.T_('Default value is' ).' <code>50%</code>.',
 					'type'         => 'integer',
 					'defaultvalue' => '50',
 					'size'         => 3,
 				),
 				'header_bg_position_y' => array(
 					'label'        => T_( 'Background Position Y' ),
-					'note'         => T_( '% <br>Default value is <strong>50%</strong>.' ),
+					'note'         => T_( '%').'<br>'.T_('Default value is' ).' <code>50%</code>.',
 					'type'         => 'integer',
 					'defaultvalue' => '50',
 					'size'         => 3,
@@ -312,13 +312,13 @@ class stain_Skin extends Skin
 				),
 				'header_overlay' => array(
 					'label'        => T_( 'Color Overlay' ),
-					'note'         => T_( 'Check if you want to show <strong>Color Overlay</strong> for Header.' ),
+					'note'         => T_( 'Check if you want to show Color Overlay for Header.' ),
 					'type'         => 'checkbox',
 					'defaultvalue' => 1,
 				),
 				'color_overlay' => array(
 					'label'        => T_( 'Change Color Overlay' ),
-					'note'         => T_( 'Set your favorite color for Header Color Overlay. Default value is <strong>#000000</strong>.' ),
+					'note'         => T_( 'Set your favorite color for Header Color Overlay. Default value is' ).' <code>#000000</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#000000',
 				),
@@ -362,7 +362,7 @@ class stain_Skin extends Skin
 			),
 				'header_content_top' => array(
 					'label'			=> T_( 'Content Padding Top' ),
-					'note'			=> T_( 'px. Change the content padding top if you set the hight header and want to center content. Default value is <strong>125px</strong>' ),
+					'note'			=> T_( 'px. Change the content padding top if you set the hight header and want to center content. Default value is' ).' <code>125px.</code>',
 					'type'			=> 'integer',
 					'allow_empty'	=> false,
 					'defaultvalue'	=> '125',
@@ -381,7 +381,7 @@ class stain_Skin extends Skin
 				),
 				'header_color_content' => array(
 					'label'			=> T_( 'Color Text Content Header' ),
-					'note'			=> T_( 'Change Color text content header and choose your favorite color. Default value is <strong>#FFFFFF</strong>.' ),
+					'note'			=> T_( 'Change Color text content header and choose your favorite color. Default value is' ).' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#ffffff',
 				),
@@ -403,14 +403,14 @@ class stain_Skin extends Skin
 			),
 				'nav_bg'  => array(
 					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change background color main navigation. Default value is <strong>#1B1B1B</strong>.' ),
+					'note'         => T_( 'Change background color main navigation. Default value is' ).' <code>#1B1B1B</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#1B1B1B',
 					'size'		   => 20,
 				),
 				'nav_sticky' => array(
 					'label'        => T_( 'Sticky Mode' ),
-					'note'         => T_( 'Check to enable <strong>Sticky Nav</strong>.' ),
+					'note'         => T_( 'Check to enable Sticky Nav.' ),
 					'type'         => 'checkbox',
 					'defaultvalue' => 1,
 				),
@@ -447,13 +447,13 @@ class stain_Skin extends Skin
 				),
 				'nav_color' => array(
 					'label'        => T_( 'Nav Color' ),
-					'note'         => T_( 'Set the color link menu. Default value is <strong>Empty</strong>' ),
+					'note'         => T_( 'Set the color link menu. Default value is' ).' <strong>Empty</strong>',
 					'type'         => 'color',
 					'defaultvalue' => '',
 				),
 				'nav_color_hov' => array(
 					'label'        => T_( 'Nav Color Hover' ),
-					'note'         => T_( 'Set the color when hover. Default value is <strong>#FFFFFF</strong>.' ),
+					'note'         => T_( 'Set the color when hover. Default value is' ).' <code>#FFFFFF</code>. ',
 					'type'         => 'color',
 					'defaultvalue' => '#FFFFFF',
 				),
@@ -478,7 +478,7 @@ class stain_Skin extends Skin
 			// ),
 
 
-			/* Content Settings
+			/* GALLERY SETTING
 			* ========================================================================== */
 			'section_gallery_start' => array(
 				'layout'	=> 'begin_fieldset',
@@ -486,7 +486,7 @@ class stain_Skin extends Skin
 			),
 				'cat_heading_bgc' => array(
 					'label'			=> T_( 'Background Title Category' ),
-					'note'			=> T_( 'Choose your favorite background color for title category. Default value is <strong>#FFFFFF</strong>.' ),
+					'note'			=> T_( 'Choose your favorite background color for title category. Default value is' ).' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
 				),
@@ -505,7 +505,7 @@ class stain_Skin extends Skin
 				),
 				'gallery_gutter' => array(
 					'label'			=> T_( 'Spance Posts Category' ),
-					'note'			=> T_( 'px. Set the space for Gallery Images. If you want no space content, you can set the padding is <strong>10 px</strong>.' ),
+					'note'			=> T_( 'px. Set the space for Gallery Images. If you want no space content, you can set the padding is ').' <code>10px</code>.',
 					'type'		   	=> 'integer',
 					'defaultvalue' 	=> '10',
 					'size'		   	=> 5
@@ -567,7 +567,7 @@ class stain_Skin extends Skin
 				),
 				'cat_img_color_overlay' => array(
 					'label'			=> T_( 'Color Hover Overlay' ),
-					'note'			=> T_( 'Cahange the color image overlay when the posts category hover. Default value is <strong>#FFFFFF</strong>.' ),
+					'note'			=> T_( 'Cahange the color image overlay when the posts category hover. Default value is').' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF'
 				),
@@ -601,13 +601,13 @@ class stain_Skin extends Skin
 				),
 				'gallery_bg' => array(
 					'label'        => T_( 'Background Content Posts' ),
-					'note'         => T_( 'Change background content Gallery if the image is hover. Default value is <strong>#FFFFFF</strong>.' ),
+					'note'         => T_( 'Change background content Gallery if the image is hover. Default value is').' <code>#FFFFFF</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#FFFFFF'
 				),
 				'cat_color_content' => array(
 					'label'			=> T_( 'Content Color' ),
-					'note'			=> T_( 'Change the color content. Default value is <strong>#777777</strong>.' ),
+					'note'			=> T_( 'Change the color content. Default value is').' <code>#777777</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#777777'
 				),
@@ -619,7 +619,7 @@ class stain_Skin extends Skin
 				),
 				'cat_title_size' => array(
 					'label'        => T_( 'Size Title Category' ),
-					'note'         => T_( 'px. Change font size for Title Category. Default value is <strong>28px</strong>.' ),
+					'note'         => T_( 'px. Change font size for Title Category. Default value is').' <code>28px</code>.',
 					'type'         => 'integer',
 					'defaultvalue' => '28',
 					'size'         => 3,
@@ -684,7 +684,7 @@ class stain_Skin extends Skin
 				),
 				'posts_list_space' => array(
 					'label'			=> T_( 'Posts List Padding' ),
-					'note'			=> T_( 'px. Set the padding for posts list. If you want no space content, you can set the padding is <strong>0 px</strong>.' ),
+					'note'			=> T_( 'px. Set the padding for posts list. If you want no space content, you can set the padding is ').'<code>0px</code>.',
 					'type'			=> 'integer',
 					'defaultvalue' => '4',
 					'size'			=> 3,
@@ -742,7 +742,7 @@ class stain_Skin extends Skin
 				),
 				'single_thumb_size' => array(
 					'label'        => T_('Thumbnail size for Single Disp'),
-					'note'         => T_('If you select <strong>Masonry Style Image Gallery</strong>, the thumbnail size we recommended to <strong>fit-1280x720</strong>.'),
+					'note'         => T_('If you select <strong>Masonry Style Image Gallery</strong>, the thumbnail size we recommended to').' <code>fit-1280x720</code>.',
 					'defaultvalue' => 'crop-480x320',
 					'options'      => get_available_thumb_sizes(),
 					'type'         => 'select',
@@ -778,7 +778,7 @@ class stain_Skin extends Skin
 				),
 				'mediaidx_space' => array(
 					'label'		    => T_( 'Space Image' ),
-					'note'			=> T_( 'px. Set the padding of image space. Default set is <strong>10</strong>. Also you can set <strong>0 for without space</strong>.' ),
+					'note'			=> T_( 'px. Set the padding of image space. Default set is').' <code>10</code>.'.T_(' Also you can set').'  <strong>0</strong>'.T_(' for without space.' ),
 					'type'			=> 'integer',
 					'defaultvalue'	=> '10',
 					'size'			=> '5'
@@ -848,7 +848,7 @@ class stain_Skin extends Skin
 				),
 				'mediaidx_hover_bg' => array(
 					'label'			=> T_( 'Hover Overlay Color' ),
-					'note'			=> T_( 'Change background overlay color when image hover. Default value is <strong>#FFFFFF</strong>.' ),
+					'note'			=> T_( 'Change background overlay color when image hover. Default value is').' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
 				),
@@ -888,13 +888,13 @@ class stain_Skin extends Skin
 				),
 				'mediaidx_title_bg' => array(
 					'label'			=> T_( 'Change Title Background Color' ),
-					'note'			=> T_( 'Choose your favorite bakcground color for image title section. Default value is <strong>#FFFFFF</strong>.' ),
+					'note'			=> T_( 'Choose your favorite bakcground color for image title section. Default value is').' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#ffffff',
 				),
 				'mediaidx_title_color' => array(
 					'label'			=> T_( 'Change Title Color' ),
-					'note'			=> T_( 'Choose your favorite color scheme for the title text. Default value is <strong>#555555</strong>.' ),
+					'note'			=> T_( 'Choose your favorite color scheme for the title text. Default value is').' <code>#555555</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#555555'
 				),
@@ -940,7 +940,7 @@ class stain_Skin extends Skin
 			),
 				'header_search_height' => array(
 					'label'			=> T_( 'Header Height' ),
-					'note'			=> T_( 'px. Change the searc disp height header. (min-height: 356px)' ),
+					'note'			=> T_( 'px. Change the searc disp height header.').' (min-height: 356px)',
 					'type'			=> 'integer',
 					'defaultvalue'	=> '520',
 					'size'			=> 6,
@@ -1024,26 +1024,26 @@ class stain_Skin extends Skin
 				),
 				'bgc_img_custom' => array(
 					'label'			=> T_( 'User Custom Background Image' ),
-					'note'			=> T_('（Please create a folder named <b><i>'.str_replace("/","",$custom_bgc).'</i></b> in your collection media folder and put the images into it. Now <a href="admin.php?ctrl=files" target="_blank"><i>Create folder or Upload images</i></a>）'),
+					'note'			=> T_('（Please create a folder named ').'<b><i>'.str_replace("/","",$custom_bgc).'</i></b>'.T_(' in your collection media folder and put the images into it. Now .').'<a href="admin.php?ctrl=files" target="_blank"><i>'.T_('Create folder or Upload images').'</i></a>）',
 					'type'         	=> 'radio',
 					'options'      	=> $arr_custom_bgc,
 					'defaultvalue' 	=> reset($arr_custom_bgc[0]),
 				),
 				'bgc_color'	=> array(
 					'label'			=> T_( 'Background Color' ),
-					'note'			=> T_( 'Choose your favoite background color. Default value is <strong>#FFFFFF</strong>.' ),
+					'note'			=> T_( 'Choose your favoite background color. Default value is' ).' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'  => '#FFFFFF',
 				),
 				'bgc_img_overlay' => array(
 					'label'			=> T_( 'Color Overlay' ),
-					'note'			=> T_( 'Change color overlay if using background image for content element ( Only works on <strong>disp 404/403</strong> ).' ),
+					'note'			=> T_( 'Change color overlay if using background image for content element ( Only works on ').'<code>disp 404/403</code> ).',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
 				),
 				'bgc_overlay_opacity' => array(
 					'label'			=> T_( 'Opacity Color Overlay' ),
-					'note'			=> T_( 'Set Opacity for color content ( Only works on <strong>disp 404/403</strong> ).' ),
+					'note'			=> T_( 'Set Opacity for color content ( Only works on ').'<code>disp 404/403</code> ).',
 					'type'			=> 'select',
 					'defaultvalue'	=> '0.5',
 					'options'		=> array(
@@ -1071,7 +1071,7 @@ class stain_Skin extends Skin
 				),
 				'bgc_color_content' => array(
 					'label'		=> T_( 'Change Color Content' ),
-					'note'		=> T_( 'Set the color content ( Only works on <strong>disp 404/403</strong> ). Default color is <strong>#555555</strong>.' ),
+					'note'		=> T_( 'Set the color content ( Only works on ').'<strong>disp 404/403</strong> ).'.T_(' Default color is ').'<code>#555555</code>.',
 					'type'		=> 'color',
 					'defaultvalue' => '#555555',
 				),
@@ -1095,7 +1095,7 @@ class stain_Skin extends Skin
 				),
 				'rwd_bgc_widget' => array(
 					'label'			=> T_( 'Background RWD Widget List' ),
-					'note'			=> T_( 'Change background content for RWD widget list.' ),
+					'note'			=> T_( 'Change background content for RWD widget list. Default value is' ).' <code>#FAFAFA</code>',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FAFAFA'
 				),
@@ -1112,13 +1112,13 @@ class stain_Skin extends Skin
 			),
 				'footer_bg' => array(
 					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change the main footer background color, default value is <strong>#0E1215</strong>.' ),
+					'note'         => T_( 'Change the main footer background color, default value is').' <code>#0E1215</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#0E1215',
 				),
 				'footer_widget' => array(
 					'label'        => T_( 'Enable Footer Widget' ),
-					'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu <strong>Widgets</strong>.' ),
+					'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu ').'<code>Widgets</code>.',
 					'type'         => 'checkbox',
 					'defaultvalue' => '0'
 				),
