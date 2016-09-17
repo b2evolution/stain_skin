@@ -168,7 +168,7 @@ textarea.message_text {
   width: 95%;
 }
 img {
-  max-width: 100%;
+  max-width: 0;
   height: auto;
 }
 .btn:hover,

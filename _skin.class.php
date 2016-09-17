@@ -164,23 +164,23 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_general_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label' 	=> T_( 'General Settings (All disps)' ),
+				'label' 	=> T_( 'General Settings' ).' (All disps)',
 			),
 				'color_scheme' => array(
 					'label'			=> T_( 'Color Scheme' ),
-					'note'			=> T_( 'Change your favorite color scheme. Default value is' ).' <code>#18C54D</code>.',
+					'note'			=> T_( 'Default value is' ).' <code>#18C54D</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#18C54D',
 				),
 				'body_color' => array(
 					'label'			=> T_( 'Text Body Color' ),
-					'note'			=> T_( 'Change color text for body. Default color is:' ).' <code>#555555</code>.',
+					'note'			=> T_( 'Default value is' ).' <code>#555555</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#555555'
 				),
 				'body_background' => array(
 					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change background for All Disp and Page. Default is:' ).' <code>#f6f6f6</code>.',
+					'note'         => T_( 'Default value is' ).' <code>#f6f6f6</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#F6F6F6',
 				),
@@ -241,7 +241,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_header_start' => array(
 				'layout'   => 'begin_fieldset',
-				'label'    => T_( 'Header Settings (All disps)' )
+				'label'    => T_( 'Header Settings' ).' (All disps)',
 			),
 				'header_height' => array(
 					'label'        => T_('Height'),
@@ -253,7 +253,7 @@ class stain_Skin extends Skin
 				),
 				'header_bg_type' => array(
 					'label'			=> T_( 'Background Image Source' ),
-					'note'			=> '<br />'.T_( 'Select the source for background image, you can choose default background image on file asset or upload custom background image' ),
+					'note'			=> '<br />'.T_( 'Select the source for background image, you can choose default background image on file asset or upload custom background image.' ),
 					'type'			=> 'select',
 					'options'		=> array(
 						'images' 		=> T_( 'Image Asset' ),
@@ -318,35 +318,35 @@ class stain_Skin extends Skin
 				),
 				'color_overlay' => array(
 					'label'        => T_( 'Change Color Overlay' ),
-					'note'         => T_( 'Set your favorite color for Header Color Overlay. Default value is' ).' <code>#000000</code>.',
+					'note'         => T_( 'Default value is' ).' <code>#000000</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#000000',
 				),
 				'opcity_cv' => array(
 					'label'        => T_( 'Opacity Color Overlay' ),
-					'note'         => T_( 'Set the opacity Color Overlay value is 0.1 - 1' ),
+					'note'         => T_( 'Default value is' ). ' <code>0.2</code>.',
 					'type'         => 'select',
 					'options'      => array(
-						'0'	   => T_( '0' ),
-						'0.1'  => T_( '0.1' ),
-						'0.15' => T_( '0.15' ),
-						'0.2'  => T_( '0.2' ),
-						'0.25' => T_( '0.25' ),
-						'0.3'  => T_( '0.3' ),
-						'0.35' => T_( '0.35' ),
-						'0.4'  => T_( '0.4' ),
-						'0.45' => T_( '0.45' ),
-						'0.5'  => T_( '0.5' ),
-						'0.55' => T_( '0.55' ),
-						'0.6'  => T_( '0.6' ),
-						'0.65' => T_( '0.65' ),
-						'0.7'  => T_( '0.7' ),
-						'0.75' => T_( '0.75' ),
-						'0.8'  => T_( '0.8' ),
-						'0.85' => T_( '0.85' ),
-						'0.9'  => T_( '0.9' ),
-						'0.95' => T_( '0.95' ),
-						'1'    => T_( '1' ),
+						'0'	   => '0',
+						'0.1'  => '0.1',
+						'0.15' => '0.15',
+						'0.2'  => '0.2',
+						'0.25' => '0.25',
+						'0.3'  => '0.3',
+						'0.35' => '0.35',
+						'0.4'  => '0.4',
+						'0.45' => '0.45',
+						'0.5'  => '0.5',
+						'0.55' => '0.55',
+						'0.6'  => '0.6',
+						'0.65' => '0.65',
+						'0.7'  => '0.7',
+						'0.75' => '0.75',
+						'0.8'  => '0.8',
+						'0.85' => '0.85',
+						'0.9'  => '0.9',
+						'0.95' => '0.95',
+						'1'    => '1',
 					),
 					'defaultvalue' => '0.2',
 				),
@@ -358,11 +358,11 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_head_con_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_('Header Content Settings (All disps)'),
+				'label'		=> T_('Header Content Settings').' (All disps)',
 			),
 				'header_content_top' => array(
 					'label'			=> T_( 'Content Padding Top' ),
-					'note'			=> T_( 'px. Change the content padding top if you set the hight header and want to center content. Default value is' ).' <code>125px.</code>',
+					'note'			=> T_( 'px. Default value is' ).' <code>125px.</code>',
 					'type'			=> 'integer',
 					'allow_empty'	=> false,
 					'defaultvalue'	=> '125',
@@ -381,13 +381,13 @@ class stain_Skin extends Skin
 				),
 				'header_color_content' => array(
 					'label'			=> T_( 'Color Text Content Header' ),
-					'note'			=> T_( 'Change Color text content header and choose your favorite color. Default value is' ).' <code>#FFFFFF</code>.',
+					'note'			=> T_( 'Default value is' ).' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#ffffff',
 				),
 				'header_text_shadow_content' => array(
 					'label'			=> T_( 'Show Text Shadow Content' ),
-					'note'			=> T_( 'Checklist to show text-shadow on text content' ),
+					'note'			=> T_( 'Checklist to show text-shadow on text content.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
@@ -399,11 +399,11 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_nav_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Main Navigation Settings (All disps)'),
+				'label'  => T_('Main Navigation Settings').' (All disps)',
 			),
 				'nav_bg'  => array(
 					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change background color main navigation. Default value is' ).' <code>#1B1B1B</code>.',
+					'note'         => T_( 'Default value is' ).' <code>#1B1B1B</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#1B1B1B',
 					'size'		   => 20,
@@ -433,27 +433,27 @@ class stain_Skin extends Skin
 				),
 				'nav_hover_style' => array (
 					'label'			=> T_( 'Nav Style Hover' ),
-					'note'			=> T_( 'Choose your favorite navigation style when menu is hover' ),
+					'note'			=> T_( 'Choose your favorite navigation style when menu is hover.' ),
 					'type'			=> 'select',
 					'options'		=> array(
-						'1' => T_( 'Hover 1' ),
-						'2'	=> T_(' Hover 2' ),
-						'3'	=> T_( 'Hover 3' ),
-						'4'	=> T_( 'Hover 4' ),
-						'5' => T_( 'Hover 5' ),
-						'6' => T_( 'Hover 6' ),
+						'1' => 'Hover 1',
+						'2'	=> 'Hover 2',
+						'3'	=> 'Hover 3',
+						'4'	=> 'Hover 4',
+						'5' => 'Hover 5',
+						'6' => 'Hover 6',
 					),
 					'defaultvalue'	=> '1',
 				),
 				'nav_color' => array(
 					'label'        => T_( 'Nav Color' ),
-					'note'         => T_( 'Set the color link menu. Default value is' ).' <strong>Empty</strong>',
+					'note'         => T_( 'Default value is' ).' <strong>Empty</strong>.',
 					'type'         => 'color',
 					'defaultvalue' => '',
 				),
 				'nav_color_hov' => array(
 					'label'        => T_( 'Nav Color Hover' ),
-					'note'         => T_( 'Set the color when hover. Default value is' ).' <code>#FFFFFF</code>. ',
+					'note'         => T_( 'Default value is' ).' <code>#FFFFFF</code>. ',
 					'type'         => 'color',
 					'defaultvalue' => '#FFFFFF',
 				),
@@ -482,11 +482,11 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_gallery_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label' 	=> T_( 'Gallery Settings (disp=catdir)' ),
+				'label' 	=> T_( 'Gallery Settings' ).' (disp=catdir)',
 			),
 				'cat_heading_bgc' => array(
 					'label'			=> T_( 'Background Title Category' ),
-					'note'			=> T_( 'Choose your favorite background color for title category. Default value is' ).' <code>#FFFFFF</code>.',
+					'note'			=> T_( 'Default value is' ).' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
 				),
@@ -505,7 +505,7 @@ class stain_Skin extends Skin
 				),
 				'gallery_gutter' => array(
 					'label'			=> T_( 'Spance Posts Category' ),
-					'note'			=> T_( 'px. Set the space for Gallery Images. If you want no space content, you can set the padding is ').' <code>10px</code>.',
+					'note'			=> T_( 'px. Default value is').' <code>10px</code>.',
 					'type'		   	=> 'integer',
 					'defaultvalue' 	=> '10',
 					'size'		   	=> 5
@@ -516,9 +516,9 @@ class stain_Skin extends Skin
 					'defaultvalue' => 'fit-1280x720',
 					'type'         => 'select',
 					'options'      => array(
-						'original' 		=> T_( 'Original' ),
-						'fit-1280x720'	=> T_( 'fit-1280x720' ),
-						'crop-480x320'	=> T_( 'crop-480x320' ),
+						'original' 		=> 'Original',
+						'fit-1280x720'	=> 'fit-1280x720',
+						'crop-480x320'	=> 'crop-480x320',
 					),
 				),
 				// 'gallery_effect' => array(
@@ -555,59 +555,59 @@ class stain_Skin extends Skin
 					'type'         => 'select',
 					'defaultvalue' => 'opacity',
 					'options'      => array(
-						'none'        => T_( 'None' ),
-						'opacity'     => T_( 'Opacity' ),
-						'zoom'        => T_( 'Zoom' ),
-						'flip'        => T_( 'Flip' ),
-						'right_left'  => T_( 'Right to Left' ),
-						'left_right'  => T_( 'Left to Right' ),
-						'bt_top'	  => T_( 'Bottom to Top' ),
-						'top_bt'	  => T_( 'Top to Bottom' ),
+						'none'        => 'None',
+						'opacity'     => 'Opacity',
+						'zoom'        => 'Zoom',
+						'flip'        => 'Flip',
+						'right_left'  => 'Right to Left',
+						'left_right'  => 'Left to Right',
+						'bt_top'	  => 'Bottom to Top',
+						'top_bt'	  => 'Top to Bottom',
 					),
 				),
 				'cat_img_color_overlay' => array(
 					'label'			=> T_( 'Color Hover Overlay' ),
-					'note'			=> T_( 'Cahange the color image overlay when the posts category hover. Default value is').' <code>#FFFFFF</code>.',
+					'note'			=> T_( 'Default value is').' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF'
 				),
 				'cat_opcity_overlay' => array(
 					'label'        => T_( 'Opacity Color Overlay' ),
-					'note'         => T_( 'Set the opacity Color Overlay value is 0.1 - 1' ),
+					'note'         => T_( 'Default value is' ).' <code>0.5</code>.',
 					'type'         => 'select',
 					'options'      => array(
-						'0'	   => T_( '0' ),
-						'0.1'  => T_( '0.1' ),
-						'0.15' => T_( '0.15' ),
-						'0.2'  => T_( '0.2' ),
-						'0.25' => T_( '0.25' ),
-						'0.3'  => T_( '0.3' ),
-						'0.35' => T_( '0.35' ),
-						'0.4'  => T_( '0.4' ),
-						'0.45' => T_( '0.45' ),
-						'0.5'  => T_( '0.5' ),
-						'0.55' => T_( '0.55' ),
-						'0.6'  => T_( '0.6' ),
-						'0.65' => T_( '0.65' ),
-						'0.7'  => T_( '0.7' ),
-						'0.75' => T_( '0.75' ),
-						'0.8'  => T_( '0.8' ),
-						'0.85' => T_( '0.85' ),
-						'0.9'  => T_( '0.9' ),
-						'0.95' => T_( '0.95' ),
-						'1'    => T_( '1' ),
+						'0'	   => '0',
+						'0.1'  => '0.1',
+						'0.15' => '0.15',
+						'0.2'  => '0.2',
+						'0.25' => '0.25',
+						'0.3'  => '0.3',
+						'0.35' => '0.35',
+						'0.4'  => '0.4',
+						'0.45' => '0.45',
+						'0.5'  => '0.5',
+						'0.55' => '0.55',
+						'0.6'  => '0.6',
+						'0.65' => '0.65',
+						'0.7'  => '0.7',
+						'0.75' => '0.75',
+						'0.8'  => '0.8',
+						'0.85' => '0.85',
+						'0.9'  => '0.9',
+						'0.95' => '0.95',
+						'1'    => '1',
 					),
 					'defaultvalue' => '0.5',
 				),
 				'gallery_bg' => array(
 					'label'        => T_( 'Background Content Posts' ),
-					'note'         => T_( 'Change background content Gallery if the image is hover. Default value is').' <code>#FFFFFF</code>.',
+					'note'         => T_( 'Default value is').' <code>#FFFFFF</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#FFFFFF'
 				),
 				'cat_color_content' => array(
 					'label'			=> T_( 'Content Color' ),
-					'note'			=> T_( 'Change the color content. Default value is').' <code>#777777</code>.',
+					'note'			=> T_( 'Default value is').' <code>#777777</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#777777'
 				),
@@ -619,7 +619,7 @@ class stain_Skin extends Skin
 				),
 				'cat_title_size' => array(
 					'label'        => T_( 'Size Title Category' ),
-					'note'         => T_( 'px. Change font size for Title Category. Default value is').' <code>28px</code>.',
+					'note'         => T_( 'px. Default value is').' <code>28px</code>.',
 					'type'         => 'integer',
 					'defaultvalue' => '28',
 					'size'         => 3,
@@ -651,11 +651,11 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_posts_start' => array(
 				'layout'   => 'begin_fieldset',
-				'label'    => T_( 'Posts Settings (disp=posts)' ),
+				'label'    => T_( 'Posts Settings' ).' (disp=posts)',
 			),
 				'posts_full_width' => array(
 					'label'			=> T_( 'Full Width Container' ),
-					'note'			=> T_( 'Check to make post container full width' ),
+					'note'			=> T_( 'Check to make post container full width.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'  => 0,
 				),
@@ -666,9 +666,9 @@ class stain_Skin extends Skin
 					'size'			=> 10,
 					'type'         => 'select',
 					'options'      => array(
-						'original' => T_( 'Original' ),
-						'fit-1280x720' => T_( 'fit-1280x720' ),
-						'crop-480x320' => T_( 'crop-480x320' ),
+						'original' 		=> 'Original',
+						'fit-1280x720'  => 'fit-1280x720',
+						'crop-480x320'  => 'crop-480x320',
 					),
 				),
 				'posts_show' => array(
@@ -684,26 +684,26 @@ class stain_Skin extends Skin
 				),
 				'posts_list_space' => array(
 					'label'			=> T_( 'Posts List Padding' ),
-					'note'			=> T_( 'px. Set the padding for posts list. If you want no space content, you can set the padding is ').'<code>0px</code>.',
+					'note'			=> T_( 'px. Default value is').' <code>0px</code>.',
 					'type'			=> 'integer',
-					'defaultvalue' => '4',
+					'defaultvalue'  => '4',
 					'size'			=> 3,
-					'allow_empty'  => false,
+					'allow_empty'   => false,
 				),
 				'posts_effect' => array(
 					'label'		=> T_( 'Choose the Animation Image' ),
 					'note'		=> T_( 'Select your favorite Animation load for first open page.' ),
 					'type'		=> 'select',
 					'options'	=> array(
-						'0'	=> T_('None'),
-						'1' => T_('Opacity'),
-						'2' => T_('Move Up'),
-						'3' => T_('Sclae Up'),
-						'4' => T_('Fall Perspective'),
-						'5' => T_('Fly'),
-						'6' => T_('Flip'),
-						'7' => T_('Helix'),
-						'8' => T_('Pop Up'),
+						'0'	=> 'None',
+						'1' => 'Opacity',
+						'2' => 'Move Up',
+						'3' => 'Sclae Up',
+						'4' => 'Fall Perspective',
+						'5' => 'Fly',
+						'6' => 'Flip',
+						'7' => 'Helix',
+						'8' => 'Pop Up',
 					),
 					'defaultvalue' => '4',
 				),
@@ -716,7 +716,7 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_single_start' => array(
 				'layout'		=> 'begin_fieldset',
-				'label'		=> T_( 'Single Settings (disp=single)' ),
+				'label'		=> T_( 'Single Settings' ).' (disp=single)',
 			),
 				'single_image_style' => array(
 					'label'			=> T_( 'Style Image Gallery' ),
@@ -724,13 +724,13 @@ class stain_Skin extends Skin
 					'type'			=> 'select',
 					'defaultvalue'  => 'grid',
 					'options'		=> array(
-						'grid'    => T_('Grid'),
-						'masonry' => T_('Masonry'),
+						'grid'    => 'Grid',
+						'masonry' => 'Masonry',
 					),
 				),
 				'single_image_grid' => array(
 					'label'			=> T_( 'Image Gallery Column' ),
-					'note'			=> T_( '( Change the gallery column for single Image Gallery. )' ),
+					'note'			=> T_( '( Change the gallery column for single Image Gallery )' ),
 					'type'			=> 'select',
 					'options'		=> array(
 						'12' => T_( '1 Column' ),
@@ -755,7 +755,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_media_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Photo Index Settings (disp=mediaidx)')
+				'label'  => T_('Photo Index Settings').' (disp=mediaidx)',
 			),
 				'max_mediaidx_height' => array(
 					'label'        => T_('Max Mediaidx image height'),
@@ -789,16 +789,16 @@ class stain_Skin extends Skin
 					'type'         => 'select',
 					'defaultvalue' => 'fit-1280x720',
 					'options'      => array(
-						'original'		=> T_( 'Original' ),
-						'fit-1280x720'  => T_( 'fit-1280x720' ),
-						'fit-720x500'	=> T_( 'fit-720x250' ),
-						'crop-480x320'  => T_( 'crop-480x320' ),
-						'crop-256x256'	=> T_( 'crop-256x256' ),
-						'crop-192x192'	=> T_( 'crop-192x192' ),
-						'crop-128x128'  => T_( 'crop-128x128' ),
-						'crop-top-320x320' => T_( 'crop-top-320x320' ),
-						'crop-top-200x200' => T_( 'crop-top-200x200' ),
-						'crop-top-160x160' => T_( 'crop-top-160x160' )
+						'original'		=> 'Original',
+						'fit-1280x720'  => 'fit-1280x720',
+						'fit-720x500'	=> 'fit-720x250',
+						'crop-480x320'  => 'crop-480x320',
+						'crop-256x256'	=> 'crop-256x256',
+						'crop-192x192'	=> 'crop-192x192',
+						'crop-128x128'  => 'crop-128x128',
+						'crop-top-320x320' => 'crop-top-320x320',
+						'crop-top-200x200' => 'crop-top-200x200',
+						'crop-top-160x160' => 'crop-top-160x160',
 					),
 				),
 				'mediaidx_display' => array(
@@ -813,14 +813,14 @@ class stain_Skin extends Skin
 					'note'			=> T_( 'Select your favorite Animation load for first open page.' ),
 					'type'			=> 'select',
 					'options'		=> array(
-						'1' => T_('Opacity'),
-						'2' => T_('Move Up'),
-						'3' => T_('Sclae Up'),
-						'4' => T_('Fall Perspective'),
-						'5' => T_('Fly'),
-						'6' => T_('Flip'),
-						'7' => T_('Helix'),
-						'8' => T_('Pop Up'),
+						'1' => 'Opacity',
+						'2' => 'Move Up',
+						'3' => 'Sclae Up',
+						'4' => 'Fall Perspective',
+						'5' => 'Fly',
+						'6' => 'Flip',
+						'7' => 'Helix',
+						'8' => 'Pop Up',
 					),
 					'defaultvalue' => '3',
 				),
@@ -830,14 +830,14 @@ class stain_Skin extends Skin
 					'type'			=> 'select',
 					'defaultvalue'	=> 'flip',
 					'options'		=> array(
-						'none'	  => T_( 'None' ),
-						'opacity' => T_( 'Opacity' ),
-						'flip'	  => T_( 'Flip' ),
-						'zoom'	  => T_( 'Zoom' ),
-						'tb'	  => T_( 'Top Bottom' ),
-						'bt'	  => T_( 'Bottom Top' ),
-						'rl'	  => T_( 'Right Left' ),
-						'lr'	  => T_( 'Left Right' ),
+						'none'	  => 'None',
+						'opacity' => 'Opacity',
+						'flip'	  => 'Flip',
+						'zoom'	  => 'Zoom',
+						'tb'	  => 'Top Bottom',
+						'bt'	  => 'Bottom Top',
+						'rl'	  => 'Right Left',
+						'lr'	  => 'Left Right',
 					)
 				),
 				'mediaidx_view_btn' => array(
@@ -848,36 +848,36 @@ class stain_Skin extends Skin
 				),
 				'mediaidx_hover_bg' => array(
 					'label'			=> T_( 'Hover Overlay Color' ),
-					'note'			=> T_( 'Change background overlay color when image hover. Default value is').' <code>#FFFFFF</code>.',
+					'note'			=> T_( 'Default value is').' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
 				),
 				'mediaidx_overlay_opacity' => array(
 					'label'			=> T_( 'Opacity Color Overlay' ),
-					'note'			=> T_( 'Set Opacity for color overlay content.' ),
+					'note'			=> T_( 'Default value is' ).' <code>0.5</code>.',
 					'type'			=> 'select',
 					'defaultvalue'	=> '0.5',
 					'options'		=> array(
-						'0' 	=> T_( '0' ),
-						'0.05'	=> T_( '0.05' ),
-						'0.1'	=> T_( '0.1' ),
-						'0.15'	=> T_( '0.15' ),
-						'0.2'	=> T_( '0.2' ),
-						'0.25'	=> T_( '0.25' ),
-						'0.3'	=> T_( '0.3' ),
-						'0.35'	=> T_( '0.35' ),
-						'0.4'	=> T_( '0.4' ),
-						'0.45'	=> T_( '0.45' ),
-						'0.5'	=> T_( '0.5' ),
-						'0.55'	=> T_( '0.55' ),
-						'0.6'	=> T_( '0.6' ),
-						'0.65'	=> T_( '0.65' ),
-						'0.7'	=> T_( '0.7' ),
-						'0.75'	=> T_( '0.75' ),
-						'0.8'	=> T_( '0.8' ),
-						'0.85'	=> T_( '0.85' ),
-						'0.9'	=> T_( '0.9' ),
-						'0.95'	=> T_( '0.95' ),
+						'0' 	=> '0',
+						'0.05'	=> '0.05',
+						'0.1'	=> '0.1',
+						'0.15'	=> '0.15',
+						'0.2'	=> '0.2',
+						'0.25'	=> '0.25',
+						'0.3'	=> '0.3',
+						'0.35'	=> '0.35',
+						'0.4'	=> '0.4',
+						'0.45'	=> '0.45',
+						'0.5'	=> '0.5',
+						'0.55'	=> '0.55',
+						'0.6'	=> '0.6',
+						'0.65'	=> '0.65',
+						'0.7'	=> '0.7',
+						'0.75'	=> '0.75',
+						'0.8'	=> '0.8',
+						'0.85'	=> '0.85',
+						'0.9'	=> '0.9',
+						'0.95'	=> '0.95',
 					)
 				),
 				'mediaidx_title' => array(
@@ -888,13 +888,13 @@ class stain_Skin extends Skin
 				),
 				'mediaidx_title_bg' => array(
 					'label'			=> T_( 'Change Title Background Color' ),
-					'note'			=> T_( 'Choose your favorite bakcground color for image title section. Default value is').' <code>#FFFFFF</code>.',
+					'note'			=> T_( 'Default value is').' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#ffffff',
 				),
 				'mediaidx_title_color' => array(
 					'label'			=> T_( 'Change Title Color' ),
-					'note'			=> T_( 'Choose your favorite color scheme for the title text. Default value is').' <code>#555555</code>.',
+					'note'			=> T_( 'Default value is').' <code>#555555</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#555555'
 				),
@@ -936,11 +936,11 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_search_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_( 'Search Disp Settings (disp=search)' )
+				'label'		=> T_( 'Search Disp Settings' ).' (disp=search)',
 			),
 				'header_search_height' => array(
 					'label'			=> T_( 'Header Height' ),
-					'note'			=> T_( 'px. Change the searc disp height header.').' (min-height: 356px)',
+					'note'			=> T_( 'px. Default value is').' (min-height: 356px)',
 					'type'			=> 'integer',
 					'defaultvalue'	=> '520',
 					'size'			=> 6,
@@ -1002,7 +1002,7 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_bg_content_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_( 'Background Content Disp ( disp=login | disp=lostpassword | disp=register | disp=404/403 )' ),
+				'label'		=> T_( 'Background Content Disp' ).' (disp=login | disp=lostpassword | disp=register | disp=404/403)',
 			),
 				'bgc_style' => array(
 					'label'			=> T_( 'Background Style' ),
@@ -1024,14 +1024,14 @@ class stain_Skin extends Skin
 				),
 				'bgc_img_custom' => array(
 					'label'			=> T_( 'User Custom Background Image' ),
-					'note'			=> T_('（Please create a folder named ').'<b><i>'.str_replace("/","",$custom_bgc).'</i></b>'.T_(' in your collection media folder and put the images into it. Now .').'<a href="admin.php?ctrl=files" target="_blank"><i>'.T_('Create folder or Upload images').'</i></a>）',
+					'note'			=> T_('（Please create a folder named ').'<b><i>'.str_replace("/","",$custom_bgc).'</i></b>'.T_(' in your collection media folder and put the images into it. Now ').'<a href="admin.php?ctrl=files" target="_blank"><i>'.T_('Create folder or Upload images').'</i></a>）',
 					'type'         	=> 'radio',
 					'options'      	=> $arr_custom_bgc,
 					'defaultvalue' 	=> reset($arr_custom_bgc[0]),
 				),
 				'bgc_color'	=> array(
 					'label'			=> T_( 'Background Color' ),
-					'note'			=> T_( 'Choose your favoite background color. Default value is' ).' <code>#FFFFFF</code>.',
+					'note'			=> T_( 'Default value is' ).' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'  => '#FFFFFF',
 				),
@@ -1047,26 +1047,26 @@ class stain_Skin extends Skin
 					'type'			=> 'select',
 					'defaultvalue'	=> '0.5',
 					'options'		=> array(
-						'0' 	=> T_( '0' ),
-						'0.05'	=> T_( '0.05' ),
-						'0.1'	=> T_( '0.1' ),
-						'0.15'	=> T_( '0.15' ),
-						'0.2'	=> T_( '0.2' ),
-						'0.25'	=> T_( '0.25' ),
-						'0.3'	=> T_( '0.3' ),
-						'0.35'	=> T_( '0.35' ),
-						'0.4'	=> T_( '0.4' ),
-						'0.45'	=> T_( '0.45' ),
-						'0.5'	=> T_( '0.5' ),
-						'0.55'	=> T_( '0.55' ),
-						'0.6'	=> T_( '0.6' ),
-						'0.65'	=> T_( '0.65' ),
-						'0.7'	=> T_( '0.7' ),
-						'0.75'	=> T_( '0.75' ),
-						'0.8'	=> T_( '0.8' ),
-						'0.85'	=> T_( '0.85' ),
-						'0.9'	=> T_( '0.9' ),
-						'0.95'	=> T_( '0.95' ),
+						'0' 	=> '0',
+						'0.05'	=> '0.05',
+						'0.1'	=> '0.1',
+						'0.15'	=> '0.15',
+						'0.2'	=> '0.2',
+						'0.25'	=> '0.25',
+						'0.3'	=> '0.3',
+						'0.35'	=> '0.35',
+						'0.4'	=> '0.4',
+						'0.45'	=> '0.45',
+						'0.5'	=> '0.5',
+						'0.55'	=> '0.55',
+						'0.6'	=> '0.6',
+						'0.65'	=> '0.65',
+						'0.7'	=> '0.7',
+						'0.75'	=> '0.75',
+						'0.8'	=> '0.8',
+						'0.85'	=> '0.85',
+						'0.9'	=> '0.9',
+						'0.95'	=> '0.95',
 					)
 				),
 				'bgc_color_content' => array(
@@ -1085,7 +1085,7 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_special_widget_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_( 'Special Widget Settings (All Disps)' ),
+				'label'		=> T_( 'Special Widget Settings' ).' (All Disps)',
 			),
 				'ltw_readmore' => array(
 					'label'			=> T_('List-type Widgets "Read more" button:'),
@@ -1095,7 +1095,7 @@ class stain_Skin extends Skin
 				),
 				'rwd_bgc_widget' => array(
 					'label'			=> T_( 'Background RWD Widget List' ),
-					'note'			=> T_( 'Change background content for RWD widget list. Default value is' ).' <code>#FAFAFA</code>',
+					'note'			=> T_( 'Default value is' ).' <code>#FAFAFA</code>',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FAFAFA'
 				),
@@ -1108,11 +1108,11 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_footer_start' => array(
 				'layout'  => 'begin_fieldset',
-				'label'   => T_( 'Footer Settings (All disps)' ),
+				'label'   => T_( 'Footer Settings' ).' (All disps)',
 			),
 				'footer_bg' => array(
 					'label'        => T_( 'Background Color' ),
-					'note'         => T_( 'Change the main footer background color, default value is').' <code>#0E1215</code>.',
+					'note'         => T_( 'Default value is').' <code>#0E1215</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#0E1215',
 				),
@@ -1159,7 +1159,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_colorbox_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Colorbox Image Zoom (All disps)')
+				'label'  => T_('Colorbox Image Zoom').' (All disps)',
 			),
 				'colorbox' => array(
 					'label'        => T_('Colorbox Image Zoom'),
@@ -1211,7 +1211,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_username_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Username options (All disps)')
+				'label'  => T_('Username Options').' (All disps)',
 			),
 				'bubbletip' => array(
 					'label'        => T_('Username bubble tips'),
@@ -1233,7 +1233,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_access_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('When access is denied or requires login... (disp=access_denied and disp=access_requires_login)')
+				'label'  => T_('When access is denied or requires login').'... (disp=access_denied and disp=access_requires_login)',
 			),
 				'access_login_containers' => array(
 					'label'   => T_('Display on login screen'),
