@@ -3539,6 +3539,11 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   max-width: 1170px;
   margin: 0 auto !important;
 }
+.posts_list img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+}
 .posts_list .feature__image img {
   max-width: 100%;
   height: auto;
