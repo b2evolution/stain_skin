@@ -184,6 +184,13 @@ class stain_Skin extends Skin
 					'type'         => 'color',
 					'defaultvalue' => '#F6F6F6',
 				),
+				'max_image_height' => array(
+					'label' 		=> T_('Max comment image height'),
+					'note' 			=> 'px',
+					'defaultvalue'  => '',
+					'type' 			=> 'integer',
+					'allow_empty'   => true,
+				),
 				// 'favicon' => array(
 				// 	'label'          => T_('Favicon'),
 				// 	'note'           => T_('Change the default favicon from Skin Folder.'),
