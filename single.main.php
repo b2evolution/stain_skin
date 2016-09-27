@@ -162,7 +162,7 @@ skin_include( '_body_header.inc.php' );
 						'image_size'          => $Skin->get_setting( 'single_thumb_size' ),
 						'image_align'         => 'middle',
 						'image_class'         => 'img-responsive',
-						'before_gallery'      => '<div class="evo_post_gallery">',
+						'before_gallery'      => '<div class="evo_post_gallery single-image one_column">',
 						'after_gallery'       => '</div>',
 						'gallery_table_start' => '',
 						'gallery_table_end'   => '',

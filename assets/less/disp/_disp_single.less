@@ -87,6 +87,7 @@
             letter-spacing: 1px;
             line-height: 1.2;
             margin: 0 0 10px;
+            word-wrap: break-word;
 
             @media screen and ( min-width: @MM ) {
                 display: inline-block;
@@ -194,6 +195,19 @@
                 margin-top: 0;
                 padding: 10px;
             }
+
+            .evo_post_gallery {
+                text-align: left;
+                margin-left: 0;
+
+                &:hover, &:active, &:focus {
+                    transform: none;
+
+                    img {
+                        box-shadow: none;
+                    }
+                }
+            }
         }
 
         .single-image {
@@ -235,6 +249,22 @@
         .evo_post_gallery {
             margin-left: 15px;
             margin-right: 15px;
+
+            &.single-image {
+                float: none;
+                text-align: left;
+                transform: none;
+
+                img {
+                    box-shadow: none;
+                }
+
+                &:hover, &:active, &:focus {
+                    img {
+                        box-shadow: none;
+                    }
+                }
+            }
 
             .evo_post_gallery__image {
                 img {
@@ -340,8 +370,7 @@
             margin-bottom: 30px;
         }
 
-        .widget_core_item_tags,
-        .widget_core_item_attachments {
+        .widget_core_item_tags {
             margin-bottom: 30px;
         }
 
@@ -364,7 +393,8 @@
                 h1, h2, h3, h4, h5, h6 {
                     font-family: @font_heading;
                     font-weight: 700;
-                    margin: 10px 0 20px 0;
+                    margin: 20px 0 20px 0;
+                    letter-spacing: 0.2px;
                     text-transform: inherit;
                 }
 
@@ -451,6 +481,10 @@
                 }
             }
 
+            .videoblock {
+                margin-bottom: 20px;
+            }
+
             .evo_post__full_text {
                 padding: 30px;
 
@@ -465,11 +499,15 @@
 
             .item_custom_fields {
                 display: block;
-                padding: 0 30px 20px;
+                padding: 0 30px 30px;
 
-                td, tr {
+                tr:nth-child( even ) {
+                    background-color: @cf7;
+                }
+
+                td, th {
                     border: 1px solid @ce;
-                    padding: 6px;
+                    padding: 8px;
                 }
             }
 
@@ -764,6 +802,7 @@
 
         .evo_comment_text {
             font-size: 1.3rem;
+            word-wrap: break-word;
 
             .bFiles {
                 .action_icon {

@@ -185,7 +185,7 @@ class stain_Skin extends Skin
 					'defaultvalue' => '#F6F6F6',
 				),
 				'max_image_height' => array(
-					'label' 		=> T_('Max comment image height'),
+					'label' 		=> T_('Max Image Height'),
 					'note' 			=> 'px',
 					'defaultvalue'  => '',
 					'type' 			=> 'integer',
@@ -1358,7 +1358,7 @@ class stain_Skin extends Skin
 		$max_image_height = intval( $this->get_setting( 'max_image_height' ) );
 		if( $max_image_height > 0 )
 		{
-			$custom_css .= '.evo_image_block img { max-height: '.$max_image_height.'px; width: auto; }'."\n";
+			$custom_css .= '.evo_image_block img, .single-image img { max-height: '.$max_image_height.'px; width: auto; }'."\n";
 		}
 
 		/* Sitewide Custom
@@ -1545,6 +1545,11 @@ class stain_Skin extends Skin
 
 		/* MEDIAIDX OPTION | PHOTOBLOG OPTIONS
 		 * ========================================================================== */
+		$max_image_height = intval( $this->get_setting( 'max_mediaidx_height' ) );
+		if( $max_image_height > 0 ) {
+			$custom_css .= '.disp_mediaidx .evo_image_index .image_content img { max-height: '.$max_image_height.'px; width: auto; }'."\n";
+		}
+
 		if ( $space = $this->get_setting( 'mediaidx_space' ) ) {
 			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .image_content { padding: '.$space.'px }';
 			$custom_css .= '.disp_mediaidx .main_content .widget_core_coll_media_index .evo_image_index { margin-left: -'.$space.'px;  margin-right: -'.$space.'px }';
