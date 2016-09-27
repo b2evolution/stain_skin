@@ -4271,9 +4271,6 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   padding-bottom: 8px;
   margin-bottom: 30px;
 }
-#content .evo_post_content .widget_core_item_tags {
-  margin-bottom: 30px;
-}
 #content .evo_post_content .evo_post__full .evo_post__full_text h1,
 #content .evo_post_content .evo_post__except .evo_post__full_text h1,
 #content .evo_post_content .evo_post__full .evo_post__except_text h1,
@@ -4368,6 +4365,18 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   #content .evo_post_content .evo_post__except .evo_post__except_text iframe {
     height: 425px;
   }
+}
+#content .evo_post_content .evo_post__full .evo_post__full_text .evo_thumbnail__left,
+#content .evo_post_content .evo_post__except .evo_post__full_text .evo_thumbnail__left,
+#content .evo_post_content .evo_post__full .evo_post__except_text .evo_thumbnail__left,
+#content .evo_post_content .evo_post__except .evo_post__except_text .evo_thumbnail__left {
+  margin-right: 15px;
+}
+#content .evo_post_content .evo_post__full .evo_post__full_text .evo_thumbnail__right,
+#content .evo_post_content .evo_post__except .evo_post__full_text .evo_thumbnail__right,
+#content .evo_post_content .evo_post__full .evo_post__except_text .evo_thumbnail__right,
+#content .evo_post_content .evo_post__except .evo_post__except_text .evo_thumbnail__right {
+  margin-left: 15px;
 }
 #content .evo_post_content .evo_post__full .evo_post_images,
 #content .evo_post_content .evo_post__except .evo_post_images {
