@@ -3602,6 +3602,11 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
     font-size: 2.2rem;
   }
 }
+@media screen and (max-width: 480px) {
+  .posts_list .evo_posts.three_column .posts__info .posts__title h3 {
+    font-size: 1.8rem;
+  }
+}
 .posts_list .evo_posts.three_column .posts__info_author .author_avatar img {
   width: 32px;
   height: 32px;
@@ -3628,9 +3633,9 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 .posts_list .evo_posts.three_column .main__posts_content:focus .posts__info_cat {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transform: translateY(-40px);
-  -ms-transform: translateY(-40px);
-  transform: translateY(-40px);
+  -webkit-transform: translateY(-30px);
+  -ms-transform: translateY(-30px);
+  transform: translateY(-30px);
 }
 @media screen and (max-width: 991px) {
   .posts_list .evo_posts {
@@ -3678,10 +3683,11 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   display: inline-block;
   max-width: 100%;
   height: auto;
+  min-height: 210px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 480px) {
   .posts_list .evo_posts .feature__image {
-    min-height: 220px;
+    min-height: 180px;
   }
 }
 .posts_list .evo_posts .feature__image img {
@@ -3731,10 +3737,10 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 }
 .posts_list .evo_posts .posts__info_cat a {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 1px;
   color: #ffffff;
-  padding: 3px 8px;
+  padding: 3px 6px;
   margin-bottom: 3px;
   margin-right: 3px;
   border: 1px solid #ffffff;
@@ -3761,7 +3767,7 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 }
 .posts_list .evo_posts .posts__title h3 {
   font-family: "Roboto Slab", sans-serif;
-  font-size: 2.6rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin: 0;
   padding: 0;
@@ -3837,9 +3843,9 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 .posts_list .evo_posts .main__posts_content:hover .posts__title,
 .posts_list .evo_posts .main__posts_content:hover .posts__info_author,
 .posts_list .evo_posts .main__posts_content:hover .posts__info_date {
-  -webkit-transform: translateY(-50px);
-  -ms-transform: translateY(-50px);
-  transform: translateY(-50px);
+  -webkit-transform: translateY(-40px);
+  -ms-transform: translateY(-40px);
+  transform: translateY(-40px);
 }
 @media screen and (max-width: 480px) {
   .posts_list .evo_posts .main__posts_content:hover .posts__info_cat,

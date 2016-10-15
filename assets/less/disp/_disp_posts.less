@@ -95,9 +95,14 @@
 
                 .posts__title {
                     @media screen and ( max-width: @M ) {
-
                         h3 {
                             font-size: 2.2rem;
+                        }
+                    }
+
+                    @media screen and ( max-width: @S ) {
+                        h3{
+                            font-size: 1.8rem;
                         }
                     }
                 }
@@ -134,7 +139,7 @@
                     .posts__info_date,
                     .posts__info_cat {
                         transform-style: preserve-3d;
-                        transform: translateY(-40px);
+                        transform: translateY(-30px);
                     }
                 }
 
@@ -191,9 +196,10 @@
             display: inline-block;
             max-width: 100%;
             height: auto;
+            min-height: 210px;
 
-            @media screen and ( min-width: @M ) {
-                min-height: 220px;
+            @media screen and ( max-width: @S ) {
+                min-height: 180px;
             }
 
             img {
@@ -245,10 +251,10 @@
 
             a {
                 display: inline-block;
-                font-size: 1rem;
+                font-size: 0.9rem;
                 letter-spacing: 1px;
                 color: @w;
-                padding: 3px 8px;
+                padding: 3px 6px;
                 margin-bottom: 3px;
                 margin-right: 3px;
                 border: 1px solid @w;
@@ -275,7 +281,7 @@
 
             h3 {
                 font-family: @font_heading;
-                font-size: 2.6rem;
+                font-size: 2.5rem;
                 font-weight: 700;
                 // letter-spacing: 2px;
                 // text-transform: uppercase;
@@ -375,7 +381,7 @@
             .posts__title,
             .posts__info_author,
             .posts__info_date, {
-                transform: translateY( -50px );
+                transform: translateY( -40px );
 
                 @media screen and ( max-width: @S ) {
                     transform: translateY( -30px ) !important;
