@@ -763,36 +763,36 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_media_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Photo Index Settings').' (disp=mediaidx)',
+				'label'  => T_('Media Index Settings').' (disp=mediaidx)',
 			),
 				'max_mediaidx_height' => array(
-					'label'        => T_('Max Mediaidx image height'),
-					'note'         => 'px',
+					'label'        => T_('Max image height'),
+					'note'         => 'px. ' . T_('Set the maximum image height.'),
 					'defaultvalue' => '',
 					'type'         => 'integer',
 					'allow_empty'  => true,
 				),
 				'mediaidx_column' => array(
-					'label'			=> T_( 'Display Columns Image' ),
-					'note'			=> T_( '' ),
+					'label'			=> T_( 'Image columns count' ),
+					'note'			=> T_( 'Select the number of image columns.' ),
 					'type'			=> 'select',
 					'options'		=> array(
-						'one'	=> T_( '1 Column' ),
-						'two'	=> T_('2 Columns'),
-						'three'	=> T_('3 Columns'),
-						'four' 	=> T_('4 Columns'),
+						'one'	=> '1 ' . T_('Column'),
+						'two'	=> '2 ' . T_('Columns'),
+						'three'	=> '3 ' . T_('Columns'),
+						'four' 	=> '4 ' . T_('Columns'),
 					),
 					'defaultvalue'	=> 'three',
 				),
 				'mediaidx_space' => array(
-					'label'		    => T_( 'Space Image' ),
-					'note'			=> T_( 'px. Set the padding of image space. Default set is').' <code>10</code>.'.T_(' Also you can set').'  <strong>0</strong>'.T_(' for without space.' ),
+					'label'		    => T_( 'Image padding' ),
+					'note'			=> T_( 'px. Set the padding of images.' ) . T_('Default value is').' <code>10</code>. ('.T_('Also accepts 0 value') . ')',
 					'type'			=> 'integer',
 					'defaultvalue'	=> '10',
 					'size'			=> '5'
 				),
 				'mediaidx_thumb_size' => array(
-					'label'        => T_('Thumbnail size in Media index'),
+					'label'        => T_('Image size'),
 					'note'         => '',
 					'type'         => 'select',
 					'defaultvalue' => 'fit-1280x720',
@@ -810,8 +810,8 @@ class stain_Skin extends Skin
 					),
 				),
 				'mediaidx_display' => array(
-					'label'			=> T_( 'Display Image' ),
-					'note'			=> T_( 'Set the display of images in Mediaidx' ),
+					'label'			=> T_( 'Number of images' ),
+					'note'			=> T_( 'Set the number of images showing on this page.' ),
 					'type'			=> 'integer',
 					'defaultvalue'	=> '20',
 					'size'			=> '5'
@@ -833,8 +833,8 @@ class stain_Skin extends Skin
 					'defaultvalue' => '3',
 				),
 				'mediaidx_hover_style' => array(
-					'label'			=> T_( 'Image Hover Style' ),
-					'note'			=> T_( 'Choose your favorite image hover action.' ),
+					'label'			=> T_( 'Image hover animation' ),
+					'note'			=> T_( 'Select animation for hovering images.' ),
 					'type'			=> 'select',
 					'defaultvalue'	=> 'flip',
 					'options'		=> array(
@@ -849,19 +849,19 @@ class stain_Skin extends Skin
 					)
 				),
 				'mediaidx_view_btn' => array(
-					'label'			=> T_( 'Show View Button' ),
-					'note'			=> T_( 'Check to show button view when image hover' ),
+					'label'			=> T_( 'Display "View" button' ),
+					'note'			=> T_( 'Check to display "View" button when hovering images.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
 				'mediaidx_hover_bg' => array(
-					'label'			=> T_( 'Hover Overlay Color' ),
+					'label'			=> T_( 'Image hover overlay color' ),
 					'note'			=> T_( 'Default value is').' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
 				),
 				'mediaidx_overlay_opacity' => array(
-					'label'			=> T_( 'Opacity Color Overlay' ),
+					'label'			=> T_( 'Image hover overlay color opacity' ),
 					'note'			=> T_( 'Default value is' ).' <code>0.5</code>.',
 					'type'			=> 'select',
 					'defaultvalue'	=> '0.5',
@@ -889,32 +889,32 @@ class stain_Skin extends Skin
 					)
 				),
 				'mediaidx_title' => array(
-					'label'			=> T_( 'Display Title Image' ),
-					'note'			=> T_( 'Check to show the title image.' ),
+					'label'			=> T_( 'Display image title' ),
+					'note'			=> T_( 'Check to display image title.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 0,
 				),
 				'mediaidx_title_bg' => array(
-					'label'			=> T_( 'Change Title Background Color' ),
+					'label'			=> T_( 'Title Background Color' ),
 					'note'			=> T_( 'Default value is').' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#ffffff',
 				),
 				'mediaidx_title_color' => array(
-					'label'			=> T_( 'Change Title Color' ),
+					'label'			=> T_( 'Title Color' ),
 					'note'			=> T_( 'Default value is').' <code>#555555</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#555555'
 				),
 				'mediaidx_title_shadow' => array(
-					'label'			=> T_( 'Show Box Shadow Title Content' ),
-					'note'			=> T_( 'Checkbox to show box shadow in title box.' ),
+					'label'			=> T_( 'Title section shadow' ),
+					'note'			=> T_( 'Checkbox to display shadow on title section.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
 				'mediaidx_by' => array(
 					'label'			=> T_( 'Order by' ),
-					'note'			=> T_( 'How to sort the images' ),
+					'note'			=> T_( 'How to order the images' ),
 					'type'			=> 'select',
 					'options' 		=> get_available_sort_options(),
 					'defaultvalue' 	=> 'datestart',
@@ -924,14 +924,14 @@ class stain_Skin extends Skin
 					'note'			=> T_( 'How to sort the images' ),
 					'type'			=> 'select',
 					'options'		=> array(
-						'ASC' => T_( 'Ascending' ),
+						'ASC'  => T_( 'Ascending' ),
 						'DESC' => T_( 'Descending' ),
 					),
 					'defaultvalue'	=> 'ASC',
 				),
 				'banner_public' => array(
 					'label'        => T_('Display "Public" banner'),
-					'note'         => T_('Display banner for "Public" albums (albums & comments)'),
+					'note'         => T_('Display banner for "Public" albums and comments'),
 					'defaultvalue' => 1,
 					'type'         => 'checkbox',
 				),
