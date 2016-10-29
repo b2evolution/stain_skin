@@ -192,6 +192,12 @@ class stain_Skin extends Skin
 					'type' 			=> 'integer',
 					'allow_empty'   => true,
 				),
+				'banner_public' => array(
+					'label'        => T_('Display "Public" banner'),
+					'note'         => T_('Display banner for "Public" albums and comments'),
+					'defaultvalue' => 1,
+					'type'         => 'checkbox',
+				),
 				// 'favicon' => array(
 				// 	'label'          => T_('Favicon'),
 				// 	'note'           => T_('Change the default favicon from Skin Folder.'),
@@ -320,7 +326,7 @@ class stain_Skin extends Skin
 				),
 				'header_overlay' => array(
 					'label'        => T_( 'Color Overlay' ),
-					'note'         => T_( 'Check if you want to show Color Overlay for Header.' ),
+					'note'         => T_( 'Check if you want to display Color Overlay for Header.' ),
 					'type'         => 'checkbox',
 					'defaultvalue' => 1,
 				),
@@ -394,8 +400,8 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> '#ffffff',
 				),
 				'header_text_shadow_content' => array(
-					'label'			=> T_( 'Show Text Shadow Content' ),
-					'note'			=> T_( 'Checklist to show text-shadow on text content.' ),
+					'label'			=> T_( 'Display Text Shadow Content' ),
+					'note'			=> T_( 'Checklist to display text-shadow on text content.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
@@ -423,8 +429,8 @@ class stain_Skin extends Skin
 					'defaultvalue' => 1,
 				),
 				'nav_sticky_shadow' => array(
-					'label'			=> T_( 'Show Box Shadow' ),
-					'note'			=> T_( 'Checklist to show box-shadow Main Menu if sticky activated.' ),
+					'label'			=> T_( 'Display Box Shadow' ),
+					'note'			=> T_( 'Checklist to display box-shadow Main Menu if sticky activated.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
@@ -499,14 +505,14 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> '#FFFFFF',
 				),
 				'gallery_show' => array(
-					'label'        => T_( 'Column Posts Show' ),
+					'label'        => T_( 'Column Posts Display' ),
 					'note'         => T_( '' ),
 					'type'         => 'select',
 					'options'      => array(
-						'one_column' 	=> T_( '1 Column' ),
-						'two_column' 	=> T_( '2 Columns' ),
-						'three_column' 	=> T_( '3 Columns' ),
-						'four_column' 	=> T_( '4 Columns' ),
+						'one_column' 	=> '1 ' . T_( 'Column' ),
+						'two_column' 	=> '2 ' . T_( 'Columns' ),
+						'three_column' 	=> '3 ' . T_( 'Columns' ),
+						'four_column' 	=> '4 ' . T_( 'Columns' ),
 						// 'random' 		=> T_( 'Random' ),
 					),
 					'defaultvalue' => 'three_column',
@@ -674,7 +680,7 @@ class stain_Skin extends Skin
 					'size'			=> 10,
 					'type'         => 'select',
 					'options'      => array(
-						'original' 		=> 'Original',
+						// 'original' 		=> 'Original',
 						'fit-1280x720'  => 'fit-1280x720',
 						'crop-480x320'  => 'crop-480x320',
 					),
@@ -684,9 +690,9 @@ class stain_Skin extends Skin
 					'note'         => T_( '' ),
 					'type'         => 'select',
 					'options'      => array(
-						'one_column' 	=> T_( '1 Column' ),
-						'two_column' 	=> T_( '2 Columns' ),
-						'three_column'  => T_( '3 Columns' ),
+						'one_column' 	=> '1 ' . T_( 'Column' ),
+						'two_column' 	=> '2 ' . T_( 'Columns' ),
+						'three_column'  => '3 ' . T_( 'Columns' ),
 					),
 					'defaultvalue' => 'three_column'
 				),
@@ -929,12 +935,6 @@ class stain_Skin extends Skin
 					),
 					'defaultvalue'	=> 'ASC',
 				),
-				'banner_public' => array(
-					'label'        => T_('Display "Public" banner'),
-					'note'         => T_('Display banner for "Public" albums and comments'),
-					'defaultvalue' => 1,
-					'type'         => 'checkbox',
-				),
 			'section_media_end' => array(
 				'layout' => 'end_fieldset',
 			),
@@ -1136,10 +1136,10 @@ class stain_Skin extends Skin
 					'type'         => 'select',
 					'defaultvalue' => '3',
 					'options'      => array(
-						'1' => T_( '1 Column' ),
-						'2' => T_( '2 Columns' ),
-						'3' => T_( '3 Columns' ),
-						'4' => T_( '4 Columns' ),
+						'1' => '1 ' . T_( 'Column' ),
+						'2' => '2 ' . T_( 'Columns' ),
+						'3' => '3 ' . T_( 'Columns' ),
+						'4' => '4 ' . T_( 'Columns' ),
 					),
 				),
 				'footer_bottom_align' => array(
