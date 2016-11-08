@@ -1345,6 +1345,21 @@ class stain_Skin extends Skin
 			';
 		}
 
+		if( $cs_mediaquery = $this->get_setting( 'color_scheme' ) ) {
+			$custom_css .= '
+			@media screen and (max-width: 480px) {
+				.disp_profile .main_content .profile_tabs li.active a,
+				.disp_avatar .main_content .profile_tabs li.active a,
+				.disp_pwdchange .main_content .profile_tabs li.active a,
+				.disp_userprefs .main_content .profile_tabs li.active a,
+				.disp_subs .main_content .profile_tabs li.active a {
+				border: 1px solid '.$cs_mediaquery.';
+				background-color: '.$cs_mediaquery.';
+				}
+				}
+			';
+		}
+
 		if ( $color = $this->get_setting( 'body_color' ) ) {
 			$custom_css .= 'body, html { color: '.$color.' }';
 		}

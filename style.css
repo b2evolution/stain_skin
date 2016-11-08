@@ -1468,7 +1468,7 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 }
 @media screen and (max-width: 768px) {
   .main_navigation {
-    z-index: 11002;
+    z-index: 10999;
   }
 }
 .main_navigation ul {
@@ -4157,9 +4157,8 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 #content .single__post_images .single-image {
   display: inline-block;
   text-align: center;
+  padding-top: 10px;
   padding-bottom: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   float: none !important;
   -webkit-transition: all 0.52s cubic-bezier(0.87, 0.32, 0.04, 0.82);
   transition: all 0.52s cubic-bezier(0.87, 0.32, 0.04, 0.82);
@@ -4192,8 +4191,8 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   }
 }
 #content .single__post_images .evo_post_gallery {
-  margin-left: 15px;
-  margin-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 #content .single__post_images .evo_post_gallery.single-image {
   float: none;
@@ -5925,6 +5924,10 @@ html.sb-active #sb-site::after {
 .disp_contacts .main_content .results .table_scroll .fa-check {
   padding-right: 5px;
 }
+.disp_threads .main_content .results #thrd_ajax_content .panel-footer,
+.disp_contacts .main_content .results #thrd_ajax_content .panel-footer {
+  border-bottom: 1px solid #dddddd;
+}
 .disp_threads .main_content .form_send_contacts,
 .disp_contacts .main_content .form_send_contacts {
   margin-top: 20px;
@@ -6128,6 +6131,15 @@ html.sb-active #sb-site::after {
   padding: 40px;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
 }
+@media screen and (max-width: 480px) {
+  .disp_profile .main_content,
+  .disp_avatar .main_content,
+  .disp_pwdchange .main_content,
+  .disp_userprefs .main_content,
+  .disp_subs .main_content {
+    padding: 15px;
+  }
+}
 .disp_profile .main_content .title__content,
 .disp_avatar .main_content .title__content,
 .disp_pwdchange .main_content .title__content,
@@ -6153,6 +6165,25 @@ html.sb-active #sb-site::after {
   border-left-color: #18c54d;
   border-right-color: #18c54d;
   cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+  .disp_profile .main_content .profile_tabs li,
+  .disp_avatar .main_content .profile_tabs li,
+  .disp_pwdchange .main_content .profile_tabs li,
+  .disp_userprefs .main_content .profile_tabs li,
+  .disp_subs .main_content .profile_tabs li {
+    float: none;
+    margin-bottom: 2px;
+  }
+  .disp_profile .main_content .profile_tabs li.active a,
+  .disp_avatar .main_content .profile_tabs li.active a,
+  .disp_pwdchange .main_content .profile_tabs li.active a,
+  .disp_userprefs .main_content .profile_tabs li.active a,
+  .disp_subs .main_content .profile_tabs li.active a {
+    color: #ffffff;
+    border: 1px solid #18c54d;
+    background-color: #18c54d;
+  }
 }
 .disp_profile .main_content .profile_tabs a,
 .disp_avatar .main_content .profile_tabs a,
@@ -6217,6 +6248,21 @@ html.sb-active #sb-site::after {
   padding-left: 25px;
   padding-right: 25px;
 }
+@media screen and (max-width: 480px) {
+  .disp_profile .main_content .panel .panel-heading,
+  .disp_avatar .main_content .panel .panel-heading,
+  .disp_pwdchange .main_content .panel .panel-heading,
+  .disp_userprefs .main_content .panel .panel-heading,
+  .disp_subs .main_content .panel .panel-heading,
+  .disp_profile .main_content .panel .panel-body,
+  .disp_avatar .main_content .panel .panel-body,
+  .disp_pwdchange .main_content .panel .panel-body,
+  .disp_userprefs .main_content .panel .panel-body,
+  .disp_subs .main_content .panel .panel-body {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 .disp_profile .main_content .panel .panel-heading,
 .disp_avatar .main_content .panel .panel-heading,
 .disp_pwdchange .main_content .panel .panel-heading,
@@ -6256,6 +6302,30 @@ html.sb-active #sb-site::after {
 .disp_userprefs .main_content .panel .panel-body #p-container,
 .disp_subs .main_content .panel .panel-body #p-container {
   width: 250px !important;
+}
+@media screen and (max-width: 480px) {
+  .disp_profile .main_content .panel .panel-body #current_user_pass,
+  .disp_avatar .main_content .panel .panel-body #current_user_pass,
+  .disp_pwdchange .main_content .panel .panel-body #current_user_pass,
+  .disp_userprefs .main_content .panel .panel-body #current_user_pass,
+  .disp_subs .main_content .panel .panel-body #current_user_pass,
+  .disp_profile .main_content .panel .panel-body #edited_user_pass1,
+  .disp_avatar .main_content .panel .panel-body #edited_user_pass1,
+  .disp_pwdchange .main_content .panel .panel-body #edited_user_pass1,
+  .disp_userprefs .main_content .panel .panel-body #edited_user_pass1,
+  .disp_subs .main_content .panel .panel-body #edited_user_pass1,
+  .disp_profile .main_content .panel .panel-body #edited_user_pass2,
+  .disp_avatar .main_content .panel .panel-body #edited_user_pass2,
+  .disp_pwdchange .main_content .panel .panel-body #edited_user_pass2,
+  .disp_userprefs .main_content .panel .panel-body #edited_user_pass2,
+  .disp_subs .main_content .panel .panel-body #edited_user_pass2,
+  .disp_profile .main_content .panel .panel-body #p-container,
+  .disp_avatar .main_content .panel .panel-body #p-container,
+  .disp_pwdchange .main_content .panel .panel-body #p-container,
+  .disp_userprefs .main_content .panel .panel-body #p-container,
+  .disp_subs .main_content .panel .panel-body #p-container {
+    width: 192px !important;
+  }
 }
 .disp_profile .main_content .panel .panel-body #p-status,
 .disp_avatar .main_content .panel .panel-body #p-status,
@@ -6319,12 +6389,41 @@ html.sb-active #sb-site::after {
   color: #ffffff;
   border-color: #18c54d;
 }
+.disp_profile .main_content .panel .avatar_main_frame,
+.disp_avatar .main_content .panel .avatar_main_frame,
+.disp_pwdchange .main_content .panel .avatar_main_frame,
+.disp_userprefs .main_content .panel .avatar_main_frame,
+.disp_subs .main_content .panel .avatar_main_frame {
+  padding: 10px;
+  border-color: #dddddd;
+  border-radius: 2px;
+}
+.disp_profile .main_content .panel .avatar_main_frame .avatar,
+.disp_avatar .main_content .panel .avatar_main_frame .avatar,
+.disp_pwdchange .main_content .panel .avatar_main_frame .avatar,
+.disp_userprefs .main_content .panel .avatar_main_frame .avatar,
+.disp_subs .main_content .panel .avatar_main_frame .avatar {
+  max-width: 100%;
+  max-height: 100%;
+}
+.disp_profile .main_content .panel .avatar_main_frame .avatar_actions,
+.disp_avatar .main_content .panel .avatar_main_frame .avatar_actions,
+.disp_pwdchange .main_content .panel .avatar_main_frame .avatar_actions,
+.disp_userprefs .main_content .panel .avatar_main_frame .avatar_actions,
+.disp_subs .main_content .panel .avatar_main_frame .avatar_actions {
+  padding-left: 3px;
+}
 .disp_profile .main_content .btn,
 .disp_avatar .main_content .btn,
 .disp_pwdchange .main_content .btn,
 .disp_userprefs .main_content .btn,
 .disp_subs .main_content .btn {
   border-radius: 30px;
+}
+@media screen and (max-width: 480px) {
+  .disp_subs .main_content .panel .panel-body .form_text_input {
+    max-width: 80%;
+  }
 }
 .disp_login #content,
 .disp_lostpassword #content,

@@ -11,6 +11,10 @@
         padding: 40px;
         box-shadow: @box-shadow;
 
+        @media screen and ( max-width: @S ) {
+            padding: 15px;
+        }
+
         // Title Content
         // ======================================================================== /
         .title__content {
@@ -33,6 +37,20 @@
                         border-left-color: @primary;
                         border-right-color: @primary;
                         cursor: pointer;
+                    }
+                }
+
+
+                @media screen and ( max-width: @S ) {
+                    float: none;
+                    margin-bottom: 2px;
+
+                    &.active {
+                        a {
+                            color: @w;
+                            border: 1px solid @primary;
+                            background-color: @primary;
+                        }
                     }
                 }
             }
@@ -64,6 +82,11 @@
             .panel-body {
                 padding-left: 25px;
                 padding-right: 25px;
+
+                @media screen and ( max-width: @S ) {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
             }
 
             .panel-heading {
@@ -84,6 +107,10 @@
                 #edited_user_pass2,
                 #p-container {
                     width: 250px !important;
+
+                    @media screen and ( max-width: @S ) {
+                        width: 192px !important;
+                    }
                 }
 
                 #p-status {
@@ -117,6 +144,23 @@
 
             }
 
+            // PAGE AVATAR
+            // ======================================================================== /
+            .avatar_main_frame {
+                padding: 10px;
+                border-color: @cd;
+                border-radius: 2px;
+
+                .avatar {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+
+                .avatar_actions {
+                    padding-left: 3px;
+                }
+            }
+
         }
 
         .btn {
@@ -125,4 +169,19 @@
 
     }
 
+}
+
+// ======================================================================== /
+// Dish Hub
+// ======================================================================== /
+.disp_subs {
+    .main_content {
+        .panel .panel-body {
+            .form_text_input {
+                @media screen and ( max-width: @S ) {
+                    max-width: 80%;
+                }
+            }
+        }
+    }
 }
