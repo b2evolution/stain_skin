@@ -5924,8 +5924,8 @@ html.sb-active #sb-site::after {
 .disp_contacts .main_content .results .table_scroll .fa-check {
   padding-right: 5px;
 }
-.disp_threads .main_content .results #thrd_ajax_content .panel-footer,
-.disp_contacts .main_content .results #thrd_ajax_content .panel-footer {
+.disp_threads .main_content .results > div .panel-footer,
+.disp_contacts .main_content .results > div .panel-footer {
   border-bottom: 1px solid #dddddd;
 }
 .disp_threads .main_content .form_send_contacts,
@@ -6839,6 +6839,31 @@ html.sb-active #sb-site::after {
 }
 .disp_access_requires_login.loggedin .main_content {
   color: #ffffff;
+}
+.disp_usercomments #content .title__content {
+  box-shadow: none;
+  text-align: left;
+  padding: 0;
+}
+.disp_usercomments .main_content {
+  background-color: #ffffff;
+  padding: 30px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+}
+.disp_usercomments .main_content .results {
+  border-radius: 0;
+  border-color: #dddddd;
+}
+.disp_usercomments .main_content .results .fieldset_title {
+  border-bottom: 0;
+  padding: 15px 20px;
+}
+.disp_usercomments .main_content .results .table_scroll .table {
+  border-bottom: none;
+}
+.disp_usercomments .main_content .results .table_scroll .table td {
+  padding: 10px;
 }
 .disp_arcdir #content .title__content,
 .disp_msgform #content .title__content,
