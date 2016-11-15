@@ -6857,10 +6857,10 @@ html.sb-active #sb-site::after {
 .disp_useritems .main_content .results {
   border-radius: 0;
   border-color: #dddddd;
+  margin-bottom: 0;
 }
 .disp_usercomments .main_content .results .fieldset_title,
 .disp_useritems .main_content .results .fieldset_title {
-  border-bottom: 0;
   padding: 15px 20px;
 }
 .disp_usercomments .main_content .results .table_scroll .table,
@@ -6870,6 +6870,43 @@ html.sb-active #sb-site::after {
 .disp_usercomments .main_content .results .table_scroll .table td,
 .disp_useritems .main_content .results .table_scroll .table td {
   padding: 10px;
+}
+.disp_usercomments .main_content .results .pagination,
+.disp_useritems .main_content .results .pagination {
+  margin: 15px 0;
+}
+.disp_usercomments .main_content .results .pagination a,
+.disp_useritems .main_content .results .pagination a {
+  margin-right: 5px;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  color: #18c54d;
+  border-color: #eeeeee;
+}
+.disp_usercomments .main_content .results .pagination a:hover,
+.disp_useritems .main_content .results .pagination a:hover,
+.disp_usercomments .main_content .results .pagination a:active,
+.disp_useritems .main_content .results .pagination a:active,
+.disp_usercomments .main_content .results .pagination a:focus,
+.disp_useritems .main_content .results .pagination a:focus {
+  background-color: #18c54d;
+  border-color: #18c54d;
+  color: #ffffff;
+}
+.disp_usercomments .main_content .results .pagination .active a,
+.disp_useritems .main_content .results .pagination .active a {
+  color: #ffffff;
+  background-color: #18c54d;
+  border: 1px solid #18c54d;
+}
+.disp_usercomments .main_content .results .pagination .listnav_next a,
+.disp_useritems .main_content .results .pagination .listnav_next a,
+.disp_usercomments .main_content .results .pagination .listnav_prev a,
+.disp_useritems .main_content .results .pagination .listnav_prev a {
+  border-radius: 30px;
+  width: auto;
+  padding: 6px 18px;
 }
 .disp_arcdir #content .title__content,
 .disp_msgform #content .title__content,
