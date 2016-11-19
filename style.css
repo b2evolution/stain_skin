@@ -3926,6 +3926,10 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   width: 80px;
   border-radius: 30px;
 }
+.main_pagination .pagination li[class*=" listnav_distance_"],
+.main_pagination .pagination li[class^=listnav_distance_] {
+  display: none;
+}
 .main_pagination .pagination a,
 .main_pagination .pagination span {
   font-size: 1.3rem;
