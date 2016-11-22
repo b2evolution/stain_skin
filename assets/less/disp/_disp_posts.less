@@ -438,7 +438,6 @@
         }
 
         li {
-            display: inline-block;
 
             &.active span, &.active a{
                 background-color: @primary;
@@ -451,12 +450,6 @@
                     border-radius: 30px;
                 }
             }
-
-            &[class*=" listnav_distance_"],
-            &[class^=listnav_distance_] {
-                display: none
-            }
-
         }
 
         a, span {
@@ -468,7 +461,7 @@
             text-align: center;
             line-height: 28px;
             border-radius: 50%;
-            margin-right: 2px;
+            margin-right: 6px;
             color: @primary;
             // border: 1px solid @primary;
             border: none;
