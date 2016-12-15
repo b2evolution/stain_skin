@@ -1392,6 +1392,7 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 @media screen and (max-width: 480px) {
   .main_header {
     min-height: 220px !important;
+    width: 100%;
     height: 100%;
   }
 }
@@ -6032,6 +6033,9 @@ html.sb-active #sb-site::after {
   padding: 5px 15px;
   color: #18c54d;
   border-color: #18c54d;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-bottom: 3px;
 }
 .disp_messages .evo_private_messages_list .messages_list_actions .btn:hover,
 .disp_messages .evo_private_messages_list .messages_list_actions .btn:active,
@@ -6982,6 +6986,11 @@ ul.profile_tabs {
   padding: 10px 25px;
   border-radius: 30px;
   background-color: transparent;
+}
+@media screen and (max-width: 600px) {
+  .SaveButton {
+    margin-bottom: 3px;
+  }
 }
 .SaveButton.btn-primary {
   color: #18c54d;
