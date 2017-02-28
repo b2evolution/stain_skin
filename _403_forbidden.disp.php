@@ -17,16 +17,24 @@
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
 global $Blog;
-
 ?>
 <div class="error_404">
-    <div class="error_404_content">
-        <h1>Ooops!</h1>
-        <p>We can't seem to find the page you're looking for.</p>
-        <span>Error code: 403</span>
-    </div>
-
-    <div class="error_back">
-        <a href="<?php echo $Blog->get('url'); ?>" class="btn back_to_home">Back to home</a>
-    </div>
-</div><!-- .error_404 -->
+    <?php
+        // ------------------------- "404 Page" CONTAINER EMBEDDED HERE --------------------------
+        skin_container( /* TRANS: Widget container name */ NT_('404 Page'), array(
+            // The following params will be used as defaults for widgets included in this container:
+            // This will enclose each widget in a block:
+            'block_start' 			=> '<div class="evo_widget $wi_class$">',
+            'block_end'   			=> '</div>',
+            // This will enclose the title of each widget:
+            'block_title_start' 	=> '<h3>',
+            'block_title_end'   	=> '</h3>',
+            // Widget 'Search form':
+            'search_input_before'  	=> '<div class="input-group">',
+            'search_input_after'   	=> '',
+            'search_submit_before' 	=> '<span class="input-group-btn">',
+            'search_submit_after'  	=> '</span></div>',
+        ) );
+        // ----------------------------- END OF "404 Page" CONTAINER -----------------------------
+     ?>
+</div>

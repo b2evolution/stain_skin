@@ -1124,6 +1124,24 @@ class stain_Skin extends Skin
 					'type'         => 'color',
 					'defaultvalue' => '#0E1215',
 				),
+				'footer_color_content' => array(
+					'label'        => T_( 'Color Content' ),
+					'note'         => T_( 'Default value is').' <code>#ffffff</code>.',
+					'type'         => 'color',
+					'defaultvalue' => '#FFFFFF',
+				),
+				'footer_color_title' => array(
+					'label'        => T_( 'Color Title' ),
+					'note'         => T_( 'Default value is').' <code>#ffffff</code>.',
+					'type'         => 'color',
+					'defaultvalue' => '#FFFFFF',
+				),
+				'footer_color_link' => array(
+					'label'        => T_( 'Color Link' ),
+					'note'         => T_( 'Default value is').' <code>#ffffff</code>.',
+					'type'         => 'color',
+					'defaultvalue' => '#FFFFFF',
+				),
 				'footer_widget' => array(
 					'label'        => T_( 'Enable Footer Widget' ),
 					'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu ').'<code>Widgets</code>.',
@@ -1239,23 +1257,23 @@ class stain_Skin extends Skin
 
 			/* Acces Settings
 			* ========================================================================== */
-			'section_access_start' => array(
-				'layout' => 'begin_fieldset',
-				'label'  => T_('When access is denied or requires login').'... (disp=access_denied and disp=access_requires_login)',
-			),
-				'access_login_containers' => array(
-					'label'   => T_('Display on login screen'),
-					'note'    => '',
-					'type'    => 'checklist',
-					'options' => array(
-						array( 'header',   sprintf( T_('"%s" container'), NT_('Header') ),    1 ),
-						array( 'sidebar',  sprintf( T_('"%s" container'), NT_('Sidebar') ),   0 ),
-						array( 'footer',   sprintf( T_('"%s" container'), NT_('Footer') ),    1 )
-					),
-				),
-			'section_access_end' => array(
-				'layout' => 'end_fieldset',
-			),
+			// 'section_access_start' => array(
+			// 	'layout' => 'begin_fieldset',
+			// 	'label'  => T_('When access is denied or requires login').'... (disp=access_denied and disp=access_requires_login)',
+			// ),
+			// 	'access_login_containers' => array(
+			// 		'label'   => T_('Display on login screen'),
+			// 		'note'    => '',
+			// 		'type'    => 'checklist',
+			// 		'options' => array(
+			// 			array( 'header',   sprintf( T_('"%s" container'), NT_('Header') ),    1 ),
+			// 			array( 'sidebar',  sprintf( T_('"%s" container'), NT_('Sidebar') ),   0 ),
+			// 			array( 'footer',   sprintf( T_('"%s" container'), NT_('Footer') ),    1 )
+			// 		),
+			// 	),
+			// 'section_access_end' => array(
+			// 	'layout' => 'end_fieldset',
+			// ),
 
 		), parent::get_param_definitions( $params ) );
 
@@ -1635,6 +1653,19 @@ class stain_Skin extends Skin
 		* ========================================================================== */
 		if ( $bg = $this->get_setting( 'footer_bg' ) ) {
 			$custom_css .= '#footer{ background-color: '.$bg.' }';
+		}
+
+		if ( $color = $this->get_setting('footer_color_content') ) {
+			$custom_css .= '#footer .footer__widgets{ color: '.$color.' }';
+		}
+
+		if ( $color = $this->get_setting( 'footer_color_title' ) ) {
+			$custom_css .= '#footer .footer__widgets .widget_title{ color: '.$color.' }';
+		}
+
+		if ( $color = $this->get_setting( 'footer_color_link' ) ) {
+			$custom_css .= '#footer .footer__widgets a, #footer .footer__widgets .evo_widget ul a{ color: '.$color.' }';
+			$custom_css .= 'div.widget_core_coll_item_list.evo_noexcerpt.evo_withteaser div.item_content > a, div.widget_core_coll_featured_posts.evo_noexcerpt.evo_withteaser div.item_content > a, div.widget_core_coll_post_list.evo_noexcerpt.evo_withteaser div.item_content > a, div.widget_core_coll_page_list.evo_noexcerpt.evo_withteaser div.item_content > a, div.widget_core_coll_related_post_list.evo_noexcerpt.evo_withteaser div.item_content > a, div.widget_core_coll_item_list.evo_withexcerpt.evo_withteaser div.item_content > a, div.widget_core_coll_featured_posts.evo_withexcerpt.evo_withteaser div.item_content > a, div.widget_core_coll_post_list.evo_withexcerpt.evo_withteaser div.item_content > a, div.widget_core_coll_page_list.evo_withexcerpt.evo_withteaser div.item_content > a, div.widget_core_coll_related_post_list.evo_withexcerpt.evo_withteaser div.item_content > a, div.widget_core_coll_item_list.evo_withexcerpt.evo_noteaser div.item_content > a, div.widget_core_coll_featured_posts.evo_withexcerpt.evo_noteaser div.item_content > a, div.widget_core_coll_post_list.evo_withexcerpt.evo_noteaser div.item_content > a, div.widget_core_coll_page_list.evo_withexcerpt.evo_noteaser div.item_content > a, div.widget_core_coll_related_post_list.evo_withexcerpt.evo_noteaser div.item_content > a, div.widget_core_coll_item_list.evo_noexcerpt.evo_withteaser div.item_excerpt > a, div.widget_core_coll_featured_posts.evo_noexcerpt.evo_withteaser div.item_excerpt > a, div.widget_core_coll_post_list.evo_noexcerpt.evo_withteaser div.item_excerpt > a, div.widget_core_coll_page_list.evo_noexcerpt.evo_withteaser div.item_excerpt > a, div.widget_core_coll_related_post_list.evo_noexcerpt.evo_withteaser div.item_excerpt > a, div.widget_core_coll_item_list.evo_withexcerpt.evo_withteaser div.item_excerpt > a, div.widget_core_coll_featured_posts.evo_withexcerpt.evo_withteaser div.item_excerpt > a, div.widget_core_coll_post_list.evo_withexcerpt.evo_withteaser div.item_excerpt > a, div.widget_core_coll_page_list.evo_withexcerpt.evo_withteaser div.item_excerpt > a, div.widget_core_coll_related_post_list.evo_withexcerpt.evo_withteaser div.item_excerpt > a, div.widget_core_coll_item_list.evo_withexcerpt.evo_noteaser div.item_excerpt > a, div.widget_core_coll_featured_posts.evo_withexcerpt.evo_noteaser div.item_excerpt > a, div.widget_core_coll_post_list.evo_withexcerpt.evo_noteaser div.item_excerpt > a, div.widget_core_coll_page_list.evo_withexcerpt.evo_noteaser div.item_excerpt > a, div.widget_core_coll_related_post_list.evo_withexcerpt.evo_noteaser div.item_excerpt > a { border-color: '.$color.' }';
 		}
 
 		if ( $this->get_setting( 'footer_bottom_align' ) == 'center' ) {

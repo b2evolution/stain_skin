@@ -4879,11 +4879,26 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   height: 100%;
   background-color: rgba(255, 255, 255, 0.5);
 }
-.main_content .error_404_content {
-  margin-bottom: 60px;
+.main_content .error_404 .evo_widget {
   text-align: center;
 }
-.main_content .error_404_content h1 {
+.main_content .error_404 .evo_widget h3 {
+  text-transform: uppercase;
+}
+.main_content .error_404_content,
+.main_content .widget_core_page_404_not_found {
+  margin-bottom: 60px;
+  text-align: center;
+  font-size: 1.8rem;
+  letter-spacing: -0.2px;
+  font-weight: 300;
+}
+.main_content .error_404_content h1,
+.main_content .widget_core_page_404_not_found h1,
+.main_content .error_404_content h2,
+.main_content .widget_core_page_404_not_found h2,
+.main_content .error_404_content h3,
+.main_content .widget_core_page_404_not_found h3 {
   font-size: 8rem;
   font-weight: 700;
   letter-spacing: -3px;
@@ -4891,21 +4906,19 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   color: #18c54d;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 }
-.main_content .error_404_content p {
-  font-size: 1.8rem;
-  letter-spacing: -0.2px;
-  font-weight: 300;
-}
-.main_content .error_404_content p span {
+.main_content .error_404_content span,
+.main_content .widget_core_page_404_not_found span {
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase;
   color: #333333;
 }
-.main_content .error_404_content p span span {
+.main_content .error_404_content span span,
+.main_content .widget_core_page_404_not_found span span {
   color: red;
 }
-.main_content .error_404_content span {
+.main_content .error_404_content span,
+.main_content .widget_core_page_404_not_found span {
   color: rgba(255, 0, 0, 0.5);
 }
 .main_content .error_back {
