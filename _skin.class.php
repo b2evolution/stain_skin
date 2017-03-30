@@ -165,7 +165,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_general_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label' 	=> T_( 'General Settings' ).' (All disps)',
+				'label' 	=> T_('General Settings').' ('. T_( 'All Pages' ) .')',
 			),
 				'color_scheme' => array(
 					'label'			=> T_( 'Color Scheme' ),
@@ -174,7 +174,7 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> '#18C54D',
 				),
 				'body_color' => array(
-					'label'			=> T_( 'Text Body Color' ),
+					'label'			=> T_( 'Content Color' ),
 					'note'			=> T_( 'Default value is' ).' <code>#555555</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#555555'
@@ -187,14 +187,14 @@ class stain_Skin extends Skin
 				),
 				'max_image_height' => array(
 					'label' 		=> T_('Max Image Height'),
-					'note' 			=> 'px',
+					'note' 			=> 'px.',
 					'defaultvalue'  => '',
 					'type' 			=> 'integer',
 					'allow_empty'   => true,
 				),
 				'banner_public' => array(
-					'label'        => T_('Display "Public" banner'),
-					'note'         => T_('Display banner for "Public" albums and comments'),
+					'label'        => T_('Display status badges'),
+					'note'         => T_('Display status badges for posts and comments.'),
 					'defaultvalue' => 1,
 					'type'         => 'checkbox',
 				),
@@ -207,7 +207,7 @@ class stain_Skin extends Skin
 				// ),
 				'back_to_top' => array(
 					'label'			=> T_( 'Back To Top Button' ),
-					'note'			=> T_( 'Check to show button back to top.' ),
+					'note'			=> T_( 'Check to display back to top button.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue' 	=> 1,
 				),
@@ -255,11 +255,11 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_header_start' => array(
 				'layout'   => 'begin_fieldset',
-				'label'    => T_( 'Header Settings' ).' (All disps)',
+				'label'    => T_( 'Header Settings' ).' ('. T_( 'All Pages' ) .')',
 			),
 				'header_height' => array(
-					'label'        => T_('Height'),
-					'note'         => T_( 'px. If the content header higher from this option. Height will follow the content.' ),
+					'label'        => T_( 'Minimum Height' ),
+					'note'         => 'px. ' . T_( 'Set the minimum height of the header section. If the content is bigger, header height will adapt.' ),
 					'type'         => 'integer',
 					'defaultvalue' => '320',
 					'size'         => '3px',
@@ -267,7 +267,7 @@ class stain_Skin extends Skin
 				),
 				'header_bg_type' => array(
 					'label'			=> T_( 'Background Image Source' ),
-					'note'			=> '<br />'.T_( 'Select the source for background image, you can choose default background image on file asset or upload custom background image.' ),
+					'note'			=> '<br />'.T_( 'Select the source for background image. You can choose default background image on file asset or upload custom background image.' ),
 					'type'			=> 'select',
 					'options'		=> array(
 						'images' 		=> T_( 'Image Asset' ),
@@ -277,7 +277,7 @@ class stain_Skin extends Skin
 				),
 				'header_bg' => array(
 					'label'        => T_( 'Background Image' ),
-					'note'         => T_( '' ),
+					'note'         => '',
 					'type'         => 'radio',
 					'options'      => $arr_bodybg,
 					'defaultvalue' => reset( $arr_bodybg[0] ),
@@ -291,25 +291,25 @@ class stain_Skin extends Skin
 				),
 				'header_bg_position_x' => array(
 					'label'        => T_( 'Background Position X' ),
-					'note'         => T_( '%').'<br>'.T_('Default value is' ).' <code>50%</code>.',
+					'note'         => '%. '.T_('Horizontal position of the background image.').' '.T_('Default value is' ).' <code>50%</code>.',
 					'type'         => 'integer',
 					'defaultvalue' => '50',
 					'size'         => 3,
 				),
 				'header_bg_position_y' => array(
 					'label'        => T_( 'Background Position Y' ),
-					'note'         => T_( '%').'<br>'.T_('Default value is' ).' <code>50%</code>.',
+					'note'         => '%. '.T_('Vertical position of the background image.').' '.T_('Default value is' ).' <code>50%</code>.',
 					'type'         => 'integer',
 					'defaultvalue' => '50',
 					'size'         => 3,
 				),
 				'header_bg_attach' => array(
-					'label'        => T_( 'Background Attachment' ),
-					'note'         => T_( '' ),
+					'label'        => T_( 'Background Behavior' ),
+					'note'         => '',
 					'type'         => 'radio',
 					'defaultvalue' => 'initial',
 					'options'      => array(
-						array( 'initial', T_( 'Initial' ) ),
+						array( 'initial', T_( 'Static' ) ),
 						array( 'fixed', T_( 'Fixed' ) ),
 					),
 				),
@@ -325,19 +325,19 @@ class stain_Skin extends Skin
 					'defaultvalue' => 'cover',
 				),
 				'header_overlay' => array(
-					'label'        => T_( 'Color Overlay' ),
-					'note'         => T_( 'Check if you want to display Color Overlay for Header.' ),
+					'label'        => T_( 'Header Overlay' ),
+					'note'         => T_( 'Check if you want to display color overlay for header section.' ),
 					'type'         => 'checkbox',
 					'defaultvalue' => 1,
 				),
 				'color_overlay' => array(
-					'label'        => T_( 'Change Color Overlay' ),
+					'label'        => T_( 'Header Overlay Color' ),
 					'note'         => T_( 'Default value is' ).' <code>#000000</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#000000',
 				),
 				'opcity_cv' => array(
-					'label'        => T_( 'Opacity Color Overlay' ),
+					'label'        => T_( 'Header Overlay Color Opacity' ),
 					'note'         => T_( 'Default value is' ). ' <code>0.2</code>.',
 					'type'         => 'select',
 					'options'      => array(
@@ -372,19 +372,19 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_head_con_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_('Header Content Settings').' (All disps)',
+				'label'		=> T_('Header Content Settings').' ('. T_( 'All Pages' ) .')',
 			),
 				'header_content_top' => array(
 					'label'			=> T_( 'Content Padding Top' ),
-					'note'			=> T_( 'px. Default value is' ).' <code>125px.</code>',
+					'note'			=> 'px. '.T_( 'Default value is' ).' <code>125px.</code>',
 					'type'			=> 'integer',
 					'allow_empty'	=> false,
 					'defaultvalue'	=> '125',
 					'size'			=> 5,
 				),
 				'header_content_align' => array(
-					'label'        => T_( 'Content Align' ),
-					'note'         => T_(''),
+					'label'        => T_( 'Header Content Alignment' ),
+					'note'         => T_('Set the content alignment in the header section.'),
 					'type'         => 'radio',
 					'defaultvalue' => 'center',
 					'options'      => array(
@@ -394,14 +394,14 @@ class stain_Skin extends Skin
 					),
 				),
 				'header_color_content' => array(
-					'label'			=> T_( 'Color Text Content Header' ),
+					'label'			=> T_( 'Header Content Color' ),
 					'note'			=> T_( 'Default value is' ).' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#ffffff',
 				),
 				'header_text_shadow_content' => array(
-					'label'			=> T_( 'Display Text Shadow Content' ),
-					'note'			=> T_( 'Checklist to display text-shadow on text content.' ),
+					'label'			=> T_( 'Header Content Text Shadow' ),
+					'note'			=> T_( 'Check to display text-shadow on header content.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
@@ -413,7 +413,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_nav_start' => array(
 				'layout' => 'begin_fieldset',
-				'label'  => T_('Main Navigation Settings').' (All disps)',
+				'label'  => T_('Main Navigation Menu Settings').' ('. T_( 'All Pages' ) .')',
 			),
 				'nav_bg'  => array(
 					'label'        => T_( 'Background Color' ),
@@ -423,19 +423,19 @@ class stain_Skin extends Skin
 					'size'		   => 20,
 				),
 				'nav_sticky' => array(
-					'label'        => T_( 'Sticky Mode' ),
-					'note'         => T_( 'Check to enable Sticky Nav.' ),
+					'label'        => T_( 'Sticky Menu' ),
+					'note'         => T_( 'Check to enable "sticky menu" ability.' ),
 					'type'         => 'checkbox',
 					'defaultvalue' => 1,
 				),
 				'nav_sticky_shadow' => array(
-					'label'			=> T_( 'Display Box Shadow' ),
-					'note'			=> T_( 'Checklist to display box-shadow Main Menu if sticky activated.' ),
+					'label'			=> T_( 'Sticky Menu Shadow' ),
+					'note'			=> T_( 'Check to display shadow below the sticky menu for easier distinguish from the content.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
 				'nav_align' => array(
-					'label'        => T_( 'Menu Align' ),
+					'label'        => T_( 'Menu Alignment' ),
 					'note'         => T_(''),
 					'type'         => 'radio',
 					'defaultvalue' => 'center',
@@ -446,8 +446,8 @@ class stain_Skin extends Skin
 					),
 				),
 				'nav_hover_style' => array (
-					'label'			=> T_( 'Nav Style Hover' ),
-					'note'			=> T_( 'Choose your favorite navigation style when menu is hover.' ),
+					'label'			=> T_( 'Menu Links Hover Animation' ),
+					'note'			=> T_( 'Choose the animation that appears when hovering menu links.' ),
 					'type'			=> 'select',
 					'options'		=> array(
 						'1' => 'Hover 1',
@@ -460,13 +460,13 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> '1',
 				),
 				'nav_color' => array(
-					'label'        => T_( 'Nav Color' ),
+					'label'        => T_( 'Menu Links Color' ),
 					'note'         => T_( 'Default value is' ).' <strong>Empty</strong>.',
 					'type'         => 'color',
 					'defaultvalue' => '',
 				),
 				'nav_color_hov' => array(
-					'label'        => T_( 'Nav Color Hover' ),
+					'label'        => T_( 'Menu Links Hover Color' ),
 					'note'         => T_( 'Default value is' ).' <code>#FFFFFF</code>. ',
 					'type'         => 'color',
 					'defaultvalue' => '#FFFFFF',
@@ -496,36 +496,36 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_gallery_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label' 	=> T_( 'Gallery Settings' ).' (disp=catdir)',
+				'label' 	=> T_( 'Category Page Settings' ),
 			),
 				'cat_heading_bgc' => array(
-					'label'			=> T_( 'Background Title Category' ),
+					'label'			=> T_( 'Category Name Background Color' ),
 					'note'			=> T_( 'Default value is' ).' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
 				),
 				'gallery_show' => array(
-					'label'        => T_( 'Column Posts Display' ),
-					'note'         => T_( '' ),
+					'label'        => T_( 'Posts Per Row' ),
+					'note'         => T_( 'Select the number of posts per row.' ),
 					'type'         => 'select',
 					'options'      => array(
-						'one_column' 	=> '1 ' . T_( 'Column' ),
-						'two_column' 	=> '2 ' . T_( 'Columns' ),
-						'three_column' 	=> '3 ' . T_( 'Columns' ),
-						'four_column' 	=> '4 ' . T_( 'Columns' ),
+						'one_column' 	=> '1 ' . T_( 'Post' ),
+						'two_column' 	=> '2 ' . T_( 'Posts' ),
+						'three_column' 	=> '3 ' . T_( 'Posts' ),
+						'four_column' 	=> '4 ' . T_( 'Posts' ),
 						// 'random' 		=> T_( 'Random' ),
 					),
 					'defaultvalue' => 'three_column',
 				),
 				'gallery_gutter' => array(
-					'label'			=> T_( 'Spance Posts Category' ),
+					'label'			=> T_( 'Space Between Posts' ),
 					'note'			=> T_( 'px. Default value is').' <code>10px</code>.',
 					'type'		   	=> 'integer',
 					'defaultvalue' 	=> '10',
 					'size'		   	=> 5
 				),
 				'gallery_thumb_size' => array(
-					'label'        => T_('Thumbnail size for Albums'),
+					'label'        => T_('Post Thumbnail Size'),
 					'note'         => '',
 					'defaultvalue' => 'fit-1280x720',
 					'type'         => 'select',
@@ -553,8 +553,8 @@ class stain_Skin extends Skin
 				// 	'defaultvalue' => '2',
 				// ),
 				'cat_post_style' => array(
-					'label'			=> T_( 'Post Style' ),
-					'note'			=> T_( 'Choose your favorite post style every category list.' ),
+					'label'			=> T_( 'Post Layout' ),
+					'note'			=> '"'.T_('Default').'" '.T_( 'post layout places image above the title.').' "'.T_('Background Image').'" '.T_('post layout places image behind the post content.' ),
 					'type'			=> 'select',
 					'defaultvalue'	=> 'default',
 					'options'		=> array(
@@ -564,29 +564,29 @@ class stain_Skin extends Skin
 					)
 				),
 				'gallery_hover_style' => array(
-					'label'        => T_( 'Style Image Hover' ),
-					'note'         => T_( 'Select the favorite Image Hover Style for Gallery Posts.' ),
+					'label'        => T_( 'Post Image Hover Animation' ),
+					'note'         => T_( 'Select the hover animation for post images.' ),
 					'type'         => 'select',
 					'defaultvalue' => 'opacity',
 					'options'      => array(
-						'none'        => 'None',
-						'opacity'     => 'Opacity',
-						'zoom'        => 'Zoom',
-						'flip'        => 'Flip',
-						'right_left'  => 'Right to Left',
-						'left_right'  => 'Left to Right',
-						'bt_top'	  => 'Bottom to Top',
-						'top_bt'	  => 'Top to Bottom',
+						'none'        => T_('None'),
+						'opacity'     => T_('Opacity change'),
+						'zoom'        => T_('Zoom'),
+						'flip'        => T_('Flip'),
+						'right_left'  => T_('Right to Left'),
+						'left_right'  => T_('Left to Right'),
+						'bt_top'	  => T_('Bottom to Top'),
+						'top_bt'	  => T_('Top to Bottom'),
 					),
 				),
 				'cat_img_color_overlay' => array(
-					'label'			=> T_( 'Color Hover Overlay' ),
+					'label'			=> T_( 'Post Image Hover Overlay Color' ),
 					'note'			=> T_( 'Default value is').' <code>#FFFFFF</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF'
 				),
 				'cat_opcity_overlay' => array(
-					'label'        => T_( 'Opacity Color Overlay' ),
+					'label'        => T_( 'Post Image Hover Overlay Color Opacity' ),
 					'note'         => T_( 'Default value is' ).' <code>0.5</code>.',
 					'type'         => 'select',
 					'options'      => array(
@@ -614,45 +614,45 @@ class stain_Skin extends Skin
 					'defaultvalue' => '0.5',
 				),
 				'gallery_bg' => array(
-					'label'        => T_( 'Background Content Posts' ),
+					'label'        => T_( 'Post Card Background Color' ),
 					'note'         => T_( 'Default value is').' <code>#FFFFFF</code>.',
 					'type'         => 'color',
 					'defaultvalue' => '#FFFFFF'
 				),
 				'cat_color_content' => array(
-					'label'			=> T_( 'Content Color' ),
+					'label'			=> T_( 'Post Card Content Color' ),
 					'note'			=> T_( 'Default value is').' <code>#777777</code>.',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#777777'
 				),
 				'gallery_shadow' => array(
-					'label'        => T_( 'Show Box Shadow' ),
-					'note'         => T_( 'Check for show Box Shadow content when Image Gallery is hover.' ),
+					'label'        => T_( 'Post Card Shadow' ),
+					'note'         => T_( 'Check to enable shadow behind the post cards.' ),
 					'type'         => 'checkbox',
 					'defaultvalue' => 1,
 				),
 				'cat_title_size' => array(
-					'label'        => T_( 'Size Title Category' ),
+					'label'        => T_( 'Post Title Size' ),
 					'note'         => T_( 'px. Default value is').' <code>28px</code>.',
 					'type'         => 'integer',
 					'defaultvalue' => '28',
 					'size'         => 3,
 				),
 				'cat_post_excerpt' => array(
-					'label'			=> T_( 'Show Content Excerpt' ),
-					'note'			=> T_( 'Checkox to show post content excerpt.' ),
+					'label'			=> T_( 'Post Excerpt' ),
+					'note'			=> T_( 'Checkox to enable post excerpts.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 0,
 				),
 				'cat_post_tags' => array(
-					'label'			=> T_( 'Show Tags Post' ),
-					'note'			=> T_( 'Checkox to show tags post.' ),
+					'label'			=> T_( 'Post Tags' ),
+					'note'			=> T_( 'Checkox to enable post tags.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 0,
 				),
 				'cat_post_comment' => array(
-					'label'			=> T_( 'Show Comment Count Post' ),
-					'note'			=> T_( 'Checkox to show comment count.' ),
+					'label'			=> T_( 'Post Comments Count' ),
+					'note'			=> T_( 'Checkox to enable post comments count.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 0,
 				),
@@ -665,7 +665,7 @@ class stain_Skin extends Skin
 			* ========================================================================== */
 			'section_posts_start' => array(
 				'layout'   => 'begin_fieldset',
-				'label'    => T_( 'Posts Settings' ).' (disp=posts)',
+				'label'    => T_( 'Posts Page Settings' ),
 			),
 				'posts_full_width' => array(
 					'label'			=> T_( 'Full Width Container' ),
@@ -1540,7 +1540,7 @@ class stain_Skin extends Skin
 		}
 
 		if( $this->get_setting( 'cat_post_style' ) == 'bg_img' ) {
-			// $custom_css .= '#content .cat_content .cats_list .evo_post{  margin-top: 10px; }';
+			$custom_css .= '#content .cat_content .cats_list .post_bg_image .evo_post_images img {  width: 100%; height: 100%; }';
 		}
 
 		if( $color = $this->get_setting( 'cat_img_color_overlay' ) ) {
