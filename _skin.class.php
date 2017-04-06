@@ -313,17 +313,6 @@ class stain_Skin extends Skin
 						array( 'fixed', T_( 'Fixed' ) ),
 					),
 				),
-				'header_bg_size' => array(
-					'label'        => T_( 'Background Size' ),
-					'note'         => T_( 'Set the background size.' ),
-					'type'         => 'select',
-					'options'      => array(
-						'initial'  => T_( 'Initial' ),
-						'contain'  => T_( 'Contain' ),
-						'cover'    => T_( 'Cover' ),
-					),
-					'defaultvalue' => 'cover',
-				),
 				'header_overlay' => array(
 					'label'        => T_( 'Header Overlay' ),
 					'note'         => T_( 'Check if you want to display color overlay for header section.' ),
@@ -1442,14 +1431,6 @@ class stain_Skin extends Skin
 		switch ( $header_bg_attach ) {
 			case $header_bg_attach:
 			$custom_css .= '.main_header{ background-attachment: '.$header_bg_attach.'; }';
-			break;
-		}
-
-		// Header Background Size
-		$header_bg_size = $this->get_setting( 'header_bg_size' );
-		switch ( $header_bg_size ) {
-			case $header_bg_size:
-			$custom_css .= '.main_header{ background-size: '.$header_bg_size.'; }';
 			break;
 		}
 

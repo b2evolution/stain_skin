@@ -167,12 +167,14 @@ switch( $Comment->get( 'type' ) )
 }
 
 // Status
-if( $Comment->status != 'published' )
-{ // display status of comment (typically an angled banner in the top right corner):
-	$Comment->format_status( array(
-			'template' => '<div class="evo_status evo_status__$status$ badge pull-right">$status_title$</div>',
-		) );
-}
+if( $Skin->enabled_status_banner( $Comment->status ) && $Comment->ID > 0 )
+	{ // Don't display status for previewed comments
+		$Comment->format_status( array(
+				// 'template' => '<div class="comment_status floatright"><span class="note status_$status$" data-toggle="tooltip" data-placement="top" title="$tooltip_title$"><span>$status_title$</span></span></div>',
+				'template' => '<div class="evo_status evo_status__$status$ badge pull-right">$status_title$</div>',
+			) );
+	}
+
 
 echo $params['comment_title_after'];
 
