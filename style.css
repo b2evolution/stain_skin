@@ -2173,65 +2173,6 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 .bUser-member-tag {
   display: none;
 }
-.widget_core_org_members {
-  margin: 5em 0 30px;
-  color: #333333;
-}
-.widget_core_org_members div.widget_rwd_content {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-.widget_core_org_members img {
-  display: inline-block;
-}
-.widget_core_org_members h3.evo_user_name {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-.widget_core_org_members div.evo_org_role {
-  margin-top: 10px;
-  margin-bottom: 0;
-  min-height: 25px;
-  font-size: 18px;
-}
-.widget_core_org_members a.user_link {
-  color: #000000;
-}
-.widget_core_org_members a.user_link:hover {
-  color: #23527c;
-}
-.widget_core_org_members div.ufld_icon_links {
-  margin-top: 10px;
-  min-height: 44px;
-}
-.widget_core_org_members p.user_field {
-  margin-top: 10px;
-  line-height: 1.5;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  -webkit-line-clamp: 2;
-  height: 3em;
-}
-.widget_core_org_members .widget_rwd_blocks {
-  width: 100%;
-}
-.widget_core_org_members.evo_layout_list ul li div.ufld_icon_links {
-  text-align: left;
-}
-@media (max-width: 640px) {
-  body.pictured .front_main_content .ufld_icon_links a {
-    width: 45px;
-    height: 45px;
-    margin: 5px;
-  }
-  body.pictured .front_main_content .ufld_icon_links a .fa {
-    font-size: 20px;
-    line-height: 45px;
-  }
-}
 .evo_widget.widget_core_coll_comment_list .identity_link_username {
   font-weight: 400;
 }
@@ -4723,6 +4664,35 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 .disp_single .main_content .evo_post,
 .disp_page .main_content .evo_post {
   margin-bottom: 0;
+}
+.single_pagination {
+  margin-bottom: 20px;
+}
+.single_pagination .pagination li.active a,
+.single_pagination .pagination li.active span {
+  background-color: #18c54d;
+  color: #ffffff;
+  font-weight: 500;
+}
+.single_pagination .pagination li a,
+.single_pagination .pagination li span {
+  border-radius: 30px;
+  margin: 2px;
+  width: 38px;
+  height: 38px;
+  line-height: 24px;
+  border: 0;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.05);
+  color: #18c54d;
+}
+.single_pagination .pagination li a:hover,
+.single_pagination .pagination li span:hover,
+.single_pagination .pagination li a:active,
+.single_pagination .pagination li span:active,
+.single_pagination .pagination li a:focus,
+.single_pagination .pagination li span:focus {
+  color: #ffffff;
+  background-color: #18c54d;
 }
 .main_content .error_404 {
   position: relative;

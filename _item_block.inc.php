@@ -214,7 +214,7 @@ $params = array_merge( array(
 
             // Pagination:
             'pagination' => array(
-                'block_start'           => '<div class="center"><ul class="pagination">',
+                'block_start'           => '<div class="single_pagination center"><ul class="pagination">',
                 'block_end'             => '</ul></div>',
                 'page_current_template' => '<span>$page_num$</span>',
                 'page_item_before'      => '<li>',
