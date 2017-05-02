@@ -2606,6 +2606,8 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   color: #ffffff;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 #footer .footer__widgets .evo_widget ul a:hover,
 #footer .footer__widgets .evo_widget ul a:active,
@@ -5340,6 +5342,7 @@ html.sb-active #sb-site::after {
 }
 .search_head .search_box .main_search_box .extended_search_form .search_submit {
   width: 26%;
+  margin: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
   background-color: #18c54d;
@@ -5754,6 +5757,10 @@ html.sb-active #sb-site::after {
   background-color: #18c54d;
   color: #ffffff;
   border-color: #18c54d;
+}
+.disp_threads .main_content .results .panel-heading .pull-right,
+.disp_contacts .main_content .results .panel-heading .pull-right {
+  margin-top: -11px;
 }
 .disp_threads .main_content .results .table_scroll th,
 .disp_contacts .main_content .results .table_scroll th,
