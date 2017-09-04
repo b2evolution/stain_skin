@@ -52,80 +52,32 @@ class stain_Skin extends Skin
 	{
 		return 6;
 	}
-
-   /**
-   * Get supported collection kinds.
-   *
-   * This should be overloaded in skins.
-   *
-   * For each kind the answer could be:
-   * - 'yes' : this skin does support that collection kind (the result will be was is expected)
-   * - 'partial' : this skin is not a primary choice for this collection kind (but still produces an output that makes sense)
-   * - 'maybe' : this skin has not been tested with this collection kind
-   * - 'no' : this skin does not support that collection kind (the result would not be what is expected)
-   * There may be more possible answers in the future...
-   */
-   public function get_supported_coll_kinds()
-   {
-	   $supported_kinds = array(
-		   'main'   => 'no',
-		   'std'    => 'yes',		// Blog
-		   'photo'  => 'yes',
-		   'forum'  => 'no',
-		   'manual' => 'maybe',
-		   'group'  => 'no',  // Tracker
-		   // Any kind that is not listed should be considered as "maybe" supported
-	   );
-	   return $supported_kinds;
-   }
-
-   /**
-   * Judge if the file is the image we want to use
-   *
-   * @param string filepath: the path of a file
-   * array arr_types: the file type we want to use
-   * @return array
-   */
-   function isImage( $filepath, $arr_types=array( ".gif", ".jpeg", ".png", ".bmp", ".jpg" ) )
-   {
-       if(file_exists($filepath)) {
-		   $info = getimagesize($filepath);
-		   $ext  = image_type_to_extension($info['2']);
-		   return in_array($ext,$arr_types);
-	   } else {
-		   return false;
-	   }
-   }
+	
 
 	/**
-	* Get the pictures of one local folder as an array
+	* Get supported collection kinds.
 	*
-	* @param string img_folder; the image folder;
-	* string img_folder_url; folder url, we would like to show the img of this folder on the screen for user viewing;
-	* int thumb_width: thumb image whdth shown on the skin setting page
-	* int thumb_height: thumb image height shown on the skin setting page
-	* @return array
+	* This should be overloaded in skins.
+	*
+	* For each kind the answer could be:
+	* - 'yes' : this skin does support that collection kind (the result will be was is expected)
+	* - 'partial' : this skin is not a primary choice for this collection kind (but still produces an output that makes sense)
+	* - 'maybe' : this skin has not been tested with this collection kind
+	* - 'no' : this skin does not support that collection kind (the result would not be what is expected)
+	* There may be more possible answers in the future...
 	*/
-	function get_arr_pics_from_folder( $img_folder, $img_folder_url, $thumb_width = 50, $thumb_height = 50 )
+	public function get_supported_coll_kinds()
 	{
-	   $arr_filenames = $filesnames =array();
-	   if(file_exists($img_folder))
-	   {
-		   $filesnames = scandir($img_folder);
-	   }
-	   $count = 0;
-	   foreach ( $filesnames as $name )
-	   {
-		   $count++;
-		   if ( $name != "." && $name != ".." && $name != "_evocache" && $this->isImage($img_folder.$name) ) //not the folder and other files
-		   {
-			   $arr_filenames[] = array( $img_folder_url.$name,
-			   "<a href='".$img_folder_url.$name."' target='blank'><img src='".$img_folder_url.$name."' width=".$thumb_width."px heigh=".$thumb_height."px /></a>" );
-		   }
-		   if ($count==30) break; // The max number of the images we want to show
-	   }
-	   $arr_filenames[] = array("none",T_("Transparent"));
-	   return $arr_filenames;
+		$supported_kinds = array(
+			'main'   => 'no',
+			'std'    => 'yes',		// Blog
+			'photo'  => 'yes',
+			'forum'  => 'no',
+			'manual' => 'maybe',
+			'group'  => 'no',  // Tracker
+			// Any kind that is not listed should be considered as "maybe" supported
+		);
+		return $supported_kinds;
 	}
 
 
@@ -136,31 +88,13 @@ class stain_Skin extends Skin
 	 * @param local params like 'for_editing' => true
 	 */
 	function get_param_definitions( $params ) {
-
 		global $Blog;
 
 		// Load to use function get_available_thumb_sizes()
 		load_funcs( 'files/model/_image.funcs.php' );
-		load_class( 'widgets/model/_widget.class.php', 'ComponentWidget' );
-
-		// System provide bg images
-		$bodybg_cat = 'assets/images/header/'; // Background images folder relative to this skin folder
-		$arr_bodybg = $this ->get_arr_pics_from_folder( $this->get_path().$bodybg_cat, $this->get_url().$bodybg_cat, 80, 80 );
-
-		// User Custom bg images
-		$custom_headerbg_cat  = "headerbg/"; // Background images folder which created by users themselves, and it's relative to collection media dir
-		$arr_custom_headerbg = $this->get_arr_pics_from_folder( $Blog->get_media_dir().$custom_headerbg_cat, $Blog->get_media_url().$custom_headerbg_cat, 65 ,65);
-
-		// BACKGROUND CONTENT LOGIN, LOSTPASSWORD, REGISTER, 404
-		$bgc_img = 'assets/images/content/';
-		$arr_bgc_img = $this->get_arr_pics_from_folder( $this->get_path().$bgc_img, $this->get_url().$bgc_img, 80, 80 );
-
-		// Custom Background Content
-		$custom_bgc = 'contentbg/';
-		$arr_custom_bgc = $this->get_arr_pics_from_folder( $Blog->get_media_dir().$custom_bgc, $Blog->get_media_url().$custom_bgc, 80,80 );
-
+		load_class( 'widgets/model/_widget.class.php', 'ComponentWidget' );		
+		
 		$r = array_merge( array(
-
 			/* General Setting
 			* ========================================================================== */
 			'section_general_start' => array(
@@ -265,29 +199,28 @@ class stain_Skin extends Skin
 					'size'         => '3px',
 					'allow_empty'  => false,
 				),
-				'header_bg_type' => array(
-					'label'			=> T_( 'Background Image Source' ),
-					'note'			=> '<br />'.T_( 'Select the source for background image. You can choose default background image on file asset or upload custom background image.' ),
-					'type'			=> 'select',
-					'options'		=> array(
-						'images' 		=> T_( 'Image Asset' ),
-						'custom_image'  => T_( 'Custom Backgroung Image' ),
-					),
-					'defaultvalue'	=> 'images',
-				),
-				'header_bg' => array(
-					'label'        => T_( 'Background Image' ),
-					'note'         => '',
-					'type'         => 'radio',
-					'options'      => $arr_bodybg,
-					'defaultvalue' => reset( $arr_bodybg[0] ),
-				),
+				// 'header_bg_type' => array(
+					// 'label'			=> T_( 'Background Image Source' ),
+					// 'note'			=> '<br />'.T_( 'Select the source for background image. You can choose default background image on file asset or upload custom background image.' ),
+					// 'type'			=> 'select',
+					// 'options'		=> array(
+						// 'images' 		=> T_( 'Image Asset' ),
+						// 'custom_image'  => T_( 'Custom Backgroung Image' ),
+					// ),
+					// 'defaultvalue'	=> 'images',
+				// ),
+				// 'header_bg' => array(
+					// 'label'        => T_( 'Background Image' ),
+					// 'note'         => '',
+					// 'type'         => 'radio',
+					// 'options'      => $arr_bodybg,
+					// 'defaultvalue' => reset( $arr_bodybg[0] ),
+				// ),
 				'header_custom_bg' => array(
 					'label'			=> T_( 'User Custom Background Image' ),
-					'note'			=> T_('（Please create a folder named ').'<b><i>'.str_replace("/","",$custom_headerbg_cat).'</i></b>'.T_(' in your collection media folder and put the images into it. Now ').'<a href="admin.php?ctrl=files" target="_blank"><i>'.T_('Create folder or Upload images').'</i></a>',
-					'type'         => 'radio',
-					'options'      => $arr_custom_headerbg,
-					'defaultvalue' => reset($arr_custom_headerbg[0]),
+					'type' => 'fileselect',
+					'initialize_with' => 'shared/global/sunset/sunset.jpg',
+					'thumbnail_size' => 'fit-320x320'
 				),
 				'header_bg_position_x' => array(
 					'label'        => T_( 'Horizontal Background Position' ),
@@ -943,12 +876,18 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> '520',
 					'size'			=> 6,
 				),
+				// 'header_search_bg' => array(
+					// 'label'         => T_( 'Header Background Image' ),
+					// 'note'          => T_( '' ),
+					// 'type'          => 'radio',
+					// 'options'       => $arr_bodybg,
+					// 'defaultvalue'  => reset( $arr_bodybg[8] ),
+				// ),
 				'header_search_bg' => array(
-					'label'         => T_( 'Header Background Image' ),
-					'note'          => T_( '' ),
-					'type'          => 'radio',
-					'options'       => $arr_bodybg,
-					'defaultvalue'  => reset( $arr_bodybg[8] ),
+					'label'			=> T_( 'User Custom Background Image' ),
+					'type' => 'fileselect',
+					'initialize_with' => 'shared/global/sunset/sunset.jpg',
+					'thumbnail_size' => 'fit-320x320'
 				),
 				'header_search_bg_attach' => array(
 					'label'        => T_( 'Background Attachment' ),
@@ -1014,20 +953,20 @@ class stain_Skin extends Skin
 						'bg_color'	=> T_( 'Background Color' ),
 					),
 				),
-				'bgc_img' => array(
-					'label'        => T_( 'Background Image' ),
-					'note'         => T_( '' ),
-					'type'         => 'radio',
-					'options'      => $arr_bgc_img,
-					'defaultvalue' => reset( $arr_bgc_img[0] ),
-				),
-				'bgc_img_custom' => array(
-					'label'			=> T_( 'User Custom Background Image' ),
-					'note'			=> T_('（Please create a folder named ').'<b><i>'.str_replace("/","",$custom_bgc).'</i></b>'.T_(' in your collection media folder and put the images into it. Now ').'<a href="admin.php?ctrl=files" target="_blank"><i>'.T_('Create folder or Upload images').'</i></a>）',
-					'type'         	=> 'radio',
-					'options'      	=> $arr_custom_bgc,
-					'defaultvalue' 	=> reset($arr_custom_bgc[0]),
-				),
+				// 'bgc_img' => array(
+					// 'label'        => T_( 'Background Image' ),
+					// 'note'         => T_( '' ),
+					// 'type'         => 'radio',
+					// 'options'      => $arr_bgc_img,
+					// 'defaultvalue' => reset( $arr_bgc_img[0] ),
+				// ),
+				// 'bgc_img_custom' => array(
+					// 'label'			=> T_( 'User Custom Background Image' ),
+					// 'note'			=> T_('（Please create a folder named ').'<b><i>'.str_replace("/","",$custom_bgc).'</i></b>'.T_(' in your collection media folder and put the images into it. Now ').'<a href="admin.php?ctrl=files" target="_blank"><i>'.T_('Create folder or Upload images').'</i></a>）',
+					// 'type'         	=> 'radio',
+					// 'options'      	=> $arr_custom_bgc,
+					// 'defaultvalue' 	=> reset($arr_custom_bgc[0]),
+				// ),
 				'bgc_color'	=> array(
 					'label'			=> T_( 'Background Color' ),
 					'note'			=> T_( 'Default value is' ).' <code>#FFFFFF</code>.',
@@ -1381,11 +1320,11 @@ class stain_Skin extends Skin
 		}
 
 		if ( $color = $this->get_setting( 'body_color' ) ) {
-			$custom_css .= 'body, html { color: '.$color.' }';
+			$custom_css .= '#skin_wrapper { color: '.$color.' }';
 		}
 
 		if ( $bg = $this->get_setting( 'body_background' ) ) {
-			$custom_css .= 'body, html,
+			$custom_css .= '#skin_wrapper,
 			#sb-site, .sb-site-container
 			{ background-color: '.$bg.' }';
 		}
@@ -1422,16 +1361,11 @@ class stain_Skin extends Skin
 			$custom_css .= '.main_header{ min-height: '.$height.'px; }';
 		}
 
-		$bg_header = '';
-		if ( $this->get_setting( 'header_bg_type' ) == 'images' ) {
-			$bg_header = $this->get_setting( 'header_bg' );
-		} else {
-			$bg_header = $this->get_setting( 'header_custom_bg' );
-		}
-		switch ( $bg_header ) {
-			case $bg_header:
-			$custom_css .= ".main_header{ background-image: url('$bg_header') }";
-			break;
+		if( $this->get_setting( 'header_custom_bg' ) )
+		{
+			$FileCache = & get_FileCache();
+			$bg_image_File = & $FileCache->get_by_ID( $this->get_setting( 'header_custom_bg' ), false, false );
+			$custom_css .= ".main_header{ background-image: url('".$bg_image_File->get_url()."') }";
 		}
 
 		$bg_header_x = $this->get_setting( 'header_bg_position_x');
@@ -1496,7 +1430,7 @@ class stain_Skin extends Skin
 
 			case 'right':
 			$custom_css .= '.main_navigation .nav-tabs{ text-align: right; }';
-			$custom_css .= '.main_navigation .nav-tabs li{ float: right; } .main_navigation ul ul{ float: right; }';
+			// $custom_css .= '.main_navigation .nav-tabs li{ float: right; } .main_navigation ul ul{ float: right; }';
 			break;
 		}
 
@@ -1613,8 +1547,13 @@ class stain_Skin extends Skin
 
 		/* SEARCH DISP OPTIONS
 		 * ========================================================================== */
-		if( $bg = $this->get_setting( 'header_search_bg' ) ) {
-			$custom_css .= '.search_head{ background-image: url( "'.$bg.'" ); }';
+		if( $this->get_setting( 'header_search_bg' ) ) {
+			$FileCache = & get_FileCache();
+			$bg_image_File1 = & $FileCache->get_by_ID( $this->get_setting( 'header_search_bg' ), false, false );
+			$custom_css .= ".search_head{ background-image: url('".$bg_image_File1->get_url()."') }";
+			
+			
+			// $custom_css .= '.search_head{ background-image: url( "'.$bg.'" ); }';
 		}
 		if( $height = $this->get_setting( 'header_search_height' ) ) {
 			$custom_css .= '.search_head{ height: '.$height.'px }';

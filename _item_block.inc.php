@@ -168,7 +168,7 @@ $params = array_merge( array(
 			if( ! $Item->is_intro() )
 			{ // List all tags attached to this post:
 				$Item->tags( array(
-					'before'    => '<nav class="small post_tags"><h3 class="post_tags_title">'.T_( 'Tags' ).'</h3>',
+					'before'    => '<nav class="small post_tags">',
 					'after'     => '</nav>',
 					'separator' => ' ',
 				) );

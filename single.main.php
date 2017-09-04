@@ -202,7 +202,7 @@ skin_include( '_body_header.inc.php' );
 									'url_link_text_template' => '', // link will be displayed (except player if podcast)
 								),
 								// Template params for "Item Tags" widget
-								'widget_item_tags_before'    => '<div class="evo_post_tags">'.T_('Tags').': ',
+								'widget_item_tags_before'    => '<div class="evo_post_tags">',
 								'widget_item_tags_after'     => '</div>',
 								'widget_item_attachments_params' => array(
 									'limit_attach'       => 1000,
