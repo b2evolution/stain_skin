@@ -132,13 +132,6 @@ class stain_Skin extends Skin
 					'defaultvalue' => 1,
 					'type'         => 'checkbox',
 				),
-				// 'favicon' => array(
-				// 	'label'          => T_('Favicon'),
-				// 	'note'           => T_('Change the default favicon from Skin Folder.'),
-				// 	'defaultvalue'   => 'assets/images/favicon.png',
-				// 	'type'           => 'text',
-				// 	'size'           => '50'
-				// ),
 				'back_to_top' => array(
 					'label'			=> T_( 'Back To Top Button' ),
 					'note'			=> T_( 'Check to display back to top button.' ),
@@ -148,41 +141,6 @@ class stain_Skin extends Skin
 			'section_general_end' => array(
 				'layout'	=> 'end_fieldset',
 			),
-
-
-			/* Custom Sitewide Header
-			 * ========================================================================== */
-			// 'section_sitewide_header_start' => array(
-			// 	'layout'			=> 'begin_fieldset',
-			// 	'label'				=> T_( 'Custom Sitewide Header (All disps)' ),
-			// ),
-			// 	'sitewide_background' => array(
-			// 		'label'			=> T_( 'Background Color' ),
-			// 		'note'			=> T_( 'Change background color with your favorite color. Default is <strong>empty</strong>.' ),
-			// 		'type'			=> 'color',
-			// 		'defaultvalue'	=> '',
-			// 	),
-			// 	'sitewide_color_text' => array(
-			// 		'label'			=> T_( 'Color Text' ),
-			// 		'note'			=> T_( 'Change text color for sitewide with your favorite color. Default is <strong>empty</strong>.' ),
-			// 		'type'			=> 'color',
-			// 		'defaultvalue'	=> '',
-			// 	),
-			// 	'sitewide_bg_active' => array(
-			// 		'label'			=> T_( 'Background Color Active & Hover' ),
-			// 		'note'			=> T_( 'Change background color sitewide if the current active page and hover. Default is <strong>empty</strong>.' ),
-			// 		'type'			=> 'color',
-			// 		'defaultvalue'	=> '',
-			// 	),
-			// 	'sitewide_color_text_active' => array(
-			// 		'label'			=> T_( 'Color Text Active & Hover' ),
-			// 		'note'			=> T_( 'Change color text sitewide if the current link active and hover. Default is <strong>empty</strong>' ),
-			// 		'type'			=> 'color',
-			// 		'defaultvalue'	=> '',
-			// 	),
-			// 'section_sitewide_header_end' => array(
-			// 	'layout'			=> 'end_fieldset',
-			// ),
 
 
 			/* Header
@@ -199,27 +157,11 @@ class stain_Skin extends Skin
 					'size'         => '3px',
 					'allow_empty'  => false,
 				),
-				// 'header_bg_type' => array(
-					// 'label'			=> T_( 'Background Image Source' ),
-					// 'note'			=> '<br />'.T_( 'Select the source for background image. You can choose default background image on file asset or upload custom background image.' ),
-					// 'type'			=> 'select',
-					// 'options'		=> array(
-						// 'images' 		=> T_( 'Image Asset' ),
-						// 'custom_image'  => T_( 'Custom Backgroung Image' ),
-					// ),
-					// 'defaultvalue'	=> 'images',
-				// ),
-				// 'header_bg' => array(
-					// 'label'        => T_( 'Background Image' ),
-					// 'note'         => '',
-					// 'type'         => 'radio',
-					// 'options'      => $arr_bodybg,
-					// 'defaultvalue' => reset( $arr_bodybg[0] ),
-				// ),
 				'header_custom_bg' => array(
-					'label'			=> T_( 'User Custom Background Image' ),
+					'label'			=> T_( 'Background Image' ),
+					'note'         =>  T_( 'If this field is left empty, default image will be applied.' ),
 					'type' => 'fileselect',
-					'initialize_with' => 'shared/global/sunset/sunset.jpg',
+					'initialize_with' => 'skins/stain_skin/assets/images/header/header-5.jpg',
 					'thumbnail_size' => 'fit-320x320'
 				),
 				'header_bg_position_x' => array(
@@ -237,7 +179,7 @@ class stain_Skin extends Skin
 					'size'         => 3,
 				),
 				'header_bg_attach' => array(
-					'label'        => T_( 'Background Attachment' ),
+					'label'        => T_( 'Background Behavior' ),
 					'note'         => '',
 					'type'         => 'radio',
 					'defaultvalue' => 'initial',
@@ -385,7 +327,7 @@ class stain_Skin extends Skin
 				),
 				'nav_color' => array(
 					'label'        => T_( 'Menu Links Color' ),
-					'note'         => T_( 'Default value is' ).' <strong>Empty</strong>.',
+					'note'         => T_( 'Leave empty for default value.' ),
 					'type'         => 'color',
 					'defaultvalue' => '',
 				),
@@ -483,7 +425,6 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> 'default',
 					'options'		=> array(
 						'default' 	 => T_( 'Default' ),
-						// 'only_image' => T_( 'Only Images' ),
 						'bg_img' 	 => T_( 'Background Image' ),
 					)
 				),
@@ -876,17 +817,10 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> '520',
 					'size'			=> 6,
 				),
-				// 'header_search_bg' => array(
-					// 'label'         => T_( 'Header Background Image' ),
-					// 'note'          => T_( '' ),
-					// 'type'          => 'radio',
-					// 'options'       => $arr_bodybg,
-					// 'defaultvalue'  => reset( $arr_bodybg[8] ),
-				// ),
 				'header_search_bg' => array(
-					'label'			=> T_( 'User Custom Background Image' ),
+					'label'			=> T_( 'Background Image' ),
 					'type' => 'fileselect',
-					'initialize_with' => 'shared/global/sunset/sunset.jpg',
+					'initialize_with' => 'skins/stain_skin/assets/images/header/header-8.jpg',
 					'thumbnail_size' => 'fit-320x320'
 				),
 				'header_search_bg_attach' => array(
@@ -944,29 +878,20 @@ class stain_Skin extends Skin
 			),
 				'bgc_style' => array(
 					'label'			=> T_( 'Background Style' ),
-					'note'			=> T_( 'Select the background style for background content' ),
+					'note'			=> T_( 'Select the background style for content box.' ),
 					'type'			=> 'select',
 					'defaultvalue'	=> 'bg_img',
 					'options'		=> array(
 						'bg_img'	=> T_( 'Background Image' ),
-						'bg_custom'	=> T_( 'Background Custom Image' ),
 						'bg_color'	=> T_( 'Background Color' ),
 					),
 				),
-				// 'bgc_img' => array(
-					// 'label'        => T_( 'Background Image' ),
-					// 'note'         => T_( '' ),
-					// 'type'         => 'radio',
-					// 'options'      => $arr_bgc_img,
-					// 'defaultvalue' => reset( $arr_bgc_img[0] ),
-				// ),
-				// 'bgc_img_custom' => array(
-					// 'label'			=> T_( 'User Custom Background Image' ),
-					// 'note'			=> T_('（Please create a folder named ').'<b><i>'.str_replace("/","",$custom_bgc).'</i></b>'.T_(' in your collection media folder and put the images into it. Now ').'<a href="admin.php?ctrl=files" target="_blank"><i>'.T_('Create folder or Upload images').'</i></a>）',
-					// 'type'         	=> 'radio',
-					// 'options'      	=> $arr_custom_bgc,
-					// 'defaultvalue' 	=> reset($arr_custom_bgc[0]),
-				// ),
+				'bgc_img_custom' => array(
+					'label'			=> T_( 'Background Image' ),
+					'type' => 'fileselect',
+					'initialize_with' => 'skins/stain_skin/assets/images/content/bgc-1.jpg',
+					'thumbnail_size' => 'fit-320x320'
+				),
 				'bgc_color'	=> array(
 					'label'			=> T_( 'Background Color' ),
 					'note'			=> T_( 'Default value is' ).' <code>#FFFFFF</code>.',
@@ -982,11 +907,11 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_bg_content1_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_( 'Error and Not Found Pages' ).' (disp=login | disp=lostpassword | disp=register | disp=404/403)',
+				'label'		=> T_( 'Error and Not Found Pages' ).' (disp=404/403)',
 			),
 				'bgc_img_overlay' => array(
 					'label'			=> T_( 'Color Overlay' ),
-					'note'			=> T_( 'Change color overlay if using background image for content element ( Only works on ').'<code>disp 404/403</code> ).',
+					'note'			=> T_( 'Change color overlay if using background image for content element.' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
 				),
@@ -1020,7 +945,7 @@ class stain_Skin extends Skin
 				),
 				'bgc_color_content' => array(
 					'label'		=> T_( 'Change Color Content' ),
-					'note'		=> T_( 'Set the color content ( Only works on ').'<strong>disp 404/403</strong> ).'.T_(' Default color is ').'<code>#555555</code>.',
+					'note'		=> T_( 'Set the color of the content box.').' '.T_(' Default color is ').'<code>#555555</code>.',
 					'type'		=> 'color',
 					'defaultvalue' => '#555555',
 				),
@@ -1425,12 +1350,11 @@ class stain_Skin extends Skin
 		$nav_align = $this->get_setting( 'nav_align' );
 		switch ( $nav_align ) {
 			case 'left':
-			$custom_css .= '.main_navigation .nav-tabs{ text-align: left; }';
+			$custom_css .= '@media (min-width: 768px) {.main_navigation .nav-tabs{ text-align: left; }}';
 			break;
 
 			case 'right':
-			$custom_css .= '.main_navigation .nav-tabs{ text-align: right; }';
-			// $custom_css .= '.main_navigation .nav-tabs li{ float: right; } .main_navigation ul ul{ float: right; }';
+			$custom_css .= '@media (min-width: 768px) {.main_navigation .nav-tabs{ text-align: right; }}';
 			break;
 		}
 
@@ -1551,9 +1475,6 @@ class stain_Skin extends Skin
 			$FileCache = & get_FileCache();
 			$bg_image_File1 = & $FileCache->get_by_ID( $this->get_setting( 'header_search_bg' ), false, false );
 			$custom_css .= ".search_head{ background-image: url('".$bg_image_File1->get_url()."') }";
-			
-			
-			// $custom_css .= '.search_head{ background-image: url( "'.$bg.'" ); }';
 		}
 		if( $height = $this->get_setting( 'header_search_height' ) ) {
 			$custom_css .= '.search_head{ height: '.$height.'px }';
@@ -1611,18 +1532,15 @@ class stain_Skin extends Skin
 		$bgc_img_value = $this->get_setting( 'bgc_img' );
 		$bgc_img_custom_value = $this->get_setting( 'bgc_img_custom' );
 		$bgc_color_value = $this->get_setting( 'bgc_color' );
-		switch ( $this->get_setting( 'bgc_style' ) ) {
-			case 'bg_img':
-				$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: url('.$bgc_img_value.') }';
-				break;
-
-			case 'bg_custom':
-				$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: url('.$bgc_img_custom_value.') }';
-				break;
-
-			case 'bg_color':
-				$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: none; background: '.$bgc_color_value.' }';
-				break;
+		if( $bgc_value == 'bg_img' && $bgc_img_custom_value != NULL )
+		{
+			$FileCache = & get_FileCache();
+			$bg_image_File2 = & $FileCache->get_by_ID( $this->get_setting( 'bgc_img_custom' ), false, false );
+			$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: url('.$bg_image_File2->get_url().') }';
+		}
+		else 
+		{
+			$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: none; background: '.$bgc_color_value.' }';
 		}
 
 		if ( $bgc_value == 'bg_img' || $bgc_value == 'bg_custom' ) {

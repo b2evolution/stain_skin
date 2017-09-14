@@ -20,21 +20,33 @@ global $Blog;
 ?>
 <div class="error_404">
     <?php
-        // ------------------------- "404 Page" CONTAINER EMBEDDED HERE --------------------------
-        skin_container( /* TRANS: Widget container name */ NT_('404 Page'), array(
-            // The following params will be used as defaults for widgets included in this container:
-            // This will enclose each widget in a block:
-            'block_start' 			=> '<div class="evo_widget $wi_class$">',
-            'block_end'   			=> '</div>',
-            // This will enclose the title of each widget:
-            'block_title_start' 	=> '<h3>',
-            'block_title_end'   	=> '</h3>',
-            // Widget 'Search form':
-            'search_input_before'  	=> '<div class="input-group">',
-            'search_input_after'   	=> '',
-            'search_submit_before' 	=> '<span class="input-group-btn">',
-            'search_submit_after'  	=> '</span></div>',
-        ) );
-        // ----------------------------- END OF "404 Page" CONTAINER -----------------------------
+	global $disp_detail, $baseurl, $app_name;
+
+	echo '<div class="evo_widget widget_core_page_404_not_found">';
+
+	echo '<h3>403 Forbidden</h3>';
+
+	echo '<p><a href="'.$baseurl.'">'.$app_name.'</a> cannot resolve the requested URL.</p>';
+
+	// You may use this to further customize this page:
+	// echo $disp_detail;
+
+	echo '</div>';
+
+
+	echo '<div class="error_additional_content">';
+	// --------------------------------- START OF CLOUD TAG --------------------------------
+	// Call the coll_search_form widget:
+	skin_widget( array(
+			// CODE for the widget:
+			'widget' => 'coll_tag_cloud',
+			// Optional display params:
+			'block_start' => '<div class="evo_widget $wi_class$">',
+			'block_end' => '</div>',
+			'block_title_start' => '<h2>',
+			'block_title_end' => '</h2>',
+		) );
+	// ---------------------------------- END OF CLOUD TAG ---------------------------------
+	echo '</div>';
      ?>
 </div>

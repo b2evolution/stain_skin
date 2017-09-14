@@ -1753,6 +1753,7 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
   }
   .main_navigation .nav-tabs.open {
     overflow: auto;
+    padding-top: 35px;
     height: 100%;
     opacity: 1;
     visibility: visible;
@@ -4670,6 +4671,15 @@ div.evo_container__sidebar2 div.widget_core_coll_post_list.evo_1pic__special.evo
 }
 .main_content .error_404 .evo_widget h3 {
   text-transform: uppercase;
+}
+@media screen and (max-width: 767px) {
+  .main_content .error_404 .evo_widget h1,
+  .main_content .error_404 .evo_widget h2,
+  .main_content .error_404 .evo_widget h3 {
+    font-size: 20px;
+    letter-spacing: 0;
+    margin-bottom: 20px;
+  }
 }
 .main_content .error_404_content,
 .main_content .widget_core_page_404_not_found {
