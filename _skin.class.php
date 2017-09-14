@@ -121,7 +121,7 @@ class stain_Skin extends Skin
 				),
 				'max_image_height' => array(
 					'label' 		=> T_('Max Image Height'),
-					'note' 			=> 'px.',
+					'note' 			=> 'px. ' . T_('Set maximum height for post images.'),
 					'defaultvalue'  => '',
 					'type' 			=> 'integer',
 					'allow_empty'   => true,
@@ -154,7 +154,7 @@ class stain_Skin extends Skin
 					'note'         => 'px. ' . T_( 'Set the minimum height of the header section. If the content is bigger, header height will adapt.' ),
 					'type'         => 'integer',
 					'defaultvalue' => '320',
-					'size'         => '3px',
+					'size'         => 3,
 					'allow_empty'  => false,
 				),
 				'header_custom_bg' => array(
@@ -202,7 +202,7 @@ class stain_Skin extends Skin
 				),
 				'opcity_cv' => array(
 					'label'        => T_( 'Header Overlay Color Opacity' ),
-					'note'         => T_( 'Default value is' ). ' <code>0.2</code>.',
+					'note'         => T_( 'Default value is' ).' <code>0.2</code>.',
 					'type'         => 'select',
 					'options'      => array(
 						'0'	   => '0',
@@ -263,8 +263,8 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> '#ffffff',
 				),
 				'header_text_shadow_content' => array(
-					'label'			=> T_( 'Header Content Text Shadow' ),
-					'note'			=> T_( 'Check to display text-shadow on header content.' ),
+					'label'			=> T_( 'Header Text Shadow' ),
+					'note'			=> T_( 'Check to display text-shadow on title and tagline in header.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
@@ -316,12 +316,12 @@ class stain_Skin extends Skin
 					'note'			=> T_( 'Choose the animation that appears when hovering menu links.' ),
 					'type'			=> 'select',
 					'options'		=> array(
-						'1' => 'Hover 1',
-						'2'	=> 'Hover 2',
-						'3'	=> 'Hover 3',
-						'4'	=> 'Hover 4',
-						'5' => 'Hover 5',
-						'6' => 'Hover 6',
+						'1' => T_('Hover animation 1'),
+						'2'	=> T_('Hover animation 2'),
+						'3'	=> T_('Hover animation 3'),
+						'4'	=> T_('Hover animation 4'),
+						'5' => T_('Hover animation 5'),
+						'6' => T_('Hover animation 6'),
 					),
 					'defaultvalue'	=> '1',
 				),
@@ -340,22 +340,6 @@ class stain_Skin extends Skin
 			'section_nav_end' => array(
 				'layout'   => 'end_fieldset',
 			),
-
-			/* Gallery Featured Post Settings
-			* ========================================================================== */
-			// 'section_gallery_featured_start' => array(
-			// 	'layout'      => 'begin_fieldset',
-			// 	'label'       => T_( 'Gallery Featured Post Settings' ),
-			// ),
-			// 	'gal_feature_cat' => array(
-			// 		'label'		   => T_( 'Show Post Cagetory' ),
-			// 		'note'		   => T_( 'Check the box to show category on featured post.' ),
-			// 		'type'		   => 'checkbox',
-			// 		'defaultvalue' => 1,
-			// 	),
-			// 'section_gallery_featured_end' => array(
-			// 	'layout'      => 'end_fieldset',
-			// ),
 
 
 			/* GALLERY SETTING
@@ -379,13 +363,12 @@ class stain_Skin extends Skin
 						'two_column' 	=> '2 ' . T_( 'Posts' ),
 						'three_column' 	=> '3 ' . T_( 'Posts' ),
 						'four_column' 	=> '4 ' . T_( 'Posts' ),
-						// 'random' 		=> T_( 'Random' ),
 					),
 					'defaultvalue' => 'three_column',
 				),
 				'gallery_gutter' => array(
 					'label'			=> T_( 'Space Between Posts' ),
-					'note'			=> T_( 'px. Default value is').' <code>10px</code>.',
+					'note'			=> 'px. '.T_('Default value is').' <code>10px</code>.',
 					'type'		   	=> 'integer',
 					'defaultvalue' 	=> '10',
 					'size'		   	=> 5
@@ -401,23 +384,6 @@ class stain_Skin extends Skin
 						'crop-480x320'	=> 'crop-480x320',
 					),
 				),
-				// 'gallery_effect' => array(
-				// 	'label'		=> T_( 'Choose the Animation Image' ),
-				// 	'note'		=> T_( 'Select your favorite Animation load for first open page.' ),
-				// 	'type'		=> 'select',
-				// 	'options'	=> array(
-				// 		'0'	=> T_('None'),
-				// 		'1' => T_('Opacity'),
-				// 		'2' => T_('Move Up'),
-				// 		'3' => T_('Sclae Up'),
-				// 		'4' => T_('Fall Perspective'),
-				// 		'5' => T_('Fly'),
-				// 		'6' => T_('Flip'),
-				// 		'7' => T_('Helix'),
-				// 		'8' => T_('Pop Up'),
-				// 	),
-				// 	'defaultvalue' => '2',
-				// ),
 				'cat_post_style' => array(
 					'label'			=> T_( 'Post Layout' ),
 					'note'			=> '"'.T_('Default').'" '.T_( 'post layout places image above the title.').' "'.T_('Background Image').'" '.T_('post layout places image behind the post content.' ),
@@ -498,7 +464,7 @@ class stain_Skin extends Skin
 				),
 				'cat_title_size' => array(
 					'label'        => T_( 'Post Title Size' ),
-					'note'         => T_( 'px. Default value is').' <code>28px</code>.',
+					'note'         => 'px. '.T_( 'Default value is').' <code>28px</code>.',
 					'type'         => 'integer',
 					'defaultvalue' => '28',
 					'size'         => 3,
@@ -534,7 +500,7 @@ class stain_Skin extends Skin
 			),
 				'posts_full_width' => array(
 					'label'			=> T_( 'Full Width Container' ),
-					'note'			=> T_( 'Check to make post container full width.' ),
+					'note'			=> T_( 'Check to make post container have full screen width.' ),
 					'type'			=> 'checkbox',
 					'defaultvalue'  => 0,
 				),
@@ -562,7 +528,7 @@ class stain_Skin extends Skin
 				),
 				'posts_list_space' => array(
 					'label'			=> T_( 'Post Padding' ),
-					'note'			=> T_( 'px. Default value is').' <code>0px</code>.',
+					'note'			=> 'px. '.T_( 'Default value is').' <code>0px</code>.',
 					'type'			=> 'integer',
 					'defaultvalue'  => '4',
 					'size'			=> 3,
@@ -573,15 +539,15 @@ class stain_Skin extends Skin
 					'note'		=> T_( 'Select the animation type for loading posts.' ),
 					'type'		=> 'select',
 					'options'	=> array(
-						'0'	=> 'None',
-						'1' => 'Opacity',
-						'2' => 'Move Up',
-						'3' => 'Sclae Up',
-						'4' => 'Fall Perspective',
-						'5' => 'Fly',
-						'6' => 'Flip',
-						'7' => 'Helix',
-						'8' => 'Pop Up',
+						'0'	=> T_('None'),
+						'1' => T_('Opacity'),
+						'2' => T_('Move Up'),
+						'3' => T_('Scale Up'),
+						'4' => T_('Fall Perspective'),
+						'5' => T_('Fly'),
+						'6' => T_('Flip'),
+						'7' => T_('Helix'),
+						'8' => T_('Pop Up'),
 					),
 					'defaultvalue' => '4',
 				),
@@ -602,7 +568,7 @@ class stain_Skin extends Skin
 					'type'			=> 'select',
 					'defaultvalue'  => 'grid',
 					'options'		=> array(
-						'grid'    => 'Grid',
+						'grid'    => T_('Grid'),
 						'masonry' => 'Masonry',
 					),
 				),
@@ -620,7 +586,7 @@ class stain_Skin extends Skin
 				),
 				'single_thumb_size' => array(
 					'label'        => T_('Thumbnail size for Single Disp'),
-					'note'         => T_('If you select <strong>Masonry Style Image Gallery</strong>, the thumbnail size we recommended to').' <code>fit-1280x720</code>.',
+					'note'         => T_('If you select "Masonry" Style for image gallery, the recommended thumbnail size is').' <code>fit-1280x720</code>.',
 					'defaultvalue' => 'crop-480x320',
 					'options'      => get_available_thumb_sizes(),
 					'type'         => 'select',
@@ -656,7 +622,7 @@ class stain_Skin extends Skin
 				),
 				'mediaidx_space' => array(
 					'label'		    => T_( 'Image padding' ),
-					'note'			=> T_( 'px. Set the padding of images.' ) . T_('Default value is').' <code>10</code>. ('.T_('Also accepts 0 value') . ')',
+					'note'			=> 'px. ' . T_( 'Set the padding of images.' ) . T_('Default value is').' <code>10</code>. ('.T_('Also accepts value 0') . ')',
 					'type'			=> 'integer',
 					'defaultvalue'	=> '10',
 					'size'			=> '5'
@@ -684,21 +650,21 @@ class stain_Skin extends Skin
 					'note'			=> T_( 'Set the number of images showing on this page.' ),
 					'type'			=> 'integer',
 					'defaultvalue'	=> '20',
-					'size'			=> '5'
+					'size'			=> 5,
 				),
 				'mediaidx_effect' => array(
-					'label'			=> T_( 'Choose the Animation Image' ),
-					'note'			=> T_( 'Select your favorite Animation load for first open page.' ),
+					'label'			=> T_( 'Image appearance animation' ),
+					'note'			=> T_( 'Select your favorite animation for loading the images.' ),
 					'type'			=> 'select',
 					'options'		=> array(
-						'1' => 'Opacity',
-						'2' => 'Move Up',
-						'3' => 'Sclae Up',
-						'4' => 'Fall Perspective',
-						'5' => 'Fly',
-						'6' => 'Flip',
-						'7' => 'Helix',
-						'8' => 'Pop Up',
+						'1' => T_('Opacity'),
+						'2' => T_('Move Up'),
+						'3' => T_('Scale Up'),
+						'4' => T_('Fall Perspective'),
+						'5' => T_('Fly'),
+						'6' => T_('Flip'),
+						'7' => T_('Helix'),
+						'8' => T_('Pop Up'),
 					),
 					'defaultvalue' => '3',
 				),
@@ -708,14 +674,14 @@ class stain_Skin extends Skin
 					'type'			=> 'select',
 					'defaultvalue'	=> 'flip',
 					'options'		=> array(
-						'none'	  => 'None',
-						'opacity' => 'Opacity',
-						'flip'	  => 'Flip',
-						'zoom'	  => 'Zoom',
-						'tb'	  => 'Top Bottom',
-						'bt'	  => 'Bottom Top',
-						'rl'	  => 'Right Left',
-						'lr'	  => 'Left Right',
+						'none'	  =>  T_('None'),
+						'opacity' =>  T_('Opacity'),
+						'flip'	  =>  T_('Flip'),
+						'zoom'	  =>  T_('Zoom'),
+						'tb'	  =>  T_('Top to Bottom'),
+						'bt'	  =>  T_('Bottom to Top'),
+						'rl'	  =>  T_('Right to Left'),
+						'lr'	  =>  T_('Left to Right'),
 					)
 				),
 				'mediaidx_view_btn' => array(
@@ -782,16 +748,16 @@ class stain_Skin extends Skin
 					'type'			=> 'checkbox',
 					'defaultvalue'	=> 1,
 				),
-				'mediaidx_by' => array(
-					'label'			=> T_( 'Order by' ),
-					'note'			=> T_( 'How to order the images.' ),
-					'type'			=> 'select',
-					'options' 		=> get_available_sort_options(),
-					'defaultvalue' 	=> 'datestart',
-				),
+				// 'mediaidx_by' => array(
+					// 'label'			=> T_( 'Order by' ),
+					// 'note'			=> T_( 'How to order the images.' ),
+					// 'type'			=> 'select',
+					// 'options' 		=> get_available_sort_options(),
+					// 'defaultvalue' 	=> 'datestart',
+				// ),
 				'mediaidx_dir' => array(
 					'label'			=> T_( 'Direction' ),
-					'note'			=> T_( 'How to sort the images.' ),
+					'note'			=> T_( 'Select the order of sorting the images.' ),
 					'type'			=> 'select',
 					'options'		=> array(
 						'ASC'  => T_( 'Ascending' ),
@@ -812,7 +778,7 @@ class stain_Skin extends Skin
 			),
 				'header_search_height' => array(
 					'label'			=> T_( 'Header Height' ),
-					'note'			=> T_( 'px. Default value is').' (min-height: 356px)',
+					'note'			=> 'px. ' . T_('Set the minimum height of the header section. If the content is bigger, header height will adapt.'). ' '.T_( 'Default value is').' 520px.',
 					'type'			=> 'integer',
 					'defaultvalue'	=> '520',
 					'size'			=> 6,
@@ -824,35 +790,35 @@ class stain_Skin extends Skin
 					'thumbnail_size' => 'fit-320x320'
 				),
 				'header_search_bg_attach' => array(
-					'label'        => T_( 'Background Attachment' ),
+					'label'        => T_( 'Background Behavior' ),
 					'note'         => T_( '' ),
 					'type'         => 'radio',
 					'defaultvalue' => 'initial',
 					'options'      => array(
-						array( 'initial', T_( 'Initial' ) ),
+						array( 'initial', T_( 'Default' ) ),
 						array( 'fixed', T_( 'Fixed' ) ),
 					),
 				),
 				'header_search_heading' => array(
 					'label'			=> T_( 'Heading Text' ),
-					'note'			=> T_( 'Change the Heading Text' ),
+					'note'			=> T_( 'Set the Heading Text.' ),
 					'type'			=> 'text',
 					'size'			=> '60',
-					'defaultvalue'	=> 'Search anyting you want.',
+					'defaultvalue'	=> T_('Search anyting you want.'),
 				),
 				'header_search_subhead' => array(
 					'label'			=> T_( 'Subheading Text' ),
-					'note'			=> T_( 'Change the Subheading text' ),
+					'note'			=> T_( 'Set the Subheading text.' ),
 					'type'			=> 'text',
 					'size'			=> '60',
-					'defaultvalue'	=> 'Just type any word in the search box.',
+					'defaultvalue'	=> T_('Just type any word in the search box.'),
 				),
 				'header_btn_search' => array(
 					'label'			=> T_( 'Search Button Text' ),
 					'note'			=> '',
 					'type'			=> 'text',
 					'size'			=> '20',
-					'defaultvalue'	=> 'Search'
+					'defaultvalue'	=> T_('Search'),
 				),
 				'search_align_pagination' => array(
 					'label'			=> T_( 'Pagination Alignment' ),
@@ -874,7 +840,7 @@ class stain_Skin extends Skin
 			 * ========================================================================== */
 			'section_bg_content_start' => array(
 				'layout'	=> 'begin_fieldset',
-				'label'		=> T_( 'User Control Pages' ).' (disp=login | disp=lostpassword | disp=register | disp=404/403)',
+				'label'		=> T_( 'User Control Pages' ).' ( disp=login | disp=lostpassword | disp=register | disp=404/403 )',
 			),
 				'bgc_style' => array(
 					'label'			=> T_( 'Background Style' ),
@@ -911,13 +877,13 @@ class stain_Skin extends Skin
 			),
 				'bgc_img_overlay' => array(
 					'label'			=> T_( 'Color Overlay' ),
-					'note'			=> T_( 'Change color overlay if using background image for content element.' ),
+					'note'			=> T_( 'Change color overlay if using image for content background.' ),
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FFFFFF',
 				),
 				'bgc_overlay_opacity' => array(
 					'label'			=> T_( 'Opacity Color Overlay' ),
-					'note'			=> T_( 'Set Opacity for color content ( Only works on ').'<code>disp 404/403</code> ).',
+					'note'			=> T_( 'Set opacity for color overlay.'),
 					'type'			=> 'select',
 					'defaultvalue'	=> '0.5',
 					'options'		=> array(
@@ -944,8 +910,8 @@ class stain_Skin extends Skin
 					)
 				),
 				'bgc_color_content' => array(
-					'label'		=> T_( 'Change Color Content' ),
-					'note'		=> T_( 'Set the color of the content box.').' '.T_(' Default color is ').'<code>#555555</code>.',
+					'label'		=> T_( 'Change Content Color' ),
+					'note'		=> T_( 'Set the color of the content box.').' '.T_('Default color is').' <code>#555555</code>.',
 					'type'		=> 'color',
 					'defaultvalue' => '#555555',
 				),
@@ -968,7 +934,7 @@ class stain_Skin extends Skin
 					'defaultvalue'	=> 1,
 				),
 				'rwd_bgc_widget' => array(
-					'label'			=> T_( 'Background RWD Widgets' ),
+					'label'			=> T_( 'RWD Widgets Background Color' ),
 					'note'			=> T_( 'Default value is' ).' <code>#FAFAFA</code>',
 					'type'			=> 'color',
 					'defaultvalue'	=> '#FAFAFA'
@@ -1010,12 +976,12 @@ class stain_Skin extends Skin
 				),
 				'footer_widget' => array(
 					'label'        => T_( 'Enable Footer Widget' ),
-					'note'         => T_( 'Check to Enable Widget Footer. And add widget content on menu ').'<code>Widgets</code>.',
+					'note'         => T_( 'Check to Enable footer widget container.'),
 					'type'         => 'checkbox',
 					'defaultvalue' => '0'
 				),
 				'footer_widget_column' => array(
-					'label'        => T_( 'Widget Column' ),
+					'label'        => T_( 'Number of widget columns' ),
 					'note'         => T_( '' ),
 					'type'         => 'select',
 					'defaultvalue' => '3',
@@ -1027,18 +993,18 @@ class stain_Skin extends Skin
 					),
 				),
 				'footer_bottom_align' => array(
-					'label'        => T_( 'Footer Bottom Mode' ),
+					'label'        => T_( 'Footer Bottom Layout' ),
 					'note'         => T_(''),
 					'type'         => 'select',
 					'defaultvalue' => 'float',
 					'options'      => array(
-						'float' => T_( 'Float Mode' ),
-						'center' => T_( 'Center Mode' ),
+						'float' => T_( 'Floated layout' ),
+						'center' => T_( 'Centered layout' ),
 					),
 				),
 				'footer_social' => array(
 					'label'		   => T_( 'Enable Social Icon' ),
-					'note'		   => T_( 'Check to enable Social Icon on footer.' ),
+					'note'		   => T_( 'Check to enable Social Icons on footer.' ),
 					'type'		   => 'checkbox',
 					'defaultvalue' => 1,
 				),
@@ -1203,6 +1169,10 @@ class stain_Skin extends Skin
 
 		// Add custom CSS:
 		$custom_css = '';
+		
+		// Include Font
+		// ======================================================================== /
+		add_headline( '<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:300,400,700" rel="stylesheet">' );
 
 		/* General
 		* ========================================================================== */
@@ -1502,6 +1472,9 @@ class stain_Skin extends Skin
 			{ display: none !important }
 			';
 		}
+		if( $color = $this->get_setting( 'rwd_bgc_widget' ) ) {
+			$custom_css .= '.widget_rwd_content { background: '.$color." !important }\n";
+		}
 
 		/* FOOTER CUSTOM OPTIONS
 		* ========================================================================== */
@@ -1543,7 +1516,7 @@ class stain_Skin extends Skin
 			$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: none; background: '.$bgc_color_value.' }';
 		}
 
-		if ( $bgc_value == 'bg_img' || $bgc_value == 'bg_custom' ) {
+		if ( $bgc_value == 'bg_img' ) {
 			$bgc_overlay = $this->get_setting( 'bgc_img_overlay' );
 			$bgc_opacity = $this->get_setting( 'bgc_overlay_opacity' );
 

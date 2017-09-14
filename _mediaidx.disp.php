@@ -36,7 +36,7 @@ skin_widget( array(
 	'list_end'            => '</ul>',
     'item_start'          => '<li class="image_content '.$hover.' '.$column.'_column ">',
     'item_end'            => '</li>',
-	'order_by'            => $Skin->get_setting( 'mediaidx_by' ),
+	//'order_by'            => $Skin->get_setting( 'mediaidx_by' ),
 	'order_dir'           => $Skin->get_setting( 'mediaidx_dir' ),
 	'limit'               => $Skin->get_setting( 'mediaidx_display' ),
 ) );

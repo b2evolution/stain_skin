@@ -162,17 +162,18 @@ $params = array_merge( array(
 	    // this will end a </section>
 	?>
 
+	<?php
+	if( ! $Item->is_intro() )
+	{ // List all tags attached to this post:
+	?>
 	<footer>
 
 		<?php
-			if( ! $Item->is_intro() )
-			{ // List all tags attached to this post:
-				$Item->tags( array(
-					'before'    => '<nav class="small post_tags">',
-					'after'     => '</nav>',
-					'separator' => ' ',
-				) );
-			}
+		$Item->tags( array(
+			'before'    => '<nav class="small post_tags">',
+			'after'     => '</nav>',
+			'separator' => ' ',
+		) );
 		?>
 
 		<nav class="post_comments_link">
@@ -202,6 +203,7 @@ $params = array_merge( array(
 		?>
 		</nav>
 	</footer>
+	<?php } ?>
 
     <div class="item_comments">
         <?php
