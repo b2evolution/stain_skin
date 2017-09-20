@@ -18,7 +18,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 class stain_Skin extends Skin
 {
 
-	var $version = '0.1';
+	var $version = '1.0';
 	/**
 	 * Do we want to use style.min.css instead of style.css ?
 	 */
