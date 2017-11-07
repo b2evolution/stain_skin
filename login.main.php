@@ -133,9 +133,7 @@ skin_include( '_body_header.inc.php' );
     <div class="container">
         <div class="footer__content">
 
-            <?php if ( $Skin->get_setting( 'footer_widget' )  && $Skin->is_visible_container( 'footer' ) ) : ?>
-                <div class="row evo_container footer__widgets clearfix">
-                <?php
+            <?php if ( $Skin->get_setting( 'footer_widget' )  && $Skin->is_visible_container( 'footer' ) ) :
                     $wic = $Skin->get_setting( 'footer_widget_column' );
                     $column = '';
                     switch ( $wic ) {
@@ -156,9 +154,12 @@ skin_include( '_body_header.inc.php' );
                         break;
                     }
 
-                    // Display container and contents:
-                    skin_container( NT_("Footer"), array(
+                    // ------------------------- "Footer" CONTAINER EMBEDDED HERE --------------------------
+                    widget_container( 'footer', array(
                         // The following params will be used as defaults for widgets included in this container:
+                        'container_display_if_empty' => false, // If no widget, don't display container at all
+                        'container_start'      => '<div class="evo_container $wico_class$ row footer__widgets clearfix">',
+                        'container_end'        => '</div>',
                         'block_start'          => '<div class="evo_widget $wi_class$ '.$column.' col-sm-6 col-xs-12">',
                         'block_end'            => '</div>',
                         'block_title_start'    => '<h3 class="widget_title">',
@@ -178,9 +179,7 @@ skin_include( '_body_header.inc.php' );
                         'search_submit_after'  => '</span></div>',
                     ) );
                     // Note: Double quotes have been used around "Footer" only for test purposes.
-                ?>
-                </div>
-            <?php endif; ?>
+            endif; ?>
 
             <div class="footer__bottom">
                 <?php

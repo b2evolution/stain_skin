@@ -93,7 +93,6 @@ siteskin_include( '_site_body_header.inc.php' );
                         </div>
                     </button>
                 </div>
-                <ul class="nav nav-tabs">
                     <?php
                     // ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
                     $hover_style = '';
@@ -106,8 +105,11 @@ siteskin_include( '_site_body_header.inc.php' );
 
                     // Display container and contents:
                     // Note: this container is designed to be a single <ul> list
-                    skin_container( NT_('Menu'), array(
+                    widget_container( 'menu', array(
                         // The following params will be used as defaults for widgets included in this container:
+                        'container_display_if_empty' => false, // If no widget, don't display container at all
+                        'container_start'     => '<ul class="nav nav-tabs evo_container $wico_class$">',
+                        'container_end'       => '</ul>',
                         'block_start'         => '',
                         'block_end'           => '',
                         'block_display_title' => false,
@@ -122,7 +124,6 @@ siteskin_include( '_site_body_header.inc.php' );
                     ) );
                     // ----------------------------- END OF "Menu" CONTAINER -----------------------------
                     ?>
-                </ul>
             </div>
         </div><!-- /.container -->
 

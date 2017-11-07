@@ -18,13 +18,14 @@ siteskin_include( '_site_body_header.inc.php' );
 
 ?>
 <header id="header">
-    <div class="main_header">
-        <div class="brand">
             <?php
             // ------------------------- "Header" CONTAINER EMBEDDED HERE --------------------------
             // Display container and contents:
-            skin_container( NT_('Header'), array(
+            widget_container( 'header', array(
                 // The following params will be used as defaults for widgets included in this container:
+                'container_display_if_empty' => false, // If no widget, don't display container at all
+                'container_start'   => '<div class="main_header"><div class="evo_container $wico_class$ brand">',
+                'container_end'     => '</div></div>',
                 'block_start'       => '<div class="evo_widget $wi_class$">',
                 'block_end'         => '</div>',
                 'block_title_start' => '<h1>',
@@ -39,8 +40,6 @@ siteskin_include( '_site_body_header.inc.php' );
             ) );
             // ----------------------------- END OF "Header" CONTAINER -----------------------------
             ?>
-        </div>
-    </div><!-- /.main_header -->
 
     <nav class="main_navigation">
         <div class="container">
@@ -55,7 +54,7 @@ siteskin_include( '_site_body_header.inc.php' );
                         </div>
                     </button>
                 </div>
-                <ul class="nav nav-tabs">
+
                     <div class="mobile_nav_close">
                         <button class="menu_hamburger close_nav">
                             <span>Menu</span>
@@ -78,8 +77,11 @@ siteskin_include( '_site_body_header.inc.php' );
 
                     // Display container and contents:
                     // Note: this container is designed to be a single <ul> list
-                    skin_container( NT_('Menu'), array(
+                    widget_container( 'menu', array(
                         // The following params will be used as defaults for widgets included in this container:
+                        'container_display_if_empty' => false, // If no widget, don't display container at all
+                        'container_start'     => '<ul class="nav nav-tabs evo_container $wico_class$">',
+                        'container_end'       => '</ul>',
                         'block_start'         => '',
                         'block_end'           => '',
                         'block_display_title' => false,
@@ -94,7 +96,6 @@ siteskin_include( '_site_body_header.inc.php' );
                     ) );
                     // ----------------------------- END OF "Menu" CONTAINER -----------------------------
                     ?>
-                </ul>
             </div>
         </div><!-- /.container -->
 

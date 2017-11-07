@@ -92,11 +92,13 @@ skin_include( '_body_header.inc.php' );
     			// ----------------------------- END OF REQUEST TITLE ----------------------------
             ?>
 
-			<div class="error_404">
 				<?php
 					// ------------------------- "404 Page" CONTAINER EMBEDDED HERE --------------------------
-					skin_container( /* TRANS: Widget container name */ NT_('404 Page'), array(
+				widget_container( '404_page', array(
 						// The following params will be used as defaults for widgets included in this container:
+						'container_display_if_empty' => false, // If no widget, don't display container at all
+						'container_start' => '<div class="evo_container $wico_class$ error_404">',
+						'container_end'   => '</div>',
 						// This will enclose each widget in a block:
 						'block_start' 			=> '<div class="evo_widget $wi_class$">',
 						'block_end'   			=> '</div>',
@@ -111,7 +113,6 @@ skin_include( '_body_header.inc.php' );
 					) );
 					// ----------------------------- END OF "404 Page" CONTAINER -----------------------------
 				 ?>
-			</div>
         </div><!-- .main_content -->
     </div><!-- .container -->
 </main><!-- #main_content -->
