@@ -383,6 +383,33 @@
 
         // Item Content
         // ======================================================================== /
+        .evo_container__item_single_header {
+            margin-bottom: 0;
+            background-color: @w;
+            padding: 0;
+
+            .evo_widget {
+                padding: 0 30px;
+            }
+
+            .panel-title {
+                font-family: @font_heading;
+                font-size: 1.8rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin: 0;
+                padding: 20px 0;
+                a {
+                    color: @primary;
+                }
+
+                @media screen and ( max-width: @S ) {
+                    padding: 20px;
+                }
+            }
+        }
+
         .evo_post__full,
         .evo_post__except {
 
@@ -703,7 +730,7 @@
                     color: @w;
                     text-decoration: none;
                 }
-				
+
 				&.help_plugin_icon {
 					padding: 0;
 					margin: 0 2px;

@@ -143,115 +143,131 @@ $list_is_empty = display_if_empty( $params_no_content );
 ?>
 
 <ul id="posts_list" class="posts_list <?php echo $post_column; echo 'effect-'.$effect; ?>">
-<?php if( ! $list_is_empty ) {
-    while( $Item = & mainlist_get_item() ){
-        // For each blog post, do everything below up to the closing curly brace "}"
-    	// Temporarily switch to post locale (useful for multilingual blogs)
-    	$Item->locale_temp_switch();
-   ?>
-   <li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
-		<div class="main__posts_content">
-		<a href="<?php echo $Item->get_permanent_url(); ?>" class="evo__post_link"></a>
-	    <?php
-			// Display images that are linked to this post:
-			$item_first_image = $Item->get_images( array(
-				'before'              => '<div class="feature__image">',
-				'before_image'        => '',
-				'before_image_legend' => '',
-				'after_image_legend'  => '',
-				'after_image'         => '',
-				'after'               => '</div>',
-				'image_size'          => $Skin->get_setting( 'posts_thumb_size' ),
-				'image_link_to'       => 'single',
-				'image_desc'          => '',
-				'limit'                      => 1,
-				'restrict_to_image_position' => 'teaser,aftermore,inline',
-				'get_rendered_attachments'   => false,
-				// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
-				'links_sql_select'           => ', CASE '
-					// .'WHEN link_position = "cover"     THEN "1" '
-					.'WHEN link_position = "teaser"    THEN "2" '
-					.'WHEN link_position = "aftermore" THEN "3" '
-					.'WHEN link_position = "inline"    THEN "4" '
-					// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
-					.'END AS position_order',
-				'links_sql_orderby'          => 'position_order, link_order',
-			) );
+<?php
+	if( ! $list_is_empty )
+	{
+		while( $Item = & mainlist_get_item() )
+		{	// For each blog post, do everything below up to the closing curly brace "}"
+			// Temporarily switch to post locale (useful for multilingual blogs)
+			$Item->locale_temp_switch();
+   		?>
+			<li id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
+				<div class="main__posts_content">
+					<a href="<?php echo $Item->get_permanent_url(); ?>" class="evo__post_link"></a>
+					<?php
+						// Display images that are linked to this post:
+						$item_first_image = $Item->get_images( array(
+							'before'              => '<div class="feature__image">',
+							'before_image'        => '',
+							'before_image_legend' => '',
+							'after_image_legend'  => '',
+							'after_image'         => '',
+							'after'               => '</div>',
+							'image_size'          => $Skin->get_setting( 'posts_thumb_size' ),
+							'image_link_to'       => 'single',
+							'image_desc'          => '',
+							'limit'                      => 1,
+							'restrict_to_image_position' => 'teaser,aftermore,inline',
+							'get_rendered_attachments'   => false,
+							// Sort the attachments to get firstly "Cover", then "Teaser", and "After more" as last order
+							'links_sql_select'           => ', CASE '
+								// .'WHEN link_position = "cover"     THEN "1" '
+								.'WHEN link_position = "teaser"    THEN "2" '
+								.'WHEN link_position = "aftermore" THEN "3" '
+								.'WHEN link_position = "inline"    THEN "4" '
+								// .'ELSE "99999999"' // Use this line only if you want to put the other position types at the end
+								.'END AS position_order',
+							'links_sql_orderby'          => 'position_order, link_order',
+						) );
 
-			if( empty( $item_first_image ) )
-			{ // No images in this post, Display an empty block
-				$item_first_image = $Item->get_permanent_link( '<div class="no_image"><img src="'.$Skin->get_url().'assets/images/blank_image.png"></div>', '#', 'album_nopic' );
-			}
-			else if( $item_first_image == 'plugin_render_attachments' )
-			{ // No images, but some attachments(e.g. videos) are rendered by plugins
-				$item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
-			}
+						if( empty( $item_first_image ) )
+						{ // No images in this post, Display an empty block
+							$item_first_image = $Item->get_permanent_link( '<div class="no_image"><img src="'.$Skin->get_url().'assets/images/blank_image.png"></div>', '#', 'album_nopic' );
+						}
+						else if( $item_first_image == 'plugin_render_attachments' )
+						{ // No images, but some attachments(e.g. videos) are rendered by plugins
+							$item_first_image = $Item->get_permanent_link( '<b>'.T_('Click to see contents').'</b>', '#', 'album_nopic' );
+						}
 
-	        echo $item_first_image;
+						echo $item_first_image;
 
-			?>
-			<div class="posts__info">
-			<?php
-				// Categories
-				$Item->categories( array(
-					'before'           => '<div class="posts__info_cat">',
-					'after'            => '</div>',
-					'separator' 		 => '',
-					'include_main'     => true,
-					'include_other'    => true,
-					'include_external' => true,
-					'link_categories'  => true,
-				) );
+					?>
+					<div class="posts__info">
+					<?php
+						// Categories
+						$Item->categories( array(
+							'before'           => '<div class="posts__info_cat">',
+							'after'            => '</div>',
+							'separator'        => '',
+							'include_main'     => true,
+							'include_other'    => true,
+							'include_external' => true,
+							'link_categories'  => true,
+						) );
 
-				// Display a title
-				$Item->title( array(
-					'before'    => '<div class="posts__title"><h3>',
-					'link_type' => 'permalink', // Use "none" or "permalink"
-					'after'     => '</h3></div>',
-				) );
+						// ------------------------- "Item in List" CONTAINER EMBEDDED HERE --------------------------
+						// Display container contents:
+						widget_container( 'item_in_list', array(
+							'widget_context' => 'item',	// Signal that we are displaying within an Item
+							// The following (optional) params will be used as defaults for widgets included in this container:
+							'container_display_if_empty' => false, // If no widget, don't display container at all
+							// This will enclose each widget in a block:
+							'block_start' => '<div class="evo_widget $wi_class$">',
+							'block_end' => '</div>',
+							// This will enclose the title of each widget:
+							'block_title_start' => '<h3>',
+							'block_title_end' => '</h3>',
+							// Template params for "Item Title" widget:
+							'widget_item_title_params'  => array(
+									'before'    => '<div class="posts__title"><h3>',
+									'link_type' => 'permalink', // Use "none" or "permalink"
+									'after'     => '</h3></div>',
+								),
+						) );
+						// ----------------------------- END OF "Item in List" CONTAINER -----------------------------
 
-				// Author Image
-				$Item->author( array(
-					'before'    	=> '<div class="posts__info_author">',
-					'after'     	=> '</div>',
-					'before_user'   => '',
-					'after_user'    => '',
-					'link_text'     => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-					'link_class'    => 'author_avatar',
-					'thumb_size'    => 'crop-48x48',
-					'thumb_class'   => '',
-				) );
+						// Author Image
+						$Item->author( array(
+							'before'      => '<div class="posts__info_author">',
+							'after'       => '</div>',
+							'before_user' => '',
+							'after_user'  => '',
+							'link_text'   => 'only_avatar', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+							'link_class'  => 'author_avatar',
+							'thumb_size'  => 'crop-48x48',
+							'thumb_class' => '',
+						) );
 
-				// Author Name
-				$Item->author( array(
-					'before'    	=> '<div class="posts__info_author">'.T_('By ').'',
-					'after'         => '</div>',
-					'before_user'   => '',
-					'after_user'    => '',
-					'link_text'     => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
-					'link_class'    => 'author_avatar',
-					'thumb_size'    => 'crop-48x48',
-					'thumb_class'   => '',
-				) );
+						// Author Name
+						$Item->author( array(
+							'before'    	=> '<div class="posts__info_author">'.T_('By ').'',
+							'after'         => '</div>',
+							'before_user'   => '',
+							'after_user'    => '',
+							'link_text'     => 'fullname', // avatar_name | avatar_login | only_avatar | name | login | nickname | firstname | lastname | fullname | preferredname
+							'link_class'    => 'author_avatar',
+							'thumb_size'    => 'crop-48x48',
+							'thumb_class'   => '',
+						) );
 
-				// We want to display the post time:
-				$Item->issue_time( array(
-					'before'      => '<time class="posts__info_date">'.T_('On '),
-					'after'       => '</time>',
-					'time_format' => 'M j, Y',
-				) );
-			?>
-			</div><!-- .posts__info -->
-			<span class="posts_divider"></span>
-			<?php
-			// Restore previous locale (Blog locale)
-			locale_restore_previous();
-	    ?>
-		</div><!-- .main__posts_content -->
-    </li><!-- /.evo_post -->
-    <?php
-	} // ---------------------------------- END OF POSTS ------------------------------------
-    ?>
+						// We want to display the post time:
+						$Item->issue_time( array(
+							'before'      => '<time class="posts__info_date">'.T_('On '),
+							'after'       => '</time>',
+							'time_format' => 'M j, Y',
+						) );
+					?>
+					</div><!-- .posts__info -->
+					<span class="posts_divider"></span>
+					<?php
+						// Restore previous locale (Blog locale)
+						locale_restore_previous();
+					?>
+				</div><!-- .main__posts_content -->
+			</li><!-- /.evo_post -->
+		<?php
+		} // ---------------------------------- END OF POSTS ------------------------------------
+?>
 </ul>
 <?php
 }

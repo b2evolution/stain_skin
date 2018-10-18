@@ -223,20 +223,6 @@ switch( $content_mode )
 		// Normal dislpay:  (and Full display if force_more is true)
 		echo $params['content_start_full'];
 
-		if( $disp == 'single' ) {
-			// Title and number of photos in album
-			echo $params['content_title_start'];
-				$Item->title( array(
-					'link_type' => 'permalink',
-					'before'    => '<h4 class="panel-title">',
-					'after'     => '',
-				) );
-				// Writes the number of photos in the current gallery
-				printf( T_(' (%s photos)'), $Item->get_number_of_images() );
-				echo '</h4>';
-			echo $params['content_title_end'];
-		}
-
 		if( ! empty($params['image_size']) )
 		{
 			// Display images that are linked to this post:

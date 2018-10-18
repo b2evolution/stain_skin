@@ -52,7 +52,7 @@ class stain_Skin extends Skin
 	{
 		return 6;
 	}
-	
+
 
 	/**
 	* Get supported collection kinds.
@@ -109,6 +109,67 @@ class stain_Skin extends Skin
 
 
 	/**
+	 * Get the declarations of the widgets that the skin wants to use.
+	 *
+	 * @param string Collection type: 'std', 'main', 'photo', 'group', 'forum', 'manual'
+	 * @param string Skin type: 'normal' - Standard, 'mobile' - Phone, 'tablet' - Tablet
+	 * @param array Additional params. Example value 'init_as_blog_b' => true
+	 * @return array Array of default widgets:
+	 *          - Key - Container code,
+	 *          - Value - array of widget arrays OR SPECIAL VALUES:
+	 *             - 'coll_type': Include this container only for collection kinds separated by comma, first char "-" means to exclude,
+	 *             - 'type': Container type, empty - main container, other values: 'sub', 'page', 'shared', 'shared-sub',
+	 *             - 'name': Container name,
+	 *             - 'order': Container order,
+	 *             - widget data array():
+	 *                - 0: Widget order (*mandatory field*),
+	 *                - 1: Widget code (*mandatory field*),
+	 *                - 'params' - Widget params(array or serialized string),
+	 *                - 'type' - Widget type(default = 'core', another value - 'plugin'),
+	 *                - 'enabled' - Boolean value; default is TRUE; FALSE to install the widget as disabled,
+	 *                - 'coll_type': Include this widget only for collection types separated by comma, first char "-" means to exclude,
+	 *                - 'skin_type': Include this widget only for skin types separated by comma, first char "-" means to exclude,
+	 *                - 'install' - Boolean value; default is TRUE; FALSE to skip this widget on install.
+	 */
+	function get_default_widgets( $coll_type = '', $skin_type = 'normal', $context = array() )
+	{
+		global $DB;
+
+		$context = array_merge( array(
+				'current_coll_ID'       => NULL,
+				'coll_home_ID'          => NULL,
+				'coll_blog_a_ID'        => NULL,
+				'coll_photoblog_ID'     => NULL,
+				'init_as_home'          => false,
+				'init_as_blog_a'        => false,
+				'init_as_blog_b'        => false,
+				'init_as_forums'        => false,
+				'init_as_events'        => false,
+				'install_test_features' => false,
+			), $context );
+
+		$default_widgets = array();
+
+		/* Item in List */
+		$default_widgets['item_in_list'] = array(
+			array( 10, 'item_title' ),
+		);
+
+		/* Item Single Header */
+		$default_widgets['item_single_header'] = array(
+			array( 10, 'item_title' ),
+		);
+
+		/* Item Page */
+		$default_widgets['item_page'] = array(
+			array( 10, 'item_content' ),
+		);
+
+		return $default_widgets;
+	}
+
+
+	/**
 	 * Get definitions for editable params
 	 *
 	 * @see Plugin::GetDefaultSettings()
@@ -119,8 +180,8 @@ class stain_Skin extends Skin
 
 		// Load to use function get_available_thumb_sizes()
 		load_funcs( 'files/model/_image.funcs.php' );
-		load_class( 'widgets/model/_widget.class.php', 'ComponentWidget' );		
-		
+		load_class( 'widgets/model/_widget.class.php', 'ComponentWidget' );
+
 		$r = array_merge( array(
 			/* General Setting
 			* ========================================================================== */
@@ -255,7 +316,7 @@ class stain_Skin extends Skin
 					),
 					'defaultvalue' => '0.2',
 				),
-				
+
 
 
 			/* HEADER CONTENT OPTIONS
@@ -862,7 +923,7 @@ class stain_Skin extends Skin
 				'layout'	=> 'end_fieldset',
 			),
 
-			
+
 			/* BACKGROUND CONTENT FOR LOGIN, LOSSPASWORD, REGISTER AND 404
 			 * ========================================================================== */
 			'section_bg_content_start' => array(
@@ -894,8 +955,8 @@ class stain_Skin extends Skin
 			'section_bg_content_end' => array(
 				'layout'	=> 'end_fieldset',
 			),
-			
-			
+
+
 			/* BACKGROUND CONTENT FOR 403 AND 404
 			 * ========================================================================== */
 			'section_bg_content1_start' => array(
@@ -1196,7 +1257,7 @@ class stain_Skin extends Skin
 
 		// Add custom CSS:
 		$custom_css = '';
-		
+
 		// Include Font
 		// ======================================================================== /
 		add_headline( '<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:300,400,700" rel="stylesheet">' );
@@ -1538,7 +1599,7 @@ class stain_Skin extends Skin
 			$bg_image_File2 = & $FileCache->get_by_ID( $this->get_setting( 'bgc_img_custom' ), false, false );
 			$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: url('.$bg_image_File2->get_url().') }';
 		}
-		else 
+		else
 		{
 			$custom_css .= '.main_content .error_404, .disp_login .main_content, .disp_lostpassword .main_content, .disp_register .main_content, .disp_access_requires_login .main_content { background-image: none; background: '.$bgc_color_value.' }';
 		}

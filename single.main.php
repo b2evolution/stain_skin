@@ -178,6 +178,30 @@ skin_include( '_body_header.inc.php' );
 				<div class="evo_post_content">
 					<div class="evo_details">
 							<?php
+							// ------------------------- "Item Single - Header" CONTAINER EMBEDDED HERE --------------------------
+							// Display container contents:
+							widget_container( 'item_single_header', array(
+								'widget_context' => 'item',	// Signal that we are displaying within an Item
+								// The following (optional) params will be used as defaults for widgets included in this container:
+								'container_display_if_empty' => false, // If no widget, don't display container at all
+								'container_start' => '<div class="evo_container $wico_class$ panel-heading">',
+								'container_end' => '</div>',
+								// This will enclose each widget in a block:
+								'block_start' => '<div class="evo_widget $wi_class$">',
+								'block_end' => '</div>',
+								// This will enclose the title of each widget:
+								'block_title_start' => '<h3>',
+								'block_title_end' => '</h3>',
+
+								// Controlling the title:
+								'widget_item_title_params'  => array(
+										'before'    => '<h4 class="panel-title">',
+										'after'     => sprintf( T_(' (%s photos)'), $Item->get_number_of_images() ).'</h4>',
+										'link_type' => 'permalink'
+									),
+							) );
+							// ----------------------------- END OF "Item Single - Header" CONTAINER -----------------------------
+
 							// ------------------------- "Item Single" CONTAINER EMBEDDED HERE --------------------------
 							// WARNING: EXPERIMENTAL -- NOT RECOMMENDED FOR PRODUCTION -- MAY CHANGE DRAMATICALLY BEFORE RELEASE.
 							// Display container contents:

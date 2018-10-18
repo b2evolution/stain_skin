@@ -153,13 +153,23 @@ $params = array_merge( array(
 	</header>
 
 	<?php
-	    // this will create a <section>
-		// ---------------------- POST CONTENT INCLUDED HERE ----------------------
-		skin_include( '_item_content.inc.php', $params );
-		// Note: You can customize the default item content by copying the generic
-		// /skins/_item_content.inc.php file into the current skin folder.
-		// -------------------------- END OF POST CONTENT -------------------------
-	    // this will end a </section>
+		// ------------------------- "Item Page" CONTAINER EMBEDDED HERE --------------------------
+		// Display container contents:
+		widget_container( 'item_page', array(
+			'widget_context' => 'item',	// Signal that we are displaying within an Item
+			// The following (optional) params will be used as defaults for widgets included in this container:
+			'container_display_if_empty' => false, // If no widget, don't display container at all
+			// This will enclose each widget in a block:
+			'block_start' => '<div class="evo_widget $wi_class$">',
+			'block_end' => '</div>',
+			// This will enclose the title of each widget:
+			'block_title_start' => '<h3>',
+			'block_title_end' => '</h3>',
+			// Params for skin file "_item_content.inc.php"
+			'widget_item_content_params' => $params,
+
+			) );
+		// ----------------------------- END OF "Item Page" CONTAINER -----------------------------
 	?>
 
 	<?php
